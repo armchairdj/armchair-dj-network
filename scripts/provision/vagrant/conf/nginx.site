@@ -1,0 +1,27 @@
+upstream node {
+  server 127.0.0.1:8000;
+}
+
+server {
+  listen 0.0.0.0:80;
+  server_name localhost 127.0.0.1;
+
+  location / {
+    client_max_body_size 10M;
+    client_body_buffer_size 128k;
+
+    proxy_set_header X-Real-IP \$remote_addr;
+    proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+    proxy_set_header Host \$http_host;
+    proxy_set_header X-NginX-Proxy true;
+
+    proxy_pass http://node/;
+    proxy_redirect off;
+  }
+
+  location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|txt|tar|wav|bmp|rtf|js|flv|swf|html|htm)$ {
+    expires 30d;
+    access_log off;
+    root /vagrant/public;
+  }
+}

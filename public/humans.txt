@@ -1,0 +1,13 @@
+/* the humans responsible & colophon */
+/* humanstxt.org */
+
+/* TEAM */
+  Writer & Developer: Brian Dillard
+  Site: www.briandillard.com
+  Twitter: https://twitter.com/armchairdj
+  Location: Los Angeles
+
+/* THANKS */
+  The Node community.
+  The Ghost community.
+  Too many other open-source projects to name.
