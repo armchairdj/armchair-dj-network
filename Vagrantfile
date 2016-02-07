@@ -79,8 +79,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   ### PUPPET PROVISIONER
 
-  config.vm.provision :puppet do |puppet|
-    puppet.manifest_file  = "dev.pp"
-  end
+  config.vm.provision :puppet
 
 end

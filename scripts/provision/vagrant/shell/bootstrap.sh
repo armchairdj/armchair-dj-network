@@ -27,7 +27,7 @@ ln -sf /usr/share/zoneinfo/US/Pacific /etc/localtime
 
 cd /root
 wget https://github.com/tj/n/archive/v2.1.0.tar.gz
-tar xzvf 2.1.0.tar.gz
+tar xzvf v2.1.0.tar.gz
 cd n-2.1.0
 make install
 n 4.2.6
