@@ -41,4 +41,6 @@ alias r='sudo restart node'
 alias rl='r && log'
 alias tests='(cd /vagrant && make)'
 
+export NODE_ENV=development
+
 cd /vagrant

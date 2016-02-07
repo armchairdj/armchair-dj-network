@@ -44,5 +44,5 @@ gulp:
 	@./node_modules/.bin/gulp
 
 inspector:
-	@./node_modules/.bin/node-inspector --web-port 9011 \
+	@./node_modules/.bin/node-inspector --web-port 9070 \
 		--no-preload & node --debug app.js

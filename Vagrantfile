@@ -37,12 +37,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box      = 'puppetlabs/ubuntu-14.04-64-puppet'
   config.vm.hostname = "armchairdj.com"
 
-  config.vm.network :forwarded_port, host: 9011, guest: 9011, auto_correct: true
-  # Nginx, which proxies to node like we do in prod.
+  # Tests? TODO BJD
+  config.vm.network :forwarded_port, host: 9070, guest: 9070, auto_correct: true
+
+  # Nginx.
   config.vm.network :forwarded_port, host: 9080, guest: 80, auto_correct: true
-  # Node HTTP server, bypassing nginx.
-  config.vm.network :forwarded_port, host: 9081, guest: 8000, auto_correct: true
-  # Mongo port
+
+  # Mongo/
   config.vm.network :forwarded_port, host: 9090, guest: 27017, auto_correct: true
 
   config.vm.network 'private_network', ip: '192.168.10.82'

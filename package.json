@@ -3,8 +3,10 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "ghost": "0.7.6"
+    "ghost": "0.7.6",
+    "underscore": "1.8.3"
   },
   "devDependencies": {
+    "locus": "1.2.0"
   }
 }

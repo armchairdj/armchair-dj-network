@@ -3,6 +3,10 @@
 # This script runs last, after bootstrap.sh and after we've copied a ton of
 # bash and config files to their proper locations.
 
+##### Vagrant user
+
+sudo chown -R vagrant:vagrant /home/vagrant
+
 ##### Mongo
 
 sudo stop mongodb
