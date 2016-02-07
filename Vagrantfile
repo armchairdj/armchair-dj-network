@@ -25,9 +25,8 @@ CONF_FILES              = [
     file:  'nginx.site',
     dest:  '/etc/nginx/sites-available/node'
   }, {
-    file:  'node.service',
-    dest:  '/etc/systemd/system/node.service',
-    after: '/usr/bin/systemctl enable node && /usr/bin/systemctl start node'
+    file:  'node.conf',
+    dest:  '/etc/init/node.conf'
   }
 ]
 
@@ -35,8 +34,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   ### BASE BOX & VM
 
-  config.vm.box      = 'puppet/ubuntu-15.04'
-  config.vm.box_url  = 'https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/15.04/ubuntu-15.04-amd64.box'
+  config.vm.box      = 'ubuntu/trusty64-juju'
+  config.vm.box_url  = 'https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-juju-vagrant-disk1.box'
   config.vm.hostname = "armchairdj.com"
 
   config.vm.network :forwarded_port, host: 9011, guest: 9011, auto_correct: true

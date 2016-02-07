@@ -103,8 +103,6 @@ system_sshd_edit_bool "PermitRootLogin" "no"
 system_sshd_edit_bool "PasswordAuthentication" "no"
 system_sshd_edit_bool "PubkeyAuthentication" "yes"
 
-sudo systemctl restart sshd
-
 # Install node.
 cd src
 wget http://nodejs.org/dist/v0.10.12/node-v0.10.12.tar.gz
@@ -170,10 +168,9 @@ su - deploy -c "(cd ~/app/current && git clone git@github.com:armchairdj/armchai
 
 # sudoers.
 cat <<EOF > /etc/sudoers.d/node
-deploy     ALL=NOPASSWD: /usr/bin/systemctl enable node
-deploy     ALL=NOPASSWD: /usr/bin/systemctl start node
-deploy     ALL=NOPASSWD: /usr/bin/systemctl stop node
-deploy     ALL=NOPASSWD: /usr/bin/systemctl restart node
+vagrant ALL=NOPASSWD: /sbin/restart node
+vagrant ALL=NOPASSWD: /sbin/stop node
+vagrant ALL=NOPASSWD: /sbin/start node
 EOF
 
 chmod 0440 /etc/sudoers.d/node
