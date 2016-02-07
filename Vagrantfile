@@ -80,8 +80,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   ### PUPPET PROVISIONER
 
   config.vm.provision :puppet do |puppet|
-    # puppet.module_path    = "puppet/modules"
-    puppet.manifests_path = "#{PUPPET_DIR}/manifests"
     puppet.manifest_file  = "dev.pp"
   end
 

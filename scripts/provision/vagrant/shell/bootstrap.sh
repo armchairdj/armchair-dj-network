@@ -23,14 +23,6 @@ apt-get install build-essential automake git-core curl dkms wget gcc g++ lib32z1
 
 ln -sf /usr/share/zoneinfo/US/Pacific /etc/localtime
 
-##### Puppet.
-
-# wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
-# sudo dpkg -i puppetlabs-release-trusty.deb
-# sudo apt-get update
-# sudo apt-get install puppet -y
-# sudo puppet resource service puppet ensure=running enable=true
-
 ##### N and Node.
 
 cd /root
