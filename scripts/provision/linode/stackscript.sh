@@ -105,9 +105,9 @@ system_sshd_edit_bool "PubkeyAuthentication" "yes"
 
 # Install node.
 cd src
-wget http://nodejs.org/dist/v0.10.12/node-v0.10.12.tar.gz
-tar xzvf node-v0.10.12.tar.gz
-cd node-v0.10.12
+wget http://nodejs.org/dist/v4.2.6/node-v4.2.6.tar.gz
+tar xzvf node-v4.2.6.tar.gz
+cd node-v4.2.6
 ./configure
 make
 sudo make install

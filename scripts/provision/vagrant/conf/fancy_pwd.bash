@@ -74,9 +74,9 @@ bash_prompt() {
   PS1="${R}[\u${R}] ${EMB}\${NEW_PWD}${W} \\$ ${NONE}"
 
   # Color-coded Git repo
-  if [ "\$(type -t __git_ps1)" ]; then
-    PS1="${PS1/\\$ /$Y\$(__git_ps1 '(%s) ')$W\\$ $NONE}"
-  fi
+  # if [ "\$(type -t __git_ps1)" ]; then
+  #   PS1="${PS1/\\$ /$Y\$(__git_ps1 '(%s) ')$W\\$ $NONE}"
+  # fi
 } 
 
 PROMPT_COMMAND=bash_prompt_command
