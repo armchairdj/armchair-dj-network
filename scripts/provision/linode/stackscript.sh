@@ -103,6 +103,8 @@ system_sshd_edit_bool "PermitRootLogin" "no"
 system_sshd_edit_bool "PasswordAuthentication" "no"
 system_sshd_edit_bool "PubkeyAuthentication" "yes"
 
+sudo systemctl restart sshd
+
 # Install node.
 cd src
 wget http://nodejs.org/dist/v0.10.12/node-v0.10.12.tar.gz
@@ -168,9 +170,10 @@ su - deploy -c "(cd ~/app/current && git clone git@github.com:armchairdj/armchai
 
 # sudoers.
 cat <<EOF > /etc/sudoers.d/node
-deploy     ALL=NOPASSWD: /sbin/restart node
-deploy     ALL=NOPASSWD: /sbin/stop node
-deploy     ALL=NOPASSWD: /sbin/start node
+deploy     ALL=NOPASSWD: /usr/bin/systemctl enable node
+deploy     ALL=NOPASSWD: /usr/bin/systemctl start node
+deploy     ALL=NOPASSWD: /usr/bin/systemctl stop node
+deploy     ALL=NOPASSWD: /usr/bin/systemctl restart node
 EOF
 
 chmod 0440 /etc/sudoers.d/node
@@ -241,28 +244,6 @@ server {
 EOF
 
 ln -s /etc/nginx/sites-available/node /etc/nginx/sites-enabled/node
-
-# Install redis locally if staging.
-if [ "$NODE_ENV" == "staging" ];
-then
-mkdir -p /root/src
-cd /root/src
-wget http://redis.googlecode.com/files/redis-2.4.10.tar.gz
-tar xzvf redis-2.4.10.tar.gz
-cd redis-2.4.10
-make
-
-cat <<EOF > /etc/init/redis.conf
-description "redis server"
-
-start on runlevel [2345]
-stop on shutdown
-
-exec /root/src/redis-2.4.10/src/redis-server /root/src/redis-2.4.10/redis.conf
-
-respawn
-EOF
-fi
 
 # Notify user via email that the script is complete.
 mail -s "Your Linode VPS is configured" "$NOTIFY_EMAIL" <<EOD

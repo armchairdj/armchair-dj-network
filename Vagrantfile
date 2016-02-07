@@ -25,8 +25,9 @@ CONF_FILES              = [
     file:  'nginx.site',
     dest:  '/etc/nginx/sites-available/node'
   }, {
-    file:  'node.conf',
-    dest:  '/etc/init/node.conf'
+    file:  'node.service',
+    dest:  '/etc/systemd/system/node.service',
+    after: '/usr/bin/systemctl enable node && /usr/bin/systemctl start node'
   }
 ]
 
@@ -38,12 +39,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box_url  = 'https://github.com/kraksoft/vagrant-box-ubuntu/releases/download/15.04/ubuntu-15.04-amd64.box'
   config.vm.hostname = "armchairdj.com"
 
-  config.vm.network :forwarded_port, host: 9011, guest: 9011
+  config.vm.network :forwarded_port, host: 9011, guest: 9011, auto_correct: true
   # Nginx, which proxies to node like we do in prod.
-  config.vm.network :forwarded_port, host: 9080, guest: 80
+  config.vm.network :forwarded_port, host: 9080, guest: 80, auto_correct: true
   # Node HTTP server, bypassing nginx.
-  config.vm.network :forwarded_port, host: 9081, guest: 8000
-  config.vm.network :forwarded_port, host: 9090, guest: 27017
+  config.vm.network :forwarded_port, host: 9081, guest: 8000, auto_correct: true
+  # Mongo port
+  config.vm.network :forwarded_port, host: 9090, guest: 27017, auto_correct: true
+
   config.vm.network 'private_network', ip: '192.168.10.82'
 
   ### VIRTUALBOX

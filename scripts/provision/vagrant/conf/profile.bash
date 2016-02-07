@@ -35,9 +35,9 @@ fi
 
 alias 500='tail -n 500 ~/node.log'
 alias log='tail -f ~/node.log'
-alias s='sudo start node'
+alias s='sudo systemctl start node'
 alias sl='s && log'
-alias r='sudo restart node'
+alias r='sudo systemctl restart node'
 alias rl='r && log'
 alias tests='(cd /vagrant && make)'
 

@@ -1,0 +1,12 @@
+[Service]
+ExecStart=[node binary] /home/vagrant/app.js
+Restart=always
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=node
+User=vagrant
+Group=vagrant
+Environment=NODE_ENV=development
+
+[Install]
+WantedBy=multi-user.target

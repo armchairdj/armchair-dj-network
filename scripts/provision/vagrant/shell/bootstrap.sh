@@ -15,7 +15,7 @@ apt-get upgrade -y
 
 ##### Dependencies.
 
-apt-get install build-essential automake git-core curl wget gcc g++ lib32z1-dev pkg-config libssl-dev vim less lsof -y
+apt-get install build-essential automake git-core curl dkms wget gcc g++ lib32z1-dev pkg-config libssl-dev vim less lsof -y
 
 ##### Timezone.
 
