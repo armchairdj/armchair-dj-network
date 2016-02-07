@@ -34,8 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   ### BASE BOX & VM
 
-  config.vm.box      = 'ubuntu/trusty64-juju'
-  config.vm.box_url  = 'https://cloud-images.ubuntu.com/vagrant/trusty/current/trusty-server-cloudimg-amd64-juju-vagrant-disk1.box'
+  config.vm.box      = 'puppetlabs/ubuntu-14.04-64-puppet'
   config.vm.hostname = "armchairdj.com"
 
   config.vm.network :forwarded_port, host: 9011, guest: 9011, auto_correct: true
