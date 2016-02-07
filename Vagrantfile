@@ -77,8 +77,4 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   config.vm.provision :shell, path: START_SCRIPT
 
-  ### PUPPET PROVISIONER
-
-  config.vm.provision :puppet
-
 end
