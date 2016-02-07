@@ -10,6 +10,7 @@ echo "deb http://downloads-distro.mongodb.org/repo/ubuntu-upstart dist 10gen" | 
 ##### Update Ubuntu.
 
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
+# sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
 apt-get update -y
 apt-get upgrade -y
 
@@ -20,6 +21,14 @@ apt-get install build-essential automake git-core curl dkms wget gcc g++ lib32z1
 ##### Timezone.
 
 ln -sf /usr/share/zoneinfo/US/Pacific /etc/localtime
+
+##### Puppet.
+
+wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
+sudo dpkg -i puppetlabs-release-trusty.deb
+sudo apt-get update
+sudo apt-get install puppet -y
+sudo puppet resource service puppet ensure=running enable=true
 
 ##### N and Node.
 
@@ -33,21 +42,14 @@ npm install -g npm@2.0.0
 
 ##### Nginx.
 
-apt-get install nginx -y
+apt-get install -y nginx
 
 ##### Mongo.
 
 echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
+# echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
 
 sudo apt-get install -y mongodb-org
 
 sudo echo "respawn" >> /etc/init/mongodb.conf
 sudo echo "smallfiles=true" >> /etc/mongodb.conf
-
-##### Puppet.
-
-wget https://apt.puppetlabs.com/puppetlabs-release-trusty.deb
-sudo dpkg -i puppetlabs-release-trusty.deb
-sudo apt-get update
-sudo apt-get install puppet
-sudo puppet resource service puppet ensure=running enable=true
