@@ -8,7 +8,7 @@ var cluster     = require('cluster');
  * Internal dependencies.
  */
 
-var environment = require('./lib/utils/environment');
+// var environment = require('./armchairdj/utils/environment');
 
 /**
  * Run server.
@@ -20,9 +20,9 @@ if (debug) {
   return workerThread();
 }
 
-if (environment.is('development')) {
+// if (environment.is('development')) {
   require('locus');
-}
+// }
 
 if (cluster.isMaster) {
   masterThread();
