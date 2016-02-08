@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "ghost": "0.7.6",
+    "ghost": "https://github.com/armchairdj/Ghost/tarball/stable",
     "underscore": "1.8.3"
   },
   "devDependencies": {
