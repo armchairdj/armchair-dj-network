@@ -43,3 +43,23 @@ sudo apt-get install -y mongodb-org
 
 sudo echo "respawn" >> /etc/init/mongodb.conf
 sudo echo "smallfiles=true" >> /etc/mongodb.conf
+
+sudo stop mongodb
+sudo start mongodb
+
+##### Set up vagrant user shell.
+
+/vagrant/scripts/setup/bash.sh
+
+##### Set up and start node.
+
+/vagrant/scripts/setup/node.sh
+
+##### Set up app.
+
+/vagrant/scripts/setup/app.sh
+
+##### Nginx.
+
+/vagrant/scripts/setup/nginx.sh
+

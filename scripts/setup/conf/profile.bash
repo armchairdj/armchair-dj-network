@@ -16,13 +16,6 @@ if [ -n "$BASH_VERSION" ]; then
   fi
 fi
 
-# allow developers to customize their vagrant boxes with a gitignored script
-if [ -f "/vagrant/scripts/provision/vagrant/conf/personal/.bashrc" ]; then
-  source "/vagrant/scripts/provision/vagrant/conf/personal/.bashrc"
-fi
-
-[[ -f personal_bashrc ]] && source personal_bashrc
-
 # fancy, color-coded, git-friendly command prompt
 if [ -f "/home/vagrant/.fancy_pwd" ]; then
   source "/home/vagrant/.fancy_pwd"

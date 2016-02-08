@@ -5,31 +5,6 @@ VAGRANTFILE_API_VERSION = '2'
 
 SYNCED_FOLDER           = '/vagrant'
 
-BOOTSTRAP_SCRIPT        = 'scripts/provision/vagrant/shell/bootstrap.sh'
-START_SCRIPT            = 'scripts/provision/vagrant/shell/start.sh'
-PUPPET_DIR              = 'scripts/provision/vagrant/puppet'
-
-CONF_DIR                = '/vagrant/scripts/provision/vagrant/conf'
-CONF_FILES              = [
-  {
-    file:  'fancy_pwd.bash',
-    dest:  '/home/vagrant/.fancy_pwd'
-  }, {
-    file:  'profile.bash',
-    dest:  '/home/vagrant/.profile'
-  }, {
-    file:  'sudoers.bash',
-    dest:  '/etc/sudoers.d/node',
-    after: 'chmod 0440 /etc/sudoers.d/node'
-  }, {
-    file:  'nginx.site',
-    dest:  '/etc/nginx/sites-available/node'
-  }, {
-    file:  'node.conf',
-    dest:  '/etc/init/node.conf'
-  }
-]
-
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   ### BASE BOX & VM
@@ -64,18 +39,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   ### SHELL PROVISIONER
 
-  config.vm.provision :shell, path: BOOTSTRAP_SCRIPT
-
-  CONF_FILES.each do |mapping|
-    cmd = "cp #{CONF_DIR}/#{mapping[:file]} #{mapping[:dest]}"
-
-    if mapping[:after]
-      cmd += " && #{mapping[:after]}"
-    end
-
-    config.vm.provision :shell, inline: cmd
-  end
-
-  config.vm.provision :shell, path: START_SCRIPT
+  config.vm.provision :shell, path: 'scripts/provision/vagrant/bootstrap.sh'
 
 end
