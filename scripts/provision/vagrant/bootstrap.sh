@@ -49,17 +49,17 @@ sudo start mongodb
 
 ##### Set up vagrant user shell.
 
-/vagrant/scripts/setup/bash.sh
+sudo -u vagrant -H bash -l -c /vagrant/scripts/setup/bash.sh
 
 ##### Set up and start node.
 
-/vagrant/scripts/setup/node.sh
+sudo -u vagrant -H bash -l -c /vagrant/scripts/setup/node.sh
 
 ##### Set up app.
 
-/vagrant/scripts/setup/app.sh
+sudo -u vagrant -H bash -l -c /vagrant/scripts/setup/app.sh
 
 ##### Nginx.
 
-/vagrant/scripts/setup/nginx.sh
+sudo -u vagrant -H bash -l -c /vagrant/scripts/setup/nginx.sh
 
