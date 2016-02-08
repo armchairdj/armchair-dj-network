@@ -4,7 +4,7 @@ cd /vagrant
 
 echo "app: stop node"
 
-node stop
+sudo node stop
 
 echo "app: remove node_modules"
 
@@ -16,5 +16,5 @@ npm install
 
 echo "app: npm global"
 
-npm install -g gulp
-npm install -g grunt-cli
+sudo npm install -g gulp
+sudo npm install -g grunt-cli

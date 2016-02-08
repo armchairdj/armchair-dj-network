@@ -2,15 +2,15 @@
 
 echo "nginx: chowning logs"
 
-chown -R vagrant:vagrant /var/log/nginx/
+sudo chown -R vagrant:vagrant /var/log/nginx/
 
 echo "nginx: sudoers"
 
-cp /vagrant/scripts/setup/conf/sudoers.nginx /etc/sudoers.d/nginx && chmod 0440 /etc/sudoers.d/nginx
+sudo cp /vagrant/scripts/setup/conf/sudoers.nginx /etc/sudoers.d/nginx && chmod 0440 /etc/sudoers.d/nginx
 
 echo "nginx: copy sites-available/node"
 
-cp /vagrant/scripts/setup/conf/nginx.site /etc/nginx/sites-available/node
+sudo cp /vagrant/scripts/setup/conf/nginx.site /etc/nginx/sites-available/node
 
 echo "nginx: enable site"
 
