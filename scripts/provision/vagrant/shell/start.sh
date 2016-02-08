@@ -3,9 +3,10 @@
 # This script runs last, after bootstrap.sh and after we've copied a ton of
 # bash and config files to their proper locations.
 
-##### Vagrant user
+##### Vagrant user should own its home directory and nginx logs
 
 sudo chown -R vagrant:vagrant /home/vagrant
+sudo chown -R vagrant:vagrant /var/log/nginx/
 
 ##### Mongo
 
