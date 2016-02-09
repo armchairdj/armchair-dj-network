@@ -160,11 +160,11 @@ chmod +x /home/deploy/scratch/ssh-keygen_expect.sh
 /home/deploy/scratch/ssh-keygen_expect.sh DEPLOY@$NEW_HOSTNAME
 export KEY=`cat /home/deploy/.ssh/id_rsa.pub`
 export DATA=''"'"'{"title":"DEPLOY-'$NEW_HOSTNAME'", "key":"'$KEY'"}'"'"''
-eval curl -X POST -u "$GITHUB_USERNAME:$GITHUB_PASSWORD" https://api.github.com/repos/armchairdj/armchairdj.com/keys -d "$DATA"
+eval curl -X POST -u "$GITHUB_USERNAME:$GITHUB_PASSWORD" https://api.github.com/repos/app/armchairdj.com/keys -d "$DATA"
 chown -R deploy:deploy /home/deploy/.ssh
 
 # Checkout and install the app.
-su - deploy -c "(cd ~/app/current && git clone git@github.com:armchairdj/armchairdj.com.git . && npm install)"
+su - deploy -c "(cd ~/app/current && git clone git@github.com:app/armchairdj.com.git . && npm install)"
 
 # sudoers.
 cat <<EOF > /etc/sudoers.d/node

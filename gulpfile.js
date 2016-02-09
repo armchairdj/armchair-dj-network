@@ -46,13 +46,13 @@ var sourceFiles = {
   scripts: {
     modernizr: {
       js: [
-        'armchairdj/assets/js/vendor/modernizr.js',
+        'app/assets/js/vendor/modernizr.js',
       ]
     },
 
     site: {
       js: [
-        'armchairdj/assets/js/vendor/jquery/jquery-2.0.2.js',
+        'app/assets/js/vendor/jquery/jquery-2.0.2.js',
       ]
     }
   }

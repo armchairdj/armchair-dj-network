@@ -3,10 +3,31 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
-    "underscore": "1.8.3"
+    "async": "1.5.2",
+    "connect": "3.4.1",
+    "connect-auth": "0.6.1",
+    "connect-flash": "0.1.1",
+    "connect-mongo": "1.1.0",
+    "ejs": "2.4.1",
+    "express": "4.13.4",
+    "express-json": "1.0.0",
+    "express-mongoose": "0.1.0",
+    "express-session": "1.13.0",
+    "extend": "3.0.0",
+    "eyes": "0.1.8",
+    "jade": "1.11.0",
+    "mongoose": "4.4.2",
+    "monk": "1.0.1",
+    "morgan": "1.6.1",
+    "nib": "1.1.0",
+    "prompt": "0.3.0",
+    "request": "2.69.0",
+    "stylus": "0.53.0",
+    "underscore": "1.8.3",
+    "underscore.string": "3.2.3"
   },
   "devDependencies": {
-    "gulp": "^3.9.1",
+    "gulp": "3.9.1",
     "locus": "1.2.0"
   }
 }

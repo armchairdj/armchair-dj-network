@@ -8,7 +8,7 @@ var cluster     = require('cluster');
  * Internal dependencies.
  */
 
-var environment = require('./armchairdj/utils/environment');
+var environment = require('./app/utils/environment');
 
 /**
  * Run server.
