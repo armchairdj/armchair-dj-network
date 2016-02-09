@@ -2,18 +2,19 @@
  * External dependencies.
  */
 
-var ejs        = require('ejs');
-var express = require('express');
-var fs      = require('fs');
-var http    = require('http');
-var json       = require('express-json');
-var morgan  = require('morgan')
+var ejs           = require('ejs');
+var express       = require('express');
+var fs            = require('fs');
+var http          = require('http');
+var json          = require('express-json');
+var mongoose      = require('mongoose');
+var morgan        = require('morgan')
 
 // var auth       = require('connect-auth');
 // var exec       = require('child_process').exec;
 // var flash      = require('connect-flash');
 // var mongo      = require('connect-mongo');
-// var mongoose   = require('mongoose');
+
 // var session    = require('express-session');
 
 // require('express-mongoose');
@@ -32,17 +33,15 @@ configure();
  */
 
 var pjson         = require('./package.json');
+var config        = require('./app/config/settings/environment/development');
 var environment   = require('./app/utils/environment');
 
-var config        = require('./app/config/settings/environment/development');
 
 /**
  * Configuration: Database & models.
  */
 
-// app.set('db', config.mongo.uri);
-//
-// mongoose.connect(config.mongo.uri);
+mongoose.connect(config.mongo.uri);
 
 /**
  * Configuration: Plugins.
