@@ -4,7 +4,7 @@ cd /vagrant
 
 echo "app: stop node"
 
-sudo node stop
+sudo stop node
 
 echo "app: remove node_modules"
 

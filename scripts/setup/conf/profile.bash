@@ -35,6 +35,7 @@ alias rl='r && log'
 alias tests='(cd /vagrant && make)'
 alias nginx_access='tail -f -n1000 /var/log/nginx/access.log'
 alias nginx_error='tail -f -n1000 /var/log/nginx/error.log'
+alias nginx_bounce='sudo service nginx restart'
 
 export NODE_ENV=development
 

@@ -7,6 +7,7 @@
     "underscore": "1.8.3"
   },
   "devDependencies": {
+    "grunt": "^0.4.5",
     "locus": "1.2.0"
   }
 }

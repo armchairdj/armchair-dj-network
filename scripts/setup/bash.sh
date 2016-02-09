@@ -10,4 +10,4 @@ cp /vagrant/scripts/setup/conf/profile.bash /home/vagrant/.profile
 
 echo "bash: chown vagrant user home directory"
 
-chown -R vagrant:vagrant /home/vagrant
+sudo chown -R vagrant:vagrant /home/vagrant
