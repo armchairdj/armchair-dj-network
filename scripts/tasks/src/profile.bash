@@ -17,8 +17,8 @@ if [ -n "$BASH_VERSION" ]; then
 fi
 
 # fancy, color-coded, git-friendly command prompt
-if [ -f "/home/vagrant/.fancy_pwd" ]; then
-  source "/home/vagrant/.fancy_pwd"
+if [ -f "/home/vagrant/.command_prompt" ]; then
+  source "/home/vagrant/.command_prompt"
 fi
 
 # set PATH so it includes user's private bin if it exists
