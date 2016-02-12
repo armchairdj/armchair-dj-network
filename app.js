@@ -33,7 +33,7 @@ configure();
  */
 
 var pjson         = require('./package.json');
-var config        = require('./app/config/settings/environment/development');
+var config        = require('./app/config/environment/development');
 var environment   = require('./app/utils/environment');
 
 
@@ -78,7 +78,7 @@ app.engine('.html', ejs.renderFile);
 
 app.use(express.static(__dirname + '/public'));
 
-app.set( 'views',       __dirname + '/app/views' );
+app.set( 'view',       __dirname + '/app/view' );
 app.set( 'view engine', 'jade'                   );
 // app.set( 'assetRoot',   config.assets.root       );
 // app.set( 'ver',         pjson.version            );

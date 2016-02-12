@@ -39,6 +39,6 @@ Vagrant.configure('2') do |config|
 
   ### SHELL PROVISIONER
 
-  config.vm.provision :shell, path: 'scripts/provision/development/bootstrap.sh'
+  config.vm.provision :shell, path: 'script/provision/development/bootstrap.sh'
 
 end

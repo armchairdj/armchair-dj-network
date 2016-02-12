@@ -191,9 +191,9 @@ su - deploy -c "(cd $HOME/app/current && git clone git@github.com:app/armchairdj
 
 ##### Bootstrap
 
-source "/home/deploy/app/current/scripts/tasks/files/environment_vars.production.bash"
+source "/home/deploy/app/current/script/task/file/environment_vars.production.bash"
 
-sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/scripts/tasks/setup.sh"
+sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/script/task/setup.sh"
 
 ##### Notify.
 

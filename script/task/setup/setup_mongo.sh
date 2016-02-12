@@ -12,7 +12,7 @@ echo "$SCRIPT_NAME: install"
 sudo apt-get install -y mongodb-org
 
 echo "$SCRIPT_NAME: copy sudoers"
-sudo cp "$APP_ROOT/scripts/tasks/setup/conf/mongo.sudoers" /etc/sudoers.d/mongo && sudo chmod 0440 /etc/sudoers.d/mongo
+sudo cp "$APP_ROOT/script/task/setup/conf/mongo.sudoers" /etc/sudoers.d/mongo && sudo chmod 0440 /etc/sudoers.d/mongo
 
 echo "$SCRIPT_NAME: configuration"
 sudo echo "respawn" >> /etc/init/mongodb.conf
