@@ -73,6 +73,7 @@ bash_prompt() {
   # ${W}[\t${W}]
   PS1="${R}[\u${R}] ${EMB}\${NEW_PWD}${W} \\$ ${NONE}"
 
+  # TODO BJD
   # Color-coded Git repo
   # if [ "\$(type -t __git_ps1)" ]; then
   #   PS1="${PS1/\\$ /$Y\$(__git_ps1 '(%s) ')$W\\$ $NONE}"

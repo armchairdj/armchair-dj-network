@@ -1,5 +1,5 @@
 upstream node {
-  server 127.0.0.1:2368;
+  server 127.0.0.1:8000;
 }
 
 server {
@@ -19,9 +19,9 @@ server {
     proxy_redirect off;
   }
 
-  # location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|txt|tar|wav|bmp|rtf|js|flv|swf|html|htm)$ {
-  #   expires 30d;
-  #   access_log off;
-  #   root /vagrant/public;
-  # }
+  location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|txt|tar|wav|bmp|rtf|js|flv|swf|html|htm)$ {
+    expires 30d;
+    access_log off;
+    root /vagrant/public;
+  }
 }

@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
 
-cd /vagrant
+SCRIPT_NAME="update_app"
 
-echo "app: stop node"
-sudo stop node
+cd "$APP_ROOT"
 
-echo "app: remove node_modules"
-rm -rf ./node_modules
+echo "$SCRIPT_NAME: git pull"
+git pull
 
-echo "app: npm package.json"
+echo "$SCRIPT_NAME: npm install"
 npm install
 
-echo "app: npm global"
-sudo npm install -g gulp
+echo "$SCRIPT_NAME: start node"
+sudo restart node
+
+echo "check for migrations or other release tasks!"

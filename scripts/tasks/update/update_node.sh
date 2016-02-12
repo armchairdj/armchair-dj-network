@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
-echo "node: sudoers"
+SCRIPT_NAME="update_node"
 
-sudo cp /vagrant/scripts/setup/conf/sudoers.node /etc/sudoers.d/node && sudo chmod 0440 /etc/sudoers.d/node
+echo "$SCRIPT_NAME: install npm 2.0.0"
+sudo npm install -g npm@2.0.0
+sudo npm install -g gulp@3.9.1
 
-echo "node: conf"
+echo "$SCRIPT_NAME: update config"
+sudo cp "$CONF_FILE_DIR/node.$NODE_ENV.conf" /etc/init/node.conf
 
-sudo cp /vagrant/scripts/setup/conf/node.conf /etc/init/node.conf
+echo "$SCRIPT_NAME: bounce"
+sudo restart node

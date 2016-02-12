@@ -1,65 +1,21 @@
 #!/usr/bin/env bash
 
-# This script runs first. It updates and installs packages and, in a few places,
-# echoes configuration into installed config files.
+##### Ubuntu.
 
-##### Mongo sources.
-
-echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
-
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-
-##### Update Ubuntu.
-
-apt-get update -y
-apt-get upgrade -y
-
-##### Dependencies.
-
-apt-get install build-essential automake git-core curl dkms wget gcc g++ lib32z1-dev pkg-config libssl-dev vim less lsof -y
-
-##### Timezone.
-
+echo "ubuntu: set timezone"
 ln -sf /usr/share/zoneinfo/US/Pacific /etc/localtime
 
-##### N and Node.
+echo "ubuntu: update sources"
+apt-get update -y
 
-cd /root
-wget https://github.com/tj/n/archive/v2.1.0.tar.gz
-tar xzvf v2.1.0.tar.gz
-cd n-2.1.0
-make install
-n 4.2.6
-npm install -g npm@2.0.0
+echo "ubuntu: upgrade os"
+apt-get upgrade -y
 
-##### Nginx.
+echo "ubuntu: install packages"
+apt-get install build-essential automake git-core curl dkms wget gcc g++ lib32z1-dev pkg-config libssl-dev vim less lsof -y
 
-apt-get install -y nginx
+##### Bootstrap.
 
-##### Mongo.
+source "/vagrant/scripts/tasks/files/environment_vars.development.bash"
 
-sudo apt-get install -y mongodb-org
-
-sudo echo "respawn" >> /etc/init/mongodb.conf
-sudo echo "smallfiles=true" >> /etc/mongodb.conf
-
-sudo stop mongodb
-sudo start mongodb
-
-##### Set up vagrant user shell.
-
-sudo -u vagrant -H bash -l -c /vagrant/scripts/setup/bash.sh
-
-##### Set up and start node.
-
-sudo -u vagrant -H bash -l -c /vagrant/scripts/setup/node.sh
-
-##### Set up app.
-
-sudo -u vagrant -H bash -l -c /vagrant/scripts/setup/app.sh
-
-##### Nginx.
-
-sudo -u vagrant -H bash -l -c /vagrant/scripts/setup/nginx.sh
-
+sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/scripts/tasks/setup.sh"

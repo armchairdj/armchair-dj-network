@@ -104,7 +104,7 @@ if (process.getuid() === 0) {
 }
 
 if (app.get('env') !== 'test') {
-  app.listen(2368);
+  app.listen(8000);
 }
 
 /**

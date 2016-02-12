@@ -1,26 +1,26 @@
 # -*- mode: ruby -*-
 # vi: set ft = ruby :
 
-VAGRANTFILE_API_VERSION = '2'
-
-SYNCED_FOLDER           = '/vagrant'
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+Vagrant.configure('2') do |config|
 
   ### BASE BOX & VM
 
   config.vm.box      = 'puppetlabs/ubuntu-14.04-64-puppet'
   config.vm.hostname = "armchairdj.com"
 
-  # Tests? TODO BJD
-  config.vm.network :forwarded_port, host: 9070, guest: 9070, auto_correct: true
+  # Tests? NEEDED?
+  config.vm.network :forwarded_port, host: 9060, guest: 9060, auto_correct: true
 
   # Nginx.
-  config.vm.network :forwarded_port, host: 9080, guest: 80, auto_correct: true
+  config.vm.network :forwarded_port, host: 9070, guest: 80, auto_correct: true
 
-  # Mongo/
+  # Node. NEEDED?
+  config.vm.network :forwarded_port, host: 9080, guest: 8000
+
+  # Mongo.
   config.vm.network :forwarded_port, host: 9090, guest: 27017, auto_correct: true
 
+  # Private network. NEEDED?
   config.vm.network 'private_network', ip: '192.168.10.82'
 
   ### VIRTUALBOX
@@ -35,10 +35,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
   ### SYNCED FOLDER
 
-  config.vm.synced_folder '.', SYNCED_FOLDER, nfs: { mount_options: ['actimeo=2'] }
+  config.vm.synced_folder '.', '/vagrant', nfs: { mount_options: ['actimeo=2'] }
 
   ### SHELL PROVISIONER
 
-  config.vm.provision :shell, path: 'scripts/provision/vagrant/bootstrap.sh'
+  config.vm.provision :shell, path: 'scripts/provision/development/bootstrap.sh'
 
 end
