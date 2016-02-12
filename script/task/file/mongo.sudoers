@@ -1,3 +1,0 @@
-vagrant ALL=NOPASSWD: /sbin/restart mongo
-vagrant ALL=NOPASSWD: /sbin/stop mongo
-vagrant ALL=NOPASSWD: /sbin/start mongo

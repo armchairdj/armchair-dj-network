@@ -1,19 +1,30 @@
 #!/usr/bin/env bash
 
 SCRIPT_NAME="setup_mongo"
+MONGO_VERSION="3.2.1"
 
 echo "$SCRIPT_NAME: sources"
 echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.2.list
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-apt-get update -y
+sudo apt-get update -y
 
 echo "$SCRIPT_NAME: install"
-sudo apt-get install -y mongodb-org
+sudo apt-get install -y "mongodb-org=$MONGO_VERSION" "mongodb-org-server=$MONGO_VERSION" "mongodb-org-shell=$MONGO_VERSION" "mongodb-org-mongos=$MONGO_VERSION" "mongodb-org-tools=$MONGO_VERSION"
 
-echo "$SCRIPT_NAME: copy sudoers"
-sudo cp "$APP_ROOT/script/task/setup/conf/mongo.sudoers" /etc/sudoers.d/mongo && sudo chmod 0440 /etc/sudoers.d/mongo
+echo "$SCRIPT_NAME: pin"
+echo "mongodb-org hold" | sudo dpkg --set-selections
+echo "mongodb-org-server hold" | sudo dpkg --set-selections
+echo "mongodb-org-shell hold" | sudo dpkg --set-selections
+echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
+echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 
-echo "$SCRIPT_NAME: configuration"
-sudo echo "respawn" >> /etc/init/mongodb.conf
-sudo echo "smallfiles=true" >> /etc/init/mongodb.conf
+echo "$SCRIPT_NAME: copy mongod upstart script"
+sudo chown -R "$APP_USER:$APP_USER" /etc/init/mongod.conf
+sudo cp "$APP_ROOT/script/task/file/mongod.conf" /etc/init/mongod.conf
+sudo chmod +x /etc/init/mongod.conf
+
+echo "$SCRIPT_NAME: copy mongod yml configuration file"
+sudo chown -R "$APP_USER:$APP_USER" /etc/mongod.conf
+sudo cp "$APP_ROOT/script/task/file/mongod.yml" /etc/mongod.conf
+sudo chmod +x /etc/mongod.conf

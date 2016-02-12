@@ -3,13 +3,10 @@
 SCRIPT_NAME="setup_nginx"
 
 echo "$SCRIPT_NAME: install"
-apt-get install -y nginx
+sudo apt-get install -y nginx
 
 echo "$SCRIPT_NAME: chown logs"
 sudo chown -R vagrant:vagrant /var/log/nginx/
-
-echo "$SCRIPT_NAME: copy sudoers"
-sudo cp "$CONF_FILE_DIR/nginx.sudoers" /etc/sudoers.d/nginx && sudo chmod 0440 /etc/sudoers.d/nginx
 
 echo "$SCRIPT_NAME: copy sites-available/node"
 sudo cp "$CONF_FILE_DIR/nginx.site" /etc/nginx/sites-available/node

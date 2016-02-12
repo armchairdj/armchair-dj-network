@@ -1,3 +1,0 @@
-vagrant ALL=NOPASSWD: /etc/init.d/nginx start
-vagrant ALL=NOPASSWD: /etc/init.d/nginx stop
-vagrant ALL=NOPASSWD: /etc/init.d/nginx restart

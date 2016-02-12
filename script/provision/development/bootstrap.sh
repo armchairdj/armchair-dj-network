@@ -16,6 +16,8 @@ apt-get install build-essential automake git-core curl dkms wget gcc g++ lib32z1
 
 ##### Bootstrap.
 
-source "/vagrant/script/task/file/environment_vars.development.bash"
+echo "ubuntu: load environment vars"
+# source "/vagrant/script/task/file/environment_vars.development.bash"
 
-sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/script/task/setup.sh"
+echo "ubuntu: run setup script"
+# sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/script/task/setup.sh"
