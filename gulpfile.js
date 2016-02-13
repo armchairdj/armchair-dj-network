@@ -46,13 +46,13 @@ var sourceFiles = {
   scripts: {
     modernizr: {
       js: [
-        'app/assets/js/vendor/modernizr.js',
+        'lib/assets/js/vendor/modernizr.js',
       ]
     },
 
     site: {
       js: [
-        'app/assets/js/vendor/jquery/jquery-2.0.2.js',
+        'lib/assets/js/vendor/jquery/jquery-2.0.2.js',
       ]
     }
   }

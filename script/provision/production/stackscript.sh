@@ -181,13 +181,13 @@ chmod +x /home/deploy/scratch/ssh-keygen_expect.sh
 export KEY=`cat /home/deploy/.ssh/id_rsa.pub`
 export DATA=''"'"'{"title":"DEPLOY-'$NEW_HOSTNAME'", "key":"'$KEY'"}'"'"''
 
-eval curl -X POST -u "$GITHUB_USERNAME:$GITHUB_PASSWORD" https://api.github.com/repos/app/armchairdj.com/keys -d "$DATA"
+eval curl -X POST -u "$GITHUB_USERNAME:$GITHUB_PASSWORD" https://api.github.com/repos/lib/armchairdj.com/keys -d "$DATA"
 
 chown -R deploy:deploy /home/deploy/.ssh
 
 ##### Git checkout
 
-su - deploy -c "(cd $HOME/app/current && git clone git@github.com:app/armchairdj.com.git .)"
+su - deploy -c "(cd $HOME/app/current && git clone git@github.com:lib/armchairdj.com.git .)"
 
 ##### Bootstrap
 
