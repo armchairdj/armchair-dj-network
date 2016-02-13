@@ -1,0 +1,29 @@
+include /mixin/mixin
+doctype html
+
++modernizrHtmlOpenTag()
+
+head
+  +metaStandard('Armchair DJ: Songs I Love')
+
+  title Armchair DJ
+
+  block meta
+
+  +siteScript('scripts-modernizr')
+
+  +siteStylesheet('site')
+
+  +touchIcons()
+
+body
+  #wrap
+    //- include /partials/chrome/masthead
+
+    block content
+
+    //- include /partials/chrome/footer
+
+  +siteScript('site')
+
+</html>

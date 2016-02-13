@@ -13,7 +13,7 @@ var morgan        = require('morgan')
 // var auth       = require('connect-auth');
 // var exec       = require('child_process').exec;
 // var flash      = require('connect-flash');
-// var mongo      = require('connect-mongo');
+var mongo      = require('connect-mongo');
 
 // var session    = require('express-session');
 
@@ -26,22 +26,25 @@ var morgan        = require('morgan')
 var app           = express();
 // var MongoStore = mongo(express);
 
-configure();
-
 /**
  * Internal dependencies.
  */
 
 var pjson         = require('./package.json');
-var config        = require('./app/config/environment/development');
-var environment   = require('./app/utils/environment');
+var environment   = require('./app/util/environment');
+var config        = require('./app/util/configure')();
+var render        = require('./app/util/render');
 
+console.log('config', config);
 
 /**
  * Configuration: Database & models.
  */
 
 mongoose.connect(config.mongo.uri);
+
+require('./app/model/User');
+
 
 /**
  * Configuration: Plugins.
@@ -78,10 +81,10 @@ app.engine('.html', ejs.renderFile);
 
 app.use(express.static(__dirname + '/public'));
 
-app.set( 'view',       __dirname + '/app/view' );
-app.set( 'view engine', 'jade'                   );
-// app.set( 'assetRoot',   config.assets.root       );
-// app.set( 'ver',         pjson.version            );
+app.set( 'views',       __dirname + '/app/view');
+app.set( 'view engine', 'jade'                 );
+
+app.locals.basedir = app.get('views');
 //
 // app.use(flash());
 
@@ -95,9 +98,15 @@ require('./app/router/router')(app);
 
 app.use(defaultRoute);
 
+app.use(morgan('[:date] :status (:method :url) :response-time'));
+
+app.use(handleExpressError);
+
 /**
  * Start server.
  */
+
+process.on('uncaughtException', handleUncaughtException);
 
 if (process.getuid() === 0) {
   fs.stat(__filename, setProcessOwner);
@@ -108,25 +117,22 @@ if (app.get('env') !== 'test') {
 }
 
 /**
- * Functions: Environment config.
- */
-
-function configure() {
-  process.on('uncaughtException', handleUncaughtException);
-
-  app.use(morgan('[:date] :status (:method :url) :response-time'));
-
-  // if (environment.is('development')) {
-  //   app.use(express.errorHandler(config.error.express));
-  // }
-}
-
-/**
  * Functions: Logging & exceptions.
  */
 
 function handleUncaughtException(err) {
   console.log('EXCEPTION - %s -> %s', new Date(), err);
+}
+
+function handleExpressError(err, req, res, next) {
+  console.error(err.stack);
+
+  res.status(500).send('Something broke!');
+
+  // res.status(500);
+  // render.page(req, res, '/error/500', {
+  //   err: err
+  // });
 }
 
 /**

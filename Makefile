@@ -3,7 +3,7 @@ REPORTER = min
 test: unit functional
 
 unit:
-	@NODE_ENV=test NODE_PATH=lib:spec \
+	@NODE_ENV=test NODE_PATH=app:spec \
 		./node_modules/.bin/mocha \
 		-r ./spec/testUtils/testRunner \
 		-t 4000 \
@@ -11,7 +11,7 @@ unit:
 		spec/testUtils/unitTestHooks.js spec/unit/**/*.js 2>&1 | grep -v timer | grep -v /node_modules/
 
 functional:
-	@NODE_ENV=test NODE_PATH=lib:spec \
+	@NODE_ENV=test NODE_PATH=app:spec \
 		./node_modules/.bin/mocha \
 		-r ./spec/testUtils/testRunner \
 		-t 4000 \
@@ -19,7 +19,7 @@ functional:
 		spec/functional/**/*.js 2>&1 | grep -v timer | grep -v /node_modules/ | grep -v 'EXCEPTION - ' | grep -v "at.*:*[0-9]:*[0-9].*"
 
 test-single:
-	@NODE_ENV=test NODE_PATH=lib:spec \
+	@NODE_ENV=test NODE_PATH=app:spec \
 		./node_modules/.bin/mocha \
 		-r ./spec/testUtils/testRunner \
 		-t 4000 \
@@ -27,7 +27,7 @@ test-single:
 		${FILE} 2>&1 | grep -v timer | grep -v /node_modules/ | grep .
 
 test-d:
-	@NODE_ENV=test NODE_PATH=lib:spec \
+	@NODE_ENV=test NODE_PATH=app:spec \
 		./node_modules/.bin/mocha debug \
 		-r ./spec/testUtils/testRunner \
 		-t 4000 \
