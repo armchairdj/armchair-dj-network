@@ -19,7 +19,30 @@ echo "$SCRIPT_NAME: upgrade os"
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 
 echo "$SCRIPT_NAME: install packages"
-apt-get install build-essential automake git-core curl dkms wget gcc g++ lib32z1-dev pkg-config libssl-dev vim less lsof -y
+
+# Linux core
+apt-get install -y dkms
+
+# Source compilation
+apt-get install -y build-essential
+apt-get install -y automake
+apt-get install -y pkg-config
+apt-get install -y gcc
+apt-get install -y g++
+apt-get install -y libkrb5-dev
+
+# Source control
+apt-get install -y git-core
+
+# Common utils
+apt-get install -y curl
+apt-get install -y less
+apt-get install -y lsof
+apt-get install -y vim
+apt-get install -y wget
+
+# Security
+apt-get install -y libssl-dev
 
 ##### Set up environment variables.
 
