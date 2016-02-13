@@ -2,58 +2,60 @@
  * External dependencies.
  */
 
-var ejs           = require('ejs');
-var express       = require('express');
-var fs            = require('fs');
-var http          = require('http');
-var json          = require('express-json');
-var mongoose      = require('mongoose');
-var morgan        = require('morgan')
+var express         = require('express');
 
-// var auth       = require('connect-auth');
-// var exec       = require('child_process').exec;
-// var flash      = require('connect-flash');
-var mongo      = require('connect-mongo');
+var app             = express();
 
-// var session    = require('express-session');
+var auth            = require('connect-auth');
+var flash           = require('connect-flash');
+var mongo           = require('connect-mongo');
+var session         = require('express-session');
+var expressMongoose = require('express-mongoose');
 
-// require('express-mongoose');
-
-/**
- * Bootstrap app.
- */
-
-var app           = express();
-// var MongoStore = mongo(express);
+var bodyParser      = require('body-parser');
+var cookieParser    = require('cookie-parser')
+var ejs             = require('ejs');
+var fs              = require('fs');
+var http            = require('http');
+var methodOverride  = require('method-override')
+var mongoose        = require('mongoose');
+var morgan          = require('morgan')
 
 /**
  * Internal dependencies.
  */
 
-var pjson         = require('./package.json');
-var environment   = require('./app/util/environment');
-var config        = require('./app/util/configure')();
-var render        = require('./app/util/render');
-
-console.log('config', config);
+var pjson           = require('./package.json');
+var environment     = require('./app/util/environment');
+var config          = require('./app/util/configure')();
+var render          = require('./app/util/render');
 
 /**
- * Configuration: Database & models.
+ * Connect to Mongo & load models.
  */
-
-mongoose.connect(config.mongo.uri);
 
 require('./app/model/User');
 
+// var MongoStore      = mongo(express);
+//
+// mongoose.connect(config.mongo.uri);
+//
+
+
 
 /**
- * Configuration: Plugins.
+ * Configuration: Middleware.
  */
 
-app.use( json()                  );
-// app.use( express.urlencoded()    );
-// app.use( express.methodOverride());
-// app.use( express.cookieParser()  );
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+
+app.use(cookieParser())
+
+app.use(methodOverride());
 
 /**
  * Configuration: Authentication.
@@ -85,8 +87,8 @@ app.set( 'views',       __dirname + '/app/view');
 app.set( 'view engine', 'jade'                 );
 
 app.locals.basedir = app.get('views');
-//
-// app.use(flash());
+
+app.use(flash());
 
 /**
  * Configuration: Router & Server.
@@ -94,11 +96,11 @@ app.locals.basedir = app.get('views');
 
 var server = http.createServer(app);
 
+app.use(morgan('[:date] :status (:method :url) :response-time'));
+
 require('./app/router/router')(app);
 
 app.use(defaultRoute);
-
-app.use(morgan('[:date] :status (:method :url) :response-time'));
 
 app.use(handleExpressError);
 
