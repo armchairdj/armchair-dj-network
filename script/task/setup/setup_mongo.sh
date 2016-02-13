@@ -19,12 +19,17 @@ echo "mongodb-org-shell hold" | sudo dpkg --set-selections
 echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
 echo "mongodb-org-tools hold" | sudo dpkg --set-selections
 
+echo "$SCRIPT_NAME: disable transparent hugepages"
+sudo cp "$APP_ROOT/script/task/file/disable-transparent-hugepages.conf" /etc/init.d/disable-transparent-hugepages
+sudo chmod 755 /etc/init.d/disable-transparent-hugepages
+sudo update-rc.d disable-transparent-hugepages defaults
+
 echo "$SCRIPT_NAME: copy mongod upstart script"
-sudo chown -R "$APP_USER:$APP_USER" /etc/init/mongod.conf
+# sudo chown -R "$APP_USER:$APP_USER" /etc/init/mongod.conf
 sudo cp "$APP_ROOT/script/task/file/mongod.conf" /etc/init/mongod.conf
 sudo chmod +x /etc/init/mongod.conf
 
 echo "$SCRIPT_NAME: copy mongod yml configuration file"
-sudo chown -R "$APP_USER:$APP_USER" /etc/mongod.conf
+# sudo chown -R "$APP_USER:$APP_USER" /etc/mongod.conf
 sudo cp "$APP_ROOT/script/task/file/mongod.yml" /etc/mongod.conf
 sudo chmod +x /etc/mongod.conf

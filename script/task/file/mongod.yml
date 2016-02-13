@@ -8,9 +8,9 @@ storage:
   dbPath: /var/lib/mongodb
   journal:
     enabled: true
-#  engine:
- mmapv1:
+  mmapv1:
     smallFiles: true
+#  engine:
 #  wiredTiger:
 
 # where to write logging data.
