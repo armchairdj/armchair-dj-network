@@ -4,9 +4,6 @@ SCRIPT_NAME="update_app"
 
 cd "$APP_ROOT"
 
-echo "$SCRIPT_NAME: git pull"
-git pull
-
 echo "$SCRIPT_NAME: npm install"
 npm install
 

@@ -9,7 +9,7 @@ echo "$SCRIPT_NAME: chown logs"
 sudo chown -R vagrant:vagrant /var/log/nginx/
 
 echo "$SCRIPT_NAME: copy sites-available/node"
-sudo cp "$CONF_FILE_DIR/nginx.site" /etc/nginx/sites-available/node
+sudo cp "$CONF_FILE_DIR/nginx.$NODE_ENV.site" /etc/nginx/sites-available/node
 
 echo "$SCRIPT_NAME: disable default site"
 sudo rm -f /etc/nginx/sites-enabled/default

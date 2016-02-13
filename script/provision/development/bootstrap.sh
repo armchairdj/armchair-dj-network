@@ -37,5 +37,5 @@ source "$HOME/.profile"
 
 ##### Now we can run everything else
 
-echo "ubuntu: run setup script"
-# sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/script/task/setup.sh"
+echo "ubuntu: run setup script as $APP_USER"
+sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/script/task/setup.sh"
