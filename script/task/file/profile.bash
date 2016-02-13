@@ -37,8 +37,8 @@ export NGINX_ERROR_LOG="/var/log/nginx/error.log"
 export CONF_FILE_DIR="$APP_ROOT/script/task/file"
 
 # Aliases.
-alias log="tail -n20 $NODE_LOG"
-alias 1000="tail -n1000 $NODE_LOG"
+alias log="tail -f -n20 $NODE_LOG"
+alias 1000="tail -f -n1000 $NODE_LOG"
 alias errors='grep "Error" $NODE_LOG | vim -'
 
 alias servers="ps aux | grep -v grep | grep node"

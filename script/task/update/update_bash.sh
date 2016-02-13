@@ -11,5 +11,4 @@ cp "$CONF_FILE_DIR/environment_vars.$NODE_ENV.bash" "$HOME/.environment_vars"
 echo "$SCRIPT_NAME: copy profile"
 cp "$CONF_FILE_DIR/profile.bash" "$HOME/.profile"
 
-echo "$SCRIPT_NAME: source updated files"
-source "$HOME/.profile"
+echo "$SCRIPT_NAME: You should run 'source $HOME/.profile' to pick up these changes"
