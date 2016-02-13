@@ -15,7 +15,8 @@ echo "$SCRIPT_NAME: update sources"
 apt-get update -y
 
 echo "$SCRIPT_NAME: upgrade os"
-apt-get upgrade -y
+# Prevent interactive pseudo-gui shell from running during headless upgrade
+sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 
 echo "$SCRIPT_NAME: install packages"
 apt-get install build-essential automake git-core curl dkms wget gcc g++ lib32z1-dev pkg-config libssl-dev vim less lsof -y
