@@ -23,6 +23,7 @@ echo "$SCRIPT_NAME: disable transparent hugepages"
 sudo cp "$APP_ROOT/script/task/file/disable-transparent-hugepages.conf" /etc/init.d/disable-transparent-hugepages
 sudo chmod 755 /etc/init.d/disable-transparent-hugepages
 sudo update-rc.d disable-transparent-hugepages defaults
+/etc/init.d/disable-transparent-hugepages
 
 echo "$SCRIPT_NAME: copy mongod upstart script"
 # sudo chown -R "$APP_USER:$APP_USER" /etc/init/mongod.conf

@@ -18,7 +18,7 @@ Vagrant.configure('2') do |config|
   config.vm.network :forwarded_port, host: 9070, guest: 80, auto_correct: true
 
   # Node. Should not need to access directly - access via Nginx instead.
-  # config.vm.network :forwarded_port, host: 9080, guest: 8000
+  config.vm.network :forwarded_port, host: 9080, guest: 8000
 
   # Mongo.
   config.vm.network :forwarded_port, host: 9090, guest: 27017, auto_correct: true
