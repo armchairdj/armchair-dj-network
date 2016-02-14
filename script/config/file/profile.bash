@@ -34,7 +34,7 @@ fi
 # Exports - common.
 export NGINX_ACCESS_LOG="/var/log/nginx/access.log"
 export NGINX_ERROR_LOG="/var/log/nginx/error.log"
-export CONF_FILE_DIR="$APP_ROOT/script/task/file"
+export CONF_FILE_DIR="$APP_ROOT/script/config/file"
 
 # Aliases.
 alias log="tail -f -n20 $NODE_LOG"
