@@ -46,7 +46,9 @@ var assetLocations = {
 var sourceFiles = {
   styles: {
     site: {
-      css:  [],
+      css:  [
+        './lib/asset/css/vendor/normalize-3.0.3.css'
+      ],
       styl: [
         './lib/asset/css/site/site.styl'
       ]
@@ -62,7 +64,7 @@ var sourceFiles = {
 
     site: {
       js: [
-        './lib/asset/js/vendor/jquery-2.0.2.js'
+        './lib/asset/js/vendor/jquery-2.2.0.js'
       ]
     }
   }
