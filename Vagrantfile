@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft = ruby :
 
+# Vagrant performance tuning:
+# https://stefanwrobel.com/how-to-make-vagrant-performance-not-suck
+
 Vagrant.configure('2') do |config|
 
   ### BASE BOX & VM
@@ -20,15 +23,19 @@ Vagrant.configure('2') do |config|
   # Mongo.
   config.vm.network :forwarded_port, host: 9090, guest: 27017, auto_correct: true
 
-  # Private network. NEEDED?
-  config.vm.network 'private_network', ip: '192.168.10.82'
+  # Private network (required for shared folder).
+  config.vm.network 'private_network', ip: '192.168.10.83'
 
   ### VIRTUALBOX
 
   config.vm.provider 'virtualbox' do |v|
     v.name   = 'armchairdj'
-    v.memory = 2048
-    v.cpus   = 2
+
+    v.memory = 4096
+
+    # Multi-core performance actually goes down.
+    v.cpus   = 1
+
     # Fixes DNS issue in Ubuntu VMs.
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
