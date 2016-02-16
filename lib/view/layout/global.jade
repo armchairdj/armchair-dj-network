@@ -20,6 +20,10 @@ body
   #wrap
     //- include /partials/chrome/masthead
 
+    header
+      - if (currentUser)
+        p Logged in as #{currentUser.name}
+
     block content
 
     //- include /partials/chrome/footer
