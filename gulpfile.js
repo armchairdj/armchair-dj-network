@@ -56,36 +56,33 @@ var dest = {
  */
 
 gulp.task('script-modernizr', function() {
-  return gulp.src(src.javascript.modernizr)
+  var stream = gulp.src(src.javascript.modernizr)
     .pipe(concat('modernizr.js'))
-    .pipe(gulp.dest(dest.development))
-    .pipe(uglify({ mangle: false }).on('error', handleError))
-    .pipe(gulp.dest(dest.production))
   ;
+
+  copyToDest(stream, uglify({ mangle: false }).on('error', handleError));
 });
 
 gulp.task('script-site', function() {
-  return browserify(src.javascript.site).bundle()
+  var stream = browserify(src.javascript.site)
+    .bundle()
     .pipe(source('site.js'))
-    .pipe(gulp.dest(dest.development))
     .pipe(buffer())
-    .pipe(uglify({ mangle: false }).on('error', handleError))
-    .pipe(gulp.dest(dest.production))
   ;
+
+  copyToDest(stream, uglify({ mangle: false }).on('error', handleError));
 });
 
 gulp.task('stylesheet-jet', function () {
-  var stream = streamqueue.obj();
-
-  stream.queue(              gulp.src(src.stylesheet.jet.css    ));
-  stream.queue(compileStylus(gulp.src(src.stylesheet.jet.stylus)));
-
-  stream.done()
+  var stream = streamqueue
+    .obj()
+    .queue(              gulp.src(src.stylesheet.jet.css    ))
+    .queue(compileStylus(gulp.src(src.stylesheet.jet.stylus)))
+    .done()
     .pipe(concat('jet.css'))
-    .pipe(gulp.dest(dest.development))
-    .pipe(cssnano())
-    .pipe(gulp.dest(dest.production))
   ;
+
+  copyToDest(stream, cssnano());
 });
 
 gulp.task('default', [
@@ -106,6 +103,14 @@ function compileStylus(src) {
       'include css': true,
       use:           [axis(), nib()]
     }))
+  ;
+}
+
+function copyToDest(stream, transform) {
+  stream
+    .pipe(gulp.dest(dest.development))
+    .pipe(transform)
+    .pipe(gulp.dest(dest.production))
   ;
 }
 
