@@ -1,0 +1,7 @@
+- if (flashMessages)
+  aside#flash(class=flashMessages.type data-behavior='FlashMessage')
+    .container
+      a.close(data-dismiss-flash href='#' title='click to dismiss this message') &times;
+
+      - each item in flashMessages.items
+          p !{item}

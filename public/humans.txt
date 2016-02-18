@@ -2,13 +2,14 @@
 /* humanstxt.org */
 
 /* TEAM */
-  Writer & Developer: Brian Dillard
-  Site: http://www.briandillard.com
-  Twitter: https://twitter.com/armchairdj
-  Location: Los Angeles
+  Brian Dillard
+  Writer & Developer
+  Los Angeles by way of Chicago by way of Battle Creek, MI, USA
+  http://www.briandillard.com
+  https://twitter.com/armchairdj
 
 /* MASCOT */
-  The Armchair DJ's armchair derived from a photo by David Costa:
+  The Armchair DJ's armchair is derived from a photo by David Costa:
   https://www.flickr.com/photos/101899087@N06/17221395626/in/photolist-dYpih1-9vrkMz-tBmAUN-seN9Wf-jbuBmL-Do7pLr-83PeP9-vdvVZ9-8BPNMh-83L6y4-9vun3q-83PhHQ-83LcKc-83Pdrq-83Pg2C-83Pb6s-83Pka7-naPigS-8XM7Vx-3jT8ET-5sJcWG
   Borrowed under the Creative Commons Attribution 2.0 Generic License:
   https://creativecommons.org/licenses/by/2.0/
@@ -18,7 +19,14 @@
   Icons from the 48 Bubbles Iconset by Umar Irshad:
   https://dribbble.com/shots/1569128-Freebie-48-Bubbles-Iconset
 
+/* WAYBACK */
+  Armchair DJ began its life as on the servers of http://www.msu.edu in 1996.
+  It was dormant for many years but returned to life in 2016.
+  You can see its erratic publication history at the Wayback Machine:
+  https://web.archive.org/web/20020602192407/http://www.armchair-dj.com
+
 /* THANKS */
   The Flickr creative commons.
   The Node community.
   Too many other open-source projects to name.
+  All the musicians, DJS, artists and other makers whose work I discuss here.

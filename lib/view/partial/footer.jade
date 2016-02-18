@@ -3,7 +3,7 @@ aside#footer
     nav
       ul.piped
         - if (currentUser)
-          li Logged in as #{currentUser.name}
+          li Logged in as #{currentUser.username}
           li: a(href='/auth/logout') Log Out
         - else
           li: a(href='/auth/login') Log In

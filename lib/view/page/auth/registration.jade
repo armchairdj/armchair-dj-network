@@ -1,25 +1,36 @@
 extends /layout/global
 
 block content
-  form(method='post' action='/auth/registration')
-    .field
-      label
-        span Name
-        input(type='text' name='name')
+  article.auth
+    header
+      h1
+        ul.piped
+          li Registration
+          li: a(href='/auth/login') Login
 
-    .field
-      label
-        span Email
-        input(type='text' name='email')
+      if error
+        h2.error!=error.message
 
-    .field
-      label
-        span Username
-        input(type='text' name='username')
+    section.form
+      form(method='post' action='/auth/registration')
+        .field
+          label
+            span Email
+            input(type='text' name='email' value=params.email)
 
-    .field
-      label
-        span Password
-        input(type='password' name='password')
+        .field
+          label
+            span Username
+            input(type='text' name='username' value=params.username)
 
-    input(type='submit' value='submit')
+        .field
+          label
+            span Name
+            input(type='text' name='name' value=params.name)
+
+        .field
+          label
+            span Password
+            input(type='password' name='password')
+
+        input(type='submit' value='submit')
