@@ -1,8 +1,53 @@
 nav#masthead {
   paddingVertical(20px)
 
+  header {
+    text-align: right;
+
+    h1,
+    h3 {
+      margin: 0;
+      normal();
+    }
+
+    h1 {
+      tight();
+      font-size: 54px;
+      margin-top: 60px;
+
+      span {
+        bold();
+      }
+    }
+
+    h3 {
+      breathable();
+      font-size: 18px;
+      color: $taglineTextColor;
+
+      span {
+        white-space: nowrap;
+        display: inline-block;
+      }
+    }
+  }
+
   @media $mediaL {
-    paddingVertical(40px)
-    padding-left: 120px;
+    paddingVertical(40px);
+
+    header {
+      backgroundForegroundImage(200px);
+      background-repeat: no-repeat;
+      background-image: url('/image/theme/jet/armchair.jpg');
+      background-position: top right;
+
+      h1 {
+        font-size: 68px;
+      }
+
+      h3 {
+        font-size: 26px;
+      }
+    }
   }
 }

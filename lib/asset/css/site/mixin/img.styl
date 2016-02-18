@@ -1,0 +1,15 @@
+flipBackgroundImage() {
+  transform: scaleX(-1);
+  filter: FlipH;
+
+  > * {
+    transform: scaleX(-1);
+    filter: FlipH;
+  }
+}
+
+backgroundForegroundImage($size) {
+  background-size: $size $size;
+  min-height: $size;
+  padding-right: ($size * 1.2);
+}

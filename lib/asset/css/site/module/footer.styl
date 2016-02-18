@@ -1,22 +1,19 @@
-footerBg($size) {
+aside#footer {
+  paddingVertical(20px)
+
   nav {
+    flipBackgroundImage();
+    backgroundForegroundImage(50px);
     background-repeat: no-repeat;
     background-image: url('/image/theme/jet/armchair.jpg');
     background-position: bottom right;
-    background-size: $size $size;
-    min-height: $size;
-    padding-right: ($size * 1.2);
   }
-}
-
-aside#footer {
-  paddingVertical(20px)
-  footerBg(100px);
 
   @media $mediaL {
+    nav {
+      backgroundForegroundImage(100px);
+    }
+      
     paddingVertical(40px)
-    footerBg(200px);
-
-    padding-left: 120px;
   }
 }
