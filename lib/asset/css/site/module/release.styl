@@ -1,9 +1,56 @@
 article.release {
   > header {
-    
-    
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      normal();
+      breathable();
+      font-size: $bodyFontSize;
+      margin: 0;
+
+      &.type {
+        font-size: 22px;
+
+        &:before,
+        &:after {
+          content: '/';
+        }
+      }
+      &.artist {
+        font-size: 30px;
+        color: darken($taglineTextColor, 20);
+      }
+      &.title {
+        font-size: 30px;
+        color: $taglineTextColor;
+      }
+      &.year {
+        font-size: 22px;
+        color: #999;
+      }
+    }
   }
-  
-  
-  
+
+  &.song {
+    > header {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        &.title cite {
+          &:before {
+            content: '\201C';
+          }
+          &:after {
+            content: '\201D';
+          }
+        }
+      }
+    }
+  }
 }

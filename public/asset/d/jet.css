@@ -435,9 +435,14 @@ body {
   font-size: 22px;
   color: #eee;
   font-weight: 300;
+  font-style: normal;
 }
 b {
   font-weight: 600;
+}
+cite {
+  font-weight: 300;
+  font-style: normal;
 }
 article > header,
 article > section {
@@ -668,13 +673,11 @@ nav#masthead {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-nav#masthead header {
-  text-align: right;
-}
 nav#masthead header h1,
 nav#masthead header h3 {
   margin: 0;
   font-weight: 300;
+  font-style: normal;
 }
 nav#masthead header h1 {
   line-height: 1;
@@ -714,4 +717,81 @@ nav#masthead header h3 span {
   nav#masthead header h3 {
     font-size: 26px;
   }
+}
+article.release > header h1,
+article.release > header h2,
+article.release > header h3,
+article.release > header h4,
+article.release > header h5,
+article.release > header h6 {
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.23;
+  font-size: 22px;
+  margin: 0;
+}
+article.release > header h1.type,
+article.release > header h2.type,
+article.release > header h3.type,
+article.release > header h4.type,
+article.release > header h5.type,
+article.release > header h6.type {
+  font-size: 22px;
+}
+article.release > header h1.type:before,
+article.release > header h2.type:before,
+article.release > header h3.type:before,
+article.release > header h4.type:before,
+article.release > header h5.type:before,
+article.release > header h6.type:before,
+article.release > header h1.type:after,
+article.release > header h2.type:after,
+article.release > header h3.type:after,
+article.release > header h4.type:after,
+article.release > header h5.type:after,
+article.release > header h6.type:after {
+  content: '/';
+}
+article.release > header h1.artist,
+article.release > header h2.artist,
+article.release > header h3.artist,
+article.release > header h4.artist,
+article.release > header h5.artist,
+article.release > header h6.artist {
+  font-size: 30px;
+  color: #10bcf8;
+}
+article.release > header h1.title,
+article.release > header h2.title,
+article.release > header h3.title,
+article.release > header h4.title,
+article.release > header h5.title,
+article.release > header h6.title {
+  font-size: 30px;
+  color: #73d8fb;
+}
+article.release > header h1.year,
+article.release > header h2.year,
+article.release > header h3.year,
+article.release > header h4.year,
+article.release > header h5.year,
+article.release > header h6.year {
+  font-size: 22px;
+  color: #999;
+}
+article.release.song > header h1.title cite:before,
+article.release.song > header h2.title cite:before,
+article.release.song > header h3.title cite:before,
+article.release.song > header h4.title cite:before,
+article.release.song > header h5.title cite:before,
+article.release.song > header h6.title cite:before {
+  content: '\201C';
+}
+article.release.song > header h1.title cite:after,
+article.release.song > header h2.title cite:after,
+article.release.song > header h3.title cite:after,
+article.release.song > header h4.title cite:after,
+article.release.song > header h5.title cite:after,
+article.release.song > header h6.title cite:after {
+  content: '\201D';
 }
