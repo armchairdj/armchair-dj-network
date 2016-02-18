@@ -7,6 +7,7 @@ var gulp        = require('gulp');
 var _           = require('underscore');
 var axis        = require('axis');
 var browserify  = require('browserify');
+var buffer      = require('vinyl-buffer');
 var concat      = require('gulp-concat');
 var cssnano     = require('gulp-cssnano');
 var events      = require('events');
@@ -39,7 +40,7 @@ var src = {
   },
   stylesheet: {
     jet: {
-      css:    './lib/asset/css/vendor/normalize-3.0.3.css'
+      css:    './lib/asset/css/vendor/normalize-3.0.3.css',
       stylus: './lib/asset/css/site/jet.styl'
     }
   }
@@ -56,10 +57,10 @@ var dest = {
 
 gulp.task('script-modernizr', function() {
   return gulp.src(src.javascript.modernizr)
-    .pipe(source('modernizr.js'))
+    .pipe(concat('modernizr.js'))
     .pipe(gulp.dest(dest.development))
-    .pipe(uglify({ mangle: false }))
-    .pipe(gulp.dest(assetLocation.production))
+    .pipe(uglify({ mangle: false }).on('error', handleError))
+    .pipe(gulp.dest(dest.production))
   ;
 });
 
@@ -67,8 +68,9 @@ gulp.task('script-site', function() {
   return browserify(src.javascript.site).bundle()
     .pipe(source('site.js'))
     .pipe(gulp.dest(dest.development))
-    .pipe(uglify({ mangle: false }))
-    .pipe(gulp.dest(assetLocation.production))
+    .pipe(buffer())
+    .pipe(uglify({ mangle: false }).on('error', handleError))
+    .pipe(gulp.dest(dest.production))
   ;
 });
 
@@ -79,10 +81,10 @@ gulp.task('stylesheet-jet', function () {
   stream.queue(compileStylus(gulp.src(src.stylesheet.jet.stylus)));
 
   stream.done()
-    .pipe(concat('jet.css')
+    .pipe(concat('jet.css'))
     .pipe(gulp.dest(dest.development))
     .pipe(cssnano())
-    .pipe(gulp.dest(assetLocation.production))
+    .pipe(gulp.dest(dest.production))
   ;
 });
 
@@ -105,4 +107,8 @@ function compileStylus(src) {
       use:           [axis(), nib()]
     }))
   ;
+}
+
+function handleError(err) {
+  console.log(err);
 }
