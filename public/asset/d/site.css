@@ -427,9 +427,68 @@ body {
   background-color: #222;
   color: #fff;
 }
-input {
+form .field {
+  margin-bottom: 20px;
+}
+form .field:last-child {
+  margin-bottom: 0;
+}
+form .field label {
+  display: block;
+}
+form .field label span {
+  display: block;
+}
+form .field label input[type=text],
+form .field label input[type=password] {
+  display: block;
   color: #222;
 }
 a {
+  cursor: pointer;
   color: #fff;
+  text-decoration: underline;
+}
+a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+ul li {
+  margin: 0;
+  padding: 0;
+  display: block;
+}
+ul.bulleted {
+  margin-left: 2em;
+  list-style-type: disc;
+}
+ul.bulleted li {
+  display: list-item;
+}
+ul.piped li {
+  display: inline-block;
+  margin-top: -0.1em;
+}
+ul.piped li:after {
+  content: "\007c";
+  font-size: 1.1em;
+  display: inline-block;
+  margin: 0 0.65em;
+}
+ul.piped li:last-child:after {
+  content: "";
+}
+ol.numbered {
+  margin: 0 0 15px;
+  padding: 0;
+  list-style-type: decimal;
+}
+ol.numbered li {
+  margin: 0 0 5px 2em;
+  padding: 0;
 }

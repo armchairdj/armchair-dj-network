@@ -1,15 +1,26 @@
 /*! Armchair DJ Site styles */
 
-body {
-  background-color: black;
-  color: white;
-}
+vendor-prefixes ?= webkit moz ms o official
 
-input {
-  color: black;
-}
+@import 'nib';
 
+@import 'config/color';
+@import 'config/math';
+@import 'config/font';
 
-a {
-  color: white;
-}
+@import 'mixin/form';
+@import 'mixin/link';
+@import 'mixin/list';
+@import 'mixin/selection';
+@import 'mixin/spacing';
+
+@import 'tag/article';
+@import 'tag/body';
+@import 'tag/form';
+@import 'tag/link';
+@import 'tag/list';
+@import 'tag/text';
+
+@import 'module/footer';
+@import 'module/header';
+@import 'module/masthead';

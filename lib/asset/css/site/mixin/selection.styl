@@ -1,0 +1,14 @@
+selectionBase($bg = $selectionBgColor, $color = $selectionTextColor, $textShadow = none) {
+  background: $bg;
+  color: $color;
+  text-shadow: $textShadow;
+}
+
+selection() {
+  ::-moz-selection {
+    selectionBase();
+  }
+  ::-selection {
+    selectionBase();
+  }
+}

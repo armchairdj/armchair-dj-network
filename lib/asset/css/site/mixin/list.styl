@@ -1,0 +1,49 @@
+numberedList() {
+  margin: 0 0 15px;
+  padding: 0;
+  list-style-type: decimal;
+
+  li {
+    margin: 0 0 5px 2em;
+    padding: 0;
+  }
+}
+
+plainList() {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+
+  li {
+    margin: 0;
+    padding: 0;
+    display: block;
+  }
+}
+
+bulletedList() {
+  margin-left: 2em;
+  list-style-type: disc;
+
+  li {
+    display: list-item;
+  }
+}
+
+pipedList() {
+  li {
+    display: inline-block;
+    margin-top: -.1em;
+
+    &:after {
+      content: "\007c";
+      font-size: 1.1em;
+      display: inline-block;
+      margin: 0 .65em;
+    }
+
+    &:last-child:after {
+      content: "";
+    }
+  }
+}
