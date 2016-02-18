@@ -452,46 +452,52 @@ article > header:last-child,
 article > section:last-child {
   margin-bottom: 0;
 }
-article header {
+article > header {
   margin-bottom: 20px;
 }
-article header:last-child {
+article > header:last-child {
   margin-bottom: 0;
 }
-article header h1,
-article header h2,
-article header h3,
-article header h4,
-article header h5,
-article header h6 {
+article > header h1,
+article > header h2,
+article > header h3,
+article > header h4,
+article > header h5,
+article > header h6 {
   line-height: 1.23;
   margin-bottom: 0.25em;
   font-weight: 600;
 }
-article header h1:last-child,
-article header h2:last-child,
-article header h3:last-child,
-article header h4:last-child,
-article header h5:last-child,
-article header h6:last-child {
+article > header h1:last-child,
+article > header h2:last-child,
+article > header h3:last-child,
+article > header h4:last-child,
+article > header h5:last-child,
+article > header h6:last-child {
   margin-bottom: 0;
 }
-article header h1 {
+article > header h1 {
   font-size: 46px;
 }
-article header h2 {
+article > header h2 {
   font-size: 38px;
 }
-article header h3 {
+article > header h3 {
   font-size: 28px;
 }
-article header h4,
-article header h5,
-article header h6 {
+article > header h4,
+article > header h5,
+article > header h6 {
   font-size: 22px;
 }
-article section {
+article > section {
   line-height: 1.5;
+}
+article > section p {
+  margin-bottom: 30px;
+}
+article > section p:last-child {
+  margin-bottom: 0;
 }
 @media only screen and (min-width: 980px) {
   article {
@@ -778,6 +784,19 @@ article.release > header h5.year,
 article.release > header h6.year {
   font-size: 22px;
   color: #999;
+}
+article.release > header,
+article.release > section {
+  border-bottom: 1px solid #494949;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+@media only screen and (min-width: 768px) {
+  article.release > header,
+  article.release > section {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
 }
 article.release.song > header h1.title cite:before,
 article.release.song > header h2.title cite:before,

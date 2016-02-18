@@ -4,7 +4,7 @@ article {
     marginBottom(40px);
   }
 
-  header {
+  > header {
     marginBottom(20px);
 
     h1,
@@ -37,8 +37,12 @@ article {
     }
   }
 
-  section {
+  > section {
     airy();
+
+    p {
+      marginBottom(30px);
+    }
   }
 
   @media $mediaXL {

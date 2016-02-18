@@ -1,0 +1,28 @@
+standardRuleLine($direction = bottom, $spacing = 20px, $cancelLastChild = false) {
+  border-{$direction}: 1px solid $standardRuleColor;
+
+  if $spacing != 0 {
+    margin-{$direction}: $spacing;
+    padding-{$direction}: $spacing;
+
+    if $cancelLastChild == true {
+      &:last-child {
+        border-{$direction}: none;
+        margin-{$direction}: 0;
+        padding-{$direction}: 0;
+      }
+    }
+  }
+
+  @media $mediaL {
+    margin-{$direction}: $spacing * 2;
+    padding-{$direction}: $spacing * 2;
+
+    if $cancelLastChild == true {
+      &:last-child {
+        margin-{$direction}: 0;
+        padding-{$direction}: 0;
+      }
+    }
+  }
+}
