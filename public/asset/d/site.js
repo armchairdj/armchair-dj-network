@@ -1,73 +1,182 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+(function (global){
 /**
  * External dependencies.
  */
 
-var $    = require('jquery');
-var _    = require('underscore');
+var $ = require('jquery');
 
 /**
  * Internal dependencies.
  */
 
-var safe = require('../../../../lib/util/safe');
+var behaviorize = require('../../../../lib/asset/js/site/util/behaviorize');
 
 /**
- * Module.
+ * Methods.
  */
-
-/* Behavior layer */
-
-var instances = {};
 
 function bootstrap() {
   behaviorize();
 }
 
-function behaviorize() {
-  $('[data-behavior]:not([data-behaviorized])').each(bindBehavior);
+/**
+ * Exports.
+ */
+
+module.exports = global.adj = (function () {
+
+  $(document).ready(bootstrap);
+
+  return {
+    behaviorize: behaviorize
+  };
+
+})();
+
+}).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
+},{"../../../../lib/asset/js/site/util/behaviorize":4,"jquery":7}],2:[function(require,module,exports){
+/**
+ * External dependencies.
+ */
+
+var $ = require('jquery');
+var _ = require('underscore');
+
+/**
+ * Internal dependencies.
+ */
+
+var clickEvent = require('../../../../../lib/asset/js/site/util/clickEvent');
+
+/**
+ * Constructor.
+ */
+
+function FlashMessage($node) {
+  this.$node = $node;
 }
 
-function bindBehavior(index, node) {
-  var $node    = $(node);
-  var behavior = $node.data('behavior');
-  var method   = safe(adj.behavior, behavior);
+/**
+ * Prototype.
+ */
 
-  if (!method) {
+FlashMessage.prototype = {
+  init: function () {
+    this.gatherNodes();
+    this.bindHandlers();
+  },
+
+  gatherNodes: function () {
+    this.$trigger = this.$node.find('[data-dismiss-flash]');
+  },
+
+  bindHandlers: function () {
+    this.$trigger.on(clickEvent(), _.bind(this.handleTriggerClick, this));
+  },
+
+  handleTriggerClick: function (evt) {
+    evt.preventDefault();
+
+    this.$node.remove();
+  }
+};
+
+/**
+ * Exports.
+ */
+
+module.exports = FlashMessage;
+},{"../../../../../lib/asset/js/site/util/clickEvent":5,"jquery":7,"underscore":8}],3:[function(require,module,exports){
+module.exports = {
+  FlashMessage: require('../../../../../lib/asset/js/site/behavior/FlashMessage')
+};
+
+},{"../../../../../lib/asset/js/site/behavior/FlashMessage":2}],4:[function(require,module,exports){
+/**
+ * External dependencies.
+ */
+
+var $         = require('jquery');
+var _         = require('underscore');
+
+/**
+ * Internal dependencies.
+ */
+
+var safe      = require('../../../../../lib/util/safe');
+
+var behaviors = require('../../../../../lib/asset/js/site/behavior/index');
+
+/**
+ * Setup.
+ */
+
+var instances = {};
+
+/**
+ * Method.
+ */
+
+function behaviorize() {
+  $('[data-behavior]:not([data-behaviorized])').each(instantiate);
+}
+
+behaviorize.instances = instances;
+behaviorize.behaviors = behaviors;
+
+/**
+ * Helper functions.
+ */
+
+function instantiate(index, node) {
+  var $node           = $(node);
+  var constructorName = $node.data('behavior');
+  var Constructor     = safe(behaviors, constructorName);
+
+  if (!Constructor) {
     return;
   }
 
   $node.attr('data-behaviorized', true);
 
-  /* Instaniate a class and save a reference */
-  instantiateBehavior(behavior, method, $node);
+  init(constructorName, Constructor, $node);
 }
 
-function instantiateBehavior(behavior, Constructor, $node) {
-  var instance = new Constructor($node);
+function init(constructorName, Constructor, $node) {
+  var instance               = new Constructor($node);
 
-  instances[behavior] = instances[behavior] || [];
+  instances[constructorName] = instances[constructorName] || [];
 
-  instances[behavior].push(instance);
+  instances[constructorName].push(instance);
 
   instance.init();
 }
 
-/* Global pub/sub */
+/**
+ * Exports.
+ */
 
-function broadcast(evtName, extraData) {
-  $(document).trigger(evtName, extraData);
-}
+module.exports = behaviorize;
+},{"../../../../../lib/asset/js/site/behavior/index":3,"../../../../../lib/util/safe":6,"jquery":7,"underscore":8}],5:[function(require,module,exports){
+/**
+ * External dependencies.
+ */
 
-function listen(evtName, callback) {
-  $(document).on(evtName, callback);
-}
+var $ = require('jquery');
+var _ = require('underscore');
 
-/* Touch vs. desktop events */
+/**
+ * Internal dependencies.
+ */
 
-var clickEvent = _.memoize(function () {
-  return touch() ? 'touchend' : 'click';
-});
+/**
+ * Methods.
+ */
+
+/**
+ * Helper functions.
+ */
 
 function touch() {
   return $('html').hasClass('touch');
@@ -77,21 +186,10 @@ function touch() {
  * Exports.
  */
 
-module.exports = {
-  behavior:    {},
-
-  instances:   instances,
-  bootstrap:   bootstrap,
-  behaviorize: behaviorize,
-
-  broadcast:   broadcast,
-  listen:      listen,
-
-  clickEvent:  clickEvent,
-  touch:       touch
-};
-
-},{"../../../../lib/util/safe":2,"jquery":3,"underscore":4}],2:[function(require,module,exports){
+module.exports = _.memoize(function () {
+  return touch() ? 'touchend' : 'click';
+});
+},{"jquery":7,"underscore":8}],6:[function(require,module,exports){
 /**
  * Method.
  */
@@ -116,7 +214,7 @@ function safe(obj, pathString, defaultVal) {
 
 module.exports = safe;
 
-},{}],3:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /*!
  * jQuery JavaScript Library v2.2.0
  * http://jquery.com/
@@ -9949,7 +10047,7 @@ if ( !noGlobal ) {
 return jQuery;
 }));
 
-},{}],4:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 //     Underscore.js 1.8.3
 //     http://underscorejs.org
 //     (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
