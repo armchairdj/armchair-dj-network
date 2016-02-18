@@ -12,6 +12,11 @@
   https://www.flickr.com/photos/101899087@N06/17221395626/in/photolist-dYpih1-9vrkMz-tBmAUN-seN9Wf-jbuBmL-Do7pLr-83PeP9-vdvVZ9-8BPNMh-83L6y4-9vun3q-83PhHQ-83LcKc-83Pdrq-83Pg2C-83Pb6s-83Pka7-naPigS-8XM7Vx-3jT8ET-5sJcWG
   Borrowed under the Creative Commons Attribution 2.0 Generic License:
   https://creativecommons.org/licenses/by/2.0/
+  Modified extensively for various uses.
+
+/* FAVICON */
+  Icons from the 48 Bubbles Iconset by Umar Irshad:
+  https://dribbble.com/shots/1569128-Freebie-48-Bubbles-Iconset
 
 /* THANKS */
   The Flickr creative commons.
