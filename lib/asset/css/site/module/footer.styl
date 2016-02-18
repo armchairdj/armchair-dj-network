@@ -1,12 +1,22 @@
-$footerIconSize = 100px;
-
-aside.footer {
+footerBg($size) {
   nav {
     background-repeat: no-repeat;
     background-image: url('/image/theme/jet/armchair.jpg');
     background-position: bottom right;
-    background-size: $footerIconSize $footerIconSize;
-    min-height: $footerIconSize;
-    padding-right: ($footerIconSize * 1.2);
+    background-size: $size $size;
+    min-height: $size;
+    padding-right: ($size * 1.2);
+  }
+}
+
+aside#footer {
+  paddingVertical(20px)
+  footerBg(100px);
+
+  @media $mediaL {
+    paddingVertical(40px)
+    footerBg(200px);
+
+    padding-left: 120px;
   }
 }

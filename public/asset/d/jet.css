@@ -434,7 +434,7 @@ body {
   font-weight: 400;
   font-size: 24px;
   background-color: #000;
-  color: #fff;
+  color: #eee;
 }
 article > header {
   margin-bottom: 40px;
@@ -475,11 +475,11 @@ img {
 }
 a {
   cursor: pointer;
-  color: #fff;
+  color: #2071b1;
   text-decoration: underline;
 }
 a:hover {
-  color: #eee;
+  color: #103a5b;
   text-decoration: underline;
 }
 ul {
@@ -504,10 +504,10 @@ ul.piped li {
   margin-top: -0.1em;
 }
 ul.piped li:after {
-  content: "\007c";
+  content: " \007c";
   font-size: 1.1em;
   display: inline-block;
-  margin: 0 0.65em;
+  margin: 0 0.45em 0 0.65em;
 }
 ul.piped li:last-child:after {
   content: "";
@@ -532,15 +532,26 @@ ol.numbered li {
 @media only screen and (min-width: 768px) {
   .container {
     margin: 0 40px;
-    max-width: 800px;
+    max-width: 1000px;
   }
 }
 #content {
-  padding: 80px 0;
-  background-color: #111;
-  min-height: 600px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  background-color: #292929;
 }
-aside.footer nav {
+@media only screen and (min-width: 768px) {
+  #content {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    min-height: 1000px;
+  }
+}
+aside#footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+aside#footer nav {
   background-repeat: no-repeat;
   background-image: url("/image/theme/jet/armchair.jpg");
   background-position: bottom right;
@@ -549,4 +560,32 @@ aside.footer nav {
   background-size: 100px 100px;
   min-height: 100px;
   padding-right: 120px;
+}
+@media only screen and (min-width: 768px) {
+  aside#footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 120px;
+  }
+  aside#footer nav {
+    background-repeat: no-repeat;
+    background-image: url("/image/theme/jet/armchair.jpg");
+    background-position: bottom right;
+    -webkit-background-size: 200px 200px;
+    -moz-background-size: 200px 200px;
+    background-size: 200px 200px;
+    min-height: 200px;
+    padding-right: 240px;
+  }
+}
+nav#masthead {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+@media only screen and (min-width: 768px) {
+  nav#masthead {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-left: 120px;
+  }
 }

@@ -1,5 +1,9 @@
 #content {
-  padding: 80px 0;
-  background-color: #111;
-  min-height: 600px;
+  paddingVertical(20px);
+  background-color: $contentBgColor;
+
+  @media $mediaL {
+    paddingVertical(40px);
+    min-height: 1000px;
+  }
 }
