@@ -60,7 +60,7 @@ gulp.task('script-modernizr', function() {
     .pipe(concat('modernizr.js'))
   ;
 
-  copyToDest(stream, uglify({ mangle: false }).on('error', handleError));
+  copyToDest(stream, uglifier());
 });
 
 gulp.task('script-site', function() {
@@ -70,7 +70,7 @@ gulp.task('script-site', function() {
     .pipe(buffer())
   ;
 
-  copyToDest(stream, uglify({ mangle: false }).on('error', handleError));
+  copyToDest(stream, uglifier());
 });
 
 gulp.task('stylesheet-jet', function () {
@@ -114,6 +114,10 @@ function copyToDest(stream, transform) {
   ;
 }
 
-function handleError(err) {
-  console.log(err);
+function uglifier() {
+  return uglify({ mangle: false }).on('error', handleError)
+
+  function handleError(err) {
+    console.log(err);
+  }
 }
