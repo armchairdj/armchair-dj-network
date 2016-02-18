@@ -1,7 +1,8 @@
 nav.masthead
-  ul.piped
-    - if (currentUser)
-      li: a(href='/auth/logout') Log Out
-    - else
-      li: a(href='/auth/login') Log In
-      li: a(href='/auth/registration') Register
+  .container
+    ul.piped
+      - if (currentUser)
+        li: a(href='/auth/logout') Log Out
+      - else
+        li: a(href='/auth/login') Log In
+        li: a(href='/auth/registration') Register
