@@ -1,13 +1,27 @@
 aside#flash {
+  padding: 20px 0;
+  position: relative;
+
   &.error {
-    
+    background-color: $errorBgColor;
+    color: $errorTextColor;
   }
 
   &.success {
-    
+    background-color: $successBgColor;
+    color: $successTextColor;
   }
 
   &.info {
-    
+    background-color: $infoBgColor;
+    color: $infoTextColor;
+  }
+
+  a.close {
+    plainLink();
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: $errorTextColor;
   }
 }

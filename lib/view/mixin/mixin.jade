@@ -24,6 +24,9 @@ mixin script(fileName)
 
 mixin stylesheet(fileName)
   link(rel='stylesheet' type='text/css' href=viewHelper.assetFile(fileName, 'css'))
+  
+mixin externalStylesheet(href)
+  link(rel='stylesheet' type='text/css' href=href)
 
 mixin touchIcons()
   link(rel='apple-touch-icon-precomposed' href='/apple-touch-icon-precomposed.png')

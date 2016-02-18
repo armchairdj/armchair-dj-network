@@ -2,29 +2,30 @@
  * External dependencies.
  */
 
-var gulp           = require('gulp');
+var gulp        = require('gulp');
 
-var _              = require('underscore');
-var axis           = require('axis');
-var concat         = require('gulp-concat');
-var cssnano        = require('gulp-cssnano');
-var es             = require('event-stream');
-var events         = require('events');
-var nib            = require('nib');
-var path           = require('path');
-var plumber        = require('gulp-plumber');
-var source         = require('vinyl-source-stream');
-var streamify      = require('gulp-streamify');
-var streamqueue    = require('streamqueue');
-var stylus         = require('gulp-stylus');
-var through        = require('through2');
-var uglify         = require('gulp-uglify');
+var _           = require('underscore');
+var axis        = require('axis');
+var browserify  = require('browserify');
+var concat      = require('gulp-concat');
+var cssnano     = require('gulp-cssnano');
+var es          = require('event-stream');
+var events      = require('events');
+var nib         = require('nib');
+var path        = require('path');
+var plumber     = require('gulp-plumber');
+var source      = require('vinyl-source-stream');
+var streamify   = require('gulp-streamify');
+var streamqueue = require('streamqueue');
+var stylus      = require('gulp-stylus');
+var through     = require('through2');
+var uglify      = require('gulp-uglify');
 
 /**
  * Internal dependencies.
  */
 
-var config          = require('./lib/util/configure')();
+var config      = require('./lib/util/configure')();
 
 /*
   The following line fixes this problem:
@@ -38,9 +39,16 @@ events.EventEmitter.prototype._maxListeners = 100;
   Source files.
 */
 
-var assetLocations = {
+var assetDestination = {
   development: './public/asset/d',
   production:  './public/asset/p'
+};
+
+
+var sources = {
+  js: {
+    site: './lib/asset/js/site/adj.js'
+  }
 };
 
 var sourceFiles = {
@@ -63,9 +71,10 @@ var sourceFiles = {
     },
 
     site: {
-      js: [
-        './lib/asset/js/vendor/jquery-2.2.0.js'
-      ]
+      // js: [
+      //   './lib/asset/js/vendor/jquery-2.2.0.js'
+      // ],
+      br: './lib/asset/js/site/test.js'
     }
   }
 };
@@ -98,14 +107,14 @@ function srcList(type, component, format) {
 function concatStyles(component) {
   return compileStyles(component)
     .pipe(concat(component + '.css'))
-    .pipe(gulp.dest(assetLocations.development))
+    .pipe(gulp.dest(assetLocation.development))
     .pipe(cssnano())
-    .pipe(gulp.dest(assetLocations.production))
+    .pipe(gulp.dest(assetLocation.production))
   ;
 }
 
 function compileStyles(component) {
-  var stream = streamqueue({ objectMode: true });
+  var stream = streamqueue.obj();
   var css    = srcList('stylesheet', component, 'css' );
   var styl   = srcList('stylesheet', component, 'styl');
 
@@ -136,26 +145,55 @@ function compileStylus(src) {
  */
 
 function concatScripts(component) {
-  return compileScripts(component)
-    .pipe(concat(component + '.js'))
-    .pipe(gulp.dest(assetLocations.development))
-    .pipe(uglify({
-      mangle: false
-    }))
-    .pipe(gulp.dest(assetLocations.production))
-  ;
+  var scripts = compileScripts(component);
+
+  console.log('compiled');
+
+  var file = scripts.pipe(source(component + '.js'));
+
+  console.log('file');
+
+  var dev = file.pipe(gulp.dest(assetLocation.development));
+
+  console.log('dev');
+
+  var ugly = dev.pipe(uglify({
+    mangle: false
+  }));
+
+  console.log('ugly');
+
+  var pro = ugly.pipe(gulp.dest(assetLocation.production));
+
+  console.log('pro');
+
+  return pro;
 }
 
 function compileScripts(component) {
-  var stream = streamqueue({ objectMode: true });
-
-  var js =  srcList('script', component, 'js'  );
+  var stream = streamqueue.obj();
+  var js     = srcList('script', component, 'js');
+  var br     = srcList('script', component, 'br');
 
   if (js) {
     stream.queue(js);
   }
 
+  if (br) {
+    stream.queue(compileBrowserify(br));
+  }
+
+  console.log('queued');
+
   return stream.done();
+}
+
+function compileBrowserify(src) {
+  var compiled = browserify(src).bundle().on('error', handleBrowserifyError);
+
+  console.log('compiled');
+
+  return compiled;
 }
 
 /**
@@ -176,6 +214,8 @@ function createTask(taskName) {
   }
 
   gulp.task(taskName, function () {
+    console.log('task', component);
+
     return method(component);
   });
 }
@@ -211,4 +251,21 @@ gulp.task('watch', function () {
   _.each( tasks, createWatcher );
 });
 
-gulp.task( 'default', tasks );
+gulp.task('default', tasks);
+
+
+function handleBrowserifyError(err) {
+  console.log('ERR!', err.message, err);
+
+  this.emit('end');
+}
+
+
+
+gulp.task('browserify', function() {
+  return browserify(sources.js.site)
+    .bundle()
+    .pipe(source('site.js'))
+    .pipe(gulp.dest(assetDestination.development))
+  ;
+});

@@ -430,11 +430,14 @@ th {
 }
 body {
   margin: 0;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 400;
-  font-size: 24px;
   background-color: #000;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 24px;
   color: #eee;
+  font-weight: 300;
+}
+b {
+  font-weight: 600;
 }
 article > header {
   margin-bottom: 40px;
@@ -448,6 +451,23 @@ article section {
 }
 article header:last-child,
 article section:last-child {
+  margin-bottom: 0;
+}
+article header h1,
+article header h2,
+article header h3,
+article header h4,
+article header h5,
+article header h6 {
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+article header h1:last-child,
+article header h2:last-child,
+article header h3:last-child,
+article header h4:last-child,
+article header h5:last-child,
+article header h6:last-child {
   margin-bottom: 0;
 }
 form .field {
@@ -479,7 +499,7 @@ a {
   text-decoration: underline;
 }
 a:hover {
-  color: #103a5b;
+  color: #56a4e1;
   text-decoration: underline;
 }
 ul {
@@ -546,6 +566,33 @@ ol.numbered li {
     padding-bottom: 40px;
     min-height: 1000px;
   }
+}
+aside#flash {
+  padding: 20px 0;
+  position: relative;
+}
+aside#flash.error {
+  background-color: #fdc;
+  color: #930;
+}
+aside#flash.success {
+  background-color: $successBgColor;
+  color: #00c011;
+}
+aside#flash.info {
+  background-color: #fff;
+  color: #999;
+}
+aside#flash a.close {
+  cursor: pointer;
+  text-decoration: none;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #930;
+}
+aside#flash a.close:hover {
+  text-decoration: none;
 }
 aside#footer {
   padding-top: 20px;
