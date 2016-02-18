@@ -44,18 +44,18 @@ var assetLocations = {
 };
 
 var sourceFiles = {
-  styles: {
-    site: {
+  stylesheet: {
+    jet: {
       css:  [
         './lib/asset/css/vendor/normalize-3.0.3.css'
       ],
       styl: [
-        './lib/asset/css/site/site.styl'
+        './lib/asset/css/site/jet.styl'
       ]
     },
   },
 
-  scripts: {
+  script: {
     modernizr: {
       js: [
         './lib/asset/js/vendor/modernizr.js'
@@ -106,8 +106,8 @@ function concatStyles(component) {
 
 function compileStyles(component) {
   var stream = streamqueue({ objectMode: true });
-  var css    = srcList('styles', component, 'css' );
-  var styl   = srcList('styles', component, 'styl');
+  var css    = srcList('stylesheet', component, 'css' );
+  var styl   = srcList('stylesheet', component, 'styl');
 
   if (css) {
     stream.queue(css);
@@ -149,7 +149,7 @@ function concatScripts(component) {
 function compileScripts(component) {
   var stream = streamqueue({ objectMode: true });
 
-  var js =  srcList('scripts', component, 'js'  );
+  var js =  srcList('script', component, 'js'  );
 
   if (js) {
     stream.queue(js);
@@ -168,10 +168,10 @@ function createTask(taskName) {
 
   var method;
 
-  if (type === 'scripts') {
+  if (type === 'script') {
     method = concatScripts;
   }
-  else if (type === 'styles' ) {
+  else if (type === 'stylesheet' ) {
     method = concatStyles;
   }
 
@@ -186,12 +186,12 @@ function createWatcher(taskName) {
 
   var files = [];
 
-  if (type === 'scripts') {
-    files.push( fileList('scripts', component, 'js'  ) );
+  if (type === 'script') {
+    files.push( fileList('script',      component, 'js'  ) );
   }
-  else if (type === 'styles' ) {
-    files.push( fileList('styles',  component, 'css' ) );
-    files.push( fileList('styles',  component, 'styl') );
+  else if (type === 'stylesheet' ) {
+    files.push( fileList('stylesheet',  component, 'css' ) );
+    files.push( fileList('stylesheet',  component, 'styl') );
   }
 
   gulp.watch( arrayicize(files), [taskName] );
@@ -200,9 +200,9 @@ function createWatcher(taskName) {
 /***** Create actual gulp tasks *****/
 
 var tasks = [
-  'styles-site',
-  'scripts-modernizr',
-  'scripts-site'
+  'stylesheet-jet',
+  'script-modernizr',
+  'script-site'
 ];
 
 _.each( tasks, createTask );

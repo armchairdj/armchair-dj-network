@@ -1,33 +1,31 @@
-mixin metaAuthor
-  meta(name='author' content='Brian J. Dillard')
-
-mixin metaDescription(desc)
-  if desc
-    meta(name='description' content='#{desc}')
-
-mixin metaStandard(desc)
+mixin metaStandard()
   meta(charset='utf-8')
   meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
 
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
 
   +metaAuthor()
-  +metaDescription(desc)
+  +metaDescription()
+  +metaKeywords()
 
-mixin modernizrHtmlOpenTag
-  <!--[if lt IE 7]>      <html lang="en" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-  <!--[if IE 7]>         <html lang="en" class="no-js lt-ie9 lt-ie8">        <![endif]-->
-  <!--[if IE 8]>         <html lang="en" class="no-js lt-ie9">               <![endif]-->
-  <!--[if IE 9]>         <html lang="en" class="no-js ie ie9">               <![endif]-->
-  <!--[if gt IE 9]><!--> <html lang="en" class="no-js">                  <!--<![endif]-->
+mixin metaAuthor()
+  meta(name='author' content='Brian J. Dillard')
 
-mixin siteScript(fileName)
+mixin metaDescription()
+  if pageDescription
+    meta(name='description' content=pageDescription)
+
+mixin metaKeywords()
+  if pageKeywords
+    meta(name='keywords' content=pageKeywords.join(','))
+
+mixin script(fileName)
   script(src=viewHelper.assetFile(fileName, 'js'))
 
-mixin siteStylesheet(fileName)
+mixin stylesheet(fileName)
   link(rel='stylesheet' type='text/css' href=viewHelper.assetFile(fileName, 'css'))
 
-mixin touchIcons
+mixin touchIcons()
   link(rel='apple-touch-icon-precomposed' href='/images/touch-icons/apple-touch-icon-precomposed.png')
   link(rel='icon' sizes='192x192' href='/images/touch-icons/touch-icon-192x192.png')
   link(rel='shortcut icon' href='/favicon.ico')
