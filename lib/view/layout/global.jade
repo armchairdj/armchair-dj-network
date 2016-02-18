@@ -18,15 +18,11 @@ head
 
 body
   #wrap
-    //- include /partials/chrome/masthead
-
-    header
-      - if (currentUser)
-      p Logged in as /#{currentUser.name}/
+    include /partial/masthead
 
     block content
 
-    //- include /partials/chrome/footer
+    include /partial/footer
 
   +siteScript('site')
 
