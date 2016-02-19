@@ -499,12 +499,6 @@ article > section p {
 article > section p:last-child {
   margin-bottom: 0;
 }
-@media only screen and (min-width: 980px) {
-  article {
-    margin-left: -200px;
-    margin-right: 400px;
-  }
-}
 form .field {
   margin-bottom: 20px;
 }
@@ -577,12 +571,7 @@ ol.numbered li {
   padding: 0;
 }
 .container {
-  margin: 0 10px;
-}
-@media only screen and (min-width: 600px) {
-  .container {
-    padding: 0 20px;
-  }
+  padding: 0 20px;
 }
 @media only screen and (min-width: 768px) {
   .container {
@@ -590,15 +579,10 @@ ol.numbered li {
     max-width: 980px;
   }
 }
-@media only screen and (min-width: 980px) {
-  .container {
-    margin-left: 200px;
-  }
-}
 #content {
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: #191919;
+  background-color: #121413;
 }
 @media only screen and (min-width: 768px) {
   #content {
@@ -637,47 +621,36 @@ aside#flash a.close:hover {
 aside#footer {
   padding-top: 20px;
   padding-bottom: 20px;
-}
-aside#footer nav {
-  -webkit-transform: scaleX(-1);
-  -moz-transform: scaleX(-1);
-  -ms-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
   -webkit-background-size: 50px 50px;
   -moz-background-size: 50px 50px;
   background-size: 50px 50px;
-  min-height: 50px;
-  padding-right: 60px;
+  min-height: 52.5px;
+  padding-right: 55.00000000000001px;
   background-repeat: no-repeat;
   background-image: url("/image/theme/jet/armchair.jpg");
-  background-position: bottom right;
+  background-position: 100% 50%;
 }
-aside#footer nav > * {
-  -webkit-transform: scaleX(-1);
-  -moz-transform: scaleX(-1);
-  -ms-transform: scaleX(-1);
-  -o-transform: scaleX(-1);
-  transform: scaleX(-1);
-  filter: FlipH;
+aside#footer nav {
+  font-size: 18px;
 }
 @media only screen and (min-width: 768px) {
   aside#footer {
     padding-top: 40px;
     padding-bottom: 40px;
-  }
-  aside#footer nav {
+    padding-top: 80px;
     -webkit-background-size: 100px 100px;
     -moz-background-size: 100px 100px;
     background-size: 100px 100px;
-    min-height: 100px;
-    padding-right: 120px;
+    min-height: 105px;
+    padding-right: 110.00000000000001px;
   }
 }
 nav#masthead {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+nav#masthead header {
+  text-align: center;
 }
 nav#masthead header h1,
 nav#masthead header h3 {
@@ -687,7 +660,7 @@ nav#masthead header h3 {
 }
 nav#masthead header h1 {
   line-height: 1;
-  font-size: 54px;
+  font-size: 46px;
 }
 nav#masthead header h1 span {
   font-weight: 600;
@@ -718,21 +691,36 @@ nav#masthead header h3 span {
     padding-bottom: 40px;
   }
   nav#masthead header {
-    -webkit-background-size: 200px 200px;
-    -moz-background-size: 200px 200px;
-    background-size: 200px 200px;
-    min-height: 200px;
-    padding-right: 240px;
+    text-align: right;
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+    -webkit-background-size: 150px 150px;
+    -moz-background-size: 150px 150px;
+    background-size: 150px 150px;
+    min-height: 157.5px;
+    padding-right: 165px;
     background-repeat: no-repeat;
     background-image: url("/image/theme/jet/armchair.jpg");
     background-position: top right;
   }
+  nav#masthead header > * {
+    -webkit-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: FlipH;
+  }
   nav#masthead header h1 {
     padding-top: 20px;
-    font-size: 68px;
+    font-size: 54px;
   }
   nav#masthead header h3 {
-    font-size: 26px;
+    font-size: 22px;
   }
   nav#masthead header h3 span {
     display: block;
@@ -756,7 +744,7 @@ article.release > header h3.type,
 article.release > header h4.type,
 article.release > header h5.type,
 article.release > header h6.type {
-  font-size: 20px;
+  font-size: 22px;
 }
 article.release > header h1.type:after,
 article.release > header h2.type:after,
@@ -772,7 +760,7 @@ article.release > header h3.artist,
 article.release > header h4.artist,
 article.release > header h5.artist,
 article.release > header h6.artist {
-  font-size: 32px;
+  font-size: 38px;
   color: #10bcf8;
 }
 article.release > header h1.title,
@@ -781,7 +769,7 @@ article.release > header h3.title,
 article.release > header h4.title,
 article.release > header h5.title,
 article.release > header h6.title {
-  font-size: 32px;
+  font-size: 38px;
   color: #73d8fb;
 }
 article.release > header h1.year,
@@ -821,4 +809,18 @@ article.release.song > header h4.title cite:after,
 article.release.song > header h5.title cite:after,
 article.release.song > header h6.title cite:after {
   content: '\201D';
+}
+@media only screen and (min-width: 768px) {
+  article.release section {
+    padding-right: 300px;
+  }
+  article.release .featureArt {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    margin-right: -300px;
+    margin-left: -40px;
+  }
+  article.release .featureArt img {
+    display: block;
+  }
 }

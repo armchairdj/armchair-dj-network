@@ -12,18 +12,18 @@ article.release {
       margin: 0;
 
       &.type {
-        font-size: 20px;
+        font-size: 22px;
 
         &:after {
           content: '\00A0\2192';
         }
       }
       &.artist {
-        font-size: 32px;
+        font-size: 38px;
         color: darken($taglineTextColor, 20);
       }
       &.title {
-        font-size: 32px;
+        font-size: 38px;
         color: $taglineTextColor;
       }
       &.year {
@@ -54,6 +54,22 @@ article.release {
             content: '\201D';
           }
         }
+      }
+    }
+  }
+
+  @media $mediaL {
+    section {
+      padding-right: 300px;
+    }
+
+    .featureArt {
+      paddingVertical(15px);
+      margin-right: -300px;
+      margin-left: -40px;
+
+      img {
+        display: block;
       }
     }
   }

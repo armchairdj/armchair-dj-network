@@ -1,19 +1,17 @@
 aside#footer {
   paddingVertical(20px)
+  backgroundForegroundImage(50px);
+  background-repeat: no-repeat;
+  background-image: url('/image/theme/jet/armchair.jpg');
+  background-position: 100% 50%;
 
   nav {
-    flipBackgroundImage();
-    backgroundForegroundImage(50px);
-    background-repeat: no-repeat;
-    background-image: url('/image/theme/jet/armchair.jpg');
-    background-position: bottom right;
+    font-size: 18px;
   }
 
   @media $mediaL {
-    nav {
-      backgroundForegroundImage(100px);
-    }
-      
     paddingVertical(40px)
+    padding-top: 80px;
+    backgroundForegroundImage(100px);
   }
 }
