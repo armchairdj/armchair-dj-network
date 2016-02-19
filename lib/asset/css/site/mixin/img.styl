@@ -8,8 +8,18 @@ flipBackgroundImage() {
   }
 }
 
-backgroundForegroundImage($size) {
+backgroundForegroundImage($url, $size, $width = $size, $height = $size, $solo = false, $paddingRatio = 1) {
+  background-image: url($url);
+  background-repeat: no-repeat;
   background-size: $size $size;
-  min-height: $size * 1.05;
-  padding-right: ($size * 1.1);
+
+  if $solo == true {
+    /* The container exists only to contain this BG image */
+    width: $size;
+    height: $size;
+  } else {
+    /* The container has other content, so lets make sure the image doesn't get cut off */
+    min-height: $size * $paddingRatio;
+    min-width: $size * $paddingRatio;
+  }
 }

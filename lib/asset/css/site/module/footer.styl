@@ -1,8 +1,6 @@
 aside#footer {
   paddingVertical(20px)
-  backgroundForegroundImage(50px);
-  background-repeat: no-repeat;
-  background-image: url('/image/theme/jet/armchair.jpg');
+  backgroundForegroundImage($size: 50px, $url: '/image/theme/jet/armchair.jpg');
   background-position: 99% 50%;
   font-size: 20px;
 
@@ -26,6 +24,6 @@ aside#footer {
 
   @media $mediaL {
     paddingVertical(40px)
-    backgroundForegroundImage(100px);
+    backgroundForegroundImage($size: 100px, $url: '/image/theme/jet/armchair.jpg');
   }
 }

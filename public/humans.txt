@@ -4,7 +4,7 @@
 /* TEAM */
   Brian Dillard
   Writer & Developer
-  Los Angeles by way of Chicago by way of Battle Creek, MI, USA
+  Los Angeles via Chicago by way of Battle Creek, MI, USA
   http://www.briandillard.com
   https://twitter.com/armchairdj
 
@@ -20,13 +20,13 @@
   https://dribbble.com/shots/1569128-Freebie-48-Bubbles-Iconset
 
 /* WAYBACK */
-  Armchair DJ began its life as on the servers of http://www.msu.edu in 1996.
+  Armchair DJ began its life on the servers of http://msu.edu in 1996.
   It was dormant for many years but returned to life in 2016.
   You can see its erratic publication history at the Wayback Machine:
   https://web.archive.org/web/20020602192407/http://www.armchair-dj.com
 
 /* THANKS */
-  The Flickr creative commons.
-  The Node community.
+  Flickr creative commons photographers.
+  The Node.js community.
   Too many other open-source projects to name.
   All the musicians, DJS, artists and other makers whose work I discuss here.

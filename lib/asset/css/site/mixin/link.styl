@@ -34,3 +34,19 @@ linkColorStandard() {
 navLinkColor() {
   linkColor($navLinkColor, $navLinkColorHover);
 }
+
+grayscaleLinkTransition() {
+  transition: filter 1s linear;
+  -webkit-transition: -webkit-filter 1s linear;
+
+  prefixedFilter(grayscale(.1));
+
+  &:hover {
+    prefixedFilter(grayscale(.7));
+  }
+}
+
+prefixedFilter() {
+  filter: arguments;
+  -webkit-filter: arguments;
+}

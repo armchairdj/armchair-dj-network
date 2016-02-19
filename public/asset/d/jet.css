@@ -423,6 +423,7 @@ th {
   padding: 0;
 }
 /* Armchair DJ Site styles */
+/* Nib */
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -491,14 +492,33 @@ article > header h5,
 article > header h6 {
   font-size: 22px;
 }
-article > section {
-  line-height: 1.5;
+article > section,
+article > nav {
+  margin-bottom: 40px;
 }
-article > section p {
-  margin-bottom: 30px;
-}
-article > section p:last-child {
+article > section:last-child,
+article > nav:last-child {
   margin-bottom: 0;
+}
+article > section > *,
+article > nav > * {
+  margin-bottom: 20px;
+}
+article > section > *:last-child,
+article > nav > *:last-child {
+  margin-bottom: 0;
+}
+article > section blockquote,
+article > nav blockquote,
+article > section p,
+article > nav p,
+article > section ul,
+article > nav ul,
+article > section ol,
+article > nav ol,
+article > section li,
+article > nav li {
+  line-height: 1.5;
 }
 form .field {
   margin-bottom: 20px;
@@ -629,13 +649,14 @@ aside#flash a.close:hover {
 aside#footer {
   padding-top: 20px;
   padding-bottom: 20px;
+  background-image: url("/image/theme/jet/armchair.jpg");
+  background-repeat: no-repeat;
   -webkit-background-size: 50px 50px;
   -moz-background-size: 50px 50px;
   background-size: 50px 50px;
-  min-height: 52.5px;
-  padding-right: 55.00000000000001px;
-  background-repeat: no-repeat;
-  background-image: url("/image/theme/jet/armchair.jpg");
+/* The container has other content, so lets make sure the image doesn't get cut off */
+  min-height: 50px;
+  min-width: 50px;
   background-position: 99% 50%;
   font-size: 20px;
 }
@@ -656,7 +677,7 @@ aside#footer .userStatus {
 aside#footer nav a {
   cursor: pointer;
   text-decoration: none;
-  color: #bbb;
+  color: #eee;
   -webkit-transition: color 1s;
   -moz-transition: color 1s;
   -ms-transition: color 1s;
@@ -667,22 +688,47 @@ aside#footer nav a:hover {
   text-decoration: none;
 }
 aside#footer nav a:hover {
-  color: #eee;
+  color: #bbb;
 }
 @media only screen and (min-width: 768px) {
   aside#footer {
     padding-top: 40px;
     padding-bottom: 40px;
+    background-image: url("/image/theme/jet/armchair.jpg");
+    background-repeat: no-repeat;
     -webkit-background-size: 100px 100px;
     -moz-background-size: 100px 100px;
     background-size: 100px 100px;
-    min-height: 105px;
-    padding-right: 110.00000000000001px;
+    min-height: 100px;
+    min-width: 100px;
   }
 }
 nav#masthead {
   padding-top: 20px;
   padding-bottom: 20px;
+}
+nav#masthead span.mascot,
+nav#masthead a.mascot {
+  display: none;
+}
+nav#masthead a.mascot {
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-transition: filter 1s linear;
+  -moz-transition: filter 1s linear;
+  -ms-transition: filter 1s linear;
+  -o-transition: filter 1s linear;
+  transition: filter 1s linear;
+  -webkit-transition: -webkit-filter 1s linear;
+  filter: grayscale(0.1);
+  -webkit-filter: grayscale(0.1);
+}
+nav#masthead a.mascot:hover {
+  text-decoration: none;
+}
+nav#masthead a.mascot:hover {
+  filter: grayscale(0.7);
+  -webkit-filter: grayscale(0.7);
 }
 nav#masthead header {
   text-align: center;
@@ -703,7 +749,7 @@ nav#masthead header h1 span {
 nav#masthead header h1 a {
   cursor: pointer;
   text-decoration: none;
-  color: #bbb;
+  color: #eee;
   -webkit-transition: color 1s;
   -moz-transition: color 1s;
   -ms-transition: color 1s;
@@ -714,7 +760,7 @@ nav#masthead header h1 a:hover {
   text-decoration: none;
 }
 nav#masthead header h1 a:hover {
-  color: #eee;
+  color: #bbb;
 }
 nav#masthead header h3 {
   line-height: 1.23;
@@ -729,25 +775,32 @@ nav#masthead header h3 span {
   nav#masthead {
     padding-top: 40px;
     padding-bottom: 40px;
+    position: relative;
+    min-height: 150px;
   }
-  nav#masthead header {
-    text-align: right;
+  nav#masthead span.mascot,
+  nav#masthead a.mascot {
     -webkit-transform: scaleX(-1);
     -moz-transform: scaleX(-1);
     -ms-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     transform: scaleX(-1);
     filter: FlipH;
+    background-image: url("/image/theme/jet/armchair.jpg");
+    background-repeat: no-repeat;
     -webkit-background-size: 150px 150px;
     -moz-background-size: 150px 150px;
     background-size: 150px 150px;
-    min-height: 157.5px;
-    padding-right: 165px;
-    background-repeat: no-repeat;
-    background-image: url("/image/theme/jet/armchair.jpg");
+/* The container has other content, so lets make sure the image doesn't get cut off */
+    min-height: 150px;
+    min-width: 150px;
+    position: absolute;
+    top: 20px;
+    display: block;
     background-position: top right;
   }
-  nav#masthead header > * {
+  nav#masthead span.mascot > *,
+  nav#masthead a.mascot > * {
     -webkit-transform: scaleX(-1);
     -moz-transform: scaleX(-1);
     -ms-transform: scaleX(-1);
@@ -755,8 +808,11 @@ nav#masthead header h3 span {
     transform: scaleX(-1);
     filter: FlipH;
   }
+  nav#masthead header {
+    text-align: right;
+    padding-left: 180px;
+  }
   nav#masthead header h1 {
-    padding-top: 20px;
     font-size: 54px;
   }
   nav#masthead header h3 {
@@ -857,7 +913,7 @@ article.release.song > header h6.title cite:after {
   article.release .featureArt {
     padding-top: 15px;
     padding-bottom: 15px;
-    margin-right: -300px;
+    margin-right: -340px;
     margin-left: -40px;
   }
   article.release .featureArt img {

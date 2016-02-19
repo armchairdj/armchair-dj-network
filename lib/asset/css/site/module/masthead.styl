@@ -1,6 +1,16 @@
 nav#masthead {
   paddingVertical(20px)
 
+  span.mascot,
+  a.mascot {
+    display: none;
+  }
+
+  a.mascot {
+    plainLink();
+    grayscaleLinkTransition();
+  }
+
   header {
     text-align: center;
 
@@ -38,18 +48,24 @@ nav#masthead {
 
   @media $mediaL {
     paddingVertical(40px);
+    position: relative;
+    min-height: $mascotSizeDesktop;
+
+    span.mascot,
+    a.mascot {
+      flipBackgroundImage();
+      backgroundForegroundImage($size: $mascotSizeDesktop, $url: '/image/theme/jet/armchair.jpg');
+      position: absolute;
+      top: 20px;
+      display: block;
+      background-position: top right;
+    }
 
     header {
       text-align: right;
-
-      flipBackgroundImage();
-      backgroundForegroundImage(150px);
-      background-repeat: no-repeat;
-      background-image: url('/image/theme/jet/armchair.jpg');
-      background-position: top right;
+      padding-left: 180px;
 
       h1 {
-        padding-top: 20px;
         font-size: 54px;
       }
 
