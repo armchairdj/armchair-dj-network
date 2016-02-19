@@ -1,10 +1,8 @@
-standardLink() {
+underlinedLink() {
   cursor: pointer;
-  color: $linkColor;
   text-decoration: underline;
 
   &:hover {
-    color: $linkColorHover;
     text-decoration: underline;
   }
 }
@@ -16,4 +14,23 @@ plainLink() {
   &:hover {
     text-decoration: none;
   }
+}
+
+linkColor($off, $on = false) {
+  color: $off;
+  transition: color 1s;
+
+  if $on != false {
+    &:hover {
+      color: $on;
+    }
+  }
+}
+
+linkColorStandard() {
+  linkColor($linkColor, $linkColorHover);
+}
+
+navLinkColor() {
+  linkColor($navLinkColor, $navLinkColorHover);
 }

@@ -3,15 +3,29 @@ aside#footer {
   backgroundForegroundImage(50px);
   background-repeat: no-repeat;
   background-image: url('/image/theme/jet/armchair.jpg');
-  background-position: 100% 50%;
+  background-position: 99% 50%;
+  font-size: 20px;
+
+  .copyright,
+  nav,
+  .userStatus {
+    marginBottom(20px);
+  }
+  
+  .copyright,
+  .userStatus {
+    color: #888;
+  }
 
   nav {
-    font-size: 18px;
+    a {
+      plainLink();
+      navLinkColor();
+    }
   }
 
   @media $mediaL {
     paddingVertical(40px)
-    padding-top: 80px;
     backgroundForegroundImage(100px);
   }
 }

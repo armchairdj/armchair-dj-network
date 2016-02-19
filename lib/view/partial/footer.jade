@@ -1,11 +1,21 @@
 aside#footer
   .container
+    .copyright
+      Copyright &copy; 1996-!{currentYear} Brian J. Dillard
+
     nav
       ul.piped
+        li: a(href='/about') About
+        li: a(href='/humans.txt') Colophon
+
         - if (currentUser)
-          li Logged in as #{currentUser.username}
           li: a(href='/auth/logout') Log Out
+          li: a(href='/admin') Admin
+          li: a(href='/profile') Admin
         - else
           li: a(href='/auth/login') Log In
           //- li: a(href='/auth/registration') Register
-        li: a(href='/about') About
+
+    - if (currentUser)
+      .userStatus Logged in as <strong>#{currentUser.username}</strong>.
+    

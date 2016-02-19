@@ -437,7 +437,8 @@ body {
   font-weight: 300;
   font-style: normal;
 }
-b {
+b,
+strong {
   font-weight: 600;
 }
 cite {
@@ -524,12 +525,19 @@ img {
 }
 a {
   cursor: pointer;
+  text-decoration: underline;
   color: #2071b1;
+  -webkit-transition: color 1s;
+  -moz-transition: color 1s;
+  -ms-transition: color 1s;
+  -o-transition: color 1s;
+  transition: color 1s;
+}
+a:hover {
   text-decoration: underline;
 }
 a:hover {
   color: #56a4e1;
-  text-decoration: underline;
 }
 ul {
   margin: 0;
@@ -628,16 +636,43 @@ aside#footer {
   padding-right: 55.00000000000001px;
   background-repeat: no-repeat;
   background-image: url("/image/theme/jet/armchair.jpg");
-  background-position: 100% 50%;
+  background-position: 99% 50%;
+  font-size: 20px;
 }
-aside#footer nav {
-  font-size: 18px;
+aside#footer .copyright,
+aside#footer nav,
+aside#footer .userStatus {
+  margin-bottom: 20px;
+}
+aside#footer .copyright:last-child,
+aside#footer nav:last-child,
+aside#footer .userStatus:last-child {
+  margin-bottom: 0;
+}
+aside#footer .copyright,
+aside#footer .userStatus {
+  color: #888;
+}
+aside#footer nav a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #bbb;
+  -webkit-transition: color 1s;
+  -moz-transition: color 1s;
+  -ms-transition: color 1s;
+  -o-transition: color 1s;
+  transition: color 1s;
+}
+aside#footer nav a:hover {
+  text-decoration: none;
+}
+aside#footer nav a:hover {
+  color: #eee;
 }
 @media only screen and (min-width: 768px) {
   aside#footer {
     padding-top: 40px;
     padding-bottom: 40px;
-    padding-top: 80px;
     -webkit-background-size: 100px 100px;
     -moz-background-size: 100px 100px;
     background-size: 100px 100px;
@@ -668,13 +703,18 @@ nav#masthead header h1 span {
 nav#masthead header h1 a {
   cursor: pointer;
   text-decoration: none;
-  color: #ddd;
+  color: #bbb;
+  -webkit-transition: color 1s;
+  -moz-transition: color 1s;
+  -ms-transition: color 1s;
+  -o-transition: color 1s;
+  transition: color 1s;
 }
 nav#masthead header h1 a:hover {
   text-decoration: none;
 }
 nav#masthead header h1 a:hover {
-  color: #fff;
+  color: #eee;
 }
 nav#masthead header h3 {
   line-height: 1.23;
