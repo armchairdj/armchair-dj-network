@@ -850,6 +850,23 @@ article.release > header h5.type,
 article.release > header h6.type {
   font-size: 22px;
 }
+article.release > header h1.type a,
+article.release > header h2.type a,
+article.release > header h3.type a,
+article.release > header h4.type a,
+article.release > header h5.type a,
+article.release > header h6.type a {
+  cursor: pointer;
+  text-decoration: none;
+}
+article.release > header h1.type a:hover,
+article.release > header h2.type a:hover,
+article.release > header h3.type a:hover,
+article.release > header h4.type a:hover,
+article.release > header h5.type a:hover,
+article.release > header h6.type a:hover {
+  text-decoration: none;
+}
 article.release > header h1.type:after,
 article.release > header h2.type:after,
 article.release > header h3.type:after,
