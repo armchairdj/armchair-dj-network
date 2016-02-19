@@ -32,3 +32,13 @@ mixin touchIcons()
   link(rel='apple-touch-icon-precomposed' href='/apple-touch-icon-precomposed.png')
   link(rel='icon' sizes='192x192' href='/apple-touch-icon-precomposed.png')
   link(rel='shortcut icon' href='/favicon.ico')
+
+mixin mascot()
+  - if (isHomepage)
+    span.mascot &nbsp;
+  - else
+    a.mascot(href='/' title='back to homepage') &nbsp;
+
+mixin siteTitle()
+  | Armchair #{''}
+  span DJ

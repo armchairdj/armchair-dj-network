@@ -1,14 +1,9 @@
 nav#masthead {
   paddingVertical(20px)
 
-  span.mascot,
-  a.mascot {
+  a.mascot,
+  span.mascot {
     display: none;
-  }
-
-  a.mascot {
-    plainLink();
-    grayscaleLinkTransition();
   }
 
   header {
@@ -49,12 +44,12 @@ nav#masthead {
   @media $mediaL {
     paddingVertical(40px);
     position: relative;
-    min-height: $mascotSizeDesktop;
+    min-height: $mascotSizeMastheadDesktop;
 
-    span.mascot,
-    a.mascot {
+    a.mascot,
+    span.mascot {
       flipBackgroundImage();
-      backgroundForegroundImage($size: $mascotSizeDesktop, $url: '/image/theme/jet/armchair.jpg');
+      backgroundForegroundImage($size: $mascotSizeMastheadDesktop);
       position: absolute;
       top: 20px;
       display: block;

@@ -18,7 +18,7 @@ plainLink() {
 
 linkColor($off, $on = false) {
   color: $off;
-  transition: color 1s;
+  transition: color 0.5s ease-in-out 0.1s;
 
   if $on != false {
     &:hover {
@@ -36,17 +36,12 @@ navLinkColor() {
 }
 
 grayscaleLinkTransition() {
-  transition: filter 1s linear;
-  -webkit-transition: -webkit-filter 1s linear;
+  transition: filter 1s ease-in-out;
+  -webkit-transition: -webkit-filter 1s ease-in-out;
 
   prefixedFilter(grayscale(.1));
 
   &:hover {
     prefixedFilter(grayscale(.7));
   }
-}
-
-prefixedFilter() {
-  filter: arguments;
-  -webkit-filter: arguments;
 }

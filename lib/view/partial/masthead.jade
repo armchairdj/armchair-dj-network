@@ -1,20 +1,13 @@
 nav#masthead
   .container
-
-    - if (isHomepage)
-      span.mascot &nbsp;
-    - else
-      a.mascot(href='/' title='back to homepage') &nbsp;
+    +mascot()
 
     header
       h1
         - if (isHomepage)
-          | Armchair #{''}
-          span DJ
+          +siteTitle()
         - else
-          a(href='/' title='back to homepage')
-            | Armchair #{''}
-            span DJ
+          a(href='/' title='back to homepage'): +siteTitle()
 
       h3
         span A monologue about music,

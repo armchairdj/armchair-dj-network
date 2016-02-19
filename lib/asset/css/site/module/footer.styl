@@ -1,11 +1,21 @@
 aside#footer {
-  paddingVertical(20px)
-  backgroundForegroundImage($size: 50px, $url: '/image/theme/jet/armchair.jpg');
-  background-position: 99% 50%;
-  font-size: 20px;
+  position: relative;
+  padding-top: 20px;
+  padding-bottom: $mascotSizeFooterMobile + 40px;
+  text-align: center;
+  font-size: 16px;
 
-  .copyright,
+  a.mascot,
+  span.mascot {
+    backgroundForegroundImage($size: $mascotSizeFooterMobile);
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    margin-left: ($mascotSizeFooterMobile * -.5);
+  }
+
   nav,
+  .copyright,
   .userStatus {
     marginBottom(20px);
   }
@@ -23,7 +33,17 @@ aside#footer {
   }
 
   @media $mediaL {
-    paddingVertical(40px)
-    backgroundForegroundImage($size: 100px, $url: '/image/theme/jet/armchair.jpg');
+    paddingVertical(40px);
+    text-align: left;
+    font-size: 20px;
+
+    a.mascot,
+    span.mascot {
+      backgroundForegroundImage($size: $mascotSizeFooterDesktop);
+      right: 10px;
+      bottom: 20px;
+      left: auto;
+      margin: 0;
+    }
   }
 }

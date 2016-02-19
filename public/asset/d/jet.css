@@ -547,11 +547,11 @@ a {
   cursor: pointer;
   text-decoration: underline;
   color: #2071b1;
-  -webkit-transition: color 1s;
-  -moz-transition: color 1s;
-  -ms-transition: color 1s;
-  -o-transition: color 1s;
-  transition: color 1s;
+  -webkit-transition: color 0.5s ease-in-out 0.1s;
+  -moz-transition: color 0.5s ease-in-out 0.1s;
+  -ms-transition: color 0.5s ease-in-out 0.1s;
+  -o-transition: color 0.5s ease-in-out 0.1s;
+  transition: color 0.5s ease-in-out 0.1s;
 }
 a:hover {
   text-decoration: underline;
@@ -647,9 +647,14 @@ aside#flash a.close:hover {
   text-decoration: none;
 }
 aside#footer {
+  position: relative;
   padding-top: 20px;
-  padding-bottom: 20px;
-  background-image: url("/image/theme/jet/armchair.jpg");
+  padding-bottom: 90px;
+  text-align: center;
+  font-size: 16px;
+}
+aside#footer a.mascot,
+aside#footer span.mascot {
   background-repeat: no-repeat;
   -webkit-background-size: 50px 50px;
   -moz-background-size: 50px 50px;
@@ -657,16 +662,18 @@ aside#footer {
 /* The container has other content, so lets make sure the image doesn't get cut off */
   min-height: 50px;
   min-width: 50px;
-  background-position: 99% 50%;
-  font-size: 20px;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  margin-left: -25px;
 }
-aside#footer .copyright,
 aside#footer nav,
+aside#footer .copyright,
 aside#footer .userStatus {
   margin-bottom: 20px;
 }
-aside#footer .copyright:last-child,
 aside#footer nav:last-child,
+aside#footer .copyright:last-child,
 aside#footer .userStatus:last-child {
   margin-bottom: 0;
 }
@@ -678,57 +685,70 @@ aside#footer nav a {
   cursor: pointer;
   text-decoration: none;
   color: #eee;
-  -webkit-transition: color 1s;
-  -moz-transition: color 1s;
-  -ms-transition: color 1s;
-  -o-transition: color 1s;
-  transition: color 1s;
+  -webkit-transition: color 0.5s ease-in-out 0.1s;
+  -moz-transition: color 0.5s ease-in-out 0.1s;
+  -ms-transition: color 0.5s ease-in-out 0.1s;
+  -o-transition: color 0.5s ease-in-out 0.1s;
+  transition: color 0.5s ease-in-out 0.1s;
 }
 aside#footer nav a:hover {
   text-decoration: none;
 }
 aside#footer nav a:hover {
-  color: #bbb;
+  color: #888;
 }
 @media only screen and (min-width: 768px) {
   aside#footer {
     padding-top: 40px;
     padding-bottom: 40px;
-    background-image: url("/image/theme/jet/armchair.jpg");
+    text-align: left;
+    font-size: 20px;
+  }
+  aside#footer a.mascot,
+  aside#footer span.mascot {
     background-repeat: no-repeat;
     -webkit-background-size: 100px 100px;
     -moz-background-size: 100px 100px;
     background-size: 100px 100px;
+/* The container has other content, so lets make sure the image doesn't get cut off */
     min-height: 100px;
     min-width: 100px;
+    right: 10px;
+    bottom: 20px;
+    left: auto;
+    margin: 0;
   }
+}
+a.mascot {
+  cursor: pointer;
+  text-decoration: none;
+  -webkit-transition: filter 1s ease-in-out;
+  -moz-transition: filter 1s ease-in-out;
+  -ms-transition: filter 1s ease-in-out;
+  -o-transition: filter 1s ease-in-out;
+  transition: filter 1s ease-in-out;
+  -webkit-transition: -webkit-filter 1s ease-in-out;
+  filter: grayscale(0.1);
+  -webkit-filter: grayscale(0.1);
+}
+a.mascot:hover {
+  text-decoration: none;
+}
+a.mascot:hover {
+  filter: grayscale(0.7);
+  -webkit-filter: grayscale(0.7);
+}
+a.mascot,
+span.mascot {
+  background-image: url("/image/theme/jet/armchair.jpg");
 }
 nav#masthead {
   padding-top: 20px;
   padding-bottom: 20px;
 }
-nav#masthead span.mascot,
-nav#masthead a.mascot {
+nav#masthead a.mascot,
+nav#masthead span.mascot {
   display: none;
-}
-nav#masthead a.mascot {
-  cursor: pointer;
-  text-decoration: none;
-  -webkit-transition: filter 1s linear;
-  -moz-transition: filter 1s linear;
-  -ms-transition: filter 1s linear;
-  -o-transition: filter 1s linear;
-  transition: filter 1s linear;
-  -webkit-transition: -webkit-filter 1s linear;
-  filter: grayscale(0.1);
-  -webkit-filter: grayscale(0.1);
-}
-nav#masthead a.mascot:hover {
-  text-decoration: none;
-}
-nav#masthead a.mascot:hover {
-  filter: grayscale(0.7);
-  -webkit-filter: grayscale(0.7);
 }
 nav#masthead header {
   text-align: center;
@@ -750,17 +770,17 @@ nav#masthead header h1 a {
   cursor: pointer;
   text-decoration: none;
   color: #eee;
-  -webkit-transition: color 1s;
-  -moz-transition: color 1s;
-  -ms-transition: color 1s;
-  -o-transition: color 1s;
-  transition: color 1s;
+  -webkit-transition: color 0.5s ease-in-out 0.1s;
+  -moz-transition: color 0.5s ease-in-out 0.1s;
+  -ms-transition: color 0.5s ease-in-out 0.1s;
+  -o-transition: color 0.5s ease-in-out 0.1s;
+  transition: color 0.5s ease-in-out 0.1s;
 }
 nav#masthead header h1 a:hover {
   text-decoration: none;
 }
 nav#masthead header h1 a:hover {
-  color: #bbb;
+  color: #888;
 }
 nav#masthead header h3 {
   line-height: 1.23;
@@ -778,15 +798,14 @@ nav#masthead header h3 span {
     position: relative;
     min-height: 150px;
   }
-  nav#masthead span.mascot,
-  nav#masthead a.mascot {
+  nav#masthead a.mascot,
+  nav#masthead span.mascot {
     -webkit-transform: scaleX(-1);
     -moz-transform: scaleX(-1);
     -ms-transform: scaleX(-1);
     -o-transform: scaleX(-1);
     transform: scaleX(-1);
     filter: FlipH;
-    background-image: url("/image/theme/jet/armchair.jpg");
     background-repeat: no-repeat;
     -webkit-background-size: 150px 150px;
     -moz-background-size: 150px 150px;
@@ -799,8 +818,8 @@ nav#masthead header h3 span {
     display: block;
     background-position: top right;
   }
-  nav#masthead span.mascot > *,
-  nav#masthead a.mascot > * {
+  nav#masthead a.mascot > *,
+  nav#masthead span.mascot > * {
     -webkit-transform: scaleX(-1);
     -moz-transform: scaleX(-1);
     -ms-transform: scaleX(-1);
