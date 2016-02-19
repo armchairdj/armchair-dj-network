@@ -11,10 +11,18 @@ nav#masthead {
     h1 {
       tight();
       font-size: 54px;
-      margin-top: 60px;
 
       span {
         bold();
+      }
+
+      a {
+        plainLink();
+        color: $bodyTextColor;
+
+        &:hover {
+          color: lighten($bodyTextColor, 20);
+        }
       }
     }
 
@@ -40,11 +48,16 @@ nav#masthead {
       background-position: top right;
 
       h1 {
+        padding-top: 20px;
         font-size: 68px;
       }
 
       h3 {
         font-size: 26px;
+
+        span {
+          display: block;
+        }
       }
     }
   }

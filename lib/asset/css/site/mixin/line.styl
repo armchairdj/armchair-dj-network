@@ -1,5 +1,5 @@
-standardRuleLine($direction = bottom, $spacing = 20px, $cancelLastChild = false) {
-  border-{$direction}: 1px solid $standardRuleColor;
+standardRuleLine($color = $standardRuleColor, $direction = bottom, $spacing = 20px, $cancelLastChild = false) {
+  border-{$direction}: 1px solid $color;
 
   if $spacing != 0 {
     margin-{$direction}: $spacing;

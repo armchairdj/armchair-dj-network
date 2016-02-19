@@ -12,23 +12,22 @@ article.release {
       margin: 0;
 
       &.type {
-        font-size: 22px;
+        font-size: 20px;
 
-        &:before,
         &:after {
-          content: '/';
+          content: '\00A0\2192';
         }
       }
       &.artist {
-        font-size: 30px;
+        font-size: 32px;
         color: darken($taglineTextColor, 20);
       }
       &.title {
-        font-size: 30px;
+        font-size: 32px;
         color: $taglineTextColor;
       }
       &.year {
-        font-size: 22px;
+        font-size: 26px;
         color: #999;
       }
     }
@@ -36,7 +35,7 @@ article.release {
 
   > header,
   > section {
-    standardRuleLine();
+    standardRuleLine(#333);
   }
 
   &.song {

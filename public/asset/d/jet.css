@@ -433,7 +433,7 @@ body {
   background-color: #000;
   font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 22px;
-  color: #eee;
+  color: #ddd;
   font-weight: 300;
   font-style: normal;
 }
@@ -688,10 +688,20 @@ nav#masthead header h3 {
 nav#masthead header h1 {
   line-height: 1;
   font-size: 54px;
-  margin-top: 60px;
 }
 nav#masthead header h1 span {
   font-weight: 600;
+}
+nav#masthead header h1 a {
+  cursor: pointer;
+  text-decoration: none;
+  color: #ddd;
+}
+nav#masthead header h1 a:hover {
+  text-decoration: none;
+}
+nav#masthead header h1 a:hover {
+  color: #fff;
 }
 nav#masthead header h3 {
   line-height: 1.23;
@@ -718,10 +728,14 @@ nav#masthead header h3 span {
     background-position: top right;
   }
   nav#masthead header h1 {
+    padding-top: 20px;
     font-size: 68px;
   }
   nav#masthead header h3 {
     font-size: 26px;
+  }
+  nav#masthead header h3 span {
+    display: block;
   }
 }
 article.release > header h1,
@@ -742,21 +756,15 @@ article.release > header h3.type,
 article.release > header h4.type,
 article.release > header h5.type,
 article.release > header h6.type {
-  font-size: 22px;
+  font-size: 20px;
 }
-article.release > header h1.type:before,
-article.release > header h2.type:before,
-article.release > header h3.type:before,
-article.release > header h4.type:before,
-article.release > header h5.type:before,
-article.release > header h6.type:before,
 article.release > header h1.type:after,
 article.release > header h2.type:after,
 article.release > header h3.type:after,
 article.release > header h4.type:after,
 article.release > header h5.type:after,
 article.release > header h6.type:after {
-  content: '/';
+  content: '\00A0\2192';
 }
 article.release > header h1.artist,
 article.release > header h2.artist,
@@ -764,7 +772,7 @@ article.release > header h3.artist,
 article.release > header h4.artist,
 article.release > header h5.artist,
 article.release > header h6.artist {
-  font-size: 30px;
+  font-size: 32px;
   color: #10bcf8;
 }
 article.release > header h1.title,
@@ -773,7 +781,7 @@ article.release > header h3.title,
 article.release > header h4.title,
 article.release > header h5.title,
 article.release > header h6.title {
-  font-size: 30px;
+  font-size: 32px;
   color: #73d8fb;
 }
 article.release > header h1.year,
@@ -782,12 +790,12 @@ article.release > header h3.year,
 article.release > header h4.year,
 article.release > header h5.year,
 article.release > header h6.year {
-  font-size: 22px;
+  font-size: 26px;
   color: #999;
 }
 article.release > header,
 article.release > section {
-  border-bottom: 1px solid #494949;
+  border-bottom: 1px solid #333;
   margin-bottom: 20px;
   padding-bottom: 20px;
 }

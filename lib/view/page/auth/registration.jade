@@ -3,10 +3,7 @@ extends /layout/armchair
 block content
   article.auth
     header
-      h1
-        ul.piped
-          li Registration
-          li: a(href='/auth/login') Login
+      h1 Registration
 
       if error
         h2.error!=error.message
