@@ -58,6 +58,16 @@ article.release {
     }
   }
 
+  > section {
+    p {
+      dropCap(80px);
+
+      @media $mediaL {
+        dropCap(200px);
+      }
+    }
+  }
+
   @media $mediaL {
     section {
       padding-right: 300px;

@@ -18,10 +18,11 @@ plainLink() {
 
 linkColor($off, $on = false) {
   color: $off;
-  transition: color 0.5s ease-in-out 0.1s;
+  transition: color 0.5s ease-in-out 0.1s, text-shadow 0.5s ease-in-out 0.1s;
 
   if $on != false {
     &:hover {
+      text-shadow: 1px 1px 1px rgba(190, 210, 190, 0.7);
       color: $on;
     }
   }
@@ -29,10 +30,6 @@ linkColor($off, $on = false) {
 
 linkColorStandard() {
   linkColor($linkColor, $linkColorHover);
-}
-
-navLinkColor() {
-  linkColor($navLinkColor, $navLinkColorHover);
 }
 
 grayscaleLinkTransition() {

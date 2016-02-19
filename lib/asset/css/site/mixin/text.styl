@@ -18,3 +18,13 @@ breathable() {
 airy() {
   line-height: 1.5;
 }
+
+dropCap($fontSize) {
+  &:first-child:first-letter {
+    bold();
+    float: left;
+    font-size: $fontSize;
+    line-height: .75;
+    padding: $fontSize * .04 $fontSize * .04 0 0;
+  }
+}

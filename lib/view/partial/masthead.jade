@@ -3,11 +3,10 @@ nav#masthead
     +mascot()
 
     header
-      h1
-        - if (isHomepage)
-          +siteTitle()
-        - else
-          a(href='/' title='back to homepage'): +siteTitle()
+      - if (isHomepage)
+        h1: +siteTitle()
+      - else
+        h2: a(href='/' title='back to homepage'): +siteTitle()
 
       h3
         span A monologue about music,
