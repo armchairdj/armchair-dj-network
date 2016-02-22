@@ -15,9 +15,10 @@ var mongoose     = require('mongoose');
  * Internal dependencies.
  */
 
-var config      = require('../lib/util/configure')();
+var config      = require('../../lib/util/configure')();
 var mongoUri    = config.mongo.uri;
 var db          = require('monk')(mongoUri);
+var data        = require('../../script/db/seedData.js');
 
 /**
  * Steps
@@ -25,23 +26,28 @@ var db          = require('monk')(mongoUri);
 
 var fns = {
   users:    function (next) {
-    
+    console.log('users', data.users);
+    next();
   },
 
   releases: function (next) {
-    
+    console.log('releases', data.releases);
+    next();
   },
 
   mixes:    function (next) {
-    
+    console.log('mixes', data.mixes);
+    next();
   },
 
   tags:     function (next) {
-    
+    console.log('tags', data.tags);
+    next();
   },
 
   posts:    function (next) {
-    
+    console.log('posts', data.posts);
+    next();
   }
 };
 
