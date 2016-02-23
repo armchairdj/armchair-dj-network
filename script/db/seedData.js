@@ -31,6 +31,54 @@ module.exports = {
       email:    'nice@armchair-dj.com'
     }
   ],
+  tags: [
+    {
+      name: 'detroit techno',
+      type: 'genre'
+    }, {
+      name: 'trip-hop',
+      type: 'genre'
+    }, {
+      name: 'synth-pop',
+      type: 'genre'
+    }, {
+      name: 'art-rock',
+      type: 'genre'
+    }, {
+      name: 'disco',
+      type: 'genre'
+    }, {
+      name: 'Aaliyah',
+      type: 'artist'
+    }, {
+      name: 'David Bowie',
+      type: 'artist'
+    }, {
+      name: 'Kate Bush',
+      type: 'artist'
+    }, {
+      name: 'Pet Shop Boys',
+      type: 'artist'
+    }, {
+      name: 'Saint Etienne',
+      type: 'artist'
+    }, {
+      name: 'depressing',
+      type: 'mood'
+    }, {
+      name: 'uplifting',
+      type: 'mood'
+    }, {
+      name: 'unsettling',
+      type: 'mood'
+    }, {
+      name: 'autumnal',
+      type: 'mood'
+    }, {
+      name: 'elegiac',
+      type: 'mood'
+    }
+  ],
   releases: [
     {
       artist: 'David Bowie',
@@ -95,11 +143,6 @@ module.exports = {
       year:   '1992',
       type:   'Song'
     }, {
-      artist: 'a-ha',
-      title:  'Take On Me',
-      year:   '1985',
-      type:   'Song'
-    }, {
       artist: 'Aaliyah',
       title:  'Loose Rap',
       year:   '2001',
@@ -150,11 +193,6 @@ module.exports = {
       year:   '2000',
       type:   'Song'
     }, {
-      artist: 'Barbara Morgenstern',
-      title:  'Nichts Muss',
-      year:   '2003',
-      type:   'Song'
-    }, {
       artist: 'Bear McCreary',
       title:  'Passacaglia',
       year:   '2005',
@@ -174,301 +212,202 @@ module.exports = {
   mixes: [
     {
       title:  'Popcorn & Dread',
-      tracks: []
+      tracks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     }, {
       title:  'The Heart of the Crowd',
-      tracks: []
-    }, {
-      title:  'Trendy Music for Trendy People',
-      tracks: []
+      tracks: [24, 23, 22, 21, 20, 19, 18, 17, 16]
     }, {
       title:  'Mostly German',
-      tracks: []
+      tracks: [15, 14, 13, 0, 19, 21, 24, 19, 18, 16, 13, 2, 4, 8]
     }, {
       title:  'Techno Is Not House',
-      tracks: []
+      tracks: [14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
     }, {
       title:  'Postmodern Cabaret',
-      tracks: []
-    }
-  ],
-  tags: [
-    {
-      name: 'techno',
-      type: 'genre'
-    }, {
-      name: 'detroit techno',
-      type: 'genre'
-    }, {
-      name: 'trip-hop',
-      type: 'genre'
-    }, {
-      name: 'synth-pop',
-      type: 'genre'
-    }, {
-      name: 'art-rock',
-      type: 'genre'
-    }, {
-      name: 'disco',
-      type: 'genre'
-    }, {
-      name: 'David Bowie',
-      type: 'artist'
-    }, {
-      name: 'Kate Bush',
-      type: 'artist'
-    }, {
-      name: 'Saint Etienne',
-      type: 'artist'
-    }, {
-      name: 'depressing',
-      type: 'mood'
-    }, {
-      name: 'uplifting',
-      type: 'mood'
+      tracks: [10, 12, 14, 16, 18, 20, 22, 24, 0, 2, 4, 6, 8]
     }
   ],
   posts: [
     {
-      author:      'armchairdj',
+      author:      0,
       publishedAt: new Date(),
-      release:     '-',
+      release:     0,
       content:     content,
-      tags:        []
+      tags:        [0, 5, 10]
     }, {
-      author:      'armchairdj',
+      author:      1,
       publishedAt: new Date(),
-      release:     '-',
+      release:     1,
       content:     content,
-      tags:        []
+      tags:        [1, 6, 11]
     }, {
-      author:      'armchairdj',
+      author:      2,
       publishedAt: new Date(),
-      release:     '-',
+      release:     2,
       content:     content,
-      tags:        []
+      tags:        [2, 7, 12]
     }, {
-      author:      'armchairdj',
+      author:      3,
       publishedAt: new Date(),
-      release:     '-',
+      release:     3,
       content:     content,
-      tags:        []
+      tags:        [3, 8, 13]
     }, {
-      author:      'armchairdj',
+      author:      0,
       publishedAt: new Date(),
-      release:     '-',
+      release:     4,
       content:     content,
-      tags:        []
+      tags:        [4, 9, 14]
     }, {
-      author:      'armchairdj',
+      author:      1,
       publishedAt: new Date(),
-      release:     '-',
+      release:     5,
       content:     content,
-      tags:        []
+      tags:        [0, 6, 11]
     }, {
-      author:      'armchairdj',
+      author:      2,
       publishedAt: new Date(),
-      release:     '-',
+      release:     6,
       content:     content,
-      tags:        []
+      tags:        [1, 7, 12]
     }, {
-      author:      'armchairdj',
+      author:      3,
       publishedAt: new Date(),
-      release:     '-',
+      release:     7,
       content:     content,
-      tags:        []
+      tags:        [2, 8, 13]
     }, {
-      author:      'armchairdj',
+      author:      0,
       publishedAt: new Date(),
-      release:     '-',
+      release:     8,
       content:     content,
-      tags:        []
+      tags:        [3, 9, 14]
     }, {
-      author:      'armchairdj',
+      author:      0,
       publishedAt: new Date(),
-      release:     '-',
+      release:     9,
       content:     content,
-      tags:        []
+      tags:        [4, 10, 10]
     }, {
-      author:      'armchairdj',
+      author:      1,
       publishedAt: new Date(),
-      release:     '-',
+      release:     10,
       content:     content,
-      tags:        []
+      tags:        [0, 5, 12]
     }, {
-      author:      'armchairdj',
+      author:      1,
       publishedAt: new Date(),
-      release:     '-',
+      release:     11,
       content:     content,
-      tags:        []
+      tags:        [1, 6, 13]
     }, {
-      author:      'armchairdj',
+      author:      2,
       publishedAt: new Date(),
-      release:     '-',
+      release:     12,
       content:     content,
-      tags:        []
+      tags:        [2, 7, 14]
     }, {
-      author:      'armchairdj',
+      author:      2,
       publishedAt: new Date(),
-      release:     '-',
+      release:     13,
       content:     content,
-      tags:        []
+      tags:        [3, 8, 10]
     }, {
-      author:      'armchairdj',
+      author:      3,
       publishedAt: new Date(),
-      release:     '-',
+      release:     14,
       content:     content,
-      tags:        []
+      tags:        [4, 9, 11]
     }, {
-      author:      'armchairdj',
+      author:      3,
       publishedAt: new Date(),
-      release:     '-',
+      release:     15,
       content:     content,
-      tags:        []
+      tags:        [0, 1, 2, 3, 4]
     }, {
-      author:      'armchairdj',
+      author:      3,
       publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
+      mix:         0,
+      content:     'MIX 0',
+      tags:        [13, 14, 0, 1, 2]
     }, {
-      author:      'armchairdj',
+      author:      2,
       publishedAt: new Date(),
-      release:     '-',
+      release:     16,
       content:     content,
-      tags:        []
+      tags:        [5, 6, 7, 8, 9]
     }, {
-      author:      'armchairdj',
+      author:      1,
       publishedAt: new Date(),
-      release:     '-',
+      release:     17,
       content:     content,
-      tags:        []
+      tags:        [10, 11, 12, 13, 14]
     }, {
-      author:      'armchairdj',
+      author:      0,
       publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
+      mix:         1,
+      content:     'MIX 1',
+      tags:        [1, 14, 13, 11, 4]
     }, {
-      author:      'armchairdj',
+      author:      3,
       publishedAt: new Date(),
-      release:     '-',
+      release:     18,
       content:     content,
-      tags:        []
+      tags:        [3, 4, 5, 6, 7]
     }, {
-      author:      'armchairdj',
+      author:      2,
       publishedAt: new Date(),
-      release:     '-',
+      release:     19,
       content:     content,
-      tags:        []
+      tags:        [8, 9, 10, 11, 12]
     }, {
-      author:      'armchairdj',
+      author:      1,
       publishedAt: new Date(),
-      release:     '-',
+      release:     20,
       content:     content,
-      tags:        []
+      tags:        [13, 14, 0, 1, 2]
     }, {
-      author:      'armchairdj',
+      author:      0,
       publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
+      mix:         2,
+      content:     'MIX 2',
+      tags:        [6, 8, 10, 0, 13]
     }, {
-      author:      'armchairdj',
+      author:      2,
       publishedAt: new Date(),
-      release:     '-',
+      release:     21,
       content:     content,
-      tags:        []
+      tags:        [1, 14, 13, 11, 4]
     }, {
-      author:      'armchairdj',
+      author:      3,
       publishedAt: new Date(),
-      release:     '-',
+      release:     22,
       content:     content,
-      tags:        []
+      tags:        [6, 8, 10, 0, 13]
     }, {
-      author:      'armchairdj',
+      author:      0,
       publishedAt: new Date(),
-      release:     '-',
+      release:     23,
       content:     content,
-      tags:        []
+      tags:        [9, 8, 3, 2, 14]
     }, {
-      author:      'armchairdj',
+      author:      1,
       publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
+      mix:         3,
+      content:     'MIX 3',
+      tags:        [9, 8, 3, 2, 14, 4, 6, 11, 7, 0, 1]
     }, {
-      author:      'armchairdj',
+      author:      2,
       publishedAt: new Date(),
-      release:     '-',
+      release:     24,
       content:     content,
-      tags:        []
+      tags:        [12, 7, 6, 3, 9]
     }, {
-      author:      'armchairdj',
+      author:      3,
       publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
-    }, {
-      author:      'armchairdj',
-      publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
-    }, {
-      author:      'armchairdj',
-      publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
-    }, {
-      author:      'armchairdj',
-      publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
-    }, {
-      author:      'armchairdj',
-      publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
-    }, {
-      author:      'armchairdj',
-      publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
-    }, {
-      author:      'armchairdj',
-      publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
-    }, {
-      author:      'armchairdj',
-      publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
-    }, {
-      author:      'armchairdj',
-      publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
-    }, {
-      author:      'armchairdj',
-      publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
-    }, {
-      author:      'armchairdj',
-      publishedAt: new Date(),
-      release:     '-',
-      content:     content,
-      tags:        []
+      mix:         4,
+      content:     'MIX 4',
+      tags:        [12, 7, 6, 3, 9]
     }
-  ],
+  ]
 };
