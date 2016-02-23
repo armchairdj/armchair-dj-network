@@ -33,11 +33,11 @@ require('../../lib/model/index');
 
 var isTest   = process.argv[2] === 'test';
 
-var users    = [];
-var releases = [];
-var mixes    = [];
-var tags     = [];
-var posts    = [];
+var users     = [];
+var releases  = [];
+var playlists = [];
+var tags      = [];
+var posts     = [];
 
 /**
  * Run.
@@ -67,10 +67,10 @@ function populateDb() {
       Release.remove({}, next);
     },
 
-    function mixesClear(next) {
-      var Mix = mongoose.model('Mix');
+    function playlistsClear(next) {
+      var Playlist = mongoose.model('Playlist');
 
-      Mix.remove({}, next);
+      Playlist.remove({}, next);
     },
 
     function postsClear(next) {
@@ -93,8 +93,8 @@ function populateDb() {
       async.map(data.releases, createRelease, next);
     },
 
-    function mixes(next) {
-      async.map(data.mixes, createMix, next);
+    function playlists(next) {
+      async.map(data.playlists, createPlaylist, next);
     },
 
     function posts(next) {
@@ -167,8 +167,8 @@ function createRelease(params, callback) {
   }
 }
 
-function createMix(params, callback) {
-  var Mix = mongoose.model('Mix');
+function createPlaylist(params, callback) {
+  var Playlist = mongoose.model('Playlist');
 
   params.tracks = _.map(params.tracks, mapTrack);
 
@@ -176,18 +176,18 @@ function createMix(params, callback) {
     logOperation(params);
   }
 
-  Mix.create(params, handleMix);
+  Playlist.create(params, handlePlaylist);
 
   function mapTrack(trackIndex, index) {
     return releases[trackIndex]._id.toString();
   }
 
-  function handleMix(err, mix) {
-    if (mix) {
-      mixes.push(mix);
+  function handlePlaylist(err, playlist) {
+    if (playlist) {
+      playlists.push(playlist);
     }
 
-    callback(err, mix);
+    callback(err, playlist);
   }
 }
 
@@ -197,9 +197,9 @@ function createPost(params, callback) {
   params.tags = _.map(params.tags, mapTag);
 
   if (params.release !== undefined) {
-    params.release = releases[params.release]._id.toString();
-  } else if (params.mix !== undefined) {
-    params.mix     = mixes[   params.mix    ]._id.toString();
+    params.release  = releases[params.release  ]._id.toString();
+  } else if (params.playlist !== undefined) {
+    params.playlist = playlists[params.playlist]._id.toString();
   }
 
   params.author = users[params.author]._id.toString();

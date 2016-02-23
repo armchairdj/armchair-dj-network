@@ -209,7 +209,7 @@ module.exports = {
       type:   'Song'
     }
   ],
-  mixes: [
+  playlists: [
     {
       title:  'Popcorn & Dread',
       tracks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
@@ -327,8 +327,8 @@ module.exports = {
     }, {
       author:      3,
       publishedAt: new Date(),
-      mix:         0,
-      content:     'MIX 0',
+      playlist:    0,
+      content:     'PLAYLIST 0',
       tags:        [13, 14, 0, 1, 2]
     }, {
       author:      2,
@@ -345,8 +345,8 @@ module.exports = {
     }, {
       author:      0,
       publishedAt: new Date(),
-      mix:         1,
-      content:     'MIX 1',
+      playlist:    1,
+      content:     'PLAYLIST 1',
       tags:        [1, 14, 13, 11, 4]
     }, {
       author:      3,
@@ -369,8 +369,8 @@ module.exports = {
     }, {
       author:      0,
       publishedAt: new Date(),
-      mix:         2,
-      content:     'MIX 2',
+      playlist:    2,
+      content:     'PLAYLIST 2',
       tags:        [6, 8, 10, 0, 13]
     }, {
       author:      2,
@@ -393,8 +393,8 @@ module.exports = {
     }, {
       author:      1,
       publishedAt: new Date(),
-      mix:         3,
-      content:     'MIX 3',
+      playlist:    3,
+      content:     'PLAYLIST 3',
       tags:        [9, 8, 3, 2, 14, 4, 6, 11, 7, 0, 1]
     }, {
       author:      2,
@@ -405,8 +405,8 @@ module.exports = {
     }, {
       author:      3,
       publishedAt: new Date(),
-      mix:         4,
-      content:     'MIX 4',
+      playlist:    4,
+      content:     'PLAYLIST 4',
       tags:        [12, 7, 6, 3, 9]
     }
   ]
