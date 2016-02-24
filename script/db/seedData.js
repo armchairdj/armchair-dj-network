@@ -16,11 +16,13 @@ module.exports = {
     {
       name:     'Brian Dillard',
       username: 'armchairdj',
-      email:    'armchairdj@gmail.com'
+      email:    'armchairdj@gmail.com',
+      role:     'admin'
     }, {
       name:     'Charlie Smith',
       username: 'oddhoursradio',
-      email:    'moviemanager05@yahoo.com'
+      email:    'moviemanager05@yahoo.com',
+      role:     'author'
     }, {
       name:     'Oz Dillard',
       username: 'oz',

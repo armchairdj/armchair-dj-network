@@ -8,9 +8,10 @@ aside#footer
         li: a(href='/about') About
 
         - if (currentUser)
+          - if (currentUser.isAdmin())
+            li: a(href='/admin') Admin
+          li: a(href='/account') Account
           li: a(href='/auth/logout') Log Out
-          li: a(href='/profile') Profile
-          li: a(href='/admin') Admin
         - else
           li: a(href='/auth/login') Log In
           //- li: a(href='/auth/registration') Register

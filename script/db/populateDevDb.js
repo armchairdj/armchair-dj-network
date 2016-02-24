@@ -120,7 +120,8 @@ function createUser(params, callback) {
   User.register({
     email:    params.email,
     name:     params.name,
-    username: params.username
+    username: params.username,
+    role:     params.role
   }, 'password', handleUser);
 
   function handleUser(err, user) {
