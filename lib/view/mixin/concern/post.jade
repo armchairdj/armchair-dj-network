@@ -1,7 +1,7 @@
 //----- Posts
 
 mixin postFull(post)
-  article(class=post.type())
+  article.post(class=post.type())
     +postHeader(post, 'single')
 
     .featureArt
@@ -12,7 +12,7 @@ mixin postFull(post)
     +postTagline(post)
 
 mixin postPreview(post)
-  section(class=post.type())
+  section.post(class=post.type())
     +postHeader(post, 'multi')
     +postByline(post)
     +postTeaser(post)
@@ -36,15 +36,15 @@ mixin postTeaser(post)
     +releaseTeaser(post, post.release)
 
 mixin postByline(post)
-  .byline!=post.author
+  .byline!=post.author.name
 
 mixin postTagline(post)
-  .tagline!=post.author
+  .tagline!=post.author.name
 
 mixin postTags(post)
   ul.tags
     - each tag in post.tags
-      li!=tag
+      li!=tag.name
 
 //----- Playlists
 
@@ -55,7 +55,7 @@ mixin playlistHeader(post, playlist, level)
       a(href='/post/' + post.id)!=playlist.headline
 
 mixin playlistBody(post, playlist)
-  .body #{viewHelper.marked(post.content)}
+  .body !{viewHelper.marked(post.content)}
 
   p [Playlist Body]
 
@@ -73,7 +73,7 @@ mixin releaseHeader(post, release, level)
     h5.year!=release.year
 
 mixin releaseBody(post, release)
-  .body #{marked(post.content}
+  .body !{viewHelper.marked(post.content)}
 
 mixin releaseTeaser(post, release)
-  .teaser Playlist teaser
+  .teaser Release teaser
