@@ -15,16 +15,14 @@ var mongoose = require('mongoose');
  * Internal dependencies.
  */
 
-var config   = require('../../lib/config/settings');
-
-var mongoUri = config.mongo.uri;
+var settings = require('../../lib/config/settings');
 var data     = require('../../script/db/seedData.js');
 
 /**
  * Database.
  */
 
-mongoose.connect(config.mongo.uri);
+mongoose.connect(settings.mongo.uri);
 
 require('../../lib/model/index');
 
@@ -34,11 +32,13 @@ require('../../lib/model/index');
 
 var isTest   = process.argv[2] === 'test';
 
-var users     = [];
-var releases  = [];
-var playlists = [];
-var tags      = [];
-var posts     = [];
+var memo = {
+  users:     [], 
+  releases:  [],
+  playlists: [],
+  tags:      [],
+  posts:     []
+};
 
 /**
  * Run.
@@ -125,7 +125,7 @@ function createUser(params, callback) {
 
   function handleUser(err, user) {
     if (user) {
-      users.push(user);
+      memo.users.push(user);
     }
 
     callback(err, user);
@@ -143,7 +143,7 @@ function createTag(params, callback) {
 
   function handleTag(err, tag) {
     if (tag) {
-      tags.push(tag);
+      memo.tags.push(tag);
     }
 
     callback(err, tag);
@@ -161,7 +161,7 @@ function createRelease(params, callback) {
 
   function handleRelease(err, release) {
     if (release) {
-      releases.push(release);
+      memo.releases.push(release);
     }
 
     callback(err, release);
@@ -180,12 +180,12 @@ function createPlaylist(params, callback) {
   Playlist.create(params, handlePlaylist);
 
   function mapTrack(trackIndex, index) {
-    return releases[trackIndex]._id.toString();
+    return memo.releases[trackIndex]._id;
   }
 
   function handlePlaylist(err, playlist) {
     if (playlist) {
-      playlists.push(playlist);
+      memo.playlists.push(playlist);
     }
 
     callback(err, playlist);
@@ -198,12 +198,12 @@ function createPost(params, callback) {
   params.tags = _.map(params.tags, mapTag);
 
   if (params.release !== undefined) {
-    params.release  = releases[params.release  ]._id.toString();
+    params.release  = memo.releases[params.release  ]._id;
   } else if (params.playlist !== undefined) {
-    params.playlist = playlists[params.playlist]._id.toString();
+    params.playlist = memo.playlists[params.playlist]._id;
   }
 
-  params.author = users[params.author]._id.toString();
+  params.author = memo.users[params.author]._id;
 
   if (isTest) {
     logOperation(params);
@@ -212,23 +212,21 @@ function createPost(params, callback) {
   Post.create(params, handlePost);
 
   function mapTag(tagIndex, index) {
-    return tags[tagIndex]._id.toString();
+    return memo.tags[tagIndex]._id;
   }
 
   function handlePost(err, post) {
     if (post) {
-      posts.push(post);
+      memo.posts.push(post);
     }
 
     callback(err, post);
   }
 }
 
-function logOperation(params) {
-  console.log(params);
-}
-
 function finish(err) {
+  logResults();
+
   if (err) {
     console.log(err);
 
@@ -238,4 +236,20 @@ function finish(err) {
   console.log('Done!');
 
   process.exit(0);
+}
+
+function logOperation(params) {
+  console.log(params);
+}
+
+function logResults() {
+  var results = _.reduce(memo, reducer, {});
+
+  function reducer(memo, item, key) {
+    memo[key] = item.length;
+
+    return memo;
+  }
+
+  console.log('Results:', results);
 }

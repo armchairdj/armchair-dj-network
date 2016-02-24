@@ -8,9 +8,16 @@ block content
 
     - each post in posts
       section(class=post.type())
-        - if (post.type() === 'release')
-          p This is a release.
+        header
+        - if (post.type() === 'playlist')
+          header
+            h5.type Playlists
+            h1.title
+              a(href='/post/' + post.id)!=post.playlist.headline
         - else
-          p This is a playlist.
-
-        | !{viewHelper.marked(post.content).substring(0, 200)}
+          header
+            h5.type Songs
+            h2.artist!=post.release.artist
+            h1.title
+              a(href='/post/' + post.id): cite!=post.release.title
+            h5.year!=post.release.year
