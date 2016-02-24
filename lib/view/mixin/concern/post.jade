@@ -55,7 +55,7 @@ mixin playlistHeader(post, playlist, level)
       a(href='/post/' + post.id)!=playlist.headline
 
 mixin playlistBody(post, playlist)
-  .body #{marked(post.content}
+  .body #{viewHelper.marked(post.content)}
 
   p [Playlist Body]
 
