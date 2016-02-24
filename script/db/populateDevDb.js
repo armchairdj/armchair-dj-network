@@ -15,7 +15,8 @@ var mongoose = require('mongoose');
  * Internal dependencies.
  */
 
-var config   = require('../../lib/util/configure')();
+var config   = require('../../lib/config/settings');
+
 var mongoUri = config.mongo.uri;
 var data     = require('../../script/db/seedData.js');
 
