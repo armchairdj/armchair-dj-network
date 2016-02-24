@@ -7,17 +7,4 @@ block content
       h2 #{viewHelper.pluralize('post', posts.length, true)}
 
     - each post in posts
-      section(class=post.type())
-        header
-        - if (post.type() === 'playlist')
-          header
-            h5.type Playlists
-            h1.title
-              a(href='/post/' + post.id)!=post.playlist.headline
-        - else
-          header
-            h5.type Songs
-            h2.artist!=post.release.artist
-            h1.title
-              a(href='/post/' + post.id): cite!=post.release.title
-            h5.year!=post.release.year
+      +postPreview(post)

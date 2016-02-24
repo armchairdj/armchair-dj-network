@@ -1,0 +1,20 @@
+mixin metaAuthor()
+  meta(name='author' content='Brian J. Dillard')
+
+mixin metaDescription()
+  if pageDescription
+    meta(name='description' content=pageDescription)
+
+mixin metaKeywords()
+  if pageKeywords
+    meta(name='keywords' content=pageKeywords.join(','))
+
+mixin metaStandard()
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
+
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+
+  +metaAuthor()
+  +metaDescription()
+  +metaKeywords()

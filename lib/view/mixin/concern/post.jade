@@ -1,0 +1,79 @@
+//----- Posts
+
+mixin postFull(post)
+  article(class=post.type())
+    +postHeader(post, 'single')
+
+    .featureArt
+      img(src='/image/theme/jet/david-bowie.jpg' alt='David Bowie')
+
+    +postBody(post)
+    +postTags(post)
+    +postTagline(post)
+
+mixin postPreview(post)
+  section(class=post.type())
+    +postHeader(post, 'multi')
+    +postByline(post)
+    +postTeaser(post)
+
+mixin postHeader(post, level)
+  - if (post.type() === 'playlist')
+    +playlistHeader(post, post.playlist, level)
+  - else
+    +releaseHeader(post, post.release, level)
+
+mixin postBody(post)
+  - if (post.type() === 'playlist')
+    +playlistBody(post, post.playlist)
+  - else
+    +releaseBody(post, post.release)
+
+mixin postTeaser(post)
+  - if (post.type() === 'playlist')
+    +playlistTeaser(post, post.playlist)
+  - else
+    +releaseTeaser(post, post.release)
+
+mixin postByline(post)
+  .byline!=post.author
+
+mixin postTagline(post)
+  .tagline!=post.author
+
+mixin postTags(post)
+  ul.tags
+    - each tag in post.tags
+      li!=tag
+
+//----- Playlists
+
+mixin playlistHeader(post, playlist, level)
+  header
+    h5.type Playlists
+    h1.title
+      a(href='/post/' + post.id)!=playlist.headline
+
+mixin playlistBody(post, playlist)
+  .body #{marked(post.content}
+
+  p [Playlist Body]
+
+mixin playlistTeaser(post, playlist)
+  .teaser Playlist teaser
+
+//----- Releases
+
+mixin releaseHeader(post, release, level)
+  header
+    h5.type Songs
+    h2.artist!=release.artist
+    h1.title
+      a(href='/post/' + post.id): cite!=release.title
+    h5.year!=release.year
+
+mixin releaseBody(post, release)
+  .body #{marked(post.content}
+
+mixin releaseTeaser(post, release)
+  .teaser Playlist teaser

@@ -1,0 +1,9 @@
+mixin mascot()
+  - if (isHomepage)
+    span.mascot &nbsp;
+  - else
+    a.mascot(href='/' title='back to homepage') &nbsp;
+
+mixin siteTitle()
+  | Armchair #{''}
+  span DJ

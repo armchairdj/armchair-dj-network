@@ -37,7 +37,7 @@ export NGINX_ERROR_LOG="/var/log/nginx/error.log"
 export CONF_FILE_DIR="$APP_ROOT/script/config/file"
 
 # Aliases.
-alias log="tail -f -n20 $NODE_LOG"
+alias log="tail -f -n10 $NODE_LOG"
 alias 1000="tail -f -n1000 $NODE_LOG"
 alias errors='grep "Error" $NODE_LOG | vim -'
 
