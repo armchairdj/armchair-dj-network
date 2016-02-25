@@ -2,60 +2,21 @@ article.posts {
   > section.post {
     standardRuleLine(#333);
 
-    > header {
-      h2,
-      h3,
-      h4,
-      h5 {
-        normal();
-        breathable();
-        margin: 0;
-
-        a {
-          plainLink();
-        }
-      }
-
+    header.postInfo {
       h2.title {
         font-size: 32px;
-        color: $postTitleColor;
-
-        cite.song a {
-          smartQuote();
-        }
-
-        a {
-          color: $postTitleColor;
-
-          &:hover {
-            color: $postTitleColorHover;
-          }
-        }
       }
 
       h3.artist {
         font-size: 32px;
-        color: $postArtistColor;
-
-        a {
-          color: $postArtistColor;
-
-          &:hover {
-            color: $postArtistColorHover;
-          }
-        }
       }
 
-      h5 {
-        &.type {
-          font-size: 18px;
-          rightArrow();
-        }
+      h4.type {
+        font-size: 18px;
+      }
 
-        &.year {
-          font-size: 22px;
-          color: $infoTextColor;
-        }
+      h5.year {
+        font-size: 22px;
       }
     }
   }

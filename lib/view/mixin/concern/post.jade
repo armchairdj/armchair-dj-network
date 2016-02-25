@@ -3,13 +3,14 @@
 mixin postFull(post)
   article.post(class=post.type())
     +postHeader(post, 'single')
-
-    .featureArt
-      img(src='/image/theme/jet/david-bowie.jpg' alt='David Bowie')
-
+    +postArt(post)
     +postBody(post)
     +postTags(post)
     +postTagline(post)
+
+mixin postArt(post)
+  aside.coverArt
+    img(src='/image/theme/jet/davidBowie_blackstar.jpg' alt='David Bowie: Blackstar')
 
 mixin postPreview(post)
   section.post(class=post.type())
@@ -49,8 +50,8 @@ mixin postTags(post)
 //----- Playlists
 
 mixin playlistHeader(post, playlist, level)
-  header
-    h5.type Playlists
+  header.postInfo
+    h4.type Playlists
     - if (level === 'single')
       h1.title!=playlist.title
     - else
@@ -70,36 +71,37 @@ mixin playlistTeaser(post, playlist)
 //----- Releases
 
 mixin releaseHeader(post, release, level)
-  header
-    h5.type!=viewHelper.pluralize(release.type)
+  header.postInfo
+    h4.type!=viewHelper.pluralize(release.type)
     - if (level === 'single')
       h2.artist!=release.artist
-      h1.title: +releaseCitation(post, release)
+      h1.title: +releaseTitle(post, release)
     - else
       h3.artist: +linkToPost(post, release.artist)
-      h2.title: +releaseCitation(post, release, true)
+      h2.title: +releaseTitle(post, release, true)
     h5.year!=release.year
 
-mixin releaseCitation(post, release, linked)
+mixin releaseTitle(post, release, linked)
+  - if (linked)
+    +linkToPost(post)
+      +releaseCitation(post, release)
+  - else
+      +releaseCitation(post, release)
+
+mixin releaseCitation(post, release)
   //- cite.album, cite.compilation, cite.dj-mix, cite.song
   cite(class=release.type.toLowerCase().replace(/\s/g, '-'))
-    - if (block)
-      block
-    - else if (linked)
-      +releaseTitleLink(post, release)
-    - else
-      | !{release.title}
-
-mixin releaseTitleLink(post, release)
-  +linkToPost(post, release.title)
+    | !{release.title}
 
 mixin linkToPost(post, text)
-  a(href='/post/' + post.id)=text
+  a(href='/post/' + post.id)
+    - if (block)
+      block
+    - else
+      | #{text}
 
 mixin releaseBody(post, release)
-  //-.body !{viewHelper.marked(post.content)}
-
-  p [Release body]
+  section.body!=viewHelper.marked(post.content)
 
 mixin releaseTeaser(post, release)
   .teaser [Release teaser]

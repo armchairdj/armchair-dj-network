@@ -830,6 +830,66 @@ nav#masthead header h3 span {
     display: block;
   }
 }
+header.postInfo h1,
+header.postInfo h2,
+header.postInfo h3,
+header.postInfo h4,
+header.postInfo h5 {
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.23;
+  margin: 0;
+}
+header.postInfo h1 a,
+header.postInfo h2 a,
+header.postInfo h3 a,
+header.postInfo h4 a,
+header.postInfo h5 a {
+  cursor: pointer;
+  text-decoration: none;
+}
+header.postInfo h1 a:hover,
+header.postInfo h2 a:hover,
+header.postInfo h3 a:hover,
+header.postInfo h4 a:hover,
+header.postInfo h5 a:hover {
+  text-decoration: none;
+}
+header.postInfo h1.title,
+header.postInfo h2.title {
+  color: #73d8fb;
+}
+header.postInfo h1.title a,
+header.postInfo h2.title a {
+  color: #73d8fb;
+}
+header.postInfo h1.title a:hover,
+header.postInfo h2.title a:hover {
+  color: #a5e6fc;
+}
+header.postInfo h2.artist,
+header.postInfo h3.artist {
+  color: #10bcf8;
+}
+header.postInfo h2.artist a,
+header.postInfo h3.artist a {
+  color: #10bcf8;
+}
+header.postInfo h2.artist a:hover,
+header.postInfo h3.artist a:hover {
+  color: #42caf9;
+}
+header.postInfo h4.type {
+  text-transform: uppercase;
+  letter-spacing: 0.075em;
+  font-weight: 600;
+}
+header.postInfo h4.type:after {
+  content: '\00A0\2192';
+}
+header.postInfo h5.year {
+  color: #999;
+}
 article.posts > section.post {
   border-bottom: 1px solid #333;
   margin-bottom: 20px;
@@ -841,63 +901,17 @@ article.posts > section.post {
     padding-bottom: 40px;
   }
 }
-article.posts > section.post > header h2,
-article.posts > section.post > header h3,
-article.posts > section.post > header h4,
-article.posts > section.post > header h5 {
-  font-weight: 300;
-  font-style: normal;
-  line-height: 1.23;
-  margin: 0;
-}
-article.posts > section.post > header h2 a,
-article.posts > section.post > header h3 a,
-article.posts > section.post > header h4 a,
-article.posts > section.post > header h5 a {
-  cursor: pointer;
-  text-decoration: none;
-}
-article.posts > section.post > header h2 a:hover,
-article.posts > section.post > header h3 a:hover,
-article.posts > section.post > header h4 a:hover,
-article.posts > section.post > header h5 a:hover {
-  text-decoration: none;
-}
-article.posts > section.post > header h2.title {
+article.posts > section.post header.postInfo h2.title {
   font-size: 32px;
-  color: #73d8fb;
 }
-article.posts > section.post > header h2.title cite.song a:before {
-  content: '\201C';
-}
-article.posts > section.post > header h2.title cite.song a:after {
-  content: '\201D';
-}
-article.posts > section.post > header h2.title a {
-  color: #73d8fb;
-}
-article.posts > section.post > header h2.title a:hover {
-  color: #a5e6fc;
-}
-article.posts > section.post > header h3.artist {
+article.posts > section.post header.postInfo h3.artist {
   font-size: 32px;
-  color: #10bcf8;
 }
-article.posts > section.post > header h3.artist a {
-  color: #10bcf8;
-}
-article.posts > section.post > header h3.artist a:hover {
-  color: #42caf9;
-}
-article.posts > section.post > header h5.type {
+article.posts > section.post header.postInfo h4.type {
   font-size: 18px;
 }
-article.posts > section.post > header h5.type:after {
-  content: '\00A0\2192';
-}
-article.posts > section.post > header h5.year {
+article.posts > section.post header.postInfo h5.year {
   font-size: 22px;
-  color: #999;
 }
 article.post > header,
 article.post > section {
@@ -912,48 +926,19 @@ article.post > section {
     padding-bottom: 40px;
   }
 }
-article.post > header h1,
-article.post > header h2,
-article.post > header h3,
-article.post > header h4,
-article.post > header h5 {
-  font-weight: 300;
-  font-style: normal;
-  line-height: 1.23;
-  margin: 0;
-}
-article.post > header h1.title {
+article.post header.postInfo h1.title {
   font-size: 38px;
-  color: #73d8fb;
 }
-article.post > header h1.title cite.song:before {
-  content: '\201C';
-}
-article.post > header h1.title cite.song:after {
-  content: '\201D';
-}
-article.post > header h2.artist {
+article.post header.postInfo h2.artist {
   font-size: 38px;
-  color: #10bcf8;
 }
-article.post > header h5.type {
+article.post header.postInfo h4.type {
   font-size: 22px;
 }
-article.post > header h5.type:after {
-  content: '\00A0\2192';
-}
-article.post > header h5.type a {
-  cursor: pointer;
-  text-decoration: none;
-}
-article.post > header h5.type a:hover {
-  text-decoration: none;
-}
-article.post > header h5.year {
+article.post header.postInfo h5.year {
   font-size: 26px;
-  color: #999;
 }
-article.post > section p:first-child:first-letter {
+article.post > section.body p:first-child:first-letter {
   font-weight: 600;
   float: left;
   font-size: 80px;
@@ -961,7 +946,7 @@ article.post > section p:first-child:first-letter {
   padding: 3.2px 3.2px 0 0;
 }
 @media only screen and (min-width: 768px) {
-  article.post > section p:first-child:first-letter {
+  article.post > section.body p:first-child:first-letter {
     font-weight: 600;
     float: left;
     font-size: 200px;
@@ -969,17 +954,32 @@ article.post > section p:first-child:first-letter {
     padding: 8px 8px 0 0;
   }
 }
-article.post .featureArt img {
+article.post .coverArt {
+  margin-left: auto;
+  margin-right: auto;
+}
+article.post .coverArt img {
   display: block;
+  width: 250px;
+  height: 250px;
 }
 @media only screen and (min-width: 768px) {
   article.post > section {
     padding-right: 300px;
   }
-  article.post .featureArt {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    margin-right: -340px;
-    margin-left: -40px;
+  article.post .coverArt {
+    margin: 0 0 1em 1em;
+    float: right;
   }
+}
+.title cite.album,
+.title cite.compilation,
+.title cite.dj-mix {
+  font-style: italic;
+}
+.title cite.song:before {
+  content: '\201C';
+}
+.title cite.song:after {
+  content: '\201D';
 }

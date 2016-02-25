@@ -1,0 +1,52 @@
+header.postInfo {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    normal();
+    breathable();
+    margin: 0;
+
+    a {
+      plainLink();
+    }
+  }
+
+  h1.title,
+  h2.title {
+    color: $postTitleColor;
+
+    a {
+      color: $postTitleColor;
+
+      &:hover {
+        color: $postTitleColorHover;
+      }
+    }
+  }
+
+  h2.artist,
+  h3.artist {
+    color: $postArtistColor;
+
+    a {
+      color: $postArtistColor;
+
+      &:hover {
+        color: $postArtistColorHover;
+      }
+    }
+  }
+
+  h4.type {
+    text-transform: uppercase;
+    letter-spacing: .075em;
+    rightArrow();
+    bold();
+  }
+
+  h5.year {
+    color: $infoTextColor
+  }
+}

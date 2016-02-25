@@ -4,61 +4,43 @@ article.post {
     standardRuleLine(#333);
   }
 
-  > header {
-    h1,
-    h2,
-    h3,
-    h4,
-    h5 {
-      normal();
-      breathable();
-      margin: 0;
-    }
-
+  header.postInfo {
     h1.title {
       font-size: 38px;
-      color: $postTitleColor;
-
-      cite.song {
-        smartQuote();
-      }
     }
 
     h2.artist {
       font-size: 38px;
-      color: $postArtistColor;
     }
 
-    h5 {
-      &.type {
-        font-size: 22px;
-        rightArrow();
+    h4.type {
+      font-size: 22px;
+    }
 
-        a {
-          plainLink();
-        }
-      }
-
-      &.year {
-        font-size: 26px;
-        color: $infoTextColor
-      }
+    h5.year {
+      font-size: 26px;
     }
   }
 
   > section {
-    p {
-      dropCap(80px);
+    &.body {
+      p {
+        dropCap(80px);
 
-      @media $mediaL {
-        dropCap(200px);
+        @media $mediaL {
+          dropCap(200px);
+        }
       }
     }
   }
 
-  .featureArt {
+  .coverArt {
+    centerHorizontal();
+
     img {
       display: block;
+      width: 250px;
+      height: 250px;
     }
   }
 
@@ -67,10 +49,9 @@ article.post {
       padding-right: 300px;
     }
 
-    .featureArt {
-      paddingVertical(15px);
-      margin-right: -340px;
-      margin-left: -40px;
+    .coverArt {
+      margin: 0 0 1em 1em;
+      float: right;
     }
   }
 }
