@@ -23,6 +23,7 @@
   Armchair DJ began its life on the servers of http://msu.edu in 1996.
   It was dormant for many years but returned to life in 2016.
   You can see its erratic publication history at the Wayback Machine:
+  https://web.archive.org/web/19990210183450/http://www.msu.edu/user/dillardb/
   https://web.archive.org/web/20020602192407/http://www.armchair-dj.com
 
 /* THANKS */
