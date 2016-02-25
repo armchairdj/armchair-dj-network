@@ -1,0 +1,76 @@
+article.post {
+  > header,
+  > section {
+    standardRuleLine(#333);
+  }
+
+  > header {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5 {
+      normal();
+      breathable();
+      margin: 0;
+    }
+
+    h1.title {
+      font-size: 38px;
+      color: $postTitleColor;
+
+      cite.song {
+        smartQuote();
+      }
+    }
+
+    h2.artist {
+      font-size: 38px;
+      color: $postArtistColor;
+    }
+
+    h5 {
+      &.type {
+        font-size: 22px;
+        rightArrow();
+
+        a {
+          plainLink();
+        }
+      }
+
+      &.year {
+        font-size: 26px;
+        color: $infoTextColor
+      }
+    }
+  }
+
+  > section {
+    p {
+      dropCap(80px);
+
+      @media $mediaL {
+        dropCap(200px);
+      }
+    }
+  }
+
+  .featureArt {
+    img {
+      display: block;
+    }
+  }
+
+  @media $mediaL {
+    > section {
+      padding-right: 300px;
+    }
+
+    .featureArt {
+      paddingVertical(15px);
+      margin-right: -340px;
+      margin-left: -40px;
+    }
+  }
+}

@@ -1,3 +1,7 @@
+/**
+ * Weights.
+ */
+
 bold() {
   font-weight: $boldFontWeight;
 }
@@ -6,6 +10,10 @@ normal() {
   font-weight: $normalFontWeight;
   font-style: normal;
 }
+
+/**
+ * Line-heights.
+ */
 
 tight() {
   line-height: 1;
@@ -19,6 +27,10 @@ airy() {
   line-height: 1.5;
 }
 
+/**
+ * Treatments.
+ */
+
 dropCap($fontSize) {
   &:first-child:first-letter {
     bold();
@@ -26,5 +38,20 @@ dropCap($fontSize) {
     font-size: $fontSize;
     line-height: .75;
     padding: $fontSize * .04 $fontSize * .04 0 0;
+  }
+}
+
+rightArrow() {
+  &:after {
+    content: '\00A0\2192';
+  }
+}
+
+smartQuote() {
+  &:before {
+    content: '\201C';
+  }
+  &:after {
+    content: '\201D';
   }
 }

@@ -1,7 +1,7 @@
 extends /layout/armchair
 
 block content
-  article
+  article.posts
     header
       h1!=headline
       h2 #{viewHelper.pluralize('post', posts.length, true)}

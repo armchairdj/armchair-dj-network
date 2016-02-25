@@ -830,173 +830,130 @@ nav#masthead header h3 span {
     display: block;
   }
 }
-article.post > header h1,
-section.post > header h1,
-article.post > header h2,
-section.post > header h2,
-article.post > header h3,
-section.post > header h3,
-article.post > header h4,
-section.post > header h4,
-article.post > header h5,
-section.post > header h5,
-article.post > header h6,
-section.post > header h6 {
+article.posts > section.post {
+  border-bottom: 1px solid #333;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+}
+@media only screen and (min-width: 768px) {
+  article.posts > section.post {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+  }
+}
+article.posts > section.post > header h2,
+article.posts > section.post > header h3,
+article.posts > section.post > header h4,
+article.posts > section.post > header h5 {
   font-weight: 300;
   font-style: normal;
   line-height: 1.23;
-  font-size: 22px;
   margin: 0;
 }
-article.post > header h1.type,
-section.post > header h1.type,
-article.post > header h2.type,
-section.post > header h2.type,
-article.post > header h3.type,
-section.post > header h3.type,
-article.post > header h4.type,
-section.post > header h4.type,
-article.post > header h5.type,
-section.post > header h5.type,
-article.post > header h6.type,
-section.post > header h6.type {
-  font-size: 22px;
-}
-article.post > header h1.type a,
-section.post > header h1.type a,
-article.post > header h2.type a,
-section.post > header h2.type a,
-article.post > header h3.type a,
-section.post > header h3.type a,
-article.post > header h4.type a,
-section.post > header h4.type a,
-article.post > header h5.type a,
-section.post > header h5.type a,
-article.post > header h6.type a,
-section.post > header h6.type a {
+article.posts > section.post > header h2 a,
+article.posts > section.post > header h3 a,
+article.posts > section.post > header h4 a,
+article.posts > section.post > header h5 a {
   cursor: pointer;
   text-decoration: none;
 }
-article.post > header h1.type a:hover,
-section.post > header h1.type a:hover,
-article.post > header h2.type a:hover,
-section.post > header h2.type a:hover,
-article.post > header h3.type a:hover,
-section.post > header h3.type a:hover,
-article.post > header h4.type a:hover,
-section.post > header h4.type a:hover,
-article.post > header h5.type a:hover,
-section.post > header h5.type a:hover,
-article.post > header h6.type a:hover,
-section.post > header h6.type a:hover {
+article.posts > section.post > header h2 a:hover,
+article.posts > section.post > header h3 a:hover,
+article.posts > section.post > header h4 a:hover,
+article.posts > section.post > header h5 a:hover {
   text-decoration: none;
 }
-article.post > header h1.type:after,
-section.post > header h1.type:after,
-article.post > header h2.type:after,
-section.post > header h2.type:after,
-article.post > header h3.type:after,
-section.post > header h3.type:after,
-article.post > header h4.type:after,
-section.post > header h4.type:after,
-article.post > header h5.type:after,
-section.post > header h5.type:after,
-article.post > header h6.type:after,
-section.post > header h6.type:after {
-  content: '\00A0\2192';
-}
-article.post > header h1.artist,
-section.post > header h1.artist,
-article.post > header h2.artist,
-section.post > header h2.artist,
-article.post > header h3.artist,
-section.post > header h3.artist,
-article.post > header h4.artist,
-section.post > header h4.artist,
-article.post > header h5.artist,
-section.post > header h5.artist,
-article.post > header h6.artist,
-section.post > header h6.artist {
-  font-size: 38px;
-  color: #10bcf8;
-}
-article.post > header h1.title,
-section.post > header h1.title,
-article.post > header h2.title,
-section.post > header h2.title,
-article.post > header h3.title,
-section.post > header h3.title,
-article.post > header h4.title,
-section.post > header h4.title,
-article.post > header h5.title,
-section.post > header h5.title,
-article.post > header h6.title,
-section.post > header h6.title {
-  font-size: 38px;
+article.posts > section.post > header h2.title {
+  font-size: 32px;
   color: #73d8fb;
 }
-article.post > header h1.year,
-section.post > header h1.year,
-article.post > header h2.year,
-section.post > header h2.year,
-article.post > header h3.year,
-section.post > header h3.year,
-article.post > header h4.year,
-section.post > header h4.year,
-article.post > header h5.year,
-section.post > header h5.year,
-article.post > header h6.year,
-section.post > header h6.year {
-  font-size: 26px;
+article.posts > section.post > header h2.title cite.song a:before {
+  content: '\201C';
+}
+article.posts > section.post > header h2.title cite.song a:after {
+  content: '\201D';
+}
+article.posts > section.post > header h2.title a {
+  color: #73d8fb;
+}
+article.posts > section.post > header h2.title a:hover {
+  color: #a5e6fc;
+}
+article.posts > section.post > header h3.artist {
+  font-size: 32px;
+  color: #10bcf8;
+}
+article.posts > section.post > header h3.artist a {
+  color: #10bcf8;
+}
+article.posts > section.post > header h3.artist a:hover {
+  color: #42caf9;
+}
+article.posts > section.post > header h5.type {
+  font-size: 18px;
+}
+article.posts > section.post > header h5.type:after {
+  content: '\00A0\2192';
+}
+article.posts > section.post > header h5.year {
+  font-size: 22px;
   color: #999;
 }
 article.post > header,
-section.post > header,
-article.post > section,
-section.post > section {
+article.post > section {
   border-bottom: 1px solid #333;
   margin-bottom: 20px;
   padding-bottom: 20px;
 }
 @media only screen and (min-width: 768px) {
   article.post > header,
-  section.post > header,
-  article.post > section,
-  section.post > section {
+  article.post > section {
     margin-bottom: 40px;
     padding-bottom: 40px;
   }
 }
-article.post.song > header h1.title cite:before,
-section.post.song > header h1.title cite:before,
-article.post.song > header h2.title cite:before,
-section.post.song > header h2.title cite:before,
-article.post.song > header h3.title cite:before,
-section.post.song > header h3.title cite:before,
-article.post.song > header h4.title cite:before,
-section.post.song > header h4.title cite:before,
-article.post.song > header h5.title cite:before,
-section.post.song > header h5.title cite:before,
-article.post.song > header h6.title cite:before,
-section.post.song > header h6.title cite:before {
+article.post > header h1,
+article.post > header h2,
+article.post > header h3,
+article.post > header h4,
+article.post > header h5 {
+  font-weight: 300;
+  font-style: normal;
+  line-height: 1.23;
+  margin: 0;
+}
+article.post > header h1.title {
+  font-size: 38px;
+  color: #73d8fb;
+}
+article.post > header h1.title cite.song:before {
   content: '\201C';
 }
-article.post.song > header h1.title cite:after,
-section.post.song > header h1.title cite:after,
-article.post.song > header h2.title cite:after,
-section.post.song > header h2.title cite:after,
-article.post.song > header h3.title cite:after,
-section.post.song > header h3.title cite:after,
-article.post.song > header h4.title cite:after,
-section.post.song > header h4.title cite:after,
-article.post.song > header h5.title cite:after,
-section.post.song > header h5.title cite:after,
-article.post.song > header h6.title cite:after,
-section.post.song > header h6.title cite:after {
+article.post > header h1.title cite.song:after {
   content: '\201D';
 }
-article.post > section p:first-child:first-letter,
-section.post > section p:first-child:first-letter {
+article.post > header h2.artist {
+  font-size: 38px;
+  color: #10bcf8;
+}
+article.post > header h5.type {
+  font-size: 22px;
+}
+article.post > header h5.type:after {
+  content: '\00A0\2192';
+}
+article.post > header h5.type a {
+  cursor: pointer;
+  text-decoration: none;
+}
+article.post > header h5.type a:hover {
+  text-decoration: none;
+}
+article.post > header h5.year {
+  font-size: 26px;
+  color: #999;
+}
+article.post > section p:first-child:first-letter {
   font-weight: 600;
   float: left;
   font-size: 80px;
@@ -1004,8 +961,7 @@ section.post > section p:first-child:first-letter {
   padding: 3.2px 3.2px 0 0;
 }
 @media only screen and (min-width: 768px) {
-  article.post > section p:first-child:first-letter,
-  section.post > section p:first-child:first-letter {
+  article.post > section p:first-child:first-letter {
     font-weight: 600;
     float: left;
     font-size: 200px;
@@ -1013,20 +969,17 @@ section.post > section p:first-child:first-letter {
     padding: 8px 8px 0 0;
   }
 }
+article.post .featureArt img {
+  display: block;
+}
 @media only screen and (min-width: 768px) {
-  article.post section,
-  section.post section {
+  article.post > section {
     padding-right: 300px;
   }
-  article.post .featureArt,
-  section.post .featureArt {
+  article.post .featureArt {
     padding-top: 15px;
     padding-bottom: 15px;
     margin-right: -340px;
     margin-left: -40px;
-  }
-  article.post .featureArt img,
-  section.post .featureArt img {
-    display: block;
   }
 }

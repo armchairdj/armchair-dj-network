@@ -51,29 +51,55 @@ mixin postTags(post)
 mixin playlistHeader(post, playlist, level)
   header
     h5.type Playlists
-    h1.title
-      a(href='/post/' + post.id)!=playlist.headline
+    - if (level === 'single')
+      h1.title!=playlist.title
+    - else
+      h2.title: +linkToPlaylist(post, playlist)
+
+mixin linkToPlaylist(post, playlist)
+  a(href='/post/' + post.id)!=playlist.title
 
 mixin playlistBody(post, playlist)
-  .body !{viewHelper.marked(post.content)}
+  //- .body !{viewHelper.marked(post.content)}
 
-  p [Playlist Body]
+  p [Playlist body]
 
 mixin playlistTeaser(post, playlist)
-  .teaser Playlist teaser
+  .teaser [Playlist teaser]
 
 //----- Releases
 
 mixin releaseHeader(post, release, level)
   header
-    h5.type Songs
-    h2.artist!=release.artist
-    h1.title
-      a(href='/post/' + post.id): cite!=release.title
+    h5.type!=viewHelper.pluralize(release.type)
+    - if (level === 'single')
+      h2.artist!=release.artist
+      h1.title: +releaseCitation(post, release)
+    - else
+      h3.artist: +linkToPost(post, release.artist)
+      h2.title: +releaseCitation(post, release, true)
     h5.year!=release.year
 
+mixin releaseCitation(post, release, linked)
+  //- cite.album, cite.compilation, cite.dj-mix, cite.song
+  cite(class=release.type.toLowerCase().replace(/\s/g, '-'))
+    - if (block)
+      block
+    - else if (linked)
+      +releaseTitleLink(post, release)
+    - else
+      | !{release.title}
+
+mixin releaseTitleLink(post, release)
+  +linkToPost(post, release.title)
+
+mixin linkToPost(post, text)
+  a(href='/post/' + post.id)=text
+
 mixin releaseBody(post, release)
-  .body !{viewHelper.marked(post.content)}
+  //-.body !{viewHelper.marked(post.content)}
+
+  p [Release body]
 
 mixin releaseTeaser(post, release)
-  .teaser Release teaser
+  .teaser [Release teaser]
