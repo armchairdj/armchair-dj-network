@@ -86,7 +86,7 @@ module.exports = {
       artist: 'David Bowie',
       title:  'Blackstar',
       year:   '2015',
-      type:   'Album',
+      type:   'Song',
       url:    'http://www.example.com'
     }, {
       artist: 'David Bowie',

@@ -10,7 +10,7 @@ mixin postFull(post)
 
 mixin postArt(post)
   aside.coverArt
-    img(src='/image/theme/jet/davidBowie_blackstar.jpg' alt='David Bowie: Blackstar')
+    img(src=viewHelper.postArtworkUrl(post) alt!=viewHelper.postArtworkAlt(post))
 
 mixin postPreview(post)
   section.post(class=post.type())
@@ -90,7 +90,7 @@ mixin releaseTitle(post, release, linked)
 
 mixin releaseCitation(post, release)
   //- cite.album, cite.compilation, cite.dj-mix, cite.song
-  cite(class=release.type.toLowerCase().replace(/\s/g, '-'))
+  cite(class=viewHelper.snakify(release.type))
     | !{release.title}
 
 mixin linkToPost(post, text)
