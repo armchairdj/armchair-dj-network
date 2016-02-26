@@ -92,7 +92,7 @@ gulp.task('default', [
 ]);
 
 /**
- * Helper functions.
+ * Local functions.
  */
 
 function compileStylus(src) {

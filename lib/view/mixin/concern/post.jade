@@ -4,7 +4,6 @@ mixin postPreview(post)
   section.post(class=post.type())
     +postCoverArt(post, true)
     +postHeader(post, 'multi')
-    +postByline(post)
     +postTeaser(post)
     +linkToPost(post, 'Read More')(class='readMore')
 
@@ -30,7 +29,7 @@ mixin postBody(post)
 
 mixin postTeaser(post)
   .teaser
-    p!=viewHelper.postPreview(post)
+    p!=post.renderedPreview()
 
 mixin postCoverArt(post, linked)
   aside.coverArt
@@ -41,18 +40,23 @@ mixin postCoverArt(post, linked)
       +postImageTag(post)
 
 mixin postImageTag(post)
-  img(src=viewHelper.postArtworkUrl(post) alt!=viewHelper.postArtworkAlt(post))
-
-mixin postByline(post)
-  .byline!=post.author.username
+  img(src=post.artworkUrl() alt!=post.artworkAltText())
 
 mixin postTagline(post)
-  .tagline!=post.author.username
+  .tagline
+    | Posted by #{post.author.username}#{post.publishedDateString()}
 
 mixin postTags(post)
   ul.tags
     - each tag in post.tags
       li!=tag.name
+
+mixin linkToPost(post, text)
+  a(class!=attributes.class href='/post/' + post.id)
+    - if (block)
+      block
+    - else
+      | #{text}
 
 //----- Playlists
 
@@ -60,15 +64,19 @@ mixin playlistHeader(post, playlist, level)
   header.postInfo
     h4.type Playlists
     - if (level === 'single')
-      h1.title!=playlist.title
+      h1.title
+        +playlistCitation(playlist)
     - else
-      h2.title: +linkToPlaylist(post, playlist)
+      h2.title
+        +linkToPost(post)
+          +playlistCitation(playlist)
 
-mixin linkToPlaylist(post, playlist)
-  a(href='/post/' + post.id)!=playlist.title
+mixin playlistCitation(playlist)
+  cite.playlist
+    span.name=playlist.title
 
 mixin playlistBody(post, playlist)
-  //- .body !{viewHelper.marked(post.content)}
+  //- section.body!=post.renderedContent()
 
   p [Playlist body]
 
@@ -79,7 +87,8 @@ mixin releaseHeader(post, release, level)
     h4.type!=viewHelper.pluralize(release.type)
     - if (level === 'single')
       h2.artist!=release.artist
-      h1.title: +releaseCitation(release)
+      h1.title
+        +releaseCitation(release)
     - else
       h3.artist
         +linkToPost(post, release.artist)
@@ -95,12 +104,5 @@ mixin releaseCitation(release)
     - if (release.version)
       span.version=release.version
 
-mixin linkToPost(post, text)
-  a(class!=attributes.class href='/post/' + post.id)
-    - if (block)
-      block
-    - else
-      | #{text}
-
 mixin releaseBody(post, release)
-  section.body!=viewHelper.marked(post.content)
+  section.body!=post.renderedContent()

@@ -33,7 +33,7 @@ exec &> /root/stackscript.log
 echo "Running armchairdj.com linode bootstrap script."
 date
 
-##### Helper functions
+##### Local functions
 
 function lower {
   echo $1 | tr '[:upper:]' '[:lower:]'

@@ -126,7 +126,7 @@ behaviorize.instances = instances;
 behaviorize.behaviors = behaviors;
 
 /**
- * Helper functions.
+ * Local functions.
  */
 
 function instantiate(index, node) {
@@ -175,7 +175,7 @@ var _ = require('underscore');
  */
 
 /**
- * Helper functions.
+ * Local functions.
  */
 
 function touch() {
@@ -4717,7 +4717,7 @@ function on( elem, types, selector, data, fn, one ) {
 }
 
 /*
- * Helper functions for managing events -- not part of the public interface.
+ * Local functions for managing events -- not part of the public interface.
  * Props to Dean Edwards' addEvent library for many of the ideas.
  */
 jQuery.event = {

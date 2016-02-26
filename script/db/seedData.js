@@ -130,7 +130,7 @@ module.exports = {
       type:    'Song'
     }, {
       artist:  'Bat for Lashes',
-      title:   'Pearl\s Dream',
+      title:   'Pearl\'s Dream',
       year:    '2009',
       type:    'Song'
     }, {
