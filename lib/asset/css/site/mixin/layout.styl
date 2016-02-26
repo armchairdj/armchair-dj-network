@@ -1,0 +1,13 @@
+postIndexColumn($artWidth) {
+  position: relative;
+
+  aside.coverArt {
+    coverArt($artWidth);
+    position: absolute;
+  }
+
+  header.postInfo,
+  div.teaser {
+    margin-left: $artWidth * 1.1;
+  }
+}

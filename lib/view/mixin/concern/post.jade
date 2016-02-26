@@ -5,7 +5,6 @@ mixin postPreview(post)
     +postCoverArt(post, true)
     +postHeader(post, 'multi')
     +postTeaser(post)
-    +linkToPost(post, 'Read More')(class='readMore')
 
 mixin postFull(post)
   article.post(class=post.type())
@@ -30,6 +29,8 @@ mixin postBody(post)
 mixin postTeaser(post)
   .teaser
     p!=post.renderedPreview()
+
+    p: +linkToPost(post, 'Read More')(class='readMore')
 
 mixin postCoverArt(post, linked)
   aside.coverArt

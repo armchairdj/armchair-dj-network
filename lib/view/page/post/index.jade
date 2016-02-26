@@ -2,9 +2,9 @@ extends /layout/armchair
 
 block content
   article.posts
-    header
-      h1!=headline
-      h2 #{viewHelper.pluralize('post', posts.length, true)}
+    - if (headline)
+      header
+        h1!=headline
 
     - each post in posts
       +postPreview(post)

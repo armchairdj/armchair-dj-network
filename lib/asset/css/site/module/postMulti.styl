@@ -1,7 +1,7 @@
 article.posts {
   > section.post {
-    standardRuleLine(#333);
     clearfix();
+    marginBottom(80px);
 
     header.postInfo {
       h2.title {
@@ -21,42 +21,29 @@ article.posts {
         font-size: 22px;
       }
     }
+  }
 
-    aside.coverArt {
-      coverArt(250px);
+  a.readMore {
+    plainLink();
+  }
+
+  @media $mediaS {
+    > section.post {
+      aside.coverArt {
+        coverArt(250px);
+      }
     }
   }
 
   @media $mediaL {
     > section.post {
-      position: relative;
-
-      aside.coverArt {
-        coverArt(175px);
-        position: absolute;
-      }
-
-      header.postInfo {
-        margin-left: 200px;
-        min-height: 200px;
-      }
-
-      div.byline {
-        clear: left;
-      }
+      postIndexColumn(175px);
     }
   }
 
   @media $mediaXL {
     > section.post {
-      aside.coverArt {
-        coverArt(250px);
-      }
-
-      header.postInfo {
-        margin-left: 280px;
-        min-height: 280px;
-      }
+      postIndexColumn(250px);
     }
   }
 }

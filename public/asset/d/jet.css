@@ -891,16 +891,8 @@ header.postInfo h5.year {
   color: #999;
 }
 article.posts > section.post {
-  border-bottom: 1px solid #333;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
   zoom: 1;
-}
-@media only screen and (min-width: 768px) {
-  article.posts > section.post {
-    margin-bottom: 40px;
-    padding-bottom: 40px;
-  }
+  margin-bottom: 80px;
 }
 article.posts > section.post:before,
 article.posts > section.post:after {
@@ -909,6 +901,9 @@ article.posts > section.post:after {
 }
 article.posts > section.post:after {
   clear: both;
+}
+article.posts > section.post:last-child {
+  margin-bottom: 0;
 }
 article.posts > section.post header.postInfo h2.title {
   font-size: 34px;
@@ -923,14 +918,23 @@ article.posts > section.post header.postInfo h4.type {
 article.posts > section.post header.postInfo h5.year {
   font-size: 22px;
 }
-article.posts > section.post aside.coverArt {
-  width: 250px;
-  height: 250px;
+article.posts a.readMore {
+  cursor: pointer;
+  text-decoration: none;
 }
-article.posts > section.post aside.coverArt img {
-  display: block;
-  width: 250px;
-  height: 250px;
+article.posts a.readMore:hover {
+  text-decoration: none;
+}
+@media only screen and (min-width: 480px) {
+  article.posts > section.post aside.coverArt {
+    width: 250px;
+    height: 250px;
+  }
+  article.posts > section.post aside.coverArt img {
+    display: block;
+    width: 250px;
+    height: 250px;
+  }
 }
 @media only screen and (min-width: 768px) {
   article.posts > section.post {
@@ -946,27 +950,28 @@ article.posts > section.post aside.coverArt img {
     width: 175px;
     height: 175px;
   }
-  article.posts > section.post header.postInfo {
-    margin-left: 200px;
-    min-height: 200px;
-  }
-  article.posts > section.post div.byline {
-    clear: left;
+  article.posts > section.post header.postInfo,
+  article.posts > section.post div.teaser {
+    margin-left: 192.50000000000003px;
   }
 }
 @media only screen and (min-width: 980px) {
+  article.posts > section.post {
+    position: relative;
+  }
   article.posts > section.post aside.coverArt {
     width: 250px;
     height: 250px;
+    position: absolute;
   }
   article.posts > section.post aside.coverArt img {
     display: block;
     width: 250px;
     height: 250px;
   }
-  article.posts > section.post header.postInfo {
-    margin-left: 280px;
-    min-height: 280px;
+  article.posts > section.post header.postInfo,
+  article.posts > section.post div.teaser {
+    margin-left: 275px;
   }
 }
 article.post > header,
