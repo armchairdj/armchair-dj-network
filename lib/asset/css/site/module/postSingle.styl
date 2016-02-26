@@ -6,11 +6,12 @@ article.post {
 
   header.postInfo {
     h1.title {
-      font-size: 38px;
+      font-size: 40px;
     }
 
+    h1.title span.version,
     h2.artist {
-      font-size: 38px;
+      font-size: 31px;
     }
 
     h4.type {
@@ -34,14 +35,9 @@ article.post {
     }
   }
 
-  .coverArt {
+  aside.coverArt {
     centerHorizontal();
-
-    img {
-      display: block;
-      width: 250px;
-      height: 250px;
-    }
+    coverArt(250px);
   }
 
   @media $mediaL {
@@ -49,7 +45,7 @@ article.post {
       padding-right: 300px;
     }
 
-    .coverArt {
+    aside.coverArt {
       margin: 0 0 1em 1em;
       float: right;
     }

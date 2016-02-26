@@ -894,6 +894,7 @@ article.posts > section.post {
   border-bottom: 1px solid #333;
   margin-bottom: 20px;
   padding-bottom: 20px;
+  zoom: 1;
 }
 @media only screen and (min-width: 768px) {
   article.posts > section.post {
@@ -901,17 +902,59 @@ article.posts > section.post {
     padding-bottom: 40px;
   }
 }
-article.posts > section.post header.postInfo h2.title {
-  font-size: 32px;
+article.posts > section.post:before,
+article.posts > section.post:after {
+  content: "";
+  display: table;
 }
+article.posts > section.post:after {
+  clear: both;
+}
+article.posts > section.post header.postInfo h2.title {
+  font-size: 34px;
+}
+article.posts > section.post header.postInfo h2.title span.version,
 article.posts > section.post header.postInfo h3.artist {
-  font-size: 32px;
+  font-size: 27px;
 }
 article.posts > section.post header.postInfo h4.type {
   font-size: 18px;
 }
 article.posts > section.post header.postInfo h5.year {
   font-size: 22px;
+}
+article.posts > section.post aside.coverArt {
+  width: 100px;
+  height: 100px;
+  float: left;
+  margin: 0 1em 1em 0;
+}
+article.posts > section.post aside.coverArt img {
+  display: block;
+  width: 100px;
+  height: 100px;
+}
+@media only screen and (min-width: 768px) {
+  article.posts > section.post aside.coverArt {
+    width: 175px;
+    height: 175px;
+  }
+  article.posts > section.post aside.coverArt img {
+    display: block;
+    width: 175px;
+    height: 175px;
+  }
+}
+@media only screen and (min-width: 980px) {
+  article.posts > section.post aside.coverArt {
+    width: 250px;
+    height: 250px;
+  }
+  article.posts > section.post aside.coverArt img {
+    display: block;
+    width: 250px;
+    height: 250px;
+  }
 }
 article.post > header,
 article.post > section {
@@ -927,10 +970,11 @@ article.post > section {
   }
 }
 article.post header.postInfo h1.title {
-  font-size: 38px;
+  font-size: 40px;
 }
+article.post header.postInfo h1.title span.version,
 article.post header.postInfo h2.artist {
-  font-size: 38px;
+  font-size: 31px;
 }
 article.post header.postInfo h4.type {
   font-size: 22px;
@@ -954,11 +998,13 @@ article.post > section.body p:first-child:first-letter {
     padding: 8px 8px 0 0;
   }
 }
-article.post .coverArt {
+article.post aside.coverArt {
   margin-left: auto;
   margin-right: auto;
+  width: 250px;
+  height: 250px;
 }
-article.post .coverArt img {
+article.post aside.coverArt img {
   display: block;
   width: 250px;
   height: 250px;
@@ -967,7 +1013,7 @@ article.post .coverArt img {
   article.post > section {
     padding-right: 300px;
   }
-  article.post .coverArt {
+  article.post aside.coverArt {
     margin: 0 0 1em 1em;
     float: right;
   }
@@ -977,9 +1023,6 @@ article.post .coverArt img {
 .title cite.dj-mix {
   font-style: italic;
 }
-.title cite.song:before {
-  content: '\201C';
-}
-.title cite.song:after {
-  content: '\201D';
+.title cite span {
+  display: block;
 }

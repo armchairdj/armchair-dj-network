@@ -1,14 +1,16 @@
 article.posts {
   > section.post {
     standardRuleLine(#333);
+    clearfix();
 
     header.postInfo {
       h2.title {
-        font-size: 32px;
+        font-size: 34px;
       }
 
+      h2.title span.version,
       h3.artist {
-        font-size: 32px;
+        font-size: 27px;
       }
 
       h4.type {
@@ -17,6 +19,20 @@ article.posts {
 
       h5.year {
         font-size: 22px;
+      }
+    }
+
+    aside.coverArt {
+      coverArt(100px);
+      float: left;
+      margin: 0 1em 1em 0;
+
+      @media $mediaL {
+        coverArt(175px);
+      }
+
+      @media $mediaXL {
+        coverArt(250px);
       }
     }
   }

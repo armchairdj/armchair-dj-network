@@ -3,17 +3,14 @@
 mixin postFull(post)
   article.post(class=post.type())
     +postHeader(post, 'single')
-    +postArt(post)
+    +postCoverArt(post)
     +postBody(post)
     +postTags(post)
     +postTagline(post)
 
-mixin postArt(post)
-  aside.coverArt
-    img(src=viewHelper.postArtworkUrl(post) alt!=viewHelper.postArtworkAlt(post))
-
 mixin postPreview(post)
   section.post(class=post.type())
+    +postCoverArt(post, true)
     +postHeader(post, 'multi')
     +postByline(post)
     +postTeaser(post)
@@ -36,11 +33,22 @@ mixin postTeaser(post)
   - else
     +releaseTeaser(post, post.release)
 
+mixin postCoverArt(post, linked)
+  aside.coverArt
+    - if (linked)
+      +linkToPost(post)
+        +postImageTag(post)
+    - else
+      +postImageTag(post)
+
+mixin postImageTag(post)
+  img(src=viewHelper.postArtworkUrl(post) alt!=viewHelper.postArtworkAlt(post))
+
 mixin postByline(post)
-  .byline!=post.author.name
+  .byline!=post.author.username
 
 mixin postTagline(post)
-  .tagline!=post.author.name
+  .tagline!=post.author.username
 
 mixin postTags(post)
   ul.tags
@@ -75,23 +83,21 @@ mixin releaseHeader(post, release, level)
     h4.type!=viewHelper.pluralize(release.type)
     - if (level === 'single')
       h2.artist!=release.artist
-      h1.title: +releaseTitle(post, release)
+      h1.title: +releaseCitation(release)
     - else
-      h3.artist: +linkToPost(post, release.artist)
-      h2.title: +releaseTitle(post, release, true)
+      h3.artist
+        +linkToPost(post, release.artist)
+      h2.title
+        +linkToPost(post)
+          +releaseCitation(release)
     h5.year!=release.year
 
-mixin releaseTitle(post, release, linked)
-  - if (linked)
-    +linkToPost(post)
-      +releaseCitation(post, release)
-  - else
-      +releaseCitation(post, release)
-
-mixin releaseCitation(post, release)
+mixin releaseCitation(release)
   //- cite.album, cite.compilation, cite.dj-mix, cite.song
   cite(class=viewHelper.snakify(release.type))
-    | !{release.title}
+    span.name=release.title
+    - if (release.version)
+      span.version=release.version
 
 mixin linkToPost(post, text)
   a(href='/post/' + post.id)
