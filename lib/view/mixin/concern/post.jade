@@ -1,5 +1,13 @@
 //----- Posts
 
+mixin postPreview(post)
+  section.post(class=post.type())
+    +postCoverArt(post, true)
+    +postHeader(post, 'multi')
+    +postByline(post)
+    +postTeaser(post)
+    +linkToPost(post, 'Read More')(class='readMore')
+
 mixin postFull(post)
   article.post(class=post.type())
     +postHeader(post, 'single')
@@ -7,13 +15,6 @@ mixin postFull(post)
     +postBody(post)
     +postTags(post)
     +postTagline(post)
-
-mixin postPreview(post)
-  section.post(class=post.type())
-    +postCoverArt(post, true)
-    +postHeader(post, 'multi')
-    +postByline(post)
-    +postTeaser(post)
 
 mixin postHeader(post, level)
   - if (post.type() === 'playlist')
@@ -28,10 +29,8 @@ mixin postBody(post)
     +releaseBody(post, post.release)
 
 mixin postTeaser(post)
-  - if (post.type() === 'playlist')
-    +playlistTeaser(post, post.playlist)
-  - else
-    +releaseTeaser(post, post.release)
+  .teaser
+    p!=viewHelper.postPreview(post)
 
 mixin postCoverArt(post, linked)
   aside.coverArt
@@ -73,9 +72,6 @@ mixin playlistBody(post, playlist)
 
   p [Playlist body]
 
-mixin playlistTeaser(post, playlist)
-  .teaser [Playlist teaser]
-
 //----- Releases
 
 mixin releaseHeader(post, release, level)
@@ -100,7 +96,7 @@ mixin releaseCitation(release)
       span.version=release.version
 
 mixin linkToPost(post, text)
-  a(href='/post/' + post.id)
+  a(class!=attributes.class href='/post/' + post.id)
     - if (block)
       block
     - else
@@ -108,6 +104,3 @@ mixin linkToPost(post, text)
 
 mixin releaseBody(post, release)
   section.body!=viewHelper.marked(post.content)
-
-mixin releaseTeaser(post, release)
-  .teaser [Release teaser]

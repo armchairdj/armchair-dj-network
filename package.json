@@ -31,6 +31,7 @@
     "pluralize": "1.2.1",
     "prompt": "0.3.0",
     "request": "2.69.0",
+    "striptags": "2.1.1",
     "stylus": "0.53.0",
     "underscore": "1.8.3",
     "underscore.string": "3.2.3"
