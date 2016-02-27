@@ -54,7 +54,7 @@ mixin postTags(post)
         li: +linkToTag(tag, tag.displayName())
 
 mixin linkToTag(tag, text)
-  a(href='/post/tags/' + tag.name)!=text
+  a(href='/' + tag.type + '/' + tag.name)!=text
 
 mixin linkToPost(post, text)
   a(class!=attributes.class href='/post/' + post.id)
@@ -104,7 +104,7 @@ mixin releaseHeader(post, release, level)
 
 mixin releaseCitation(release)
   //- cite.album, cite.compilation, cite.dj-mix, cite.song
-  cite(class=viewHelper.snakify(release.type))
+  cite(class=viewHelper.slugify(release.type))
     span.name=release.title
     - if (release.version)
       span.version=release.version
