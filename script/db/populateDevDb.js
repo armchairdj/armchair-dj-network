@@ -229,7 +229,7 @@ function publishPost(post, callback) {
     }
 
     if (post) {
-      post.publish(callback);
+      post.publish({}, callback);
     }
   }
 }
