@@ -6,5 +6,8 @@ block content
       header
         h1!=headline
 
-    - each post in posts
-      +postPreview(post)
+    - if (posts.length)
+      - each post in posts
+        +postPreview(post)
+    - else
+      p No posts to display.

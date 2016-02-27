@@ -30,7 +30,7 @@ require('../../lib/model/index');
  * Setup.
  */
 
-var isTest   = process.argv[2] === 'test';
+var shouldLog  = process.argv[2] === '--log';
 
 var memo = {
   users:     [], 
@@ -89,9 +89,7 @@ function populateDb() {
     function tags(next) {
       var Tag = mongoose.model('Tag');
 
-      if (isTest) {
-        logOperation(data.tags);
-      }
+      logOperation(data.tags);
 
       Tag.createBatches(data.tags, handleTags);
 
@@ -112,6 +110,10 @@ function populateDb() {
 
     function posts(next) {
       async.map(data.posts, createPost, next);
+    },
+
+    function publish(next) {
+      async.map(memo.posts, publishPost, next);
     }
   ];
 
@@ -125,9 +127,7 @@ function populateDb() {
 function createUser(params, callback) {
   var User = mongoose.model('User');
 
-  if (isTest) {
-    logOperation(params);
-  }
+  logOperation(params);
 
   User.register({
     email:    params.email,
@@ -148,9 +148,7 @@ function createUser(params, callback) {
 function createRelease(params, callback) {
   var Release = mongoose.model('Release');
 
-  if (isTest) {
-    logOperation(params);
-  }
+  logOperation(params);
 
   Release.createWithTags(params, handleRelease);
 
@@ -168,9 +166,7 @@ function createPlaylist(params, callback) {
 
   params.tracks = _.map(params.tracks, mapTrack);
 
-  if (isTest) {
-    logOperation(params);
-  }
+  logOperation(params);
 
   Playlist.create(params, handlePlaylist);
 
@@ -189,6 +185,7 @@ function createPlaylist(params, callback) {
 
 function createPost(params, callback) {
   var Post = mongoose.model('Post');
+  var post;
 
   if (params.release !== undefined) {
     params.release  = memo.releases[params.release  ]._id;
@@ -198,18 +195,42 @@ function createPost(params, callback) {
 
   params.author = memo.users[params.author]._id;
 
-  if (isTest) {
-    logOperation(params);
-  }
+  logOperation(params);
 
   Post.create(params, handlePost);
 
-  function handlePost(err, post) {
+  function handlePost(err, result) {
+    if (err) {
+      return respond(err);
+    }
+
+    post = result;
+
     if (post) {
       memo.posts.push(post);
     }
 
+    respond();
+  }
+
+  function respond(err) {
     callback(err, post);
+  }
+}
+
+function publishPost(post, callback) {
+  var Post = mongoose.model('Post');
+
+  Post.byId(post._id, 'draft', handlePost);
+
+  function handlePost(err, post) {
+    if (err) {
+      return callback(err);
+    }
+
+    if (post) {
+      post.publish(callback);
+    }
   }
 }
 
@@ -228,6 +249,10 @@ function finish(err) {
 }
 
 function logOperation(params) {
+  if (!shouldLog) {
+    return;
+  }
+
   console.log(params);
 }
 

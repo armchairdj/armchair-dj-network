@@ -2,14 +2,12 @@ var content = [
   "Twee yr cornhole, artisan ramps pabst you probably haven't heard of them art party cold-pressed mustache farm-to-table. Hammock selvage slow-carb VHS fingerstache. Chicharrones everyday carry direct trade humblebrag, pabst 3 wolf moon tousled art party bushwick poutine VHS franzen scenester. Keffiyeh lo-fi hoodie, pop-up seitan roof party beard occupy heirloom green juice cliche. Celiac gastropub literally shoreditch ethical, godard listicle fashion axe williamsburg chambray. Tumblr post-ironic scenester, +1 everyday carry lomo godard hoodie 3 wolf moon next level meggings man braid listicle. Leggings cray irony biodiesel, kickstarter hella four dollar toast.",
   "Gentrify plaid meggings lo-fi chambray, cred schlitz. Wayfarers tumblr mixtape biodiesel. Bespoke portland readymade raw denim, pop-up cronut banh mi pitchfork chicharrones chia flannel irony pork belly marfa whatever. Viral tilde cred twee, blog intelligentsia direct trade freegan food truck normcore farm-to-table. Street art seitan tilde YOLO, pop-up listicle beard. Stumptown cray schlitz pickled, tilde deep v pinterest poutine. Meh plaid keytar listicle, yr shabby chic ethical polaroid readymade.",
   "Chia plaid biodiesel fixie godard gastropub, fingerstache echo park. Marfa authentic microdosing post-ironic master cleanse pickled. IPhone keytar waistcoat kickstarter, master cleanse truffaut viral food truck hammock 3 wolf moon craft beer kitsch taxidermy hoodie. Actually before they sold out cray, butcher vice cliche VHS food truck disrupt next level brooklyn wayfarers synth franzen selfies. Kombucha roof party synth, hashtag cornhole readymade authentic keffiyeh lomo aesthetic pitchfork fap fashion axe quinoa. Street art polaroid bespoke, beard tofu +1 butcher selfies intelligentsia actually authentic VHS normcore biodiesel. Seitan yuccie kale chips tousled letterpress, bicycle rights yr chicharrones you probably haven't heard of them etsy neutra 90's locavore small batch.",
-  "Skateboard freegan godard kale chips flexitarian. Before they sold out forage food truck mlkshk four dollar toast thundercats. Vice deep v gentrify, yr blog normcore typewriter raw denim distillery tacos. Ethical biodiesel seitan dreamcatcher. Cray forage neutra butcher next level. Lo-fi before they sold out letterpress, mixtape man braid mustache four loko butcher chia tousled kitsch blue bottle intelligentsia direct trade. Brooklyn kombucha hoodie biodiesel.",
-  "Fixie etsy ramps sustainable pabst. Next level freegan XOXO mixtape yr. Chambray irony tofu keffiyeh VHS, direct trade microdosing austin four loko helvetica squid knausgaard skateboard before they sold out godard. Lomo asymmetrical semiotics schlitz. Mumblecore franzen retro schlitz listicle etsy, pinterest godard lumbersexual farm-to-table drinking vinegar PBR&B gochujang. Truffaut man bun tacos, meditation pickled microdosing portland umami hashtag fashion axe venmo cliche godard wayfarers. Meggings meditation echo park, heirloom blog paleo keytar readymade semiotics williamsburg schlitz slow-carb.",
   "Stumptown meggings slow-carb distillery pabst drinking vinegar fashion axe fingerstache, banh mi keytar letterpress try-hard sustainable. Scenester VHS direct trade freegan try-hard, chambray cred pabst chia hashtag godard. Tattooed kale chips kickstarter distillery. Tousled yr deep v, freegan 8-bit keytar hammock green juice authentic polaroid brunch typewriter literally. Ethical green juice mlkshk, synth aesthetic pitchfork XOXO. Lomo green juice shoreditch keffiyeh, pug cardigan cray paleo you probably haven't heard of them fap blue bottle bushwick etsy small batch. Swag fingerstache selfies tofu tacos messenger bag.",
   "Asymmetrical yuccie distillery, man braid banjo messenger bag hoodie sriracha. Synth mustache mlkshk gentrify williamsburg, VHS deep v hammock. Bushwick vinyl swag celiac yr church-key. Organic try-hard aesthetic, single-origin coffee selvage iPhone pop-up chillwave venmo twee ramps four dollar toast. Offal art party gochujang organic, intelligentsia vinyl try-hard sartorial fixie biodiesel you probably haven't heard of them drinking vinegar 90's +1. Ennui ugh trust fund disrupt raw denim. Taxidermy health goth flexitarian fap, slow-carb VHS DIY brooklyn franzen literally asymmetrical shoreditch plaid sustainable umami.",
-  "Lo-fi celiac offal taxidermy, helvetica DIY wayfarers tote bag. Health goth seitan cardigan, artisan post-ironic VHS narwhal scenester craft beer. Leggings hashtag fingerstache ennui. Green juice portland squid photo booth gastropub. Craft beer trust fund tilde organic. Chillwave microdosing blue bottle, vice truffaut church-key listicle selfies. Vegan butcher art party asymmetrical, lo-fi single-origin coffee skateboard sriracha.",
-  "Paleo meggings direct trade truffaut quinoa, microdosing yuccie keytar fap venmo. Trust fund pabst tote bag microdosing, chartreuse paleo green juice banjo +1 plaid sustainable letterpress tattooed. Gentrify gochujang everyday carry ramps. Single-origin coffee tote bag before they sold out gluten-free. Ethical occupy asymmetrical, migas selvage echo park sustainable four dollar toast hella. Knausgaard art party master cleanse, next level tumblr ethical pour-over pabst mumblecore bicycle rights actually banh mi. Keffiyeh portland narwhal knausgaard everyday carry, microdosing heirloom.",
   "Normcore single-origin coffee chillwave, blue bottle yuccie try-hard paleo. Chambray poutine mustache, yr portland disrupt keytar. Yr listicle whatever pug, pinterest stumptown cliche chambray artisan banjo ethical irony ramps. Stumptown flannel vinyl hashtag iPhone four dollar toast, selfies lo-fi taxidermy +1 bushwick. Tousled asymmetrical meditation kitsch. Cronut marfa before they sold out bicycle rights man bun, man braid pork belly chicharrones XOXO. Keffiyeh flexitarian occupy keytar cold-pressed."
 ].join('\n\n');
+
+var playlistContent =   "Paleo meggings direct trade truffaut quinoa, microdosing yuccie keytar fap venmo. Trust fund pabst tote bag microdosing, chartreuse paleo green juice banjo +1 plaid sustainable letterpress tattooed. Gentrify gochujang everyday carry ramps. Single-origin coffee tote bag before they sold out gluten-free. Ethical occupy asymmetrical, migas selvage echo park sustainable four dollar toast hella. Knausgaard art party master cleanse, next level tumblr ethical pour-over pabst mumblecore bicycle rights actually banh mi. Keffiyeh portland narwhal knausgaard everyday carry, microdosing heirloom.";
 
 module.exports = {
   users: [
@@ -361,252 +359,202 @@ module.exports = {
   posts: [
     {
       author:      0,
-      publishedAt: new Date(),
       release:     0,
       content:     content
     }, {
       author:      1,
-      publishedAt: new Date(),
       release:     1,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     2,
       content:     content
     }, {
       author:      3,
-      publishedAt: new Date(),
       release:     3,
       content:     content
     }, {
       author:      0,
-      publishedAt: new Date(),
       release:     4,
       content:     content
     }, {
       author:      1,
-      publishedAt: new Date(),
       release:     5,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     6,
       content:     content
     }, {
       author:      3,
-      publishedAt: new Date(),
       release:     7,
       content:     content
     }, {
       author:      0,
-      publishedAt: new Date(),
       release:     8,
       content:     content
     }, {
       author:      0,
-      publishedAt: new Date(),
       release:     9,
       content:     content
     }, {
       author:      1,
-      publishedAt: new Date(),
       release:     10,
       content:     content
     }, {
       author:      1,
-      publishedAt: new Date(),
       release:     11,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     12,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     13,
       content:     content
     }, {
       author:      3,
-      publishedAt: new Date(),
       release:     14,
       content:     content
     }, {
       author:      3,
-      publishedAt: new Date(),
       release:     15,
       content:     content
     }, {
       author:      3,
-      publishedAt: new Date(),
       playlist:    0,
-      content:     'PLAYLIST 0'
+      content:     playlistContent
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     16,
       content:     content
     }, {
       author:      1,
-      publishedAt: new Date(),
       release:     17,
       content:     content
     }, {
       author:      0,
-      publishedAt: new Date(),
       playlist:    1,
-      content:     'PLAYLIST 1'
+      content:     playlistContent
     }, {
       author:      3,
-      publishedAt: new Date(),
       release:     18,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     19,
       content:     content
     }, {
       author:      1,
-      publishedAt: new Date(),
       release:     20,
       content:     content
     }, {
       author:      0,
-      publishedAt: new Date(),
       playlist:    2,
-      content:     'PLAYLIST 2'
+      content:     playlistContent
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     21,
       content:     content
     }, {
       author:      3,
-      publishedAt: new Date(),
       release:     22,
       content:     content
     }, {
       author:      0,
-      publishedAt: new Date(),
       release:     23,
       content:     content
     }, {
       author:      1,
-      publishedAt: new Date(),
       playlist:    3,
-      content:     'PLAYLIST 3'
+      content:     playlistContent
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     24,
       content:     content
     }, {
       author:      3,
-      publishedAt: new Date(),
       playlist:    4,
-      content:     'PLAYLIST 4'
+      content:     playlistContent
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     25,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     26,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     27,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     28,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     29,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     30,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     31,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     32,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     33,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     34,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     35,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     36,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     37,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     38,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     39,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     40,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     41,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     42,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     43,
       content:     content
     }, {
       author:      2,
-      publishedAt: new Date(),
       release:     44,
       content:     content
     }

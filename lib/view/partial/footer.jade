@@ -11,10 +11,10 @@ aside#footer
           - if (currentUser.isAdmin())
             li: a(href='/admin') Admin
           li: a(href='/account') Account
-          li: a(href='/auth/logout') Log Out
+          li: a(href='/logout') Log Out
         - else
-          li: a(href='/auth/login') Log In
-          //- li: a(href='/auth/registration') Register
+          li: a(href='/login') Log In
+          //- li: a(href='/register') Register
 
     .copyright
       Copyright &copy; 1996-!{currentYear} Brian J. Dillard

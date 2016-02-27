@@ -41,7 +41,7 @@ mixin postCoverArt(post, linked)
       +postImageTag(post)
 
 mixin postImageTag(post)
-  img(src=post.artworkUrl() alt!=post.artworkAltText())
+  img(src=post.image alt!=post.altText)
 
 mixin postTagline(post)
   .tagline
@@ -54,10 +54,10 @@ mixin postTags(post)
         li: +linkToTag(tag, tag.displayName())
 
 mixin linkToTag(tag, text)
-  a(href='/' + tag.type + '/' + tag.name)!=text
+  a(href='/' + tag.type + '/' + tag.slug)!=text
 
 mixin linkToPost(post, text)
-  a(class!=attributes.class href='/post/' + post.id)
+  a(class!=attributes.class href='/post/' + post.path + '/' + post.slug)
     - if (block)
       block
     - else
