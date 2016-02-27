@@ -48,9 +48,13 @@ mixin postTagline(post)
     | Posted by #{post.author.username}#{post.publishedDateString()}
 
 mixin postTags(post)
-  ul.tags
-    - each tag in post.tagList()
-      li!=tag
+  section
+    ul.tags
+      - each tag in post.subject().tags
+        li: +linkToTag(tag, tag.displayName())
+
+mixin linkToTag(tag, text)
+  a(href='/post/tags/' + tag.name)!=text
 
 mixin linkToPost(post, text)
   a(class!=attributes.class href='/post/' + post.id)

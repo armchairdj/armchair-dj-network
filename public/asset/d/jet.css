@@ -1034,6 +1034,13 @@ article.post aside.coverArt img {
     float: right;
   }
 }
+ul.tags {
+  line-height: 1.23;
+}
+ul.tags li {
+  display: inline;
+  white-space: nowrap;
+}
 .title cite.album,
 .title cite.compilation,
 .title cite.dj-mix {
