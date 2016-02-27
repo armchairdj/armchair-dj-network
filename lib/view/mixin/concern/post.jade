@@ -49,8 +49,8 @@ mixin postTagline(post)
 
 mixin postTags(post)
   ul.tags
-    - each tag in post.tags
-      li!=tag.name
+    - each tag in post.tagList()
+      li!=tag
 
 mixin linkToPost(post, text)
   a(class!=attributes.class href='/post/' + post.id)

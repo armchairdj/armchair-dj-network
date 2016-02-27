@@ -87,7 +87,19 @@ function populateDb() {
     },
 
     function tags(next) {
-      async.map(data.tags, createTag, next);
+      var Tag = mongoose.model('Tag');
+
+      if (isTest) {
+        logOperation(data.tags);
+      }
+
+      Tag.createBatches(data.tags, handleTags);
+
+      function handleTags(err, results) {
+        memo.tags = results;
+
+        next(err, results);
+      }
     },
 
     function releases(next) {
@@ -133,24 +145,6 @@ function createUser(params, callback) {
   }
 }
 
-function createTag(params, callback) {
-  var Tag = mongoose.model('Tag');
-
-  if (isTest) {
-    logOperation(params);
-  }
-
-  Tag.create(params, handleTag);
-
-  function handleTag(err, tag) {
-    if (tag) {
-      memo.tags.push(tag);
-    }
-
-    callback(err, tag);
-  }
-}
-
 function createRelease(params, callback) {
   var Release = mongoose.model('Release');
 
@@ -158,7 +152,7 @@ function createRelease(params, callback) {
     logOperation(params);
   }
 
-  Release.create(params, handleRelease);
+  Release.createWithTags(params, handleRelease);
 
   function handleRelease(err, release) {
     if (release) {
@@ -196,8 +190,6 @@ function createPlaylist(params, callback) {
 function createPost(params, callback) {
   var Post = mongoose.model('Post');
 
-  params.tags = _.map(params.tags, mapTag);
-
   if (params.release !== undefined) {
     params.release  = memo.releases[params.release  ]._id;
   } else if (params.playlist !== undefined) {
@@ -211,10 +203,6 @@ function createPost(params, callback) {
   }
 
   Post.create(params, handlePost);
-
-  function mapTag(tagIndex, index) {
-    return memo.tags[tagIndex]._id;
-  }
 
   function handlePost(err, post) {
     if (post) {

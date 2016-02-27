@@ -33,281 +33,307 @@ module.exports = {
       email:    'nice@armchair-dj.com'
     }
   ],
-  tags: [
-    {
-      name: 'detroit techno',
-      type: 'genre'
-    }, {
-      name: 'trip-hop',
-      type: 'genre'
-    }, {
-      name: 'synth-pop',
-      type: 'genre'
-    }, {
-      name: 'art-rock',
-      type: 'genre'
-    }, {
-      name: 'disco',
-      type: 'genre'
-    }, {
-      name: 'Aaliyah',
-      type: 'artist'
-    }, {
-      name: 'David Bowie',
-      type: 'artist'
-    }, {
-      name: 'Kate Bush',
-      type: 'artist'
-    }, {
-      name: 'Pet Shop Boys',
-      type: 'artist'
-    }, {
-      name: 'Saint Etienne',
-      type: 'artist'
-    }, {
-      name: 'depressing',
-      type: 'mood'
-    }, {
-      name: 'uplifting',
-      type: 'mood'
-    }, {
-      name: 'unsettling',
-      type: 'mood'
-    }, {
-      name: 'autumnal',
-      type: 'mood'
-    }, {
-      name: 'elegiac',
-      type: 'mood'
-    }
-  ],
+  tags: {
+    genre:   [
+      'Genre 1',
+      'Genre 2',
+      'Genre 3',
+      'Genre 4',
+    ],
+    artist:  [
+      'Artist 1',
+      'Artist 2',
+      'Artist 3',
+      'Artist 4',
+    ],
+    mood:    [
+      'Mood 1',
+      'Mood 2',
+      'Mood 3',
+      'Mood 4',
+    ],
+    keyword: [
+      'Keyword 1',
+      'Keyword 2',
+      'Keyword 3',
+      'Keyword 4',
+    ]
+  },
   releases: [
     {
+      tags:    {
+        genre: 'disco',
+        mood:  'autumnal'
+      },
       artist:  'David Bowie',
       title:   'Blackstar',
       year:    '2015',
       type:    'Song',
       url:     'http://www.example.com'
     }, {
+      tags:    { genre: 'foo, bar' },
       artist:  'Kate Boy',
       title:   'Northern Lights',
       year:    '2013',
       type:    'Song'
     }, {
+      tags:    { genre: 'bat, baz' },
       artist:  'Chvrches',
       title:   'The Mother We Share',
       year:    '2013',
       type:    'Song'
     }, {
+      tags:    { genre: 'apple, carrot, potato' },
       artist:  'Class Actress',
       title:   'Weekend',
       year:    '2011',
       type:    'Song'
     }, {
+      tags:    { genre: 'orange, rhubarb, pistachio' },
       artist:  'Tegan and Sara',
       title:   'How Come You Don\'t Want Me',
       year:    '2013',
       type:    'Song'
     }, {
+      tags:    { genre: 'meat, bread, cheese, milk, dessert' },
       artist:  'AlunaGeorge',
       title:   'Attracting Flies',
       year:    '2013',
       type:    'Song'
     }, {
+      tags:    { keyword: 'tree, forest, lawn' },
       artist:  'Twin Shadow',
       title:   'Tyrant Destroyed',
       year:    '2010',
       type:    'Song'
     }, {
+      tags:    { keyword: 'boy, girl, man, woman' },
       artist:  'Pet Shop Boys',
       title:   'One Night',
       year:    '2012',
       type:    'Song'
     }, {
+      tags:    { keyword: 'hate, love, like, dislike, adore, abhor' },
       artist:  'Class Actress',
       title:   'Love Me Like You Used To',
       year:    '2011',
       type:    'Song'
     }, {
+      tags:    { keyword: 'android, robot, tweekie' },
       artist:  'Bat for Lashes',
       title:   'Pearl\'s Dream',
       year:    '2009',
       type:    'Song'
     }, {
+      tags:    { keyword: 'trekker, nerd, twihard' },
       artist:  'Yeah Yeah Yeahs',
       title:   'Sacrilege',
       year:    '2013',
       type:    'Song'
     }, {
+      tags:    { keyword: 'spring, summer, winter, fall' },
       artist:  'Justin Timberlake',
       title:   'Mirrors',
       year:    '2013',
       type:    'Song'
     }, {
+      tags:    { mood: 'actual, general, insufferable' },
       artist:  'The Postal Service',
       title:   'A Tattered Line of String',
       year:    '2013',
       type:    'Song'
     }, {
+      tags:    { mood: 'oops, i, did, it, again' },
       artist:  'Class Actress',
       title:   'Prove Me Wrong',
       year:    '2011',
       type:    'Song'
     }, {
+      tags:    { mood: 'anti-histamine' },
       artist:  'Jessie Ware',
       title:   'Running',
       version: 'Disclosure Remix',
       year:    '2012',
       type:    'Song'
     }, {
+      tags:    { mood: 'thomas jefferson, george washington, diet coke' },
       artist:  'Two Door Cinema Club',
       title:   'Something Good Can Work',
       version: 'Ted & Francis Remix',
       year:    '2010',
       type:    'Song'
     }, {
+      tags:    { mood: 'too good to be true, i cannot believe this exists' },
       artist:  'Ciara & Future & B.o.B.',
       title:   'Body Party',
       version: 'Remix',
       year:    '2013',
       type:    'Song'
     }, {
+      tags:    { mood: 'twee, awful, energetic' },
       artist:  'Empire of the Sun',
       title:   'Walking on a Dream',
       year:    '2009',
       type:    'Song'
     }, {
+      tags:    { mood: 'trip-hop, post-rock, post-punk' },
       artist:  'Solange',
       title:   'Losing You',
       year:    '2012',
       type:    'Song'
     }, {
+      tags:    { mood: 'aboriginal, native american' },
       artist:  'Ciara',
       title:   'Overdose',
       year:    '2013',
       type:    'Song'
     }, {
+      tags:    { mood: 'ambiguous, ambidextrous, bisexual, agender, amphibious' },
       artist:  'Kate Boy',
       title:   'The Way We Are',
       year:    '2015',
       type:    'Song'
     }, {
+      tags:    { genre: 'dead, kerput, corrupt, insane in the membrane' },
       artist:  'David Bowie',
       title:   'Blackstar',
       year:    '2016',
       type:    'Album',
       url:     'http://www.example.com'
     }, {
+      tags:    { mood: 'apocryphal, erotica, anonymintiy' },
       artist:  'Various Artists',
       title:   'We Were So Turned On: The Songs of David Bowie',
       year:    '2010',
       type:    'Compilation'
     }, {
+      tags:    { keyword: 'breezy, easy, queasy' },
       artist:  'Moodymann',
       title:   'DJ-Kicks',
       year:    '2016',
       type:    'DJ Mix',
     }, {
+      tags:    { genre: 'recluse, damned, crazy, diaphanous, wonderful, sainted' },
       artist:  'Kate Bush',
       title:   'Wild Man',
       year:    '2011',
       type:    'Song'
     }, {
+      tags:    { mood: 'over the hill, still full of life' },
       artist:  'Pet Shop Boys',
       title:   'The Pop Kids',
       year:    '2016',
       type:    'Song'
     }, {
+      tags:    { keyword: 'wistful, retro, imaginative' },
       artist:  'Sarah Cracknell',
       title:   'On the Swings',
       year:    '2015',
       type:    'Song'
     }, {
+      tags:    { genre: 'stone cold classic, proto-trip-hop, uk soul, uk blak' },
       artist:  'Soul II Soul',
       title:   'Back to Life (However Do You Want Me)',
       year:    '1989',
       type:    'Song'
     }, {
+      tags:    { mood: 'haunting, piano-led, wistful, sexy' },
       artist:  'Kate Bush',
       title:   'Under the Ivy',
       year:    '1985',
       type:    'Song'
     }, {
+      tags:    { keyword: 'syncopated, detroit techno' },
       artist:  'Derrick May',
       title:   'Strings of Life',
       year:    '1987',
       type:    'Song'
     }, {
+      tags:    { genre: 'uk techno, minimal techno, industrial techno' },
       artist:  'Surgeon',
       title:   'Krautrock',
       year:    '1996',
       type:    'Song'
     }, {
+      tags:    { mood: 'dance-pop, gay, club kiddie, larry t' },
       artist:  'RuPaul',
       title:   'Supermodel (You Better Work)',
       year:    '1992',
       type:    'Song'
     }, {
+      tags:    { keyword: 'soul, soulful, rest in peace, RIP' },
       artist:  'Aaliyah',
       title:   'Loose Rap',
       year:    '2001',
       type:    'Song'
     }, {
+      tags:    { genre: 'paranoid, icy, synth-pop' },
       artist:  'Adult.',
       title:   'The Cold Call',
       year:    '2003',
       type:    'Song'
     }, {
+      tags:    { mood: 'singer-songwriter, candy, melancholy' },
       artist:  'Aimee Mann',
       title:   'Red Vines',
       year:    '1999',
       type:    'Song'
     }, {
+      tags:    { keyword: 'sinister, trip-hop, nasal, cover song, sample' },
       artist:  'The Aloof',
       title:   'Doing It for Money',
       year:    '1999',
       type:    'Song'
     }, {
+      tags:    { genre: 'lesbian, sexy, funny' },
       artist:  'Ani Difranco',
       title:   'Fire Door',
       year:    '1989',
       type:    'Song'
     }, {
+      tags:    { mood: 'political, sad, acoustic' },
       artist:  "Sinead O'Connor",
       title:   'Black Boys on Mopeds',
       year:    '1990',
       type:    'Song'
     }, {
+      tags:    { keyword: '80s, quiet storm, adult contemporary' },
       artist:  'Atlantic Starr',
       title:   'Secret Lovers',
       year:    '1985',
       type:    'Song'
     }, {
+      tags:    { genre: 'punk, post-punk, surf-rock' },
       artist:  "The B-52's",
       title:   'Planet Claire',
       year:    '1979',
       type:    'Song'
     }, {
+      tags:    { mood: 'rave, breakbeat, uk hardcore' },
       artist:  'Baby D',
       title:   'Let Me Be Your Fantasy',
       year:    '1992',
       type:    'Song'
     }, {
+      tags:    { keyword: 'indie-pop, britpop, throwback' },
       artist:  'Badly Drawn Boy',
       title:   'Disillusion',
       year:    '2000',
       type:    'Song'
     }, {
+      tags:    { genre: 'majestic, score, soundtrack, battlestar galactica' },
       artist:  'Bear McCreary',
       title:   'Passacaglia',
       year:    '2005',
       type:    'Song'
     }, {
+      tags:    { mood: 'rap, punky, bratty, 80s' },
       artist:  'Beastie Boys',
       title:   'Brass Monkey',
       year:    '1986',
       type:    'Song'
     }, {
+      tags:    { keyword: 'classic, melancholy, silly' },
       artist:  'The Beatles',
       title:   'The Fool on the Hill',
       year:    '1967',
@@ -316,19 +342,19 @@ module.exports = {
   ],
   playlists: [
     {
-      title:   'Popcorn & Dread',
+      title:  'Popcorn & Dread',
       tracks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     }, {
-      title:   'The Heart of the Crowd',
+      title:  'The Heart of the Crowd',
       tracks: [24, 23, 22, 21, 20, 19, 18, 17, 16]
     }, {
-      title:   'Mostly German',
+      title:  'Mostly German',
       tracks: [15, 14, 13, 0, 19, 21, 24, 19, 18, 16, 13, 2, 4, 8]
     }, {
-      title:   'Techno Is Not House',
+      title:  'Techno Is Not House',
       tracks: [14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
     }, {
-      title:   'Postmodern Cabaret',
+      title:  'Postmodern Cabaret',
       tracks: [10, 12, 14, 16, 18, 20, 22, 24, 0, 2, 4, 6, 8]
     }
   ],
@@ -337,302 +363,252 @@ module.exports = {
       author:      0,
       publishedAt: new Date(),
       release:     0,
-      content:     content,
-      tags:        [0, 5, 10]
+      content:     content
     }, {
       author:      1,
       publishedAt: new Date(),
       release:     1,
-      content:     content,
-      tags:        [1, 6, 11]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     2,
-      content:     content,
-      tags:        [2, 7, 12]
+      content:     content
     }, {
       author:      3,
       publishedAt: new Date(),
       release:     3,
-      content:     content,
-      tags:        [3, 8, 13]
+      content:     content
     }, {
       author:      0,
       publishedAt: new Date(),
       release:     4,
-      content:     content,
-      tags:        [4, 9, 14]
+      content:     content
     }, {
       author:      1,
       publishedAt: new Date(),
       release:     5,
-      content:     content,
-      tags:        [0, 6, 11]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     6,
-      content:     content,
-      tags:        [1, 7, 12]
+      content:     content
     }, {
       author:      3,
       publishedAt: new Date(),
       release:     7,
-      content:     content,
-      tags:        [2, 8, 13]
+      content:     content
     }, {
       author:      0,
       publishedAt: new Date(),
       release:     8,
-      content:     content,
-      tags:        [3, 9, 14]
+      content:     content
     }, {
       author:      0,
       publishedAt: new Date(),
       release:     9,
-      content:     content,
-      tags:        [4, 10, 10]
+      content:     content
     }, {
       author:      1,
       publishedAt: new Date(),
       release:     10,
-      content:     content,
-      tags:        [0, 5, 12]
+      content:     content
     }, {
       author:      1,
       publishedAt: new Date(),
       release:     11,
-      content:     content,
-      tags:        [1, 6, 13]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     12,
-      content:     content,
-      tags:        [2, 7, 14]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     13,
-      content:     content,
-      tags:        [3, 8, 10]
+      content:     content
     }, {
       author:      3,
       publishedAt: new Date(),
       release:     14,
-      content:     content,
-      tags:        [4, 9, 11]
+      content:     content
     }, {
       author:      3,
       publishedAt: new Date(),
       release:     15,
-      content:     content,
-      tags:        [0, 1, 2, 3, 4]
+      content:     content
     }, {
       author:      3,
       publishedAt: new Date(),
       playlist:    0,
-      content:     'PLAYLIST 0',
-      tags:        [13, 14, 0, 1, 2]
+      content:     'PLAYLIST 0'
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     16,
-      content:     content,
-      tags:        [5, 6, 7, 8, 9]
+      content:     content
     }, {
       author:      1,
       publishedAt: new Date(),
       release:     17,
-      content:     content,
-      tags:        [10, 11, 12, 13, 14]
+      content:     content
     }, {
       author:      0,
       publishedAt: new Date(),
       playlist:    1,
-      content:     'PLAYLIST 1',
-      tags:        [1, 14, 13, 11, 4]
+      content:     'PLAYLIST 1'
     }, {
       author:      3,
       publishedAt: new Date(),
       release:     18,
-      content:     content,
-      tags:        [3, 4, 5, 6, 7]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     19,
-      content:     content,
-      tags:        [8, 9, 10, 11, 12]
+      content:     content
     }, {
       author:      1,
       publishedAt: new Date(),
       release:     20,
-      content:     content,
-      tags:        [13, 14, 0, 1, 2]
+      content:     content
     }, {
       author:      0,
       publishedAt: new Date(),
       playlist:    2,
-      content:     'PLAYLIST 2',
-      tags:        [6, 8, 10, 0, 13]
+      content:     'PLAYLIST 2'
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     21,
-      content:     content,
-      tags:        [1, 14, 13, 11, 4]
+      content:     content
     }, {
       author:      3,
       publishedAt: new Date(),
       release:     22,
-      content:     content,
-      tags:        [6, 8, 10, 0, 13]
+      content:     content
     }, {
       author:      0,
       publishedAt: new Date(),
       release:     23,
-      content:     content,
-      tags:        [9, 8, 3, 2, 14]
+      content:     content
     }, {
       author:      1,
       publishedAt: new Date(),
       playlist:    3,
-      content:     'PLAYLIST 3',
-      tags:        [9, 8, 3, 2, 14, 4, 6, 11, 7, 0, 1]
+      content:     'PLAYLIST 3'
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     24,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      3,
       publishedAt: new Date(),
       playlist:    4,
-      content:     'PLAYLIST 4',
-      tags:        [12, 7, 6, 3, 9]
+      content:     'PLAYLIST 4'
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     25,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     26,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     27,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     28,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     29,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     30,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     31,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     32,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     33,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     34,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     35,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     36,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     37,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     38,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     39,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     40,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     41,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     42,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     43,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }, {
       author:      2,
       publishedAt: new Date(),
       release:     44,
-      content:     content,
-      tags:        [12, 7, 6, 3, 9]
+      content:     content
     }
   ]
 };
