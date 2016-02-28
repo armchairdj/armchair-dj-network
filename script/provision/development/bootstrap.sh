@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 SCRIPT_NAME='ubuntu'
-CONF_FILE_DIR='/vagrant/script/config/file'
+CONF_FILE_DIR='/vagrant/script/component/file'
 HOME='/home/vagrant'
 NODE_ENV='development'
 APP_ROOT='/vagrant'
@@ -61,4 +61,4 @@ source "$HOME/.profile"
 ##### Now we can run everything else
 
 echo "ubuntu: run setup script as $APP_USER"
-sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/script/config/setup.sh"
+sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/script/component/setup.sh"

@@ -4717,7 +4717,7 @@ function on( elem, types, selector, data, fn, one ) {
 }
 
 /*
- * Local functions for managing events -- not part of the public interface.
+ * Helper functions for managing events -- not part of the public interface.
  * Props to Dean Edwards' addEvent library for many of the ideas.
  */
 jQuery.event = {

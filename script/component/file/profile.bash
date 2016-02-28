@@ -34,7 +34,7 @@ fi
 # Exports - common.
 export NGINX_ACCESS_LOG="/var/log/nginx/access.log"
 export NGINX_ERROR_LOG="/var/log/nginx/error.log"
-export CONF_FILE_DIR="$APP_ROOT/script/config/file"
+export CONF_FILE_DIR="$APP_ROOT/script/component/file"
 
 # Aliases.
 alias log="tail -f -n10 $NODE_LOG"
@@ -50,6 +50,8 @@ alias r="sudo restart node"
 alias rl="r && log"
 
 alias tests="(cd /vagrant && make)"
+
+alias db='mongo armchairdj'
 
 alias nginx_bounce="sudo service nginx restart"
 alias nginx_access="tail -f -n1000 $NGINX_ACCESS_LOG"

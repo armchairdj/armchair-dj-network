@@ -33,11 +33,12 @@ require('../../lib/model/index');
 var shouldLog  = process.argv[2] === '--log';
 
 var memo = {
-  users:     [], 
-  releases:  [],
-  playlists: [],
-  tags:      [],
-  posts:     []
+  users:          [], 
+  releases:       [],
+  playlists:      [],
+  playlistSeries: [],
+  tags:           [],
+  posts:          []
 };
 
 /**
@@ -51,39 +52,33 @@ function populateDb() {
     /** Remove existing data **/
 
     function usersClear(next) {
-      var User = mongoose.model('User');
-
-      User.remove({}, next);
+      mongoose.model('User').remove({}, next);
     },
 
     function tagsClear(next) {
-      var Tag = mongoose.model('Tag');
-
-      Tag.remove({}, next);
+      mongoose.model('Tag').remove({}, next);
     },
 
     function releasesClear(next) {
-      var Release = mongoose.model('Release');
+      mongoose.model('Release').remove({}, next);
+    },
 
-      Release.remove({}, next);
+    function playlistSeriesClear(next) {
+      mongoose.model('PlaylistSeries').remove({}, next);
     },
 
     function playlistsClear(next) {
-      var Playlist = mongoose.model('Playlist');
-
-      Playlist.remove({}, next);
+      mongoose.model('Playlist').remove({}, next);
     },
 
     function postsClear(next) {
-      var Post = mongoose.model('Post');
-
-      Post.remove({}, next);
+      mongoose.model('Post').remove({}, next);
     },
 
     /** Populate example data **/
 
     function users(next) {
-      async.map(data.users, createUser, next);
+      async.mapSeries(data.users, createUser, next);
     },
 
     function tags(next) {
@@ -101,19 +96,23 @@ function populateDb() {
     },
 
     function releases(next) {
-      async.map(data.releases, createRelease, next);
+      async.mapSeries(data.releases, createRelease, next);
+    },
+
+    function playlistSeries(next) {
+      async.mapSeries(data.playlistSeries, createPlaylistSeries, next);
     },
 
     function playlists(next) {
-      async.map(data.playlists, createPlaylist, next);
+      async.mapSeries(data.playlists, createPlaylist, next);
     },
 
     function posts(next) {
-      async.map(data.posts, createPost, next);
+      async.mapSeries(data.posts, createPost, next);
     },
 
     function publish(next) {
-      async.map(memo.posts, publishPost, next);
+      async.mapSeries(memo.posts, publishPost, next);
     }
   ];
 
@@ -161,9 +160,26 @@ function createRelease(params, callback) {
   }
 }
 
+function createPlaylistSeries(params, callback) {
+  var PlaylistSeries = mongoose.model('PlaylistSeries');
+
+  logOperation(params);
+
+  PlaylistSeries.create(params, handlePlaylistSeries);
+
+  function handlePlaylistSeries(err, playlistSeries) {
+    if (playlistSeries) {
+      memo.playlistSeries.push(playlistSeries);
+    }
+
+    callback(err, playlistSeries);
+  }
+}
+
 function createPlaylist(params, callback) {
   var Playlist = mongoose.model('Playlist');
 
+  params.series = memo.playlistSeries[params.series]._id;
   params.tracks = _.map(params.tracks, mapTrack);
 
   logOperation(params);
@@ -235,17 +251,19 @@ function publishPost(post, callback) {
 }
 
 function finish(err) {
-  logResults();
+  logResults(respond);
 
-  if (err) {
-    console.log(err);
+  function respond() {
+    if (err) {
+      console.log(err);
 
-    process.exit(1);
+      process.exit(1);
+    }
+
+    console.log('Done!');
+
+    process.exit(0);
   }
-
-  console.log('Done!');
-
-  process.exit(0);
 }
 
 function logOperation(params) {
@@ -256,14 +274,26 @@ function logOperation(params) {
   console.log(params);
 }
 
-function logResults() {
+function logResults(callback) {
   var results = _.reduce(memo, reducer, {});
+
+  countTags();
+
+  function countTags() {
+    mongoose.model('Tag').count(respond);
+  }
+
+  function respond(err, tagCount) {
+    results.tags = tagCount;
+
+    console.log('Results:', results);
+
+    callback();
+  }
 
   function reducer(memo, item, key) {
     memo[key] = item.length;
 
     return memo;
   }
-
-  console.log('Results:', results);
 }

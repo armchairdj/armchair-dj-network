@@ -868,15 +868,21 @@ header.postInfo h2.title a:hover {
   color: #a5e6fc;
 }
 header.postInfo h2.artist,
-header.postInfo h3.artist {
+header.postInfo h3.artist,
+header.postInfo h2.series,
+header.postInfo h3.series {
   color: #10bcf8;
 }
 header.postInfo h2.artist a,
-header.postInfo h3.artist a {
+header.postInfo h3.artist a,
+header.postInfo h2.series a,
+header.postInfo h3.series a {
   color: #10bcf8;
 }
 header.postInfo h2.artist a:hover,
-header.postInfo h3.artist a:hover {
+header.postInfo h3.artist a:hover,
+header.postInfo h2.series a:hover,
+header.postInfo h3.series a:hover {
   color: #42caf9;
 }
 header.postInfo h4.type {
@@ -909,7 +915,8 @@ article.posts > section.post header.postInfo h2.title {
   font-size: 34px;
 }
 article.posts > section.post header.postInfo h2.title span.version,
-article.posts > section.post header.postInfo h3.artist {
+article.posts > section.post header.postInfo h3.artist,
+article.posts > section.post header.postInfo h3.series {
   font-size: 27px;
 }
 article.posts > section.post header.postInfo h4.type {
@@ -991,7 +998,8 @@ article.post header.postInfo h1.title {
   font-size: 40px;
 }
 article.post header.postInfo h1.title span.version,
-article.post header.postInfo h2.artist {
+article.post header.postInfo h2.artist,
+article.post header.postInfo h2.series {
   font-size: 31px;
 }
 article.post header.postInfo h4.type {

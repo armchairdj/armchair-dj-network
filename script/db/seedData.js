@@ -338,22 +338,84 @@ module.exports = {
       type:    'Song'
     }
   ],
+
+  playlistSeries: [
+    {
+      title: 'Verona Elementary',
+      theme: 'Battle Creek: 1978-1985'
+    }, {
+      title: 'W.K. Kellogg',
+      theme: 'Battle Creek: 1985-1988'
+    }, {
+      title: 'BCCHS',
+      theme: 'Battle Creek: 1988-1991'
+    }, {
+      title: 'Shaw Hall & Haslett Arms',
+      theme: 'East Lansing: 1991-1993'
+    }, {
+      title: 'Camberwell & Howland House',
+      theme: 'London & East Lansing: 1993-1994'
+    }, {
+      title: 'Beal Street & Crouch End',
+      theme: 'East Lansing & London: 1994-1996'
+    }, {
+      title: 'West Lakeview',
+      theme: 'Chicago: 1996-1998'
+    }, {
+      title: 'East Lakeview',
+      theme: 'Chicago: 1998-2000'
+    }, {
+      title: 'The Tenderloin',
+      theme: 'San Francisco: 2000-2003'
+    }, {
+      title: 'Wicker Park',
+      theme: 'Chicago: 2003-2008'
+    }, {
+      title: 'Logan Square',
+      theme: 'Chicago: 2008-2015'
+    }, {
+      title: 'Mount Washington',
+      theme: 'Los Angeles: 2015-present'
+    }, {
+      title: "Techno Is Not",
+      theme: 'Remedial Education in Electronic Music'
+    }, {
+      title: 'Postmodern Cabaret',
+      theme: 'All Over the Map'
+    }, {
+      title: 'Popcorn',
+      theme: 'Film Music, Ambient, Krautrock & Post-Rock'
+    }, {
+      title: 'Holiday',
+      theme: 'Christmas, Thanksgiving and the Winter Solstice'
+    }
+  ],
   playlists: [
     {
-      title:  'Popcorn & Dread',
-      tracks: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+      title:        'Popcorn & Dread',
+      series:       14,
+      seriesIndex:  1,
+      tracks:       [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
     }, {
-      title:  'The Heart of the Crowd',
-      tracks: [24, 23, 22, 21, 20, 19, 18, 17, 16]
+      title:       'The Heart of the Crowd',
+      series:      10,
+      seriesIndex: 16,
+      tracks:      [24, 23, 22, 21, 20, 19, 18, 17, 16]
     }, {
-      title:  'Mostly German',
-      tracks: [15, 14, 13, 0, 19, 21, 24, 19, 18, 16, 13, 2, 4, 8]
+      title:       'Mostly German',
+      series:      9,
+      seriesIndex: 4,
+      tracks:      [15, 14, 13, 0, 19, 21, 24, 19, 18, 16, 13, 2, 4, 8]
     }, {
-      title:  'Techno Is Not House',
-      tracks: [14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+      title:       'Techno Is Not House',
+      series:      12,
+      seriesIndex: 1,
+      tracks:      [14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
     }, {
-      title:  'Postmodern Cabaret',
-      tracks: [10, 12, 14, 16, 18, 20, 22, 24, 0, 2, 4, 6, 8]
+      series:      13,
+      seriesIndex: 1,
+      title:       'Wacky',
+      tracks:      [10, 12, 14, 16, 18, 20, 22, 24, 0, 2, 4, 6, 8]
     }
   ],
   posts: [

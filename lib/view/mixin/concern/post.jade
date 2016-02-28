@@ -69,9 +69,11 @@ mixin playlistHeader(post, playlist, level)
   header.postInfo
     h4.type Playlists
     - if (level === 'single')
+      h2.series!=playlist.displayPrefix()
       h1.title
         +playlistCitation(playlist)
     - else
+      h3.series!=playlist.displayPrefix()
       h2.title
         +linkToPost(post)
           +playlistCitation(playlist)
@@ -81,9 +83,7 @@ mixin playlistCitation(playlist)
     span.name=playlist.title
 
 mixin playlistBody(post, playlist)
-  //- section.body!=post.renderedContent()
-
-  p [Playlist body]
+  section.body!=post.renderedContent()
 
 //----- Releases
 
