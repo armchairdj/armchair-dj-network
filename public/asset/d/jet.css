@@ -857,33 +857,33 @@ header.postInfo h5 a:hover {
 }
 header.postInfo h1.title,
 header.postInfo h2.title {
-  color: #73d8fb;
+  color: #10bcf8;
 }
 header.postInfo h1.title a,
 header.postInfo h2.title a {
-  color: #73d8fb;
+  color: #10bcf8;
 }
 header.postInfo h1.title a:hover,
 header.postInfo h2.title a:hover {
-  color: #a5e6fc;
+  color: #42caf9;
 }
 header.postInfo h2.artist,
 header.postInfo h3.artist,
 header.postInfo h2.series,
 header.postInfo h3.series {
-  color: #10bcf8;
+  color: #73d8fb;
 }
 header.postInfo h2.artist a,
 header.postInfo h3.artist a,
 header.postInfo h2.series a,
 header.postInfo h3.series a {
-  color: #10bcf8;
+  color: #73d8fb;
 }
 header.postInfo h2.artist a:hover,
 header.postInfo h3.artist a:hover,
 header.postInfo h2.series a:hover,
 header.postInfo h3.series a:hover {
-  color: #42caf9;
+  color: #a5e6fc;
 }
 header.postInfo h4.type {
   text-transform: uppercase;

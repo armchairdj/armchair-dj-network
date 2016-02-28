@@ -95,8 +95,7 @@ mixin releaseHeader(post, release, level)
       h1.title
         +releaseCitation(release)
     - else
-      h3.artist
-        +linkToPost(post, release.artist)
+      h3.artist!=release.artist
       h2.title
         +linkToPost(post)
           +releaseCitation(release)
