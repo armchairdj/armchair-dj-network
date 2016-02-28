@@ -84,6 +84,16 @@ mixin playlistCitation(playlist)
 
 mixin playlistBody(post, playlist)
   section.body!=post.renderedContent()
+  section.tracks
+    ul
+      - each track in playlist.tracks
+        li
+          span.artist!=track.artist
+          | #{' '}
+          span.title!=track.title
+          - if (track.version)
+            | #{' '}
+            span.version!=track.version
 
 //----- Releases
 
@@ -102,7 +112,7 @@ mixin releaseHeader(post, release, level)
     h5.year!=release.year
 
 mixin releaseCitation(release)
-  //- cite.album, cite.compilation, cite.dj-mix, cite.song
+  //- cite.album, cite.compilation, cite.dj-mix, cite.track
   cite(class=viewHelper.slugify(release.type))
     span.name=release.title
     - if (release.version)

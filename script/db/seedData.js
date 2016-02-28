@@ -66,131 +66,131 @@ module.exports = {
       artist:  'David Bowie',
       title:   'Blackstar',
       year:    '2015',
-      type:    'Song',
+      type:    'Track',
       url:     'http://www.example.com'
     }, {
       tags:    { genre: 'foo, bar' },
       artist:  'Kate Boy',
       title:   'Northern Lights',
       year:    '2013',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { genre: 'bat, baz' },
       artist:  'Chvrches',
       title:   'The Mother We Share',
       year:    '2013',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { genre: 'apple, carrot, potato' },
       artist:  'Class Actress',
       title:   'Weekend',
       year:    '2011',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { genre: 'orange, rhubarb, pistachio' },
       artist:  'Tegan and Sara',
       title:   'How Come You Don\'t Want Me',
       year:    '2013',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { genre: 'meat, bread, cheese, milk, dessert' },
       artist:  'AlunaGeorge',
       title:   'Attracting Flies',
       year:    '2013',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: 'tree, forest, lawn' },
       artist:  'Twin Shadow',
       title:   'Tyrant Destroyed',
       year:    '2010',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: 'boy, girl, man, woman' },
       artist:  'Pet Shop Boys',
       title:   'One Night',
       year:    '2012',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: 'hate, love, like, dislike, adore, abhor' },
       artist:  'Class Actress',
       title:   'Love Me Like You Used To',
       year:    '2011',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: 'android, robot, tweekie' },
       artist:  'Bat for Lashes',
       title:   'Pearl\'s Dream',
       year:    '2009',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: 'trekker, nerd, twihard' },
       artist:  'Yeah Yeah Yeahs',
       title:   'Sacrilege',
       year:    '2013',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: 'spring, summer, winter, fall' },
       artist:  'Justin Timberlake',
       title:   'Mirrors',
       year:    '2013',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'actual, general, insufferable' },
       artist:  'The Postal Service',
       title:   'A Tattered Line of String',
       year:    '2013',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'oops, i, did, it, again' },
       artist:  'Class Actress',
       title:   'Prove Me Wrong',
       year:    '2011',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'anti-histamine' },
       artist:  'Jessie Ware',
       title:   'Running',
       version: 'Disclosure Remix',
       year:    '2012',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'thomas jefferson, george washington, diet coke' },
       artist:  'Two Door Cinema Club',
       title:   'Something Good Can Work',
       version: 'Ted & Francis Remix',
       year:    '2010',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'too good to be true, i cannot believe this exists' },
       artist:  'Ciara & Future & B.o.B.',
       title:   'Body Party',
       version: 'Remix',
       year:    '2013',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'twee, awful, energetic' },
       artist:  'Empire of the Sun',
       title:   'Walking on a Dream',
       year:    '2009',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'trip-hop, post-rock, post-punk' },
       artist:  'Solange',
       title:   'Losing You',
       year:    '2012',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'aboriginal, native american' },
       artist:  'Ciara',
       title:   'Overdose',
       year:    '2013',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'ambiguous, ambidextrous, bisexual, agender, amphibious' },
       artist:  'Kate Boy',
       title:   'The Way We Are',
       year:    '2015',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { genre: 'dead, kerput, corrupt, insane in the membrane' },
       artist:  'David Bowie',
@@ -215,127 +215,127 @@ module.exports = {
       artist:  'Kate Bush',
       title:   'Wild Man',
       year:    '2011',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'over the hill, still full of life' },
       artist:  'Pet Shop Boys',
       title:   'The Pop Kids',
       year:    '2016',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: 'wistful, retro, imaginative' },
       artist:  'Sarah Cracknell',
       title:   'On the Swings',
       year:    '2015',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { genre: 'stone cold classic, proto-trip-hop, uk soul, uk blak' },
       artist:  'Soul II Soul',
       title:   'Back to Life (However Do You Want Me)',
       year:    '1989',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'haunting, piano-led, wistful, sexy' },
       artist:  'Kate Bush',
       title:   'Under the Ivy',
       year:    '1985',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: 'syncopated, detroit techno' },
       artist:  'Derrick May',
       title:   'Strings of Life',
       year:    '1987',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { genre: 'uk techno, minimal techno, industrial techno' },
       artist:  'Surgeon',
       title:   'Krautrock',
       year:    '1996',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'dance-pop, gay, club kiddie, larry t' },
       artist:  'RuPaul',
       title:   'Supermodel (You Better Work)',
       year:    '1992',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: 'soul, soulful, rest in peace, RIP' },
       artist:  'Aaliyah',
       title:   'Loose Rap',
       year:    '2001',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { genre: 'paranoid, icy, synth-pop' },
       artist:  'Adult.',
       title:   'The Cold Call',
       year:    '2003',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'singer-songwriter, candy, melancholy' },
       artist:  'Aimee Mann',
       title:   'Red Vines',
       year:    '1999',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: 'sinister, trip-hop, nasal, cover song, sample' },
       artist:  'The Aloof',
       title:   'Doing It for Money',
       year:    '1999',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { genre: 'lesbian, sexy, funny' },
       artist:  'Ani Difranco',
       title:   'Fire Door',
       year:    '1989',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'political, sad, acoustic' },
       artist:  "Sinead O'Connor",
       title:   'Black Boys on Mopeds',
       year:    '1990',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: '80s, quiet storm, adult contemporary' },
       artist:  'Atlantic Starr',
       title:   'Secret Lovers',
       year:    '1985',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { genre: 'punk, post-punk, surf-rock' },
       artist:  "The B-52's",
       title:   'Planet Claire',
       year:    '1979',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'rave, breakbeat, uk hardcore' },
       artist:  'Baby D',
       title:   'Let Me Be Your Fantasy',
       year:    '1992',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: 'indie-pop, britpop, throwback' },
       artist:  'Badly Drawn Boy',
       title:   'Disillusion',
       year:    '2000',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { genre: 'majestic, score, soundtrack, battlestar galactica' },
       artist:  'Bear McCreary',
       title:   'Passacaglia',
       year:    '2005',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { mood: 'rap, punky, bratty, 80s' },
       artist:  'Beastie Boys',
       title:   'Brass Monkey',
       year:    '1986',
-      type:    'Song'
+      type:    'Track'
     }, {
       tags:    { keyword: 'classic, melancholy, silly' },
       artist:  'The Beatles',
       title:   'The Fool on the Hill',
       year:    '1967',
-      type:    'Song'
+      type:    'Track'
     }
   ],
 
@@ -377,7 +377,7 @@ module.exports = {
       title: 'Mount Washington',
       theme: 'Los Angeles: 2015-present'
     }, {
-      title: "Techno Is Not",
+      title: "Techno Is",
       theme: 'Remedial Education in Electronic Music'
     }, {
       title: 'Postmodern Cabaret',
