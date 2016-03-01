@@ -24,6 +24,10 @@ var uglify      = require('gulp-uglify');
  * Internal dependencies.
  */
 
+/**
+ * Setup.
+ */
+
 /*
   The following line fixes this problem:
     (node) warning: possible EventEmitter memory leak detected. 11 listeners added.
@@ -54,54 +58,109 @@ var dest = {
 };
 
 /**
- * Tasks.
+ * Create tasks
  */
 
-gulp.task('script-modernizr', function() {
-  var identifier = 'script-modernizr';
-  var filename   = identifier + '.js';
-  var stream     = gulp.src(src.javascript.modernizr)
-    .pipe(concat(filename))
-  ;
+var defaultTasks = [];
 
-  deploy(identifier, stream, uglifier());
-});
+scriptTask(          'script-modernizr', src.javascript.modernizr);
+scriptTaskBrowserify('script-site',      src.javascript.site     );
+stylesheetTaskStylus('stylesheet-jet',   src.stylesheet.jet      );
 
-gulp.task('script-site', function() {
-  var identifier = 'script-site';
-  var filename   = identifier + '.js';
-  var stream     = browserify(src.javascript.site)
-    .bundle()
-    .pipe(source(filename))
-    .pipe(buffer())
-  ;
-
-  deploy(identifier, stream, uglifier());
-});
-
-gulp.task('stylesheet-jet', function () {
-  var identifier = 'stylesheet-jet';
-  var filename   = identifier + '.css';
-  var stream     = streamqueue
-    .obj()
-    .queue(              gulp.src(src.stylesheet.jet.css    ))
-    .queue(compileStylus(gulp.src(src.stylesheet.jet.stylus)))
-    .done()
-    .pipe(concat(filename))
-  ;
-
-  deploy(identifier, stream, cssnano());
-});
-
-gulp.task('default', [
-  'script-modernizr',
-  'script-site',
-  'stylesheet-jet'
-]);
+gulp.task('default', defaultTasks);
 
 /**
- * Local functions.
+ * Functions: Task builders.
  */
+
+function addTask(pkgName, task) {
+  gulp.task(pkgName, task);
+
+  defaultTasks.push(pkgName);
+}
+
+function scriptTask(pkgName, sourceFiles) {
+  addTask(pkgName, task);
+
+  function task() {
+    var filename  = pkgName + '.js';
+    var transform = uglifier();
+    var stream    = gulp.src(sourceFiles)
+      .pipe(concat(filename))
+    ;
+
+    deploy(pkgName, stream, transform);
+  }
+}
+
+function scriptTaskBrowserify(pkgName, sourceFiles) {
+  addTask(pkgName, task);
+
+  function task() {
+    var filename  = pkgName + '.js';
+    var transform = uglifier();
+    var stream    = browserify(sourceFiles)
+      .bundle()
+      .pipe(source(filename))
+      .pipe(buffer())
+    ;
+
+    deploy(pkgName, stream, transform);
+  }
+}
+
+function stylesheetTaskStylus(pkgName, sourceFiles) {
+  addTask(pkgName, task);
+
+  function task () {
+    var filename   = pkgName + '.css';
+    var transform  = cssnano();
+    var stream     = streamqueue
+      .obj()
+      .queue(              gulp.src(sourceFiles.css    ))
+      .queue(compileStylus(gulp.src(sourceFiles.stylus)))
+      .done()
+      .pipe(concat(filename))
+    ;
+
+    deploy(pkgName, stream, transform);
+  }
+}
+
+/**
+ * Functions: Asset pipeline.
+ */
+
+function deploy(pkgName, stream, transform) {
+  var dev = stream.pipe(clone());
+  var pro = stream.pipe(clone()).pipe(transform);
+
+  deployTo(dest.development, pkgName, dev);
+  deployTo(dest.production,  pkgName, pro);
+}
+
+function deployTo(destination, pkgName, stream) {
+  var manifestFilename = pkgName + '-manifest.json';
+
+  stream
+    .pipe(rev())
+    .pipe(gulp.dest(destination))
+    .pipe(rev.manifest(manifestFilename))
+    .pipe(gulp.dest(destination))
+  ;
+}
+
+/**
+ * Functions: Asset wrangling.
+ */
+
+function uglifier() {
+  return uglify({ mangle: false }).on('error', handleError)
+
+  function handleError(err) {
+    console.log(err);
+  }
+}
 
 function compileStylus(src) {
   return src
@@ -112,31 +171,4 @@ function compileStylus(src) {
       use:           [axis(), nib()]
     }))
   ;
-}
-
-function deploy(identifier, stream, productionTransform) {
-  var dev = stream.pipe(clone());
-  var pro = stream.pipe(clone()).pipe(productionTransform);
-
-  deployTo(dest.development, identifier, dev);
-  deployTo(dest.production,  identifier, pro);
-}
-
-function deployTo(destination, identifier, stream) {
-  var manifestFilename = identifier + '-manifest.json';
-
-  stream
-    .pipe(rev())
-    .pipe(gulp.dest(destination))
-    .pipe(rev.manifest(manifestFilename))
-    .pipe(gulp.dest(destination))
-  ;
-}
-
-function uglifier() {
-  return uglify({ mangle: false }).on('error', handleError)
-
-  function handleError(err) {
-    console.log(err);
-  }
 }
