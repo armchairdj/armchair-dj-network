@@ -1,11 +1,11 @@
 mixin externalStylesheet(href)
   link(rel='stylesheet' type='text/css' href=href)
 
-mixin script(filename)
-  script(src=assetLocations[filename])
+mixin script(pkgName)
+  script(src=assetFiles[pkgName])
 
-mixin stylesheet(filename)
-  link(rel='stylesheet' type='text/css' href=assetLocations[filename])
+mixin stylesheet(pkgName)
+  link(rel='stylesheet' type='text/css' href=assetFiles[pkgName])
 
 mixin touchIcons()
   link(rel='apple-touch-icon-precomposed' href='/apple-touch-icon-precomposed.png')
