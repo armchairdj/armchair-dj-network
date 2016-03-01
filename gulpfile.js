@@ -58,33 +58,39 @@ var dest = {
  */
 
 gulp.task('script-modernizr', function() {
-  var stream = gulp.src(src.javascript.modernizr)
-    .pipe(concat('modernizr.js'))
+  var identifier = 'script-modernizr';
+  var filename   = identifier + '.js';
+  var stream     = gulp.src(src.javascript.modernizr)
+    .pipe(concat(filename))
   ;
 
-  deploy('script-modernizr', stream, uglifier());
+  deploy(identifier, stream, uglifier());
 });
 
 gulp.task('script-site', function() {
-  var stream = browserify(src.javascript.site)
+  var identifier = 'script-site';
+  var filename   = identifier + '.js';
+  var stream     = browserify(src.javascript.site)
     .bundle()
-    .pipe(source('site.js'))
+    .pipe(source(filename))
     .pipe(buffer())
   ;
 
-  deploy('script-site', stream, uglifier());
+  deploy(identifier, stream, uglifier());
 });
 
 gulp.task('stylesheet-jet', function () {
-  var stream = streamqueue
+  var identifier = 'stylesheet-jet';
+  var filename   = identifier + '.css';
+  var stream     = streamqueue
     .obj()
     .queue(              gulp.src(src.stylesheet.jet.css    ))
     .queue(compileStylus(gulp.src(src.stylesheet.jet.stylus)))
     .done()
-    .pipe(concat('jet.css'))
+    .pipe(concat(filename))
   ;
 
-  deploy('stylesheet-jet', stream, cssnano());
+  deploy(identifier, stream, cssnano());
 });
 
 gulp.task('default', [
