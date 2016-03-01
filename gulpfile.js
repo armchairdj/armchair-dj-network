@@ -8,11 +8,13 @@ var _           = require('underscore');
 var axis        = require('axis');
 var browserify  = require('browserify');
 var buffer      = require('vinyl-buffer');
+var clone       = require('gulp-clone');
 var concat      = require('gulp-concat');
 var cssnano     = require('gulp-cssnano');
 var events      = require('events');
 var nib         = require('nib');
 var plumber     = require('gulp-plumber');
+var rev         = require('gulp-rev');
 var source      = require('vinyl-source-stream');
 var streamqueue = require('streamqueue');
 var stylus      = require('gulp-stylus');
@@ -60,7 +62,7 @@ gulp.task('script-modernizr', function() {
     .pipe(concat('modernizr.js'))
   ;
 
-  copyToDest(stream, uglifier());
+  deploy('script-modernizr', stream, uglifier());
 });
 
 gulp.task('script-site', function() {
@@ -70,7 +72,7 @@ gulp.task('script-site', function() {
     .pipe(buffer())
   ;
 
-  copyToDest(stream, uglifier());
+  deploy('script-site', stream, uglifier());
 });
 
 gulp.task('stylesheet-jet', function () {
@@ -82,7 +84,7 @@ gulp.task('stylesheet-jet', function () {
     .pipe(concat('jet.css'))
   ;
 
-  copyToDest(stream, cssnano());
+  deploy('stylesheet-jet', stream, cssnano());
 });
 
 gulp.task('default', [
@@ -106,11 +108,22 @@ function compileStylus(src) {
   ;
 }
 
-function copyToDest(stream, transform) {
+function deploy(identifier, stream, productionTransform) {
+  var dev = stream.pipe(clone());
+  var pro = stream.pipe(clone()).pipe(productionTransform);
+
+  deployTo(dest.development, identifier, dev);
+  deployTo(dest.production,  identifier, pro);
+}
+
+function deployTo(destination, identifier, stream) {
+  var manifestFilename = identifier + '-manifest.json';
+
   stream
-    .pipe(gulp.dest(dest.development))
-    .pipe(transform)
-    .pipe(gulp.dest(dest.production))
+    .pipe(rev())
+    .pipe(gulp.dest(destination))
+    .pipe(rev.manifest(manifestFilename))
+    .pipe(gulp.dest(destination))
   ;
 }
 
