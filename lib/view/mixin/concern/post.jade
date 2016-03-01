@@ -1,30 +1,30 @@
 //----- Posts
 
 mixin postPreview(post)
-  section.post(class=post.type())
+  section.post(class=post.domClass())
     +postCoverArt(post, true)
     +postHeader(post, 'multi')
     +postTeaser(post)
 
 mixin postFull(post)
-  article.post(class=post.type())
+  article.post(class=post.domClass())
     +postHeader(post, 'single')
     +postCoverArt(post)
     +postBody(post)
     +postTags(post)
-    +postTagline(post)
+    +postByline(post)
 
 mixin postHeader(post, level)
-  - if (post.type() === 'playlist')
-    +playlistHeader(post, post.playlist, level)
+  - if (post.hasPlaylist())
+    +playlistHeader(post, level)
   - else
-    +releaseHeader(post, post.release, level)
+    +releaseHeader(post, level)
 
 mixin postBody(post)
-  - if (post.type() === 'playlist')
-    +playlistBody(post, post.playlist)
+  - if (post.hasPlaylist())
+    +playlistBody(post)
   - else
-    +releaseBody(post, post.release)
+    +releaseBody(post)
 
 mixin postTeaser(post)
   .teaser
@@ -36,15 +36,15 @@ mixin postCoverArt(post, linked)
   aside.coverArt
     - if (linked)
       +linkToPost(post)
-        +postImageTag(post)
+        +postImg(post)
     - else
-      +postImageTag(post)
+      +postImg(post)
 
-mixin postImageTag(post)
+mixin postImg(post)
   img(src=post.image alt!=post.altText)
 
-mixin postTagline(post)
-  .tagline
+mixin postByline(post)
+  .byline
     | Posted by #{post.author.username}#{post.publishedDateString()}
 
 mixin postTags(post)
@@ -65,7 +65,9 @@ mixin linkToPost(post, text)
 
 //----- Playlists
 
-mixin playlistHeader(post, playlist, level)
+mixin playlistHeader(post, level)
+  - playlist = post.playlist
+
   header.postInfo
     h4.type Playlists
     - if (level === 'single')
@@ -82,7 +84,9 @@ mixin playlistCitation(playlist)
   cite.playlist
     span.name=playlist.title
 
-mixin playlistBody(post, playlist)
+mixin playlistBody(post)
+  - playlist = post.playlist
+
   section.body!=post.renderedContent()
   section.tracks
     ul
@@ -97,26 +101,30 @@ mixin playlistBody(post, playlist)
 
 //----- Releases
 
-mixin releaseHeader(post, release, level)
+mixin releaseHeader(post, level)
+  - release = post.release
+
   header.postInfo
     h4.type!=viewHelper.pluralize(release.type)
     - if (level === 'single')
       h2.artist!=release.artist
       h1.title
-        +releaseCitation(release)
+        +releaseCitation(post)
     - else
       h3.artist!=release.artist
       h2.title
         +linkToPost(post)
-          +releaseCitation(release)
+          +releaseCitation(post)
     h5.year!=release.year
 
-mixin releaseCitation(release)
+mixin releaseCitation(post)
+  - release = post.release
+
   //- cite.album, cite.compilation, cite.dj-mix, cite.track
-  cite(class=viewHelper.slugify(release.type))
+  cite(class=post.domClass())
     span.name=release.title
     - if (release.version)
       span.version=release.version
 
-mixin releaseBody(post, release)
+mixin releaseBody(post)
   section.body!=post.renderedContent()
