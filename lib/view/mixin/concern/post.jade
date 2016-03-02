@@ -51,10 +51,10 @@ mixin postTags(post)
   section
     ul.tags
       - each tag in post.subject().tags
-        li: +linkToTag(tag, tag.displayName())
+        li: +linkToTag(tag, tag.slug)
 
 mixin linkToTag(tag, text)
-  a(href='/' + tag.type + '/' + tag.slug)!=text
+  a(href='/' + tag.path + '/' + tag.slug)!=text
 
 mixin linkToPost(post, text)
   a(class!=attributes.class href='/post/' + post.path + '/' + post.slug)
@@ -71,11 +71,11 @@ mixin playlistHeader(post, level)
   header.postInfo
     h4.type Playlists
     - if (level === 'single')
-      h2.series!=playlist.displayPrefix()
+      h2.series!=playlist.seriesPrefix()
       h1.title
         +playlistCitation(playlist)
     - else
-      h3.series!=playlist.displayPrefix()
+      h3.series!=playlist.seriesPrefix()
       h2.title
         +linkToPost(post)
           +playlistCitation(playlist)
