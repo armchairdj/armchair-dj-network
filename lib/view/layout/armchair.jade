@@ -4,9 +4,9 @@ doctype html
 html(class='no-js' lang='en')
 
   head
-    +metaStandard('Armchair DJ: Songs I Love')
+    +metaStandard(pageDescription)
 
-    title Armchair DJ
+    title!=viewHelper.tokens([headline, i18n.site.name], ' | ')
 
     block meta
 

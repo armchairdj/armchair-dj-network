@@ -2,7 +2,7 @@ extends /layout/armchair
 
 block content
   article.posts
-    - if (headline)
+    - if (!isHomepage)
       header
         h1!=headline
 
