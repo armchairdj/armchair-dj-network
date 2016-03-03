@@ -54,7 +54,7 @@ mixin postTags(post)
         li: +linkToTag(tag, tag.slug)
 
 mixin linkToTag(tag, text)
-  a(href='/' + tag.path + '/' + tag.slug)!=text
+  a(href='/tag/' + tag.urlPath())!=text
 
 mixin linkToPost(post, text)
   a(class!=attributes.class href='/post/' + post.path + '/' + post.slug)
