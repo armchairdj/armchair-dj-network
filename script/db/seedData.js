@@ -203,7 +203,7 @@ module.exports = {
       type:    'Album',
       url:     'http://www.example.com'
     }, {
-      tags:    { mood: 'apocryphal, erotica, anonymintiy' },
+      tags:    { mood: 'apocryphal, erotica, anonymintiy' , genre: 'techno' },
       artist:  'Various Artists',
       title:   'We Were So Turned On: The Songs of David Bowie',
       year:    '2010',
@@ -245,13 +245,13 @@ module.exports = {
       year:    '1985',
       type:    'Track'
     }, {
-      tags:    { keyword: 'syncopated, detroit techno' },
+      tags:    { keyword: 'syncopated, detroit', genre: 'detroit techno, techno' },
       artist:  'Derrick May',
       title:   'Strings of Life',
       year:    '1987',
       type:    'Track'
     }, {
-      tags:    { genre: 'uk techno, minimal techno, industrial techno' },
+      tags:    { genre: 'uk techno, minimal techno, industrial techno, techno' },
       artist:  'Surgeon',
       title:   'Krautrock',
       year:    '1996',
@@ -269,7 +269,7 @@ module.exports = {
       year:    '2001',
       type:    'Track'
     }, {
-      tags:    { genre: 'paranoid, icy, synth-pop' },
+      tags:    { genre: 'paranoid, icy, synth-pop, electro', keyword: 'detroit' },
       artist:  'Adult.',
       title:   'The Cold Call',
       year:    '2003',
@@ -323,7 +323,7 @@ module.exports = {
       year:    '2000',
       type:    'Track'
     }, {
-      tags:    { genre: 'majestic, score, soundtrack, battlestar galactica' },
+      tags:    { genre: 'majestic, score, soundtrack, sci-fi, battlestar galactica' },
       artist:  'Bear McCreary',
       title:   'Passacaglia',
       year:    '2005',
