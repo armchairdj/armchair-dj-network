@@ -1,6 +1,6 @@
-/*
-  Stuff some basic data into mongo locally for testing/development.
-*/
+/******************************************************************************
+[DESCRIPTION]
+******************************************************************************/
 
 /**
  * External dependencies.

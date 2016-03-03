@@ -9,7 +9,7 @@ Vagrant.configure('2') do |config|
   ### BASE BOX & VM
 
   config.vm.box      = 'puppetlabs/ubuntu-14.04-64-puppet'
-  config.vm.hostname = "armchairdj.com"
+  config.vm.hostname = "armchair-dj.com"
 
   # Tests? NEEDED?
   config.vm.network :forwarded_port, host: 9060, guest: 9060, auto_correct: true
