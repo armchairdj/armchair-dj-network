@@ -191,7 +191,19 @@ module.exports = _.memoize(function () {
 });
 },{"jquery":7,"underscore":8}],6:[function(require,module,exports){
 /******************************************************************************
-[DESCRIPTION]
+Bracket-style property lookup with 'dot.delimited.strings.'
+
+## Examples:
+
+    $ var obj = { foo: { bar: 'baz' } };
+    $ safe(obj, 'foo')
+    # { bar: 'baz' }
+    $ safe(obj, 'foo.bar')
+    # 'baz'
+    $ safe(obj, 'foo.x')
+    # undefined
+    $ safe(obj. 'foo.x', 'not found')
+    # 'not found'
 ******************************************************************************/
 
 /**

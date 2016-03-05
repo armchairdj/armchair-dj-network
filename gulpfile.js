@@ -77,31 +77,31 @@ gulp.task('default', defaultTasks);
  * Functions: Task builders.
  */
 
-function addTask(pkgName, task) {
-  gulp.task(pkgName, task);
+function addTask(pkgname, task) {
+  gulp.task(pkgname, task);
 
-  defaultTasks.push(pkgName);
+  defaultTasks.push(pkgname);
 }
 
-function scriptTask(pkgName, sourceFiles) {
-  addTask(pkgName, task);
+function scriptTask(pkgname, sourceFiles) {
+  addTask(pkgname, task);
 
   function task() {
-    var filename  = pkgName + '.js';
+    var filename  = pkgname + '.js';
     var transform = uglifier();
     var stream    = gulp.src(sourceFiles)
       .pipe(concat(filename))
     ;
 
-    deploy(pkgName, stream, transform);
+    deploy(pkgname, stream, transform);
   }
 }
 
-function scriptTaskBrowserify(pkgName, sourceFiles) {
-  addTask(pkgName, task);
+function scriptTaskBrowserify(pkgname, sourceFiles) {
+  addTask(pkgname, task);
 
   function task() {
-    var filename  = pkgName + '.js';
+    var filename  = pkgname + '.js';
     var transform = uglifier();
     var stream    = browserify(sourceFiles)
       .bundle()
@@ -109,15 +109,15 @@ function scriptTaskBrowserify(pkgName, sourceFiles) {
       .pipe(buffer())
     ;
 
-    deploy(pkgName, stream, transform);
+    deploy(pkgname, stream, transform);
   }
 }
 
-function stylesheetTaskStylus(pkgName, sourceFiles) {
-  addTask(pkgName, task);
+function stylesheetTaskStylus(pkgname, sourceFiles) {
+  addTask(pkgname, task);
 
   function task () {
-    var filename   = pkgName + '.css';
+    var filename   = pkgname + '.css';
     var transform  = cssnano();
     var stream     = streamqueue
       .obj()
@@ -127,7 +127,7 @@ function stylesheetTaskStylus(pkgName, sourceFiles) {
       .pipe(concat(filename))
     ;
 
-    deploy(pkgName, stream, transform);
+    deploy(pkgname, stream, transform);
   }
 }
 
@@ -135,16 +135,16 @@ function stylesheetTaskStylus(pkgName, sourceFiles) {
  * Functions: Asset pipeline.
  */
 
-function deploy(pkgName, stream, transform) {
+function deploy(pkgname, stream, transform) {
   var dev = stream.pipe(clone());
   var pro = stream.pipe(clone()).pipe(transform);
 
-  deployTo(dest.development, pkgName, dev);
-  deployTo(dest.production,  pkgName, pro);
+  deployTo(dest.development, pkgname, dev);
+  deployTo(dest.production,  pkgname, pro);
 }
 
-function deployTo(destination, pkgName, stream) {
-  var manifestFilename = pkgName + '-manifest.json';
+function deployTo(destination, pkgname, stream) {
+  var manifestFilename = pkgname + '-manifest.json';
 
   stream
     .pipe(rev())
