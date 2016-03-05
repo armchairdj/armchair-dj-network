@@ -7,6 +7,10 @@ article.posts {
     clearfix();
     marginBottom(80px);
 
+    $articleChildSelectors {
+      readable();
+    }
+
     header.postInfo {
       h2.title {
         font-size: 34px;
@@ -26,10 +30,10 @@ article.posts {
         font-size: 22px;
       }
     }
-  }
 
-  a.readMore {
-    plainLink();
+    a.readMore {
+      plainLink();
+    }
   }
 
   @media $mediaS {
