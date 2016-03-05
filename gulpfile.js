@@ -139,16 +139,11 @@ function deploy(pkgName, stream, transform) {
   var dev = stream.pipe(clone());
   var pro = stream.pipe(clone()).pipe(transform);
 
-  deployToDevelopment(dev);
-  deployToProduction(pro, pkgName);
+  deployTo(dest.development, pkgName, dev);
+  deployTo(dest.production,  pkgName, pro);
 }
 
-function deployToDevelopment(stream) {
-  stream.pipe(gulp.dest(dest.development));
-}
-
-function deployToProduction(stream, pkgName) {
-  var destination      = dest.production;
+function deployTo(destination, pkgName, stream) {
   var manifestFilename = pkgName + '-manifest.json';
 
   stream
