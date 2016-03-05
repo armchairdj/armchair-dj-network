@@ -50,6 +50,7 @@
     "gulp-cssnano": "2.1.1",
     "gulp-plumber": "1.1.0",
     "gulp-rev": "7.0.0",
+    "gulp-rev-outdated": "0.1.1",
     "gulp-stylus": "2.3.0",
     "gulp-uglify": "1.5.2",
     "locus": "1.2.0",

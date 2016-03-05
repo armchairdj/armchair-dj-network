@@ -17,6 +17,7 @@ var concat      = require('gulp-concat');
 var cssnano     = require('gulp-cssnano');
 var events      = require('events');
 var nib         = require('nib');
+var outdated    = require('gulp-rev-outdated');
 var plumber     = require('gulp-plumber');
 var rev         = require('gulp-rev');
 var source      = require('vinyl-source-stream');
@@ -176,3 +177,19 @@ function compileStylus(src) {
     }))
   ;
 }
+
+/**
+ * Functions: Remove old files.
+ */
+
+function clean() {
+  var dirs = [dest.development, dest.production];
+  var opts = { read: false };
+
+  gulp.src(dirs, opts)
+    .pipe( outdated(1) )
+    .pipe( cleaner() )
+  ;
+}
+
+gulp.task('clean', clean);
