@@ -93,15 +93,15 @@ function addTask(pkgName, extension, task) {
 
 function createCleaner(pkgName, extension) {
   var dir  = path.join(__dirname, dest.root);
-  var glob = dir + '/**/' + pkgName + '-*' + extension;
+  var glob = dir + '**/' + pkgName + '-*' + extension;
 
-  function clean(callback) {
+  return function (callback) {
     rimraf(glob, handleClean);
 
     function handleClean(err) {
       callback(err);
     }
-  }
+  };
 }
 
 function scriptTask(pkgName, sourceFiles) {
