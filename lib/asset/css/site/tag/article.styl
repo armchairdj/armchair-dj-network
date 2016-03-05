@@ -5,7 +5,7 @@ article {
   }
 
   > header {
-    marginBottom(20px);
+    marginBottom(40px);
 
     h1,
     h2,
@@ -13,7 +13,7 @@ article {
     h4,
     h5,
     h6 {
-      breathable();
+      readable();
       marginBottom(.25em);
       bold();
     }
@@ -45,12 +45,9 @@ article {
       marginBottom(20px);
     }
 
-    blockquote,
-    p,
-    ul,
-    ol,
-    li {
+    $articleChildSelectors {
       airy();
     }
   }
 }
+

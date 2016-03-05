@@ -1,7 +1,15 @@
 article.posts {
+  > header {
+    standardRuleLine(#333);
+  }
+
   > section.post {
     clearfix();
     marginBottom(80px);
+
+    $articleChildSelectors {
+      readable();
+    }
 
     header.postInfo {
       h2.title {
@@ -22,10 +30,10 @@ article.posts {
         font-size: 22px;
       }
     }
-  }
 
-  a.readMore {
-    plainLink();
+    a.readMore {
+      plainLink();
+    }
   }
 
   @media $mediaS {

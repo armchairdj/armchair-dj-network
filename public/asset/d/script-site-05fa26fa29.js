@@ -190,6 +190,10 @@ module.exports = _.memoize(function () {
   return touch() ? 'touchend' : 'click';
 });
 },{"jquery":7,"underscore":8}],6:[function(require,module,exports){
+/******************************************************************************
+[DESCRIPTION]
+******************************************************************************/
+
 /**
  * Method.
  */
