@@ -45,7 +45,12 @@ mixin postImg(post)
 
 mixin postByline(post)
   .byline
-    | Posted by #{post.author.username}#{post.publishedDateString()}
+    | Posted#{post.publishedDateString()} by #{''}
+    +linkToUser(post.author)
+
+mixin linkToUser(user, text)
+  - text = text || user.username
+  a(href='/u/' + user.username)!= text
 
 mixin postTags(post)
   section

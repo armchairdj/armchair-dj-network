@@ -4,9 +4,9 @@ doctype html
 html(class='no-js' lang='en')
 
   head
-    +metaStandard(pageDescription)
+    title!=viewHelper.tokens([headline, i18n('site.name')], ' | ')
 
-    title!=viewHelper.tokens([headline, i18n.site.name], ' | ')
+    +metaStandard()
 
     block meta
 
@@ -31,4 +31,4 @@ html(class='no-js' lang='en')
 
     +script('script-site')
 
-    <!-- #{i18n.brian.hireMe} -->
+  <!-- #{i18n('brian.hireMe')} -->
