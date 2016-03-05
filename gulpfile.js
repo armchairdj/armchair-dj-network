@@ -16,10 +16,11 @@ var clone       = require('gulp-clone');
 var concat      = require('gulp-concat');
 var cssnano     = require('gulp-cssnano');
 var events      = require('events');
+var path        = require('path');
 var nib         = require('nib');
-var outdated    = require('gulp-rev-outdated');
 var plumber     = require('gulp-plumber');
 var rev         = require('gulp-rev');
+var rimraf      = require('rimraf');
 var source      = require('vinyl-source-stream');
 var streamqueue = require('streamqueue');
 var stylus      = require('gulp-stylus');
@@ -45,7 +46,7 @@ events.EventEmitter.prototype._maxListeners = 100;
  */
 
 var src = {
-  javascript: {
+  script: {
     site:      './lib/asset/js/site/adj.js',
     modernizr: './lib/asset/js/vendor/modernizr.js'
   },
@@ -58,6 +59,7 @@ var src = {
 };
 
 var dest = {
+  root:        './public/asset/',
   development: './public/asset/d',
   production:  './public/asset/p'
 };
@@ -68,9 +70,9 @@ var dest = {
 
 var defaultTasks = [];
 
-scriptTask(          'script-modernizr', src.javascript.modernizr);
-scriptTaskBrowserify('script-site',      src.javascript.site     );
-stylesheetTaskStylus('stylesheet-jet',   src.stylesheet.jet      );
+scriptTask(          'script-modernizr', src.script.modernizr);
+scriptTaskBrowserify('script-site',      src.script.site     );
+stylesheetTaskStylus('stylesheet-jet',   src.stylesheet.jet  );
 
 gulp.task('default', defaultTasks);
 
@@ -78,31 +80,53 @@ gulp.task('default', defaultTasks);
  * Functions: Task builders.
  */
 
-function addTask(pkgname, task) {
-  gulp.task(pkgname, task);
+function addTask(pkgName, extension, task) {
+  var cleanerName = 'clean-' + pkgName;
+  var cleaner     = createCleaner(pkgName, extension);
 
-  defaultTasks.push(pkgname);
+  gulp.task(cleanerName, cleaner);
+  defaultTasks.push(cleanerName);
+
+  gulp.task(pkgName, [cleanerName], task);
+  defaultTasks.push(pkgName);
 }
 
-function scriptTask(pkgname, sourceFiles) {
-  addTask(pkgname, task);
+function createCleaner(pkgName, extension) {
+  var dir  = path.join(__dirname, dest.root);
+  var glob = dir + '/**/' + pkgName + '-*' + extension;
+
+  function clean(callback) {
+    rimraf(glob, handleClean);
+
+    function handleClean(err) {
+      callback(err);
+    }
+  }
+}
+
+function scriptTask(pkgName, sourceFiles) {
+  var extension = '.js';
+
+  addTask(pkgName, extension, task);
 
   function task() {
-    var filename  = pkgname + '.js';
+    var filename  = pkgName + extension;
     var transform = uglifier();
     var stream    = gulp.src(sourceFiles)
       .pipe(concat(filename))
     ;
 
-    deploy(pkgname, stream, transform);
+    deploy(pkgName, stream, transform);
   }
 }
 
-function scriptTaskBrowserify(pkgname, sourceFiles) {
-  addTask(pkgname, task);
+function scriptTaskBrowserify(pkgName, sourceFiles) {
+  var extension = '.js';
+
+  addTask(pkgName, extension, task);
 
   function task() {
-    var filename  = pkgname + '.js';
+    var filename  = pkgName + extension;
     var transform = uglifier();
     var stream    = browserify(sourceFiles)
       .bundle()
@@ -110,15 +134,17 @@ function scriptTaskBrowserify(pkgname, sourceFiles) {
       .pipe(buffer())
     ;
 
-    deploy(pkgname, stream, transform);
+    deploy(pkgName, stream, transform);
   }
 }
 
-function stylesheetTaskStylus(pkgname, sourceFiles) {
-  addTask(pkgname, task);
+function stylesheetTaskStylus(pkgName, sourceFiles) {
+  var extension = '.css';
+
+  addTask(pkgName, extension, task);
 
   function task () {
-    var filename   = pkgname + '.css';
+    var filename   = pkgName + extension;
     var transform  = cssnano();
     var stream     = streamqueue
       .obj()
@@ -128,7 +154,7 @@ function stylesheetTaskStylus(pkgname, sourceFiles) {
       .pipe(concat(filename))
     ;
 
-    deploy(pkgname, stream, transform);
+    deploy(pkgName, stream, transform);
   }
 }
 
@@ -136,16 +162,16 @@ function stylesheetTaskStylus(pkgname, sourceFiles) {
  * Functions: Asset pipeline.
  */
 
-function deploy(pkgname, stream, transform) {
+function deploy(pkgName, stream, transform) {
   var dev = stream.pipe(clone());
   var pro = stream.pipe(clone()).pipe(transform);
 
-  deployTo(dest.development, pkgname, dev);
-  deployTo(dest.production,  pkgname, pro);
+  deployTo(dest.development, pkgName, dev);
+  deployTo(dest.production,  pkgName, pro);
 }
 
-function deployTo(destination, pkgname, stream) {
-  var manifestFilename = pkgname + '-manifest.json';
+function deployTo(destination, pkgName, stream) {
+  var manifestFilename = pkgName + '-manifest.json';
 
   stream
     .pipe(rev())
@@ -177,19 +203,3 @@ function compileStylus(src) {
     }))
   ;
 }
-
-/**
- * Functions: Remove old files.
- */
-
-function clean() {
-  var dirs = [dest.development, dest.production];
-  var opts = { read: false };
-
-  gulp.src(dirs, opts)
-    .pipe( outdated(1) )
-    .pipe( cleaner() )
-  ;
-}
-
-gulp.task('clean', clean);
