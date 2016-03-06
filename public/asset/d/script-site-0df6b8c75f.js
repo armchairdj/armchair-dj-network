@@ -104,9 +104,9 @@ var _         = require('underscore');
  * Internal dependencies.
  */
 
-var safe      = require('../../../../../lib/util/safe');
+var findInObject = require('../../../../../lib/util/findInObject');
 
-var behaviors = require('../../../../../lib/asset/js/site/behavior/index');
+var behaviors    = require('../../../../../lib/asset/js/site/behavior/index');
 
 /**
  * Setup.
@@ -132,7 +132,7 @@ behaviorize.behaviors = behaviors;
 function instantiate(index, node) {
   var $node           = $(node);
   var constructorName = $node.data('behavior');
-  var Constructor     = safe(behaviors, constructorName);
+  var Constructor     = findInObject(constructorName, behaviors);
 
   if (!Constructor) {
     return;
@@ -158,7 +158,7 @@ function init(constructorName, Constructor, $node) {
  */
 
 module.exports = behaviorize;
-},{"../../../../../lib/asset/js/site/behavior/index":3,"../../../../../lib/util/safe":6,"jquery":7,"underscore":8}],5:[function(require,module,exports){
+},{"../../../../../lib/asset/js/site/behavior/index":3,"../../../../../lib/util/findInObject":6,"jquery":7,"underscore":8}],5:[function(require,module,exports){
 /**
  * External dependencies.
  */
@@ -210,11 +210,11 @@ Bracket-style property lookup with 'dot.delimited.strings.'
  * Method.
  */
 
-function safe(obj, pathString, defaultVal) {
-  var paths = pathString.split('.');
+function findInObject(dotDelimitedKey, obj, defaultVal) {
+  var levels = dotDelimitedKey.split('.');
 
-  while (obj && paths[0]) {
-    obj = obj[paths.shift()];
+  while (obj && levels[0]) {
+    obj = obj[levels.shift()];
 
     if (obj === undefined) {
       obj = defaultVal;
@@ -228,7 +228,7 @@ function safe(obj, pathString, defaultVal) {
  * Exports.
  */
 
-module.exports = safe;
+module.exports = findInObject;
 
 },{}],7:[function(require,module,exports){
 /*!
