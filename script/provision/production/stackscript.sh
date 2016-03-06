@@ -18,6 +18,7 @@
 #<UDF name="notify_email" label="Email address to notify when boostrap is complete" />
 #<UDF name="github_username" label="Enter your github username (so we can add this machine's SSH key to github)" />
 #<UDF name="github_password" label="Enter your github password (so we can add this machine's SSH key to github)" />
+#<UDF name="github_repo" label="Enter your github password (so we can check your code out)" />
 
 ##### Exports.
 
