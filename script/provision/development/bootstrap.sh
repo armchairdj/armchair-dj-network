@@ -1,10 +1,8 @@
 #!/usr/bin/env bash
 
 SCRIPT_NAME='ubuntu'
-CONF_FILE_DIR='/vagrant/script/component/file'
-HOME='/home/vagrant'
+
 NODE_ENV='development'
-APP_ROOT='/vagrant'
 
 ##### Ubuntu.
 
@@ -45,6 +43,10 @@ apt-get install -y wget
 apt-get install -y libssl-dev
 
 ##### Set up environment variables.
+
+APP_ROOT='/vagrant'
+CONF_FILE_DIR='/vagrant/script/component/file'
+HOME='/home/vagrant'
 
 echo "$SCRIPT_NAME: copy command prompt"
 cp "$CONF_FILE_DIR/command_prompt.bash" "$HOME/.command_prompt"

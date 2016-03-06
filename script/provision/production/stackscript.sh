@@ -18,6 +18,7 @@
 #<UDF name="notify_email" label="Email address to notify when boostrap is complete" />
 #<UDF name="github_username" label="Enter your github username (so we can add this machine's SSH key to github)" />
 #<UDF name="github_password" label="Enter your github password (so we can add this machine's SSH key to github)" />
+#<UDF name="github_repo" label="Enter your github repo (so we can check your repo out)" />
 
 ##### Exports.
 
@@ -30,7 +31,7 @@ exec &> /root/stackscript.log
 
 ##### Begin.
 
-echo "Running armchair-dj.com linode bootstrap script."
+echo "Running $GITHUB_REPO linode bootstrap script."
 date
 
 ##### Local functions
@@ -65,7 +66,30 @@ echo "ubuntu: upgrade os"
 apt-get upgrade -y
 
 echo "ubuntu: install packages"
-apt-get install build-essential automake git-core curl dkms wget gcc g++ lib32z1-dev pkg-config libssl-dev vim less lsof -y
+
+# Linux core
+apt-get install -y dkms
+
+# Source compilation
+apt-get install -y build-essential
+apt-get install -y automake
+apt-get install -y pkg-config
+apt-get install -y gcc
+apt-get install -y g++
+apt-get install -y libkrb5-dev
+
+# Source control
+apt-get install -y git-core
+
+# Common utils
+apt-get install -y curl
+apt-get install -y less
+apt-get install -y lsof
+apt-get install -y vim
+apt-get install -y wget
+
+# Security
+apt-get install -y libssl-dev
 
 ##### Setup hostname.
 
@@ -181,17 +205,31 @@ chmod +x /home/deploy/scratch/ssh-keygen_expect.sh
 export KEY=`cat /home/deploy/.ssh/id_rsa.pub`
 export DATA=''"'"'{"title":"DEPLOY-'$NEW_HOSTNAME'", "key":"'$KEY'"}'"'"''
 
-eval curl -X POST -u "$GITHUB_USERNAME:$GITHUB_PASSWORD" https://api.github.com/repos/lib/armchair-dj.com/keys -d "$DATA"
+eval curl -X POST -u "$GITHUB_USERNAME:$GITHUB_PASSWORD" "https://api.github.com/repos/lib/$GITHUB_REPO/keys" -d "$DATA"
 
 chown -R deploy:deploy /home/deploy/.ssh
 
 ##### Git checkout
 
-su - deploy -c "(cd $HOME/app/current && git clone git@github.com:lib/armchair-dj.com.git .)"
+su - deploy -c "(cd $HOME/app/current && git clone git@github.com:lib/$GITHUB_REPO.git .)"
 
 ##### Bootstrap
 
-source "/home/deploy/app/current/script/component/file/environment_vars.production.bash"
+APP_ROOT="/home/deploy/app/current"
+CONF_FILE_DIR="/home/deploy/app/current/script/component/file"
+HOME='/home/deploy'
+
+echo "copy command prompt"
+cp "$CONF_FILE_DIR/command_prompt.bash" "$HOME/.command_prompt"
+
+echo "copy environment variables"
+cp "$CONF_FILE_DIR/environment_vars.$NODE_ENV.bash" "$HOME/.environment_vars"
+
+echo "copy profile"
+cp "$CONF_FILE_DIR/profile.bash" "$HOME/.profile"
+
+echo "source updated files"
+source "$HOME/.profile"
 
 sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/script/component/setup.sh"
 
