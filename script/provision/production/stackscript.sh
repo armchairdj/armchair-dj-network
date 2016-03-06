@@ -18,7 +18,7 @@
 #<UDF name="notify_email" label="Email address to notify when boostrap is complete" />
 #<UDF name="github_username" label="Enter your github username (so we can add this machine's SSH key to github)" />
 #<UDF name="github_password" label="Enter your github password (so we can add this machine's SSH key to github)" />
-#<UDF name="github_repo" label="Enter your github password (so we can check your code out)" />
+#<UDF name="github_repo" label="Enter your github repo name (so we can check your code out)" />
 
 ##### Exports.
 
@@ -219,7 +219,7 @@ HOME='/home/deploy'
 
 ##### Git checkout
 
-su - deploy -c "(cd $HOME/app/current && git clone git@github.com:$GITHUB_REPO.git .)"
+su - deploy -c "(cd $HOME/app/current && git clone git@github.com:$GITHUB_USERNAME/$GITHUB_REPO.git .)"
 
 ##### Bootstrap
 
