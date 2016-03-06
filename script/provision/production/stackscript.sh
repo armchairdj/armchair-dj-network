@@ -91,6 +91,7 @@ apt-get install -y wget
 
 # Security
 apt-get install -y libssl-dev
+apt-get install -y ufw
 
 ##### Setup hostname.
 
