@@ -18,7 +18,6 @@
 #<UDF name="notify_email" label="Email address to notify when boostrap is complete" />
 #<UDF name="github_username" label="Enter your github username (so we can add this machine's SSH key to github)" />
 #<UDF name="github_password" label="Enter your github password (so we can add this machine's SSH key to github)" />
-#<UDF name="github_repo" label="Enter your github repo (so we can check your repo out)" />
 
 ##### Exports.
 
@@ -207,7 +206,7 @@ chmod +x /home/deploy/scratch/ssh-keygen_expect.sh
 export KEY=`cat /home/deploy/.ssh/id_rsa.pub`
 export DATA=''"'"'{"title":"DEPLOY-'$NEW_HOSTNAME'", "key":"'$KEY'"}'"'"''
 
-eval curl -X POST -u "$GITHUB_USERNAME:$GITHUB_PASSWORD" "https://api.github.com/repos/lib/$GITHUB_REPO/keys" -d "$DATA"
+eval curl -X POST -u "$GITHUB_USERNAME:$GITHUB_PASSWORD" "https://api.github.com/repos/$GITHUB_USERNAME/$GITHUB_REPO/keys" -d "$DATA"
 
 chown -R deploy:deploy /home/deploy/.ssh
 
