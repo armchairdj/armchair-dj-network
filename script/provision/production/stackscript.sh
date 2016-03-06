@@ -211,15 +211,17 @@ eval curl -X POST -u "$GITHUB_USERNAME:$GITHUB_PASSWORD" "https://api.github.com
 
 chown -R deploy:deploy /home/deploy/.ssh
 
-##### Git checkout
-
-su - deploy -c "(cd $HOME/app/current && git clone git@github.com:lib/$GITHUB_REPO.git .)"
-
-##### Bootstrap
+##### Set up variables for checking out code etc.
 
 APP_ROOT="/home/deploy/app/current"
 CONF_FILE_DIR="/home/deploy/app/current/script/component/file"
 HOME='/home/deploy'
+
+##### Git checkout
+
+su - deploy -c "(cd $HOME/app/current && git clone git@github.com:$GITHUB_REPO.git .)"
+
+##### Bootstrap
 
 echo "copy command prompt"
 cp "$CONF_FILE_DIR/command_prompt.bash" "$HOME/.command_prompt"
@@ -235,18 +237,21 @@ source "$HOME/.profile"
 
 sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/script/component/setup.sh"
 
+#### Restart SSH
+
+echo "restarting ssh to permanently disable root access"
+service ssh restart
+
 ##### Notify.
 
 echo "Bootstrap script complete."
 
 mail -s "Your Linode VPS is configured" "$NOTIFY_EMAIL" <<EOD
-Yo!,
+Hola!
 
-You are all ready to roll on your new server.
+You are all ready to roll on your new server. Your username is 'deploy'.
 
-Make sure to ssh in as the deploy user.
-
-Yeehaw!
+Laters!
 EOD
 
 ##### Clean up.
