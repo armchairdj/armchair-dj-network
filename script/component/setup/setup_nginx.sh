@@ -6,7 +6,7 @@ echo "$SCRIPT_NAME: install"
 sudo apt-get install -y nginx
 
 echo "$SCRIPT_NAME: chown logs"
-sudo chown -R vagrant:vagrant /var/log/nginx/
+sudo chown -R $APP_USER:$APP_USER /var/log/nginx/
 
 echo "$SCRIPT_NAME: copy sites-available/node"
 sudo cp "$CONF_FILE_DIR/nginx.$NODE_ENV.site" /etc/nginx/sites-available/node
