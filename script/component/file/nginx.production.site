@@ -4,16 +4,25 @@ upstream armchairdj {
 
 server {
   listen 0.0.0.0:80;
-  server_name armchair-dj.com;
+  server_name www.armchair-dj.com;
 
   location / {
     client_max_body_size 10M;
     client_body_buffer_size 128k;
 
-    proxy_set_header X-Real-IP \$remote_addr;
-    proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-    proxy_set_header Host \$http_host;
-    proxy_set_header X-NginX-Proxy true;
+    # Redirect armchair-dj.com, armchairdj.com and www.armchairdj.com
+    # to ensure we serve web content only at a single TLD for SEO etc.
+    if ($host != $server_name) {
+      return 301 http://$server_name$request_uri;
+    }
+
+    # Remove trailing slashes for SEO.
+    rewrite ^/(.*)/$ http://$server_name/$1 permanent;
+
+    proxy_set_header X-Real-IP       $remote_addr;
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host            $http_host;
+    proxy_set_header X-NginX-Proxy   true;
 
     proxy_pass http://armchairdj/;
     proxy_redirect off;
