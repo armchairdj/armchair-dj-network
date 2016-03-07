@@ -43,6 +43,9 @@ apt-get install -y wget
 # Security
 apt-get install -y libssl-dev
 
+echo "$SCRIPT_NAME: set up vagrant user's sudo privileges"
+echo "vagrant ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
 ##### Set up environment variables.
 
 APP_ROOT='/vagrant'

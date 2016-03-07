@@ -13,6 +13,3 @@ sudo make install
 
 echo "$SCRIPT_NAME: install node 4.2.6"
 sudo n 4.2.6
-
-echo "$SCRIPT_NAME: sudoers"
-sudo cp "$CONF_FILE_DIR/node.sudoers" /etc/sudoers.d/node && sudo chmod 0440 /etc/sudoers.d/node
