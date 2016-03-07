@@ -6,17 +6,30 @@ Script to plant seed data in Mongoose to use in developing the codebase.
  * External dependencies.
  */
 
-var _        = require('underscore');
-var async    = require('async');
-var extend   = require('extend');
-var mongoose = require('mongoose');
+var _           = require('underscore');
+var async       = require('async');
+var extend      = require('extend');
+var mongoose    = require('mongoose');
 
 /**
  * Internal dependencies.
  */
 
-var settings = require('../../lib/config/settings');
-var data     = require('../../script/db/seedData.js');
+var settings    = require('../../lib/config/settings');
+
+var environment = require('../../lib/util/environment');
+
+var data        = require('../../script/db/seedDataPro.js');
+
+/**
+ * Safety first.
+ */
+
+if (environment.is('production')) {
+  console.log('This will blow up the production database! Bailing!');
+
+  exit(1);
+}
 
 /**
  * Database.
@@ -30,7 +43,7 @@ require('../../lib/model/index');
  * Setup.
  */
 
-var shouldLog  = process.argv[2] === '--log';
+var shouldLog  = environment.is('development');
 
 var memo = {
   users:          [], 
