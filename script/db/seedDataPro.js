@@ -27,6 +27,34 @@ module.exports = {
       role:     'author'
     }
   ],
+
+  tags: {
+    Genre:   [
+      'Genre 1',
+      'Genre 2',
+      'Genre 3',
+      'Genre 4',
+    ],
+    Artist:  [
+      'Artist 1',
+      'Artist 2',
+      'Artist 3',
+      'Artist 4',
+    ],
+    Mood:    [
+      'Mood 1',
+      'Mood 2',
+      'Mood 3',
+      'Mood 4',
+    ],
+    Keyword: [
+      'Keyword 1',
+      'Keyword 2',
+      'Keyword 3',
+      'Keyword 4',
+    ]
+  },
+
   releases: [
     {
       tags:    {
@@ -91,7 +119,7 @@ module.exports = {
       theme: 'Winter and Its Discontents'
     }
   ],
-  playlists: [],
+
   posts: [
     {
       author:  0,

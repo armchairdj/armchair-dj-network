@@ -35,6 +35,7 @@ module.exports = {
       email:    'nice@armchair-dj.com'
     }
   ],
+
   tags: {
     Genre:   [
       'Genre 1',
@@ -61,6 +62,7 @@ module.exports = {
       'Keyword 4',
     ]
   },
+
   releases: [
     {
       tags:    {
@@ -394,6 +396,7 @@ module.exports = {
       theme: 'Christmas, Thanksgiving and the Winter Solstice'
     }
   ],
+
   playlists: [
     {
       title:        'Popcorn & Dread',
@@ -422,6 +425,7 @@ module.exports = {
       tracks:      [10, 12, 14, 16, 18, 20, 22, 24, 0, 2, 4, 6, 8]
     }
   ],
+
   posts: [
     {
       author:      0,

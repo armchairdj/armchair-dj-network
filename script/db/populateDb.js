@@ -25,12 +25,6 @@ var data        = require('../../script/db/seedDataPro.js');
  * Safety first.
  */
 
-if (environment.is('production')) {
-  console.log('This will blow up the production database! Bailing!');
-
-  exit(1);
-}
-
 /**
  * Database.
  */
@@ -61,6 +55,10 @@ var memo = {
 populateDb();
 
 function populateDb() {
+  if (environment.is('production')) {
+    return finish(new Error('This will blow up the production database! Bailing!'));
+  }
+
   var fns = [
     /** Remove existing data **/
 
@@ -91,10 +89,18 @@ function populateDb() {
     /** Populate example data **/
 
     function users(next) {
+      if (!data.users) {
+        return next();
+      }
+
       async.mapSeries(data.users, createUser, next);
     },
 
     function tags(next) {
+      if (!data.tags) {
+        return next();
+      }
+
       var Tag = mongoose.model('Tag');
 
       logOperation(data.tags);
@@ -109,18 +115,34 @@ function populateDb() {
     },
 
     function releases(next) {
+      if (!data.releases) {
+        return next();
+      }
+
       async.mapSeries(data.releases, createRelease, next);
     },
 
     function playlistSeries(next) {
+      if (!data.playlistSeries) {
+        return next();
+      }
+
       async.mapSeries(data.playlistSeries, createPlaylistSeries, next);
     },
 
     function playlists(next) {
+      if (!data.playlists) {
+        return next();
+      }
+
       async.mapSeries(data.playlists, createPlaylist, next);
     },
 
     function posts(next) {
+      if (!data.posts) {
+        return next();
+      }
+
       async.mapSeries(data.posts, createPost, next);
     },
 
