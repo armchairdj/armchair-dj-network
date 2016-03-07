@@ -25,6 +25,10 @@ article.post {
   }
 
   > section {
+    {$articleChildSelectors} {
+      airy();
+    }
+
     &.body {
       p {
         dropCap(80px);

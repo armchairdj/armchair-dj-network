@@ -54,7 +54,7 @@ mixin linkToUser(user, text)
 
 mixin postTags(post)
   section
-    ul.tags
+    ul.tags.piped
       - each tag in post.subject().tags
         li: +linkToTag(tag, tag.slug)
 

@@ -55,9 +55,9 @@ var memo = {
 populateDb();
 
 function populateDb() {
-  if (environment.is('production')) {
-    return finish(new Error('This will blow up the production database! Bailing!'));
-  }
+  // if (environment.is('production')) {
+  //   return finish(new Error('This will blow up the production database! Bailing!'));
+  // }
 
   var fns = [
     /** Remove existing data **/

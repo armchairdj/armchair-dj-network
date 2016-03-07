@@ -30,28 +30,28 @@ module.exports = {
 
   tags: {
     Genre:   [
-      'Genre 1',
-      'Genre 2',
-      'Genre 3',
-      'Genre 4',
+      'techno',
+      'Detroit techno',
+      'Chicago house',
+      'synth-pop',
     ],
     Artist:  [
-      'Artist 1',
-      'Artist 2',
-      'Artist 3',
-      'Artist 4',
+      'Kate Bush',
+      'Saint Etienne',
+      'Pet Shop Boys',
+      'Robyn',
     ],
     Mood:    [
-      'Mood 1',
-      'Mood 2',
-      'Mood 3',
-      'Mood 4',
+      'over-the-top',
+      'sleazy',
+      'intense',
+      'dark',
     ],
     Keyword: [
-      'Keyword 1',
-      'Keyword 2',
-      'Keyword 3',
-      'Keyword 4',
+      'zeitgeist',
+      'pretentious',
+      'hipster',
+      'back in the day',
     ]
   },
 
@@ -59,7 +59,7 @@ module.exports = {
     {
       tags:    {
         Genre: 'art-rock, jazz',
-        Mood:  'autumnal, melancholy, creepy, spacey'
+        Mood:  'autumnal, melancholy, creepy, spacey, mournful'
       },
       artist:  'David Bowie',
       title:   'Blackstar',

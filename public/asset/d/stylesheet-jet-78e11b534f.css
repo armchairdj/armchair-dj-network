@@ -508,6 +508,18 @@ article > section > *:last-child,
 article > nav > *:last-child {
   margin-bottom: 0;
 }
+article > section blockquote,
+article > nav blockquote,
+article > section p,
+article > nav p,
+article > section ul,
+article > nav ul,
+article > section ol,
+article > nav ol,
+article > section dl,
+article > nav dl {
+  line-height: 1.5;
+}
 form .field {
   margin-bottom: 20px;
 }
@@ -910,6 +922,13 @@ article.posts > section.post:after {
 article.posts > section.post:last-child {
   margin-bottom: 0;
 }
+article.posts > section.post blockquote,
+article.posts > section.post p,
+article.posts > section.post ul,
+article.posts > section.post ol,
+article.posts > section.post dl {
+  line-height: 1.23;
+}
 article.posts > section.post header.postInfo h2.title {
   font-size: 34px;
 }
@@ -1006,6 +1025,13 @@ article.post header.postInfo h4.type {
 }
 article.post header.postInfo h5.year {
   font-size: 26px;
+}
+article.post > section blockquote,
+article.post > section p,
+article.post > section ul,
+article.post > section ol,
+article.post > section dl {
+  line-height: 1.5;
 }
 article.post > section.body p:first-child:first-letter {
   font-weight: 600;
