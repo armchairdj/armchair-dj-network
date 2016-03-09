@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-SCRIPT_NAME="bounce_app"
+SCRIPT_NAME="update_app"
 
 cd "$APP_ROOT"
 
-echo "$SCRIPT_NAME: stop node"
-sudo stop node
+echo "$SCRIPT_NAME: npm install"
+npm install
 
-echo "$SCRIPT_NAME: remove node_modules"
-rm -rf ./node_modules
+echo "$SCRIPT_NAME: start node"
+sudo restart node
+
+echo "check for migrations or other release tasks!"
