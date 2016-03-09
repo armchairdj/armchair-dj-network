@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_NAME="setup_mongo"
+SCRIPT_NAME="bounce_mongo"
 MONGO_VERSION="3.2.1"
 
 echo "$SCRIPT_NAME: sources"

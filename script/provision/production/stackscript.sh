@@ -86,6 +86,7 @@ apt-get install -y curl
 apt-get install -y expect
 apt-get install -y less
 apt-get install -y lsof
+apt-get install -y mailutils
 apt-get install -y vim
 apt-get install -y wget
 
@@ -138,8 +139,6 @@ echo "postfix postfix/main_mailer_type select Internet Site" | debconf-set-selec
 echo "postfix postfix/mailname string localhost" | debconf-set-selections
 echo "postfix postfix/destinations string localhost.localdomain, localhost" | debconf-set-selections
 
-apt-get install mailutils -y
-
 aptitude -y install postfix
 
 /usr/sbin/postconf -e "inet_interfaces = loopback-only"
@@ -154,7 +153,7 @@ system_sshd_edit_bool "PubkeyAuthentication" "yes"
 
 ##### Set up deploy user.
 
-echo "linode: set up deploy user"
+echo "linode: add deploy user"
 
 useradd -U -s /bin/bash -m deploy
 mkdir -p /home/deploy/{.ssh,src,scratch,app/current,app/shared/logs}

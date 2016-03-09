@@ -11,7 +11,7 @@ Vagrant.configure('2') do |config|
   config.vm.box      = 'puppetlabs/ubuntu-14.04-64-puppet'
   config.vm.hostname = "armchair-dj.com"
 
-  # Tests? NEEDED?
+  # Node inspector.
   config.vm.network :forwarded_port, host: 9060, guest: 9060, auto_correct: true
 
   # Nginx.
@@ -33,18 +33,18 @@ Vagrant.configure('2') do |config|
 
     v.memory = 4096
 
-    # Multi-core performance actually goes down.
+    # Additional cores actually degrade performance.
     v.cpus   = 1
 
-    # Fixes DNS issue in Ubuntu VMs.
+    # Fix DNS issue in Ubuntu VMs.
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
   end
 
-  ### SYNCED FOLDER
+  ### SYNCED FOLDER.
 
   config.vm.synced_folder '.', '/vagrant', nfs: { mount_options: ['actimeo=2'] }
 
-  ### SHELL PROVISIONER
+  ### SHELL PROVISIONER.
 
   config.vm.provision :shell, path: 'script/provision/development/bootstrap.sh'
 

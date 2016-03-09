@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_NAME="setup_node"
+SCRIPT_NAME="bounce_node"
 
 echo "$SCRIPT_NAME: install n"
 cd "$APP_USER_HOME"
@@ -13,3 +13,8 @@ sudo make install
 
 echo "$SCRIPT_NAME: install node 4.2.6"
 sudo n 4.2.6
+
+echo "$SCRIPT_NAME: install npm 2.0.0"
+sudo npm install -g npm@2.0.0
+sudo npm install -g gulp@3.9.1
+sudo npm install -g browserify@13.0.0

@@ -37,11 +37,13 @@ apt-get install -y curl
 apt-get install -y expect
 apt-get install -y less
 apt-get install -y lsof
+apt-get install -y mailutils
 apt-get install -y vim
 apt-get install -y wget
 
 # Security
 apt-get install -y libssl-dev
+apt-get install -y ufw
 
 echo "$SCRIPT_NAME: set up vagrant user's sudo privileges"
 echo "vagrant ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers

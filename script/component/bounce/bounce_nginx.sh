@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_NAME="setup_nginx"
+SCRIPT_NAME="bounce_nginx"
 
 echo "$SCRIPT_NAME: install"
 sudo apt-get install -y nginx

@@ -21,14 +21,14 @@ if [ -d "$HOME/bin" ] ; then
   PATH="$HOME/bin:$PATH"
 fi
 
-# Command-prompt customization.
-if [ -f "$HOME/.command_prompt" ]; then
-  source "$HOME/.command_prompt"
-fi
-
 # Exports - for environment.
 if [ -f "$HOME/.environment_vars" ] ; then
   source "$HOME/.environment_vars"
+fi
+
+# Command-prompt customization.
+if [ -f "$HOME/.command_prompt" ]; then
+  source "$HOME/.command_prompt"
 fi
 
 # Exports - common.
