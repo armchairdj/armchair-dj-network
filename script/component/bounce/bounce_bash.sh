@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_NAME="update_bash"
+SCRIPT_NAME="bounce_bash"
 
 echo "$SCRIPT_NAME: copy command prompt"
 cp "$CONF_FILE_DIR/command_prompt.bash" "$HOME/.command_prompt"

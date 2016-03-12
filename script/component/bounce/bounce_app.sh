@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_NAME="update_app"
+SCRIPT_NAME="bounce_app"
 
 cd "$APP_ROOT"
 
