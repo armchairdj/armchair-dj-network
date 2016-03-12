@@ -4,8 +4,8 @@ SCRIPT_NAME="setup_node"
 
 echo "$SCRIPT_NAME: install n"
 cd "$APP_USER_HOME"
-mkdir -p tmp/
-cd tmp
+mkdir -p src
+cd src
 wget https://github.com/tj/n/archive/v2.1.0.tar.gz
 tar xzvf v2.1.0.tar.gz
 cd n-2.1.0
