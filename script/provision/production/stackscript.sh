@@ -86,7 +86,6 @@ apt-get install -y curl
 apt-get install -y expect
 apt-get install -y less
 apt-get install -y lsof
-apt-get install -y mailutils
 apt-get install -y vim
 apt-get install -y wget
 
@@ -135,10 +134,12 @@ ufw default deny
 
 echo "linode: set up postfix"
 
+# These prevent the dreaded pseudo-gui setup screens that can ruin a headless install.
 echo "postfix postfix/main_mailer_type select Internet Site" | debconf-set-selections
 echo "postfix postfix/mailname string localhost" | debconf-set-selections
 echo "postfix postfix/destinations string localhost.localdomain, localhost" | debconf-set-selections
 
+apt-get install -y mailutils
 aptitude -y install postfix
 
 /usr/sbin/postconf -e "inet_interfaces = loopback-only"

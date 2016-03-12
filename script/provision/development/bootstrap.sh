@@ -37,7 +37,6 @@ apt-get install -y curl
 apt-get install -y expect
 apt-get install -y less
 apt-get install -y lsof
-apt-get install -y mailutils
 apt-get install -y vim
 apt-get install -y wget
 

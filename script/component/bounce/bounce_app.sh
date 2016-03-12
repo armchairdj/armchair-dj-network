@@ -4,8 +4,10 @@ SCRIPT_NAME="bounce_app"
 
 cd "$APP_ROOT"
 
-echo "$SCRIPT_NAME: git pull"
-git pull
+if [ "$APP_ENV" == "linode" ]; then;
+  echo "$SCRIPT_NAME: git pull"
+  git pull
+fi
 
 echo "$SCRIPT_NAME: npm install"
 npm install
