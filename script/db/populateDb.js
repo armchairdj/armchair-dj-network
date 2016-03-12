@@ -19,7 +19,7 @@ var settings    = require('../../lib/config/settings');
 
 var environment = require('../../lib/util/environment');
 
-var data        = require('../../script/db/seedDataPro.js');
+var data        = require('../../script/db/seedData_' + environment() + '.js');
 
 /**
  * Safety first.
@@ -58,6 +58,10 @@ function populateDb() {
   // if (environment.is('production')) {
   //   return finish(new Error('This will blow up the production database! Bailing!'));
   // }
+
+  if (!data) {
+    return finish(new Error('No seed data loaded for environment ' + environment() + ', so bailing.'));
+  }
 
   var fns = [
     /** Remove existing data **/
