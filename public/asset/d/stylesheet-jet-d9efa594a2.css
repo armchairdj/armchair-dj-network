@@ -434,7 +434,7 @@ body {
   background-color: #000;
   font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 22px;
-  color: #bbb;
+  color: #aaa;
   font-weight: 300;
   font-style: normal;
 }
@@ -631,52 +631,52 @@ aside#flash {
   background-color: #1c1d1b;
 }
 aside#flash.error {
-  color: #ff0c2c;
+  color: #f62f46;
 }
 aside#flash.error a {
   cursor: pointer;
   text-decoration: underline;
-  color: #ff0c2c;
+  color: #f62f46;
 }
 aside#flash.error a:hover {
   text-decoration: underline;
 }
 aside#flash.error a:hover {
-  color: #d8001c;
+  color: #e80a24;
 }
 aside#flash.error a:hover {
   text-shadow: none;
 }
 aside#flash.success {
-  color: #00c011;
+  color: #18c515;
 }
 aside#flash.success a {
   cursor: pointer;
   text-decoration: underline;
-  color: #00c011;
+  color: #18c515;
 }
 aside#flash.success a:hover {
   text-decoration: underline;
 }
 aside#flash.success a:hover {
-  color: #008d0c;
+  color: #129710;
 }
 aside#flash.success a:hover {
   text-shadow: none;
 }
 aside#flash.info {
-  color: #aaa;
+  color: #bac2c3;
 }
 aside#flash.info a {
   cursor: pointer;
   text-decoration: underline;
-  color: #aaa;
+  color: #bac2c3;
 }
 aside#flash.info a:hover {
   text-decoration: underline;
 }
 aside#flash.info a:hover {
-  color: #909090;
+  color: #9faaab;
 }
 aside#flash.info a:hover {
   text-shadow: none;
@@ -687,19 +687,19 @@ aside#flash .container {
 aside#flash .container a.close {
   cursor: pointer;
   text-decoration: none;
-  color: #ff0c2c;
+  color: #f62f46;
   position: absolute;
   top: -8px;
   right: 0;
   font-size: 60px;
   line-height: 30px;
-  color: #ff0c2c;
+  color: #f62f46;
 }
 aside#flash .container a.close:hover {
   text-decoration: none;
 }
 aside#flash .container a.close:hover {
-  color: #d8001c;
+  color: #e80a24;
 }
 aside#flash .container a.close:hover {
   text-shadow: none;
@@ -951,7 +951,7 @@ header.postInfo h4.type:after {
   content: '\00A0\2192';
 }
 header.postInfo h5.year {
-  color: #aaa;
+  color: #bac2c3;
 }
 article.posts > header {
   border-bottom: 1px solid #333;
