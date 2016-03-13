@@ -1,2 +1,38 @@
-section
-  p Form.
+fieldset.release
+  .field
+    span.fieldName Artist
+    input(type='text' name='artist')
+
+  .field
+    span.fieldName Title
+    input(type='text' name='title')
+
+  .field
+    span.fieldName Version
+    input(type='text' name='version')
+
+  .field
+    span.fieldName Year
+    input(type='text' name='year')
+
+  .field
+    span.fieldName Label
+    input(type='text' name='label')
+
+.field
+  label
+    span.fieldName Content
+    textarea(name='content')
+
+fieldset.tags
+  .field
+    textarea(name='tags[Artist]')
+
+  .field
+    textarea(name='tags[Genre]')
+
+  .field
+    textarea(name='tags[Mood]')
+
+  .field
+    textarea(name='tags[Keyword]')

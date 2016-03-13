@@ -1,27 +1,32 @@
 aside#flash {
   padding: 20px 0;
-  position: relative;
+  background-color: $flashBgColor;
 
   &.error {
-    background-color: $errorBgColor;
-    color: $errorTextColor;
+    textAndLinkColor($errorTextColor, $errorTextColorHover);
   }
 
   &.success {
-    background-color: $successBgColor;
-    color: $successTextColor;
+    textAndLinkColor($successTextColor, $successTextColorHover);
   }
 
   &.info {
-    background-color: $infoBgColor;
-    color: $infoTextColor;
+    textAndLinkColor($infoTextColor, $infoTextColorHover);
   }
 
-  a.close {
-    plainLink();
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    color: $errorTextColor;
+  .container {
+    position: relative;
+
+    a.close {
+      plainLink();
+      linkColor($errorTextColor, $errorTextColorHover);
+      position: absolute;
+      top: -8px;
+      right: 0;
+      font-size: 60px;
+      line-height: 30px;
+      color: $errorTextColor;
+    }
   }
 }
+

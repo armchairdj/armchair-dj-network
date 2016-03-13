@@ -434,7 +434,7 @@ body {
   background-color: #000;
   font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 22px;
-  color: #aaa;
+  color: #bbb;
   font-weight: 300;
   font-style: normal;
 }
@@ -445,6 +445,10 @@ strong {
 cite {
   font-weight: 300;
   font-style: normal;
+}
+p,
+blockquote {
+  margin: 0;
 }
 article > header,
 article > section {
@@ -557,8 +561,10 @@ a:hover {
   text-decoration: underline;
 }
 a:hover {
-  text-shadow: 1px 1px 1px rgba(190,210,190,0.7);
   color: #b3b3b3;
+}
+a:hover {
+  text-shadow: 1px 1px 1px rgba(190,210,190,0.7);
 }
 ul {
   margin: 0;
@@ -622,30 +628,81 @@ ol.numbered li {
 }
 aside#flash {
   padding: 20px 0;
-  position: relative;
+  background-color: #1c1d1b;
 }
 aside#flash.error {
-  background-color: #fdc;
-  color: #930;
+  color: #ff0c2c;
+}
+aside#flash.error a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #ff0c2c;
+}
+aside#flash.error a:hover {
+  text-decoration: underline;
+}
+aside#flash.error a:hover {
+  color: #d8001c;
+}
+aside#flash.error a:hover {
+  text-shadow: none;
 }
 aside#flash.success {
-  background-color: $successBgColor;
   color: #00c011;
 }
-aside#flash.info {
-  background-color: #fff;
-  color: #999;
+aside#flash.success a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #00c011;
 }
-aside#flash a.close {
+aside#flash.success a:hover {
+  text-decoration: underline;
+}
+aside#flash.success a:hover {
+  color: #008d0c;
+}
+aside#flash.success a:hover {
+  text-shadow: none;
+}
+aside#flash.info {
+  color: #aaa;
+}
+aside#flash.info a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #aaa;
+}
+aside#flash.info a:hover {
+  text-decoration: underline;
+}
+aside#flash.info a:hover {
+  color: #909090;
+}
+aside#flash.info a:hover {
+  text-shadow: none;
+}
+aside#flash .container {
+  position: relative;
+}
+aside#flash .container a.close {
   cursor: pointer;
   text-decoration: none;
+  color: #ff0c2c;
   position: absolute;
-  top: 5px;
-  right: 5px;
-  color: #930;
+  top: -8px;
+  right: 0;
+  font-size: 60px;
+  line-height: 30px;
+  color: #ff0c2c;
 }
-aside#flash a.close:hover {
+aside#flash .container a.close:hover {
   text-decoration: none;
+}
+aside#flash .container a.close:hover {
+  color: #d8001c;
+}
+aside#flash .container a.close:hover {
+  text-shadow: none;
 }
 aside#footer {
   position: relative;
@@ -865,7 +922,7 @@ header.postInfo h2.title a {
 }
 header.postInfo h1.title a:hover,
 header.postInfo h2.title a:hover {
-  color: #42caf9;
+  color: #069bcf;
 }
 header.postInfo h2.artist,
 header.postInfo h3.artist,
@@ -883,7 +940,7 @@ header.postInfo h2.artist a:hover,
 header.postInfo h3.artist a:hover,
 header.postInfo h2.series a:hover,
 header.postInfo h3.series a:hover {
-  color: #a5e6fc;
+  color: #41cafa;
 }
 header.postInfo h4.type {
   text-transform: uppercase;
@@ -894,7 +951,7 @@ header.postInfo h4.type:after {
   content: '\00A0\2192';
 }
 header.postInfo h5.year {
-  color: #999;
+  color: #aaa;
 }
 article.posts > header {
   border-bottom: 1px solid #333;
@@ -1074,11 +1131,26 @@ ul.tags li {
   display: inline;
   white-space: nowrap;
 }
+.title {
+  zoom: 1;
+}
+.title:before,
+.title:after {
+  content: "";
+  display: table;
+}
+.title:after {
+  clear: both;
+}
 .title cite.album,
 .title cite.compilation,
 .title cite.dj-mix {
   font-style: italic;
 }
 .title cite span {
-  display: block;
+  float: left;
+  display: inline-block;
+}
+.title cite span.version {
+  clear: left;
 }
