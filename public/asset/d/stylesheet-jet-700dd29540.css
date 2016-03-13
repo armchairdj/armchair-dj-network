@@ -548,23 +548,20 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 a {
+  -webkit-transition: color 0.5s ease-in-out 0.1s;
+  -moz-transition: color 0.5s ease-in-out 0.1s;
+  -ms-transition: color 0.5s ease-in-out 0.1s;
+  -o-transition: color 0.5s ease-in-out 0.1s;
+  transition: color 0.5s ease-in-out 0.1s;
   cursor: pointer;
   text-decoration: underline;
   color: #fff;
-  -webkit-transition: color 0.5s ease-in-out 0.1s, text-shadow 0.5s ease-in-out 0.1s;
-  -moz-transition: color 0.5s ease-in-out 0.1s, text-shadow 0.5s ease-in-out 0.1s;
-  -ms-transition: color 0.5s ease-in-out 0.1s, text-shadow 0.5s ease-in-out 0.1s;
-  -o-transition: color 0.5s ease-in-out 0.1s, text-shadow 0.5s ease-in-out 0.1s;
-  transition: color 0.5s ease-in-out 0.1s, text-shadow 0.5s ease-in-out 0.1s;
 }
 a:hover {
   text-decoration: underline;
 }
 a:hover {
-  color: #b3b3b3;
-}
-a:hover {
-  text-shadow: 1px 1px 1px rgba(190,210,190,0.7);
+  color: #ccc;
 }
 ul {
   margin: 0;
@@ -644,9 +641,6 @@ aside#flash.error a:hover {
 aside#flash.error a:hover {
   color: #e80a24;
 }
-aside#flash.error a:hover {
-  text-shadow: none;
-}
 aside#flash.success {
   color: #18c515;
 }
@@ -661,9 +655,6 @@ aside#flash.success a:hover {
 aside#flash.success a:hover {
   color: #129710;
 }
-aside#flash.success a:hover {
-  text-shadow: none;
-}
 aside#flash.info {
   color: #bac2c3;
 }
@@ -677,9 +668,6 @@ aside#flash.info a:hover {
 }
 aside#flash.info a:hover {
   color: #9faaab;
-}
-aside#flash.info a:hover {
-  text-shadow: none;
 }
 aside#flash .container {
   position: relative;
@@ -700,9 +688,6 @@ aside#flash .container a.close:hover {
 }
 aside#flash .container a.close:hover {
   color: #e80a24;
-}
-aside#flash .container a.close:hover {
-  text-shadow: none;
 }
 aside#footer {
   position: relative;
@@ -914,33 +899,33 @@ header.postInfo h5 a:hover {
 }
 header.postInfo h1.title,
 header.postInfo h2.title {
-  color: #10bcf8;
+  color: #42cbf9;
 }
 header.postInfo h1.title a,
 header.postInfo h2.title a {
-  color: #10bcf8;
+  color: #42cbf9;
 }
 header.postInfo h1.title a:hover,
 header.postInfo h2.title a:hover {
-  color: #069bcf;
+  color: #079cce;
 }
 header.postInfo h2.artist,
 header.postInfo h3.artist,
 header.postInfo h2.series,
 header.postInfo h3.series {
-  color: #73d8fb;
+  color: #a5e6fc;
 }
 header.postInfo h2.artist a,
 header.postInfo h3.artist a,
 header.postInfo h2.series a,
 header.postInfo h3.series a {
-  color: #73d8fb;
+  color: #a5e6fc;
 }
 header.postInfo h2.artist a:hover,
 header.postInfo h3.artist a:hover,
 header.postInfo h2.series a:hover,
 header.postInfo h3.series a:hover {
-  color: #41cafa;
+  color: #42cbf9;
 }
 header.postInfo h4.type {
   text-transform: uppercase;

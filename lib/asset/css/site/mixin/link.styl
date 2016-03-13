@@ -16,39 +16,29 @@ plainLink() {
   }
 }
 
-linkColor($off, $on = false, $shadow = false) {
+linkColor($off, $on = false) {
   color: $off;
 
-  if $on != false {
-    &:hover {
-      color: $on;
-    }
+  if $on == false {
+    $on = $off;
   }
 
-  if $shadow == false {
-    &:hover {
-      text-shadow: none;
-    }
-  } else {
-    transition: color 0.5s ease-in-out 0.1s, text-shadow 0.5s ease-in-out 0.1s;
-
-    &:hover {
-      text-shadow: 1px 1px 1px rgba(190, 210, 190, 0.7);
-    }
+  &:hover {
+    color: $on;
   }
 }
 
-textAndLinkColor($off, $on = false, $shadow = false) {
+textAndLinkColor($off, $on = false) {
   color: $off;
 
   a {
     underlinedLink();
-    linkColor($off, $on, $shadow);
+    linkColor($off, $on);
   }
 }
 
 linkColorStandard() {
-  linkColor($linkColor, $linkColorHover, true);
+  linkColor($linkColor, $linkColorHover);
 }
 
 grayscaleLinkTransition() {
