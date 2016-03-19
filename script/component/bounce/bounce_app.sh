@@ -4,7 +4,7 @@ SCRIPT_NAME="bounce_app"
 
 cd "$APP_ROOT"
 
-if [ "$APP_ENV" == "linode" ]; then;
+if [ "$APP_ENV" == "linode" ]; then
   echo "$SCRIPT_NAME: git pull"
   git pull
 fi
