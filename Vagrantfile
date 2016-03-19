@@ -43,6 +43,8 @@ Vagrant.configure('2') do |config|
   ### SYNCED FOLDER.
 
   config.vm.synced_folder '.', '/vagrant', nfs: { mount_options: ['actimeo=2'] }
+  # Fix file permissions issues that will kill npm install on the Vagrant box.
+  config.bindfs.bind_folder '/vagrant', '/vagrant'
 
   ### SHELL PROVISIONER.
 
