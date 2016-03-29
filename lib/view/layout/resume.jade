@@ -1,0 +1,21 @@
+include /mixin/index
+doctype html
+
+html(lang='en')
+
+  head
+    title!=viewHelper.tokens([headline, i18n('site.name')], ' | ')
+
+    +metaStandard()
+
+    block meta
+
+    +externalStylesheet('https://fonts.googleapis.com/css?family=Raleway:300,600')
+
+    +touchIcons()
+
+  body
+    #wrap
+      #content
+        .container
+          block content
