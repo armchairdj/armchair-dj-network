@@ -6,4 +6,5 @@ block content
       h1 Admin
 
     section
-      p Content to come.
+      - each post in posts
+        p post.displayTitle()
