@@ -1,0 +1,109 @@
+/*! Armchair DJ Site styles */
+
+/* Nib */
+vendor-prefixes ?= webkit moz ms o official
+
+@import 'nib';
+
+@import 'config/breakpoint';
+
+@import 'config/resume/color';
+@import 'config/resume/math';
+@import 'config/resume/font';
+@import 'config/resume/selector';
+@import 'config/resume/url';
+
+@import 'mixin/form';
+@import 'mixin/img';
+@import 'mixin/layout';
+@import 'mixin/line';
+@import 'mixin/link';
+@import 'mixin/list';
+@import 'mixin/prefix';
+@import 'mixin/selection';
+@import 'mixin/spacing';
+@import 'mixin/text';
+
+@import 'tag/html';
+@import 'tag/body';
+@import 'tag/text';
+
+@import 'tag/article';
+@import 'tag/form';
+@import 'tag/img';
+@import 'tag/link';
+@import 'tag/list';
+
+article.resume {
+  readable();
+  max-width: 940px;
+  margin: 40px;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin: 0;
+
+    > * {
+      margin: 0;
+    }
+  }
+
+  > header,
+  > section {
+    margin: 0 0 2em;
+    padding: 0 0 2em;
+    border-bottom: 1px dotted #333;
+
+    &:last-child {
+      margin: 0;
+      padding: 0;
+      border-bottom: 0;
+    }
+  }
+
+  > section {
+    > header {
+      margin: 0 0 2em;
+      padding: 0 0 2em;
+      border-bottom: 1px dotted #333;
+    }
+
+    .subsection {
+      margin: 0 0 1em;
+      padding: 0 0 1em;
+      border-bottom: 1px dotted #ccc;
+
+      &:last-child {
+        margin: 0;
+        padding: 0;
+        border-bottom: 0;
+      }
+
+      &.company {
+        > header {
+          clearfix();
+          margin: 0 0 1em;
+          padding: 0 0 1em;
+          border-bottom: 1px dotted #ccc;
+
+          h4.name {
+            float: left;
+          }
+
+          h4.location {
+            float: right;
+          }
+        }
+      }
+
+      header,
+      .job {
+        marginBottom(1em);
+      }
+    }
+  }
+}

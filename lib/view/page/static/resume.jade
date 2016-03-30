@@ -1,74 +1,85 @@
 extends /layout/resume
 
 block content
-  article
+  article.resume
     header
       h1 Brian J. Dillard
       h2 Hands-On Software Craftsman
 
     section.peronal
       header
-        h2 About 
+        h3 About
 
-      h3 I'm a veteran
 
-      p I'm a technology lifer who combines deep development chops with product vision and leadership experience.
+      .subsection
+        header
+          h4 I'm a veteran
 
-      p As a software craftsman, I've mastered the entire stack, from web UI to backend infrastructure and cloud deployment. I build web and mobile applications using git, bash, Node, Mongo, Ruby on Rails, SQL, JavaScript, HTML 5, CSS 3, responsive design, nginx and many other languages, platforms and frameworks.
+        p I'm a technology lifer who combines deep development chops with product vision and leadership experience.
 
-      p As a technology leader, I've built new products from the ground up - but I specialize in transforming messy startup code into grown-up architecture. I've mentored a long parade of junior developers. Most importantly, I've collaborated with countless product leads, designers, business analysts and QA engineers. I'm only happy in roles where I'm actually coding, but that hasn't precluded me from leading many small, cross-functional teams.
+        p As a software craftsman, I've mastered the entire stack, from web UI to backend infrastructure and cloud deployment. I build web and mobile applications using git, bash, Node, Mongo, Ruby on Rails, SQL, JavaScript, HTML 5, CSS 3, responsive design, nginx and many other languages, platforms and frameworks.
 
-      h3 I'm a maker
+        p As a technology leader, I've built new products from the ground up - but I specialize in transforming messy startup code into grown-up architecture. I've mentored a long parade of junior developers. Most importantly, I've collaborated with countless product leads, designers, business analysts and QA engineers. I'm only happy in roles where I'm actually coding, but that hasn't precluded me from leading many small, cross-functional teams.
 
-      p I like to build things. My ideal role is:
+      .subsection
+        header
+          h4 I'm a maker
 
-      dl
-        dt Hands-on
-        dd I favor coding, mentoring and collaborating over pure management roles.
-        dt Consumer-focused
-        dd I can build your back end, but I also want a role helping define your product and your UI.
-        dt Nimble
-        dd I know how to translate a market opportunity into an MVP and iterate from there.
+        p I like to build things. My ideal role is:
 
-      h3 I'm post-geographic
+        dl
+          dt Hands-on
+          dd I favor coding, mentoring and collaborating over pure management roles.
+          dt Consumer-focused
+          dd I can build your back end, but I also want a role helping define your product and your UI.
+          dt Nimble
+          dd I know how to translate a market opportunity into an MVP and iterate from there.
 
-      p I live in Mount Washington on the east side of Los Angeles. I prefer to collaborate via Slack, Google Hangouts and GitHub from my sweet home office, but I'd consider an in-person role in DTLA, Glendale or Pasadena.
+      .subsection
+        header
+          h4 I'm post-geographic
 
-      h3 How to hire me
+          p I live in Mount Washington on the east side of Los Angeles. I prefer to collaborate via Slack, Google Hangouts and GitHub from my sweet home office, but I'd consider an in-person role in DTLA, Glendale or Pasadena.
 
-      ul.bulleted
-        li Principals and in-house recruiters to the front of the line.
-        li Poorly targeted recruiting emails go straight to my spam filters.
-        li If you want to prove that you've done your homework, ask me about my favorite episode of The Vampire Diaries.
+      .subsection
+        header
+          h4 How to hire me
 
-      p Thanks!
+        ul.bulleted
+          li Principals and in-house recruiters to the front of the line.
+          li Poorly targeted recruiting emails go straight to my spam filters.
+          li If you want to prove that you've done your homework, ask me about my favorite episode of The Vampire Diaries.
+
+        p Thanks!
 
     section.jobs
+      header
+        h3 Professional experience
 
-      .company
+      .subsection.company
         header
-          h4
-            div Placester
-            div Chicago
+          h4.name Placester
+          h4.location Chicago
 
         .job
-          h5 Lead Software Engineer
-          h6 2016-present
+          header
+            h5 Lead Software Engineer
+            h6 2016-present
 
           ul.bulleted
             li Joined this rapidly growing, venture-funded real estate startup when it acquired my previous employer, HomeFinder, in 2016.
             li At Placester, I continue to spearhead development of Open Home Pro, the leading open house management app for real estate professionals.
 
-      .company
+      .subsection.company
         header
-          h4
-            div HomeFinder
-            div Chicago
+          h4.name HomeFinder
+          h4.location Chicago
 
         .job
-          h5
-            div Principal Software Engineer
-            div Open Home Pro
+          header
+            h5
+              div Principal Software Engineer
+              div Open Home Pro
           h6 2014-2016
 
           ul.bulleted
@@ -76,23 +87,25 @@ block content
             li Refactored brittle, overly complicated legacy code to increase developer and product momentum.
 
         .job
-          h5 Lead Software Engineer
-          h6 2013-2014
+          header
+            h5 Lead Software Engineer
+            h6 2013-2014
 
           ul.bulleted
             li Championed lean startup principles and modern software archecture at this real-estate services company.
             li Built a bespoke Rails 4 application for the company's Ultimate Home Transformation Sweepstakes, which generated ~$1M in advertising revenue during its inaugural outing.
 
-      .company
-        h4
-          div Viewpoints
-          div Chicago
+      .subsection.company
+        header
+          h4.name Viewpoints
+          h4.location Chicago
 
         .job
-          h5
-            div Cofounder &amp; Principal Software Engineer
-            div Modern Comment
-          h6 2012-2013
+          header
+            h5
+              div Cofounder &amp; Principal Software Engineer
+              div Modern Comment
+            h6 2012-2013
 
           ul.bulleted
             li Bootstrapped this lean startup, which provides tools for local businesses to collect, analyze and publish feedback from their customers.
@@ -102,8 +115,9 @@ block content
             li Helped our business team define the product, its features, and its mobile-first user experience.
 
         .job
-          h5 Lead UI Engineer
-          h6 2010-2012
+          header
+            h5 Lead UI Engineer
+            h6 2010-2012
 
           ul.bulleted
             li Managed and coded the UI architecture for the second-largest collection of consumer product reviews on the web.
@@ -114,14 +128,15 @@ block content
             li Improved QA efficiency by implementing automated testing of the user interface, including JavaScript unit testing, static code analysis and automated acceptance testing.
             li Mentored junior developers and led efforts to refactor legacy code from outdated libraries to industry-standard toolkits.
 
-      .company
-        h4
-          div OptionsHouse
-          div Chicago
+      .subsection.company
+        header
+          h4.name OptionsHouse
+          h4.location Chicago
 
         .job
-          h5 Senior Technical Lead
-          h6 2009-2010
+          header
+            h5 Senior Technical Lead
+            h6 2009-2010
 
           ul.bulleted
             li Managed a team of five developers at this online brokerage.
@@ -129,94 +144,115 @@ block content
             li Supervised the development of a new mobile trading application.
             li Led the adoption of open-source technologies including jQuery and WordPress.
 
-      .company
-        h4
-          div Pathfinder Development
-          div Chicago
+      .subsection.company
+        header
+          h4.name Pathfinder Development
+          h4.location Chicago
 
         .job
-          h5 Lead Ajax Developer
-          h6 2007-2009
+          header
+            h5 Lead Ajax Developer
+            h6 2007-2009
 
           ul.bulleted
             li Developed a variety of client and skunkworks projects in JavaScript, Ruby on Rails and WordPress.
             li Blogged regularly about UI and Ajax development. Spoke at industry conferences.
             li Contributed to open-source software projects, including Really Simple History, an early library for maintaining back-button functionality in Ajax applications.
 
-      .company
-        h4
-          div Orbitz
-          div Chicago
+      .subsection.company
+        header
+          h4.name Orbitz
+          h4.location Chicago
 
         .job
-          h5 UI Technical Lead
-          h6 2007
+          header
+            h5 UI Technical Lead
+            h6 2007
 
           ul.bulleted
             li Oversaw UI development during the launch of the company's new internationalized white-label travel platform.
             li Built features, code-reviewed all other UI developers, and managed relationships with global stakeholders.
 
         .job
-          h5 Senior UI Software Engineer
-          h6 2005-2007
+          header
+            h5 Senior UI Software Engineer
+            h6 2005-2007
 
           ul.bulleted
             li Hand-coded new hotel and travel-package features for this global leader in online travel.
             li Led projects to white-label the Orbitz platform for new corporate acquisitions.
 
         .job
-          h5 UI Software Engineer [Contract]
-          h6 2005
+          header
+            h5 UI Software Engineer [Contract]
+            h6 2005
 
           ul.bulleted
             li Transitioned newly acquired travel properties such as CheapTickets onto the Orbitz platform using JSP, HTML, CSS and JavaScript.
 
-      .company
-        h4
-          div Self-Emplyed
-          div Chicago
+      .subsection.company
+        header
+          h4.name Self-Emplyed
+          h4.location Chicago
 
         .job
-          h5 Freelance Software Engineer
-          h6 October 2003 - May 2005
+          header
+            h5 Freelance Software Engineer
+            h6 October 2003 - May 2005
 
           ul.bulleted
             li Developed Web applications for United Airlines and a variety of other startups, non-profits and privately held companies.
 
-      .company
-        h4
-          div Reflect.com, LLC
-          div San Francisco
+      .subsection.company
+        header
+          h4.name Reflect.com, LLC
+          h4.location Chicago
 
         .job
-          h5 Lead UI Developer
-          h6 2000-2003
+          header
+            h5 Lead UI Developer
+            h6 2000-2003
 
           ul.bulleted
             li Built complex browser interfaces allowing everyday shoppers to customize cosmetic, hair, fragrance and grooming products.
             li Wrote internal tools in server-side JavaScript an entire decade before the advent of Node.
 
-      .company
-        h4
-          div Townsend Analytics, LLC
-          div Chicago
+      .subsection.company
+        header
+          h4.name Townsend Analytics, LLC
+          h4.location Chicago
 
         .job
-          h5 Web Developer / Webmaster
-          h6 1998-2000
+          header
+            h5 Web Developer / Webmaster
+            h6 1998-2000
 
           ul.bulleted
             li Built online marketing and documentation resources for RealTick, an industry-leading online trading platform.
             li Helped launch the web presence for the Archipelago Exchange, which later merged with the Pacific Exchange and the NYSE.
 
-      .company
-        h4
-          div AdBot, Inc.
-          div Chicago
+      .subsection.company
+        header
+          h4.name AdBot, Inc.
+          h4.location Chicago
 
         .job
-          h5 Web Producer
-          h6 1996-1997
+          header
+            h5 Web Producer
+            h6 1996-1997
 
           ul.bulleted
             li Wrote copy, built HTML page templates and performed online research for this early online advertising auction market.
+
+    section.education
+      header
+        h3 Education
+
+      p TBD
+
+    section.links
+      header
+        h3 Links
+
+      ul.bulleted
+        li TBD

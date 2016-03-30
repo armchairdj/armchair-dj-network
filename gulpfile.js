@@ -54,6 +54,11 @@ var src = {
     jet: {
       css:    './lib/asset/css/vendor/normalize-3.0.3.css',
       stylus: './lib/asset/css/site/jet.styl'
+    },
+
+    resume: {
+      css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+      stylus: './lib/asset/css/site/resume.styl'
     }
   }
 };
@@ -70,9 +75,11 @@ var dest = {
 
 var defaultTasks = [];
 
-scriptTask(          'script-modernizr', src.script.modernizr);
-scriptTaskBrowserify('script-site',      src.script.site     );
-stylesheetTaskStylus('stylesheet-jet',   src.stylesheet.jet  );
+scriptTask(          'script-modernizr',  src.script.modernizr );
+scriptTaskBrowserify('script-site',       src.script.site      );
+
+stylesheetTaskStylus('stylesheet-jet',    src.stylesheet.jet   );
+stylesheetTaskStylus('stylesheet-resume', src.stylesheet.resume);
 
 gulp.task('default', defaultTasks);
 
