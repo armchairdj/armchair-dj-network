@@ -43,7 +43,15 @@ pipedList() {
     }
 
     &:last-child:after {
-      content: "";
+      content: none;
+    }
+  }
+}
+
+noPipedList() {
+  li {
+    &:after {
+      content: none;
     }
   }
 }

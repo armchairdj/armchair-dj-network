@@ -27,7 +27,7 @@ article.resume {
   readable();
   max-width: 940px;
   margin: 40px;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 20px;
   color: #555;
 
@@ -50,7 +50,7 @@ article.resume {
     }
 
     @media $mediaL {
-      floatedDefinitionList(24%, 72%);
+      floatedDefinitionList(28%, 70%);
     }
   }
 
@@ -60,7 +60,7 @@ article.resume {
   h4,
   h5,
   h6 {
-    font-weight: 500;
+    font-weight: bold;
     margin: 0;
 
     > * {
@@ -70,14 +70,13 @@ article.resume {
 
   h1 {
     font-size: 44px;
-    margin: 0 0 22px;
     color: #000;
     smallCaps();
   }
 
   h2 {
-    font-size: 32px;
-    color: #6c6c7e;
+    font-size: 33px;
+    color: darken(#6c6c7e, 10);
   }
 
   h3 {
@@ -88,62 +87,83 @@ article.resume {
 
   h4 {
     font-size: 30px;
-    color: #6c6c7e;
+    color: darken(#6c6c7e, 20);
   }
 
   h5 {
+    color: darken(#6c6c7e, 10);
     font-size: 22px;
   }
 
   h6 {
     font-size: 18px;
-    color: #6c6c7e;
+    color: darken(#6c6c7e, 10);
   }
 
   .masthead {
-    ruleBorder(.25em, 3.5em, 4px solid $resumeBorderColor);
+    ruleBorder(.25em, 3em, 2px solid $resumeBorderColor);
 
     header {
-      margin: 0 0 2em;
+      margin: 0 0 1em;
     }
-
 
     > nav {
       ul {
-        li {
-          margin: 0 0 3px;
-        }
+        pipedList();
       }
     }
 
-    @media $mediaL {
+    @media $mediaLScreen {
       clearfix();
 
       > header {
         float: left;
         margin: 0;
+
+        h1 {
+          margin: 0 0 21px;
+        }
       }
 
       > nav {
         margin-top: 7px;
         float: right;
         text-align: right;
+
+        ul {
+          noPipedList();
+          plainList();
+          li {
+            margin: 0 0 3px;
+          }
+        }
       }
     }
   }
 
   > section {
-    marginBottom(3.5em);
+    marginBottom(3em);
+
+    img {
+      display: block;
+      max-width: 240px;
+      margin: 0 auto 1em;
+
+      @media $mediaL {
+        float: right;
+        margin: -1.5em 0 1em 3em;
+      }
+    }
 
     > header {
-      ruleBorder(.25em, 3.5em, 1px solid $resumeBorderColor);
+      ruleBorder(.25em, 3em, 1px solid $resumeBorderColor);
     }
 
     .subsection {
-      marginBottom(2em);
+      marginBottom(1.5em);
 
       > header {
-        ruleBorder(.25em, 2em, 1px solid #eaeaea);
+        ruleBorder(.25em, 1.5em, 1px solid #eaeaea);
 
         @media $mediaL {
           clearfix();
@@ -177,6 +197,17 @@ article.resume {
           }
         }
       }
+    }
+  }
+}
+
+/***** Print *****/
+
+@media print {
+  article.resume {
+    section.hire,
+    .subsection.compact {
+      page-break-inside: avoid;
     }
   }
 }
