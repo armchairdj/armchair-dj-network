@@ -23,7 +23,7 @@ plainList() {
 
 bulletedList() {
   margin-left: 2em;
-  list-style-type: disc;
+  list-style-type: square;
 
   li {
     display: list-item;
@@ -45,5 +45,27 @@ pipedList() {
     &:last-child:after {
       content: "";
     }
+  }
+}
+
+floatedDefinitionList($dtWidth, $ddWidth) {
+  clearfix();
+
+  dt,
+  dd {
+    float: left;
+    margin: 0;
+  }
+
+  dt {
+    clear: both;
+    float: left;
+    text-align: right;
+    width: $dtWidth;
+  }
+
+  dd {
+    float: right;
+    width: $ddWidth;
   }
 }

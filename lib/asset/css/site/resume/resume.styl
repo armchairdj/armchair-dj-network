@@ -1,0 +1,182 @@
+/***** Variables *****/
+
+$resumeBorderColor = #6c6c7e;
+
+/***** Mixins *****/
+
+ruleBorder($padding, $margin, $border) {
+  padding: 0 0 $padding;
+  margin: 0 0 $margin;
+  border-bottom: $border;
+
+  &:last-child {
+    margin: 0;
+    padding: 0;
+    border-bottom: 0;
+  }
+}
+
+smallCaps() {
+  text-transform: uppercase;
+  letter-spacing: .125em;
+}
+
+/***** Base *****/
+
+article.resume {
+  readable();
+  max-width: 940px;
+  margin: 40px;
+  font-weight: 300;
+  font-size: 20px;
+  color: #555;
+
+  a {
+    plainLink();
+  }
+
+  dl {
+    dt {
+      font-weight: bold;
+
+      &:after {
+        content: ": ";
+      }
+    }
+
+    dt,
+    dd {
+      marginBottom(.5em);
+    }
+
+    @media $mediaL {
+      floatedDefinitionList(24%, 72%);
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 500;
+    margin: 0;
+
+    > * {
+      margin: 0;
+    }
+  }
+
+  h1 {
+    font-size: 44px;
+    margin: 0 0 22px;
+    color: #000;
+    smallCaps();
+  }
+
+  h2 {
+    font-size: 32px;
+    color: #6c6c7e;
+  }
+
+  h3 {
+    font-size: 36px;
+    color: #000;
+    smallCaps();
+  }
+
+  h4 {
+    font-size: 30px;
+    color: #6c6c7e;
+  }
+
+  h5 {
+    font-size: 22px;
+  }
+
+  h6 {
+    font-size: 18px;
+    color: #6c6c7e;
+  }
+
+  .masthead {
+    ruleBorder(.25em, 3.5em, 4px solid $resumeBorderColor);
+
+    header {
+      margin: 0 0 2em;
+    }
+
+
+    > nav {
+      ul {
+        li {
+          margin: 0 0 3px;
+        }
+      }
+    }
+
+    @media $mediaL {
+      clearfix();
+
+      > header {
+        float: left;
+        margin: 0;
+      }
+
+      > nav {
+        margin-top: 7px;
+        float: right;
+        text-align: right;
+      }
+    }
+  }
+
+  > section {
+    marginBottom(3.5em);
+
+    > header {
+      ruleBorder(.25em, 3.5em, 1px solid $resumeBorderColor);
+    }
+
+    .subsection {
+      marginBottom(2em);
+
+      > header {
+        ruleBorder(.25em, 2em, 1px solid #eaeaea);
+
+        @media $mediaL {
+          clearfix();
+
+          h4 {
+            float: left;
+          }
+
+          h6 {
+            float: right;
+          }
+        }
+      }
+
+      .position {
+        marginBottom(1.5em);
+
+        > header {
+          marginBottom(0.75em);
+
+          @media $mediaL {
+            clearfix();
+
+            h5 {
+              float: left;
+            }
+
+            h6 {
+              float: right;
+            }
+          }
+        }
+      }
+    }
+  }
+}
