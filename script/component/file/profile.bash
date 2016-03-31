@@ -57,5 +57,12 @@ alias nginx_bounce="sudo service nginx restart"
 alias nginx_access="tail -f -n1000 $NGINX_ACCESS_LOG"
 alias nginx_error="tail -f -n1000 $NGINX_ERROR_LOG"
 
+# Aliases - bouncing
+alias bounce_app="$APP_ROOT/script/component/bounce/bounce_app.sh"
+alias bounce_bash="$APP_ROOT/script/component/bounce/bounce_bash.sh"
+alias bounce_mongo="$APP_ROOT/script/component/bounce/bounce_mongo.sh"
+alias bounce_nginx="$APP_ROOT/script/component/bounce/bounce_nginx.sh"
+alias bounce_node="$APP_ROOT/script/component/bounce/bounce_node.sh"
+
 # Login.
 cd "$APP_ROOT"

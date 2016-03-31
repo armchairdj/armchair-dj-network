@@ -587,7 +587,7 @@ ul.piped li:after {
   margin: 0 0.45em 0 0.65em;
 }
 ul.piped li:last-child:after {
-  content: "";
+  content: none;
 }
 ol.numbered {
   margin: 0 0 15px;

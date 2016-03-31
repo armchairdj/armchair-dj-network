@@ -648,11 +648,11 @@ article.resume dl dd:last-child {
     clear: both;
     float: left;
     text-align: right;
-    width: 28%;
+    width: 25%;
   }
   article.resume dl dd {
     float: right;
-    width: 70%;
+    width: 73%;
   }
 }
 article.resume h1,
