@@ -446,6 +446,10 @@ cite {
   font-weight: 300;
   font-style: normal;
 }
+p,
+blockquote {
+  margin: 0;
+}
 article > header,
 article > section {
   margin-bottom: 40px;
@@ -544,14 +548,14 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 a {
-  cursor: pointer;
-  text-decoration: underline;
-  color: #0e5bbd;
   -webkit-transition: color 0.5s ease-in-out 0.1s;
   -moz-transition: color 0.5s ease-in-out 0.1s;
   -ms-transition: color 0.5s ease-in-out 0.1s;
   -o-transition: color 0.5s ease-in-out 0.1s;
   transition: color 0.5s ease-in-out 0.1s;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #0e5bbd;
 }
 a:hover {
   text-decoration: underline;

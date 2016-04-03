@@ -446,6 +446,10 @@ cite {
   font-weight: 300;
   font-style: normal;
 }
+p,
+blockquote {
+  margin: 0;
+}
 article > header,
 article > section {
   margin-bottom: 40px;
@@ -544,20 +548,20 @@ img {
   -ms-interpolation-mode: bicubic;
 }
 a {
-  cursor: pointer;
-  text-decoration: underline;
-  color: #fff;
   -webkit-transition: color 0.5s ease-in-out 0.1s;
   -moz-transition: color 0.5s ease-in-out 0.1s;
   -ms-transition: color 0.5s ease-in-out 0.1s;
   -o-transition: color 0.5s ease-in-out 0.1s;
   transition: color 0.5s ease-in-out 0.1s;
+  cursor: pointer;
+  text-decoration: underline;
+  color: #fff;
 }
 a:hover {
   text-decoration: underline;
 }
 a:hover {
-  color: #b3b3b3;
+  color: #ccc;
 }
 ul {
   margin: 0;
@@ -621,30 +625,69 @@ ol.numbered li {
 }
 aside#flash {
   padding: 20px 0;
-  position: relative;
+  background-color: #1c1d1b;
 }
 aside#flash.error {
-  background-color: #fdc;
-  color: #930;
+  color: #f62f46;
+}
+aside#flash.error a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #f62f46;
+}
+aside#flash.error a:hover {
+  text-decoration: underline;
+}
+aside#flash.error a:hover {
+  color: #e80a24;
 }
 aside#flash.success {
-  background-color: $successBgColor;
-  color: #00c011;
+  color: #18c515;
+}
+aside#flash.success a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #18c515;
+}
+aside#flash.success a:hover {
+  text-decoration: underline;
+}
+aside#flash.success a:hover {
+  color: #129710;
 }
 aside#flash.info {
-  background-color: #fff;
-  color: #999;
+  color: #bac2c3;
 }
-aside#flash a.close {
+aside#flash.info a {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #bac2c3;
+}
+aside#flash.info a:hover {
+  text-decoration: underline;
+}
+aside#flash.info a:hover {
+  color: #9faaab;
+}
+aside#flash .container {
+  position: relative;
+}
+aside#flash .container a.close {
   cursor: pointer;
   text-decoration: none;
+  color: #f62f46;
   position: absolute;
-  top: 5px;
-  right: 5px;
-  color: #930;
+  top: -8px;
+  right: 0;
+  font-size: 60px;
+  line-height: 30px;
+  color: #f62f46;
 }
-aside#flash a.close:hover {
+aside#flash .container a.close:hover {
   text-decoration: none;
+}
+aside#flash .container a.close:hover {
+  color: #e80a24;
 }
 aside#footer {
   position: relative;
@@ -856,33 +899,33 @@ header.postInfo h5 a:hover {
 }
 header.postInfo h1.title,
 header.postInfo h2.title {
-  color: #10bcf8;
+  color: #42cbf9;
 }
 header.postInfo h1.title a,
 header.postInfo h2.title a {
-  color: #10bcf8;
+  color: #42cbf9;
 }
 header.postInfo h1.title a:hover,
 header.postInfo h2.title a:hover {
-  color: #42caf9;
+  color: #079cce;
 }
 header.postInfo h2.artist,
 header.postInfo h3.artist,
 header.postInfo h2.series,
 header.postInfo h3.series {
-  color: #73d8fb;
+  color: #a5e6fc;
 }
 header.postInfo h2.artist a,
 header.postInfo h3.artist a,
 header.postInfo h2.series a,
 header.postInfo h3.series a {
-  color: #73d8fb;
+  color: #a5e6fc;
 }
 header.postInfo h2.artist a:hover,
 header.postInfo h3.artist a:hover,
 header.postInfo h2.series a:hover,
 header.postInfo h3.series a:hover {
-  color: #a5e6fc;
+  color: #42cbf9;
 }
 header.postInfo h4.type {
   text-transform: uppercase;
@@ -893,7 +936,7 @@ header.postInfo h4.type:after {
   content: '\00A0\2192';
 }
 header.postInfo h5.year {
-  color: #999;
+  color: #bac2c3;
 }
 article.posts > header {
   border-bottom: 1px solid #333;
@@ -1073,11 +1116,26 @@ ul.tags li {
   display: inline;
   white-space: nowrap;
 }
+.title {
+  zoom: 1;
+}
+.title:before,
+.title:after {
+  content: "";
+  display: table;
+}
+.title:after {
+  clear: both;
+}
 .title cite.album,
 .title cite.compilation,
 .title cite.dj-mix {
   font-style: italic;
 }
 .title cite span {
-  display: block;
+  float: left;
+  display: inline-block;
+}
+.title cite span.version {
+  clear: left;
 }

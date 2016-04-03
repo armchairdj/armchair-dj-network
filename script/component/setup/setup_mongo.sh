@@ -26,11 +26,9 @@ sudo update-rc.d disable-transparent-hugepages defaults
 /etc/init.d/disable-transparent-hugepages
 
 echo "$SCRIPT_NAME: copy mongod upstart script"
-# sudo chown -R "$APP_USER:$APP_USER" /etc/init/mongod.conf
 sudo cp "$APP_ROOT/script/component/file/mongod.conf" /etc/init/mongod.conf
 sudo chmod +x /etc/init/mongod.conf
 
 echo "$SCRIPT_NAME: copy mongod yml configuration file"
-# sudo chown -R "$APP_USER:$APP_USER" /etc/mongod.conf
 sudo cp "$APP_ROOT/script/component/file/mongod.yml" /etc/mongod.conf
 sudo chmod +x /etc/mongod.conf

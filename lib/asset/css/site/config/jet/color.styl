@@ -4,21 +4,26 @@ $contentBgColor = #121413;
 
 $bylineTextColor = #73d8fb;
 
-$postArtistColor = $bylineTextColor;
-$postArtistColorHover = lighten($postArtistColor, 10);
+$postArtistColor = lighten($bylineTextColor, 10);
+$postArtistColorHover = darken($postArtistColor, 20);
 $postTitleColor = darken($postArtistColor, 20);
-$postTitleColorHover = lighten($postTitleColor, 10);
+$postTitleColorHover = darken($postTitleColor, 20);
 
 $linkColor = #fff;
-$linkColorHover = darken($linkColor, 30)
+$linkColorHover = darken($linkColor, 20)
 
-$errorTextColor = #930;
+$flashBgColor = #1c1d1b;
+
+$errorTextColor = #f62f46;
+$errorTextColorHover = darken($errorTextColor, 10);
 $errorBgColor = lighten($errorTextColor, 60);
 
-$infoTextColor = #999;
+$infoTextColor = #bac2c3;
+$infoTextColorHover = darken($infoTextColor, 10);
 $infoBgColor = lighten($infoTextColor, 60);
 
-$successTextColor = #00c011;
-$succesBgColor = lighten($successTextColor, 60);
+$successTextColor = #18c515;
+$successTextColorHover = darken($successTextColor, 10);
+$successBgColor = lighten($successTextColor, 60);
 
 $standardRuleColor = #191618;

@@ -17,13 +17,23 @@ plainLink() {
 }
 
 linkColor($off, $on = false) {
-  color: $off;
-  transition: color 0.5s ease-in-out 0.1s;
+  if $on == false {
+    $on = $off;
+  }
 
-  if $on != false {
-    &:hover {
-      color: $on;
-    }
+  color: $off;
+
+  &:hover {
+    color: $on;
+  }
+}
+
+textAndLinkColor($off, $on = false) {
+  color: $off;
+
+  a {
+    underlinedLink();
+    linkColor($off, $on);
   }
 }
 
