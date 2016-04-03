@@ -9,7 +9,7 @@ Vagrant.configure('2') do |config|
   ### BASE BOX & VM
 
   config.vm.box      = 'puppetlabs/ubuntu-14.04-64-puppet'
-  config.vm.hostname = "armchair-dj"
+  config.vm.hostname = 'armchair-dj'
 
   # Node inspector.
   config.vm.network :forwarded_port, host: 9060, guest: 9060, auto_correct: true
@@ -45,17 +45,27 @@ Vagrant.configure('2') do |config|
     v.cpus   = 1
 
     # Fix DNS issue in Ubuntu VMs.
-    v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
   end
 
   ### SYNCED FOLDER.
 
+  # Mount synced folder using NFS.
   config.vm.synced_folder '.', '/vagrant', nfs: { mount_options: ['actimeo=2'] }
-  # Fix file permissions issues that will kill npm install on the Vagrant box.
+
+  # Fix file ownership issues that will kill npm install on NFS-mounted folder.
   config.bindfs.bind_folder '/vagrant', '/vagrant'
 
   ### SHELL PROVISIONER.
 
-  config.vm.provision :shell, path: 'script/provision/development/bootstrap.sh'
+  config.vm.provision :shell, path: './script/provision/vagrant/bootstrap.sh'
+
+  config.trigger.after [:up] do
+    run 'bash ./script/provision/vagrant/up.sh'
+  end
+
+  config.trigger.after [:halt] do
+    run 'bash ./script/provision/vagrant/halt.sh'
+  end
 
 end

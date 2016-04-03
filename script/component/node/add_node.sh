@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_NAME="setup_node"
+SCRIPT_NAME="** add_node"
 
 echo "$SCRIPT_NAME: install n"
 cd "$APP_USER_HOME"

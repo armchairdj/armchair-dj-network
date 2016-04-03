@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
-SCRIPT_NAME='ubuntu'
+SCRIPT_NAME="** vagrant_bootstrap"
 
-NODE_ENV='development'
+NODE_ENV="development"
+APP_ROOT="/vagrant"
+APP_USER="vagrant"
 
 ##### Ubuntu.
 
@@ -13,7 +15,7 @@ echo "$SCRIPT_NAME: update sources"
 apt-get update -y
 
 echo "$SCRIPT_NAME: upgrade os"
-# Prevent interactive pseudo-gui shell from running during headless upgrade
+# Prevent interactive pseudo-gui shell from running during headless upgrade.
 sudo DEBIAN_FRONTEND=noninteractive apt-get -y -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confold" upgrade
 
 echo "$SCRIPT_NAME: install packages"
@@ -49,23 +51,14 @@ echo "vagrant ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ##### Set up environment variables.
 
-APP_ROOT='/vagrant'
-CONF_FILE_DIR='/vagrant/script/component/file'
-HOME='/home/vagrant'
+cd "$APP_ROOT/script/component/bash"
 
-echo "$SCRIPT_NAME: copy command prompt"
-cp "$CONF_FILE_DIR/command_prompt.bash" "$HOME/.command_prompt"
-
-echo "$SCRIPT_NAME: copy environment variables"
-cp "$CONF_FILE_DIR/environment_vars.$NODE_ENV.bash" "$HOME/.environment_vars"
-
-echo "$SCRIPT_NAME: copy profile"
-cp "$CONF_FILE_DIR/profile.bash" "$HOME/.profile"
-
-echo "$SCRIPT_NAME: source updated files"
-source "$HOME/.profile"
+echo "$SCRIPT_NAME: copy various config files to home directory"
+cp "./command_prompt.bash"             "/home/$APP_USER/.command_prompt"
+cp "./environment_vars.$NODE_ENV.bash" "/home/$APP_USER/.environment_vars"
+cp "./profile.bash"                    "/home/$APP_USER/.profile"
 
 ##### Now we can run everything else
 
-echo "ubuntu: run setup script as $APP_USER"
-sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/script/component/setup.sh"
+echo "$SCRIPT_NAME: run setup script as $APP_USER"
+sudo -u "$APP_USER" -H bash -l -c "$APP_ROOT/script/component/install_all.sh"
