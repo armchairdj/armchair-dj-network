@@ -9,7 +9,7 @@ Vagrant.configure('2') do |config|
   ### BASE BOX & VM
 
   config.vm.box      = 'puppetlabs/ubuntu-14.04-64-puppet'
-  config.vm.hostname = "armchair-dj.com"
+  config.vm.hostname = "armchair-dj"
 
   # Node inspector.
   config.vm.network :forwarded_port, host: 9060, guest: 9060, auto_correct: true
@@ -25,6 +25,14 @@ Vagrant.configure('2') do |config|
 
   # Private network (required for shared folder).
   config.vm.network 'private_network', ip: '192.168.10.83'
+  
+  # Automatic hosts via vagrant-hostsupdater plugin.
+  config.hostsupdater.aliases = [
+    'www.armchair-dj.dev',
+        'armchair-dj.dev',
+     'www.armchairdj.dev',
+         'armchairdj.dev'
+  ]
 
   ### VIRTUALBOX
 

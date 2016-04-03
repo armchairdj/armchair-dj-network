@@ -4,14 +4,13 @@ upstream armchairdj {
 
 server {
   listen 0.0.0.0:80;
-  server_name www.armchair-dj.com;
+  server_name www.armchair-dj.com armchair-dj.com www.armchairdj.com armchairdj.com;
 
   location / {
     client_max_body_size 10M;
     client_body_buffer_size 128k;
 
-    # Redirect armchair-dj.com, armchairdj.com and www.armchairdj.com
-    # to ensure we serve web content only at a single TLD for SEO etc.
+    # Redirect all but the first server-name so we have only a single TLD for SEO etc.
     if ($host != $server_name) {
       return 301 http://$server_name$request_uri;
     }
