@@ -13,5 +13,8 @@ Node/Express/Connect/Mongo-based CMS, back end and front end for armchair-dj.com
     # Automatic host entries for local development and nginx testing.
     vagrant plugin install vagrant-hostsupdater
 
+    # Hooks to run arbitrary scripts before/after vagrant commands.
+    vagrant-triggers
+
     # Bootstrap and provision.
     vagrant up
