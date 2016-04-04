@@ -2,9 +2,11 @@
 
 SCRIPT_NAME="** bounce_app"
 
+echo "$SCRIPT_NAME: BEGIN"
+
 cd "$APP_ROOT"
 
-if [ "$APP_ENV" == "linode" ]; then
+if [ "$NODE_ENV" == "development" ]; then
   echo "$SCRIPT_NAME: git pull"
   git pull
 fi
@@ -16,3 +18,5 @@ echo "$SCRIPT_NAME: restart node"
 sudo restart node
 
 echo "check for migrations or other release tasks!"
+
+echo "$SCRIPT_NAME: END"
