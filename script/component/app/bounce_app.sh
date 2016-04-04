@@ -6,7 +6,7 @@ echo "$SCRIPT_NAME: BEGIN"
 
 cd "$APP_ROOT"
 
-if [ "$NODE_ENV" == "development" ]; then
+if [ "$APP_ENV" == "linode" ]; then
   echo "$SCRIPT_NAME: git pull"
   git pull
 fi
@@ -17,6 +17,6 @@ npm install
 echo "$SCRIPT_NAME: restart node"
 sudo restart node
 
-echo "check for migrations or other release tasks!"
+echo "$SCRIPT_NAME: check for migrations or other release tasks!"
 
 echo "$SCRIPT_NAME: END"

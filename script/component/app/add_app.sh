@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-SCRIPT_NAME=">>> setup_app"
+SCRIPT_NAME="** setup_app"
 
 echo "$SCRIPT_NAME: BEGIN"
 
