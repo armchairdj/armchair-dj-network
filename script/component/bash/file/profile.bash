@@ -52,8 +52,8 @@ alias tests="(cd /vagrant && make)"
 
 alias db='mongo armchairdj'
 
-alias nginx_access="tail -f -n1000 $NGINX_ACCESS_LOG"
-alias nginx_error="tail -f -n1000 $NGINX_ERROR_LOG"
+alias nginx_access_log="tail -f -n1000 $NGINX_ACCESS_LOG"
+alias nginx_error_log="tail -f -n1000 $NGINX_ERROR_LOG"
 
 # Aliases - bouncing
 alias bounce_app="$APP_ROOT/script/component/app/bounce_app.sh"

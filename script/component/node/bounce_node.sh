@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 SCRIPT_NAME="** bounce_node"
+FILE_PATH="$APP_ROOT/script/component/node/file"
 
 echo "$SCRIPT_NAME: BEGIN"
 

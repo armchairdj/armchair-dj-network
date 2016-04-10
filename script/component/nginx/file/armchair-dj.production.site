@@ -1,4 +1,4 @@
-upstream armchairdj {
+upstream armchair-dj {
   server 127.0.0.1:8000;
 }
 
@@ -27,9 +27,9 @@ server {
     proxy_redirect off;
   }
 
-  location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|txt|tar|wav|bmp|rtf|js|flv|swf|html|htm)$ {
+  location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|txt|tar|wav|bmp|rtf|js|flv|swf|htm|woff|eot|ttf|svgl|htm|woff|eot|ttf|svg)$ {
     expires 30d;
     access_log off;
-    root /home/deploy/app/current/public;
+    root /home/deploy/app/current/static/armchair-dj;
   }
 }
