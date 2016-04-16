@@ -186,17 +186,15 @@ function deploy(site, pkgName, stream, transform) {
 }
 
 function deployTo(site, stage, pkgName, stream) {
-  var destination = destinationPath(site, stage);
+  var destination      = destinationPath(site, stage);
+  var manifestFilename = pkgName + '-manifest.json';
 
   console.log(destination);
 
   stream
     .pipe(rev())
     .pipe(gulp.dest(destination))
-    .pipe(rev.manifest({
-       merge: true,
-       base:  destination
-    }))
+    .pipe(rev.manifest(manifestFilename))
     .pipe(gulp.dest(destination))
   ;
 }
