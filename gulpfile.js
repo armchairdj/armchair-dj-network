@@ -192,7 +192,9 @@ function deployTo(site, stage, pkgName, stream) {
   stream
     .pipe(rev())
     .pipe(gulp.dest(destination))
-    .pipe(rev.manifest(manifestFilename))
+    .pipe(rev.manifest({
+       merge: true
+    }))
     .pipe(gulp.dest(destination))
   ;
 }
