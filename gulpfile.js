@@ -46,31 +46,37 @@ events.EventEmitter.prototype._maxListeners = 100;
  */
 
 var src = {
-  script: {
-    site:      './lib/asset/js/site/adj.js',
-    modernizr: './lib/asset/js/vendor/modernizr.js'
-  },
-  stylesheet: {
-    jet: {
-      css:    './lib/asset/css/vendor/normalize-3.0.3.css',
-      stylus: './lib/asset/css/site/jet.styl'
+  armchairdj: {
+    script: {
+      adj:       './lib/asset/js/site/adj.js',
+      modernizr: './lib/asset/js/vendor/modernizr.js'
     },
+    stylesheet: {
+      jet: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/jet.styl'
+      }
+    }
+  },
 
-    resume: {
-      css:    './lib/asset/css/vendor/normalize-3.0.3.css',
-      stylus: './lib/asset/css/site/resume.styl'
+  briandillard: {
+    stylesheet: {
+      resume: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/resume.styl'
+      }
     }
   }
 };
 
 var dest = {
-  'armchair-dj':          'static/armchair-dj',
-  'askauiguy':            'static/askauiguy',
-  'bcchsclassof1991':     'static/bcchsclassof1991',
-  'briandillard':         'static/briandillard',
-  'charlieandbrian':      'static/charlieandbrian',
-  'nerdswithdaddyissues': 'static/nerdswithdaddyissues',
-  'plastikfan':           'static/plastikfan'
+  armchairdj:           'static/armchairdj',
+  askauiguy:            'static/askauiguy',
+  bcchsclassof1991:     'static/bcchsclassof1991',
+  briandillard:         'static/briandillard',
+  charlieandbrian:      'static/charlieandbrian',
+  nerdswithdaddyissues: 'static/nerdswithdaddyissues',
+  plastikfan:           'static/plastikfan'
 };
 
 /**
@@ -79,11 +85,11 @@ var dest = {
 
 var defaultTasks = [];
 
-scriptTask(          'armchair-dj',  'script-modernizr',  src.script.modernizr );
-scriptTaskBrowserify('armchair-dj',  'script-site',       src.script.site      );
-stylesheetTaskStylus('armchair-dj',  'stylesheet-jet',    src.stylesheet.jet   );
+jsTaskPlain(     'armchairdj',   'script-modernizr',  src.armchairdj.script.modernizr   );
+jsTaskBrowserify('armchairdj',   'script-site',       src.armchairdj.script.site        );
+cssTaskStylus(   'armchairdj',   'stylesheet-jet',    src.armchairdj.stylesheet.jet     );
 
-stylesheetTaskStylus('briandillard', 'stylesheet-resume', src.stylesheet.resume);
+cssTaskStylus(   'briandillard', 'stylesheet-resume', src.briandillard.stylesheet.resume);
 
 gulp.task('default', defaultTasks);
 
@@ -91,7 +97,7 @@ gulp.task('default', defaultTasks);
  * Functions: Task types.
  */
 
-function scriptTask(site, pkgName, sourceFiles) {
+function jsTaskPlain(site, pkgName, sourceFiles) {
   var extension = '.js';
 
   addTask(site, pkgName, extension, task);
@@ -107,7 +113,7 @@ function scriptTask(site, pkgName, sourceFiles) {
   }
 }
 
-function scriptTaskBrowserify(site, pkgName, sourceFiles) {
+function jsTaskBrowserify(site, pkgName, sourceFiles) {
   var extension = '.js';
 
   addTask(site, pkgName, extension, task);
@@ -125,7 +131,7 @@ function scriptTaskBrowserify(site, pkgName, sourceFiles) {
   }
 }
 
-function stylesheetTaskStylus(site, pkgName, sourceFiles) {
+function cssTaskStylus(site, pkgName, sourceFiles) {
   var extension = '.css';
 
   addTask(site, pkgName, extension, task);
@@ -188,8 +194,6 @@ function deploy(site, pkgName, stream, transform) {
 function deployTo(site, stage, pkgName, stream) {
   var destination      = destinationPath(site, stage);
   var manifestFilename = pkgName + '-manifest.json';
-
-  console.log(destination);
 
   stream
     .pipe(rev())
