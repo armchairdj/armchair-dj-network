@@ -51,7 +51,7 @@ echo "vagrant ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
 ##### Set up environment variables.
 
-cd "$APP_ROOT/script/component/bash/files"
+cd "$APP_ROOT/script/component/bash/file"
 
 echo "$SCRIPT_NAME: copy various config files to home directory"
 cp "./command_prompt.bash"             "/home/$APP_USER/.command_prompt"

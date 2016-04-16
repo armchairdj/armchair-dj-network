@@ -227,7 +227,7 @@ su - deploy -c "(cd /home/$APP_USER/app/current && git clone git@github.com:Home
 
 ##### Bootstrap
 
-cd "$APP_ROOT/script/component/bash/files"
+cd "$APP_ROOT/script/component/bash/file"
 
 echo "$SCRIPT_NAME: copy various config files to home directory"
 
