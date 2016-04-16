@@ -29,7 +29,7 @@ var data        = require('../../script/db/seedData_' + environment() + '.js');
  * Database.
  */
 
-mongoose.connect(settings.mongo.uri);
+mongoose.connect(settings.mongo.uri, settings.mongo.options);
 
 require('../../lib/model/index');
 
@@ -290,6 +290,8 @@ function publishPost(post, callback) {
 }
 
 function finish(err) {
+  mongoose.disconnect();
+
   logResults(respond);
 
   function respond() {
