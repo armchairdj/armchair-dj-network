@@ -86,7 +86,7 @@ var dest = {
 var defaultTasks = [];
 
 jsTaskPlain(     'armchairdj',   'script-modernizr',  src.armchairdj.script.modernizr   );
-jsTaskBrowserify('armchairdj',   'script-site',       src.armchairdj.script.site        );
+jsTaskBrowserify('armchairdj',   'script-adj',        src.armchairdj.script.adj         );
 cssTaskStylus(   'armchairdj',   'stylesheet-jet',    src.armchairdj.stylesheet.jet     );
 
 cssTaskStylus(   'briandillard', 'stylesheet-resume', src.briandillard.stylesheet.resume);
