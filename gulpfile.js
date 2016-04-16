@@ -80,12 +80,12 @@ var dest = {
 var defaultTasks = [];
 
 scriptTask(          'armchair-dj',  'script-modernizr',  src.script.modernizr );
-// scriptTaskBrowserify('armchair-dj',  'script-site',       src.script.site      );
-// stylesheetTaskStylus('armchair-dj',  'stylesheet-jet',    src.stylesheet.jet   );
-//
-// stylesheetTaskStylus('briandillard', 'stylesheet-resume', src.stylesheet.resume);
-//
-// gulp.task('default', defaultTasks);
+scriptTaskBrowserify('armchair-dj',  'script-site',       src.script.site      );
+stylesheetTaskStylus('armchair-dj',  'stylesheet-jet',    src.stylesheet.jet   );
+
+stylesheetTaskStylus('briandillard', 'stylesheet-resume', src.stylesheet.resume);
+
+gulp.task('default', defaultTasks);
 
 /**
  * Functions: Task types.
@@ -161,7 +161,7 @@ function addTask(site, pkgName, extension, task) {
 }
 
 function createCleaner(site, pkgName, extension) {
-  var dir  = path.join(__dirname, dest.root);
+  var dir  = path.join(__dirname, dest[site]);
   var glob = dir + '**/' + pkgName + '-*' + extension;
 
   return function (callback) {
