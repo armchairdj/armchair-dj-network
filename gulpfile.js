@@ -186,21 +186,23 @@ function deploy(site, pkgName, stream, transform) {
 }
 
 function deployTo(site, stage, pkgName, stream) {
-  var destination      = destinationPath(site, stage);
-  var manifestFilename = pkgName + '-manifest.json';
+  var destination = destinationPath(site, stage);
+
+  console.log(destination);
 
   stream
     .pipe(rev())
     .pipe(gulp.dest(destination))
     .pipe(rev.manifest({
-       merge: true
+       merge: true,
+       base:  destination
     }))
     .pipe(gulp.dest(destination))
   ;
 }
 
 function destinationPath(site, stage) {
-  return ['.', dest[site], stage].join('/');
+  return ['.', dest[site], 'asset', stage].join('/');
 }
 
 /**
