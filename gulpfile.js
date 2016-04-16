@@ -69,16 +69,6 @@ var src = {
   }
 };
 
-var dest = {
-  armchairdj:           'static/armchairdj',
-  askauiguy:            'static/askauiguy',
-  bcchsclassof1991:     'static/bcchsclassof1991',
-  briandillard:         'static/briandillard',
-  charlieandbrian:      'static/charlieandbrian',
-  nerdswithdaddyissues: 'static/nerdswithdaddyissues',
-  plastikfan:           'static/plastikfan'
-};
-
 /**
  * Create tasks.
  */
@@ -167,7 +157,7 @@ function addTask(site, pkgName, extension, task) {
 }
 
 function createCleaner(site, pkgName, extension) {
-  var dir  = path.join(__dirname, dest[site]);
+  var dir  = path.join(__dirname, 'static', site);
   var glob = dir + '**/' + pkgName + '-*' + extension;
 
   return function (callback) {
@@ -204,7 +194,7 @@ function deployTo(site, stage, pkgName, stream) {
 }
 
 function destinationPath(site, stage) {
-  return ['.', dest[site], 'asset', stage].join('/');
+  return ['.', 'static', site, 'asset', stage].join('/');
 }
 
 /**
