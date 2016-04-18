@@ -31,14 +31,10 @@ if [ -f "$HOME/.command_prompt" ]; then
   source "$HOME/.command_prompt"
 fi
 
-# Exports - common.
-export NGINX_ACCESS_LOG="/var/log/nginx/access.log"
-export NGINX_ERROR_LOG="/var/log/nginx/error.log"
-
 # Aliases.
-alias log="tail -f -n10 $NODE_LOG"
-alias 1000="tail -f -n1000 $NODE_LOG"
-alias errors='grep "Error" $NODE_LOG | vim -'
+alias log="tail -f -n10 $LOG_DIR/node.log"
+alias 1000="tail -f -n1000 $LOG_DIR/node.log"
+alias errors="grep 'Error' $LOG_DIR/node.log | vim -"
 
 alias servers="ps aux | grep -v grep | grep node"
 
@@ -52,8 +48,8 @@ alias tests="(cd /vagrant && make)"
 
 alias db='mongo armchairdj'
 
-alias nginx_access_log="sudo tail -f -n1000 $NGINX_ACCESS_LOG"
-alias nginx_error_log="sudo tail -f -n1000 $NGINX_ERROR_LOG"
+alias nginx_access_log="sudo tail -f -n1000 $LOG_DIR/nginx_access.log"
+alias nginx_error_log="sudo tail -f -n1000 $LOG_DIR/nginx_error.log"
 
 # Aliases - bouncing
 alias bounce_app="$APP_ROOT/script/component/app/bounce_app.sh"

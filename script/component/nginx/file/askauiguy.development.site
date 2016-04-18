@@ -2,6 +2,9 @@ server {
   listen 0.0.0.0:80;
   server_name www.askauiguy.dev askauiguy.dev;
 
+  access_log /home/vagrant/nginx_access.log;
+  error_log  /home/vagrant/nginx_error.log;
+
   location / {
     client_max_body_size 10M;
     client_body_buffer_size 128k;

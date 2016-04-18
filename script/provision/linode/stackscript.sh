@@ -168,7 +168,7 @@ echo "$SCRIPT_NAME: add deploy user"
 
 useradd -U -s /bin/bash -m deploy
 mkdir -p /home/deploy/{.ssh,src,scratch,app/current,app/shared/logs}
-touch /home/deploy/app/shared/logs/node.log
+touch /home/deploy/app/shared/logs/node.log # TODO BJD
 
 echo "$SCRIPT_NAME: set up deploy user's ssh keys"
 

@@ -2,7 +2,7 @@
 
 SCRIPT_NAME="** add_node"
 FILE_PATH="$APP_ROOT/script/component/node/file"
-SRC_DIR"/home/$APP_USER/src"
+SRC_DIR="/home/$APP_USER/src"
 
 echo "$SCRIPT_NAME: BEGIN"
 

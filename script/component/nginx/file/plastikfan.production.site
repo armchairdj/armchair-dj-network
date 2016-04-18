@@ -2,6 +2,9 @@ server {
   listen 0.0.0.0:80;
   server_name www.plastikfan.com plastikfan.com;
 
+  access_log /home/deploy/app/shared/logs/nginx_access.log;
+  error_log  /home/deploy/app/shared/logs/nginx_error.log;
+
   location / {
     client_max_body_size 10M;
     client_body_buffer_size 128k;
