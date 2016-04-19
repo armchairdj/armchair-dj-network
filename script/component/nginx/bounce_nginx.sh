@@ -8,10 +8,11 @@ ENABLED="/etc/nginx/sites-enabled"
 
 echo "$SCRIPT_NAME: BEGIN"
 
+echo "$SCRIPT_NAME: copy nginx.conf to /etc/nginx"
+sudo cp "$FILE_PATH/nginx.$NODE_ENV.conf" "/etc/nginx/nginx.conf"
+
 for SITE in "${SITES[@]}"; do
   echo "$SCRIPT_NAME: copy $SITE to sites-available"
-  echo "$FILE_PATH/$SITE.$NODE_ENV.site"
-  echo "$AVAILABLE/$SITE"
   sudo cp "$FILE_PATH/$SITE.$NODE_ENV.site" "$AVAILABLE/$SITE"
 
   echo "$SCRIPT_NAME: link sites-available/$SITE to sites-enabled"
