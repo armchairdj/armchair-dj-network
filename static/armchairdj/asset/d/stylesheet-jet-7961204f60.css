@@ -422,34 +422,7 @@ td,
 th {
   padding: 0;
 }
-/* XXXX site styles. */
-/* Nib */
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  background-color: #000;
-  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 22px;
-  color: #aaa;
-  font-weight: 300;
-  font-style: normal;
-}
-b,
-strong {
-  font-weight: 600;
-}
-cite {
-  font-weight: 300;
-  font-style: normal;
-}
-p,
-blockquote {
-  margin: 0;
-}
+/* Armchair DJ site styles: Jet theme. */
 article > header,
 article > section {
   margin-bottom: 40px;
@@ -524,6 +497,15 @@ article > section dl,
 article > nav dl {
   line-height: 1.5;
 }
+body {
+  margin: 0;
+  background-color: #000;
+  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 22px;
+  color: #aaa;
+  font-weight: 300;
+  font-style: normal;
+}
 form .field {
   margin-bottom: 20px;
 }
@@ -540,6 +522,11 @@ form .field label input[type=text],
 form .field label input[type=password] {
   display: block;
   color: #222;
+}
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 img {
   max-width: 100%;
@@ -601,6 +588,18 @@ ol.numbered {
 ol.numbered li {
   margin: 0 0 5px 2em;
   padding: 0;
+}
+b,
+strong {
+  font-weight: 600;
+}
+cite {
+  font-weight: 300;
+  font-style: normal;
+}
+p,
+blockquote {
+  margin: 0;
 }
 .container {
   padding: 0 20px;

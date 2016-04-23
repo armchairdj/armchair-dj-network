@@ -422,34 +422,7 @@ td,
 th {
   padding: 0;
 }
-/* XXXX site styles. */
-/* Nib */
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-body {
-  margin: 0;
-  background-color: #fff;
-  font-family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 22px;
-  color: #333;
-  font-weight: 300;
-  font-style: normal;
-}
-b,
-strong {
-  font-weight: 600;
-}
-cite {
-  font-weight: 300;
-  font-style: normal;
-}
-p,
-blockquote {
-  margin: 0;
-}
+/* Nerds with Daddy Issues site styles. */
 article > header,
 article > section {
   margin-bottom: 40px;
@@ -472,7 +445,7 @@ article > header h5,
 article > header h6 {
   line-height: 1.23;
   margin-bottom: 0.25em;
-  font-weight: 600;
+  font-weight: $boldFontWeight;
 }
 article > header h1:last-child,
 article > header h2:last-child,
@@ -512,17 +485,14 @@ article > section > *:last-child,
 article > nav > *:last-child {
   margin-bottom: 0;
 }
-article > section blockquote,
-article > nav blockquote,
-article > section p,
-article > nav p,
-article > section ul,
-article > nav ul,
-article > section ol,
-article > nav ol,
-article > section dl,
-article > nav dl {
-  line-height: 1.5;
+body {
+  margin: 0;
+  background-color: $bodyBgColor;
+  font-family: $bodyFontFamily;
+  font-size: $bodyFontSize;
+  color: $bodyTextColor;
+  font-weight: $normalFontWeight;
+  font-style: normal;
 }
 form .field {
   margin-bottom: 20px;
@@ -541,6 +511,11 @@ form .field label input[type=password] {
   display: block;
   color: #222;
 }
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 img {
   max-width: 100%;
   height: auto;
@@ -555,13 +530,13 @@ a {
   transition: color 0.5s ease-in-out 0.1s;
   cursor: pointer;
   text-decoration: underline;
-  color: #0e5bbd;
+  color: $linkColor;
 }
 a:hover {
   text-decoration: underline;
 }
 a:hover {
-  color: #03162f;
+  color: $linkColorHover;
 }
 ul {
   margin: 0;
@@ -602,271 +577,24 @@ ol.numbered li {
   margin: 0 0 5px 2em;
   padding: 0;
 }
-article.resume {
-  line-height: 1.23;
-  max-width: 940px;
-  margin: 40px;
-  font-weight: 200;
-  font-size: 20px;
-  color: #555;
+b,
+strong {
+  font-weight: $boldFontWeight;
 }
-article.resume a {
-  cursor: pointer;
-  text-decoration: none;
+cite {
+  font-weight: $normalFontWeight;
+  font-style: normal;
 }
-article.resume a:hover {
-  text-decoration: none;
+p,
+blockquote {
+  margin: 0;
 }
-article.resume dl dt {
-  font-weight: bold;
-}
-article.resume dl dt:after {
-  content: ": ";
-}
-article.resume dl dt,
-article.resume dl dd {
-  margin-bottom: 0.5em;
-}
-article.resume dl dt:last-child,
-article.resume dl dd:last-child {
-  margin-bottom: 0;
+.container {
+  padding: 0 20px;
 }
 @media all and (min-width: 768px) {
-  article.resume dl {
-    zoom: 1;
-  }
-  article.resume dl:before,
-  article.resume dl:after {
-    content: "";
-    display: table;
-  }
-  article.resume dl:after {
-    clear: both;
-  }
-  article.resume dl dt,
-  article.resume dl dd {
-    float: left;
-    margin: 0;
-  }
-  article.resume dl dt {
-    clear: both;
-    float: left;
-    text-align: right;
-    width: 25%;
-  }
-  article.resume dl dd {
-    float: right;
-    width: 73%;
-  }
-}
-article.resume h1,
-article.resume h2,
-article.resume h3,
-article.resume h4,
-article.resume h5,
-article.resume h6 {
-  font-weight: bold;
-  margin: 0;
-}
-article.resume h1 > *,
-article.resume h2 > *,
-article.resume h3 > *,
-article.resume h4 > *,
-article.resume h5 > *,
-article.resume h6 > * {
-  margin: 0;
-}
-article.resume h1 {
-  font-size: 44px;
-  color: #000;
-  text-transform: uppercase;
-  letter-spacing: 0.125em;
-}
-article.resume h2 {
-  font-size: 33px;
-  color: #545463;
-}
-article.resume h3 {
-  font-size: 36px;
-  color: #000;
-  text-transform: uppercase;
-  letter-spacing: 0.125em;
-}
-article.resume h4 {
-  font-size: 30px;
-  color: #3d3d47;
-}
-article.resume h5 {
-  color: #545463;
-  font-size: 22px;
-}
-article.resume h6 {
-  font-size: 18px;
-  color: #545463;
-}
-article.resume .masthead {
-  padding: 0 0 0.25em;
-  margin: 0 0 3em;
-  border-bottom: 2px solid #6c6c7e;
-}
-article.resume .masthead:last-child {
-  margin: 0;
-  padding: 0;
-  border-bottom: 0;
-}
-article.resume .masthead header {
-  margin: 0 0 1em;
-}
-article.resume .masthead > nav ul li {
-  display: inline-block;
-  margin-top: -0.1em;
-}
-article.resume .masthead > nav ul li:after {
-  content: " \007c";
-  font-size: 1.1em;
-  display: inline-block;
-  margin: 0 0.45em 0 0.65em;
-}
-article.resume .masthead > nav ul li:last-child:after {
-  content: none;
-}
-@media only screen and (min-width: 768px) {
-  article.resume .masthead {
-    zoom: 1;
-  }
-  article.resume .masthead:before,
-  article.resume .masthead:after {
-    content: "";
-    display: table;
-  }
-  article.resume .masthead:after {
-    clear: both;
-  }
-  article.resume .masthead > header {
-    float: left;
-    margin: 0;
-  }
-  article.resume .masthead > header h1 {
-    margin: 0 0 21px;
-  }
-  article.resume .masthead > nav {
-    margin-top: 7px;
-    float: right;
-    text-align: right;
-  }
-  article.resume .masthead > nav ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  article.resume .masthead > nav ul li:after {
-    content: none;
-  }
-  article.resume .masthead > nav ul li {
-    margin: 0;
-    padding: 0;
-    display: block;
-  }
-  article.resume .masthead > nav ul li {
-    margin: 0 0 3px;
-  }
-}
-article.resume > section {
-  margin-bottom: 3em;
-}
-article.resume > section:last-child {
-  margin-bottom: 0;
-}
-article.resume > section img {
-  display: block;
-  max-width: 240px;
-  margin: 0 auto 1em;
-}
-@media all and (min-width: 768px) {
-  article.resume > section img {
-    float: right;
-    margin: -1.5em 0 1em 3em;
-  }
-}
-article.resume > section > header {
-  padding: 0 0 0.25em;
-  margin: 0 0 3em;
-  border-bottom: 1px solid #6c6c7e;
-}
-article.resume > section > header:last-child {
-  margin: 0;
-  padding: 0;
-  border-bottom: 0;
-}
-article.resume > section .subsection {
-  margin-bottom: 1.5em;
-}
-article.resume > section .subsection:last-child {
-  margin-bottom: 0;
-}
-article.resume > section .subsection > header {
-  padding: 0 0 0.25em;
-  margin: 0 0 1.5em;
-  border-bottom: 1px solid #eaeaea;
-}
-article.resume > section .subsection > header:last-child {
-  margin: 0;
-  padding: 0;
-  border-bottom: 0;
-}
-@media all and (min-width: 768px) {
-  article.resume > section .subsection > header {
-    zoom: 1;
-  }
-  article.resume > section .subsection > header:before,
-  article.resume > section .subsection > header:after {
-    content: "";
-    display: table;
-  }
-  article.resume > section .subsection > header:after {
-    clear: both;
-  }
-  article.resume > section .subsection > header h4 {
-    float: left;
-  }
-  article.resume > section .subsection > header h6 {
-    float: right;
-  }
-}
-article.resume > section .subsection .position {
-  margin-bottom: 1.5em;
-}
-article.resume > section .subsection .position:last-child {
-  margin-bottom: 0;
-}
-article.resume > section .subsection .position > header {
-  margin-bottom: 0.75em;
-}
-article.resume > section .subsection .position > header:last-child {
-  margin-bottom: 0;
-}
-@media all and (min-width: 768px) {
-  article.resume > section .subsection .position > header {
-    zoom: 1;
-  }
-  article.resume > section .subsection .position > header:before,
-  article.resume > section .subsection .position > header:after {
-    content: "";
-    display: table;
-  }
-  article.resume > section .subsection .position > header:after {
-    clear: both;
-  }
-  article.resume > section .subsection .position > header h5 {
-    float: left;
-  }
-  article.resume > section .subsection .position > header h6 {
-    float: right;
-  }
-}
-@media print {
-  article.resume section.hire,
-  article.resume .subsection.compact {
-    page-break-inside: avoid;
+  .container {
+    padding: 0 40px;
+    max-width: 980px;
   }
 }

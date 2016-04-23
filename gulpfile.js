@@ -54,16 +54,66 @@ var src = {
     stylesheet: {
       jet: {
         css:    './lib/asset/css/vendor/normalize-3.0.3.css',
-        stylus: './lib/asset/css/site/jet.styl'
+        stylus: './lib/asset/css/site/armchairdj/jet.styl'
+      }
+    }
+  },
+
+  askauiguy: {
+    stylesheet: {
+      askauiguy: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/askauiguy/askauiguy.styl'
+      }
+    }
+  },
+
+  bcchsclassof1991: {
+    stylesheet: {
+      bcchsclassof1991: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/bcchsclassof1991/bcchsclassof1991.styl'
       }
     }
   },
 
   briandillard: {
     stylesheet: {
+      briandillard: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/briandillard/briandillard.styl'
+      },
+
       resume: {
         css:    './lib/asset/css/vendor/normalize-3.0.3.css',
-        stylus: './lib/asset/css/site/resume.styl'
+        stylus: './lib/asset/css/site/resume/resume.styl'
+      }
+    }
+  },
+
+  charlieandbrian: {
+    stylesheet: {
+      charlieandbrian: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/charlieandbrian/charlieandbrian.styl'
+      }
+    }
+  },
+
+  nerdswithdaddyissues: {
+    stylesheet: {
+      nerdswithdaddyissues: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/nerdswithdaddyissues/nerdswithdaddyissues.styl'
+      }
+    }
+  },
+
+  plastikfan: {
+    stylesheet: {
+      plastikfan: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/plastikfan/plastikfan.styl'
       }
     }
   }
@@ -75,11 +125,22 @@ var src = {
 
 var defaultTasks = [];
 
-jsTaskPlain(     'armchairdj',   'script-modernizr',  src.armchairdj.script.modernizr   );
-jsTaskBrowserify('armchairdj',   'script-adj',        src.armchairdj.script.adj         );
-cssTaskStylus(   'armchairdj',   'stylesheet-jet',    src.armchairdj.stylesheet.jet     );
+jsTaskPlain(     'armchairdj',            'script-modernizr',                src.armchairdj.script.modernizr                         );
+jsTaskBrowserify('armchairdj',            'script-adj',                      src.armchairdj.script.adj                               );
+cssTaskStylus(   'armchairdj',            'stylesheet-jet',                  src.armchairdj.stylesheet.jet                           );
 
-cssTaskStylus(   'briandillard', 'stylesheet-resume', src.briandillard.stylesheet.resume);
+cssTaskStylus(   'briandillard',          'stylesheet-resume',               src.briandillard.stylesheet.resume                      );
+cssTaskStylus(   'briandillard',          'stylesheet-briandillard',         src.briandillard.stylesheet.briandillard                );
+
+cssTaskStylus(   'askauiguy',             'stylesheet-askauiguy',            src.askauiguy.stylesheet.askauiguy                      );
+
+cssTaskStylus(   'bcchsclassof1991',      'stylesheet-bcchsclassof1991',     src.bcchsclassof1991.stylesheet.bcchsclassof1991        );
+
+cssTaskStylus(   'charlieandbrian',       'stylesheet-charlieandbrian',      src.charlieandbrian.stylesheet.charlieandbrian          );
+
+cssTaskStylus(   'nerdswithdaddyissues',  'stylesheet-nerdswithdaddyissues', src.nerdswithdaddyissues.stylesheet.nerdswithdaddyissues);
+
+cssTaskStylus(   'plastikfan',            'stylesheet-plastikfan',           src.plastikfan.stylesheet.plastikfan                    );
 
 gulp.task('default', defaultTasks);
 
