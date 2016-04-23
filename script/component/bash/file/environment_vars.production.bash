@@ -7,5 +7,5 @@ export APP_USER='deploy'
 export APP_USER_HOME='/home/deploy'
 
 export APP_ROOT='/home/deploy/app/current'
-export LOG_DIR='/home/deploy/app/shared/logs'
-export PID_DIR='/home/deploy/app/shared/pids'
+export LOG_DIR='/home/deploy/app/shared/log'
+export PID_DIR='/home/deploy/app/shared/pid'

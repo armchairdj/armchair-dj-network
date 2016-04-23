@@ -2,8 +2,10 @@ server {
   listen 0.0.0.0:80;
   server_name www.askauiguy.dev askauiguy.dev;
 
-  access_log /home/vagrant/nginx_access.log;
-  error_log  /home/vagrant/nginx_error.log;
+  root /vagrant/static/askauiguy;
+
+  access_log /home/vagrant/askauiguy_access.log;
+  error_log  /home/vagrant/askauiguy_error.log;
 
   location / {
     client_max_body_size 10M;
@@ -18,9 +20,7 @@ server {
     rewrite ^/(.*)/$ http://$server_name/$1 permanent;
   }
 
-  location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|txt|tar|wav|bmp|rtf|js|flv|swf|htm|woff|eot|ttf|svgl|htm|woff|eot|ttf|svg)$ {
+  location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|txt|tar|wav|bmp|rtf|js|flv|swf|woff|eot|ttf|svgl|woff|eot|ttf|svg)$ {
     expires 30d;
-    access_log off;
-    root /vagrant/static/askauiguy;
   }
 }

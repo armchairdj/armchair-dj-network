@@ -167,8 +167,7 @@ system_sshd_edit_bool "PubkeyAuthentication" "yes"
 echo "$SCRIPT_NAME: add deploy user"
 
 useradd -U -s /bin/bash -m deploy
-mkdir -p /home/deploy/{.ssh,src,scratch,app/current,app/shared/logs}
-touch /home/deploy/app/shared/logs/node.log # TODO BJD
+mkdir -p /home/deploy/{.ssh,src,scratch,app/current,app/shared}
 
 echo "$SCRIPT_NAME: set up deploy user's ssh keys"
 

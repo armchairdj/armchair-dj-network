@@ -7,5 +7,5 @@ export APP_USER='vagrant'
 export APP_USER_HOME='/home/vagrant'
 
 export APP_ROOT='/vagrant'
-export LOG_DIR='/home/vagrant'
-export PID_DIR='/home/vagrant'
+export LOG_DIR='/home/vagrant/log'
+export PID_DIR='/home/vagrant/pid'
