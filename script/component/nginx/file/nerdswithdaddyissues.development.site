@@ -4,8 +4,8 @@ server {
 
   root /vagrant/static/nerdswithdaddyissues;
 
-  access_log /home/vagrant/nerdswithdaddyissues_access.log;
-  error_log  /home/vagrant/nerdswithdaddyissues_error.log;
+  access_log /home/vagrant/log/nerdswithdaddyissues_access.log;
+  error_log  /home/vagrant/log/nerdswithdaddyissues_error.log;
 
   location / {
     client_max_body_size 10M;

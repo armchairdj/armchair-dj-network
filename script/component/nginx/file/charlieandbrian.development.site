@@ -4,8 +4,8 @@ server {
 
   root /vagrant/static/charlieandbrian;
 
-  access_log /home/vagrant/charlieandbrian_access.log;
-  error_log  /home/vagrant/charlieandbrian_error.log;
+  access_log /home/vagrant/log/charlieandbrian_access.log;
+  error_log  /home/vagrant/log/charlieandbrian_error.log;
 
   location / {
     client_max_body_size 10M;

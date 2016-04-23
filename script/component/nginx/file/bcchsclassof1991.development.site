@@ -4,8 +4,8 @@ server {
 
   root /vagrant/static/bcchsclassof1991;
 
-  access_log /home/vagrant/bcchsclassof1991_access.log;
-  error_log  /home/vagrant/bcchsclassof1991_error.log;
+  access_log /home/vagrant/log/bcchsclassof1991_access.log;
+  error_log  /home/vagrant/log/bcchsclassof1991_error.log;
 
   location / {
     client_max_body_size 10M;

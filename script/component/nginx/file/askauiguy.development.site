@@ -4,8 +4,8 @@ server {
 
   root /vagrant/static/askauiguy;
 
-  access_log /home/vagrant/askauiguy_access.log;
-  error_log  /home/vagrant/askauiguy_error.log;
+  access_log /home/vagrant/log/askauiguy_access.log;
+  error_log  /home/vagrant/log/askauiguy_error.log;
 
   location / {
     client_max_body_size 10M;

@@ -4,8 +4,8 @@ server {
 
   root /vagrant/static/briandillard;
 
-  access_log /home/vagrant/briandillard_access.log;
-  error_log  /home/vagrant/briandillard_error.log;
+  access_log /home/vagrant/log/briandillard_access.log;
+  error_log  /home/vagrant/log/briandillard_error.log;
 
   location / {
     client_max_body_size 10M;

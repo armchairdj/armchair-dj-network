@@ -4,8 +4,8 @@ server {
 
   root /vagrant/static/plastikfan;
 
-  access_log /home/vagrant/plastikfan_access.log;
-  error_log  /home/vagrant/plastikfan_error.log;
+  access_log /home/vagrant/log/plastikfan_access.log;
+  error_log  /home/vagrant/log/plastikfan_error.log;
 
   location / {
     client_max_body_size 10M;
