@@ -1,0 +1,27 @@
+extends /armchairdj/layout/armchairdj
+
+block content
+  article
+    header
+      h1 About !{i18n('armchairdj.name')}
+
+    section
+      p
+        | This site began its life on the servers of my alma mater, Michigan State University, in the fall of 1996. 
+        | Eventually it landed at its own domain (www.armchair-dj.com), where it lived from around 1997 to 2004. 
+        | Then it sat for 12 years. It finally came back to life on Sunday 6 March 2016.
+
+      p: a(href='/humans.txt') Colophon
+
+    //- nav
+    //-   ul.bulleted
+    //-     li: a(href='/') All
+    //-     li: a(href='/tracks') Tracks
+    //-     li: a(href='/albums') Albums
+    //-     li: a(href='/dj_mixes') DJ Mixes
+    //-     li: a(href='/playlists') Playlists
+    //-
+    //-   ul.bulleted
+    //-     li: a(href='/admin') Admin
+    //-     li: a(href='/account') Account
+    //-     li: a(href='/profile') Profile

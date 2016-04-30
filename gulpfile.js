@@ -48,7 +48,7 @@ events.EventEmitter.prototype._maxListeners = 100;
 var src = {
   armchairdj: {
     script: {
-      adj:       './lib/asset/js/site/adj.js',
+      adj:       './lib/asset/js/adj/adj.js',
       modernizr: './lib/asset/js/vendor/modernizr.js'
     },
     stylesheet: {

@@ -10,7 +10,7 @@ var $ = require('jquery');
  * Internal dependencies.
  */
 
-var behaviorize = require('../../../../lib/asset/js/site/util/behaviorize');
+var behaviorize = require('../../../../lib/asset/js/adj/util/behaviorize');
 
 /**
  * Methods.
@@ -35,7 +35,7 @@ module.exports = global.adj = (function () {
 })();
 
 }).call(this,typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {})
-},{"../../../../lib/asset/js/site/util/behaviorize":4,"jquery":7}],2:[function(require,module,exports){
+},{"../../../../lib/asset/js/adj/util/behaviorize":4,"jquery":7}],2:[function(require,module,exports){
 /**
  * External dependencies.
  */
@@ -47,7 +47,7 @@ var _ = require('underscore');
  * Internal dependencies.
  */
 
-var clickEvent = require('../../../../../lib/asset/js/site/util/clickEvent');
+var clickEvent = require('../../../../../lib/asset/js/adj/util/clickEvent');
 
 /**
  * Constructor.
@@ -87,12 +87,12 @@ FlashMessage.prototype = {
  */
 
 module.exports = FlashMessage;
-},{"../../../../../lib/asset/js/site/util/clickEvent":5,"jquery":7,"underscore":8}],3:[function(require,module,exports){
+},{"../../../../../lib/asset/js/adj/util/clickEvent":5,"jquery":7,"underscore":8}],3:[function(require,module,exports){
 module.exports = {
-  FlashMessage: require('../../../../../lib/asset/js/site/behavior/FlashMessage')
+  FlashMessage: require('../../../../../lib/asset/js/adj/behavior/FlashMessage')
 };
 
-},{"../../../../../lib/asset/js/site/behavior/FlashMessage":2}],4:[function(require,module,exports){
+},{"../../../../../lib/asset/js/adj/behavior/FlashMessage":2}],4:[function(require,module,exports){
 /**
  * External dependencies.
  */
@@ -106,7 +106,7 @@ var _         = require('underscore');
 
 var findInObject = require('../../../../../lib/util/findInObject');
 
-var behaviors    = require('../../../../../lib/asset/js/site/behavior/index');
+var behaviors    = require('../../../../../lib/asset/js/adj/behavior/index');
 
 /**
  * Setup.
@@ -158,7 +158,7 @@ function init(constructorName, Constructor, $node) {
  */
 
 module.exports = behaviorize;
-},{"../../../../../lib/asset/js/site/behavior/index":3,"../../../../../lib/util/findInObject":6,"jquery":7,"underscore":8}],5:[function(require,module,exports){
+},{"../../../../../lib/asset/js/adj/behavior/index":3,"../../../../../lib/util/findInObject":6,"jquery":7,"underscore":8}],5:[function(require,module,exports){
 /**
  * External dependencies.
  */

@@ -1,0 +1,21 @@
+mixin metaStandard()
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge,chrome=1')
+
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+
+  +metaAuthor()
+  +metaDescription()
+  +metaKeywords()
+
+mixin metaAuthor()
+  - if (meta && meta.author)
+    meta(name='author' content!=meta.author)
+
+mixin metaDescription()
+  - if (meta && meta.description)
+    meta(name='description' content!=meta.description)
+
+mixin metaKeywords()
+  - if (meta && meta.keywords)
+    meta(name='keywords' content=meta.keywords.join(', '))

@@ -1,0 +1,23 @@
+extends /armchairdj/layout/armchairdj
+
+block content
+  article.auth
+    header
+      h1 Login
+
+      if error
+        h2.error!=error.message
+
+    section.form
+      form(method='post' action='/login')
+        .field
+          label
+            span Email
+            input(type='text' name='email' value=params.email)
+
+        .field
+          label
+            span Password
+            input(type='password' name='password')
+
+        input(type='submit' value='submit')
