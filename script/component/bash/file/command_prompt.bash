@@ -15,13 +15,10 @@ bash_prompt_command() {
   # Indicate that there has been dir truncation
   local trunc_symbol=".."
   local dir=${PWD##*/}
+
   pwdmaxlen=$(( ( pwdmaxlen < ${#dir} ) ? ${#dir} : pwdmaxlen ))
 
   NEW_PWD="${PWD/$HOME/~}"
-
-  local curr="\/data01\/web\/vplocal\/current"
-
-  NEW_PWD="${NEW_PWD/$curr/~/current}"
 
   local pwdoffset=$(( ${#NEW_PWD} - pwdmaxlen ))
 
@@ -64,21 +61,15 @@ bash_prompt() {
   local BGM='\[\033[45m\]'
   local BGC='\[\033[46m\]'
   local BGW='\[\033[47m\]'
-                                  
+
   local UC=$C                 # user's color
-        [ $UID -eq "0" ] && UC=$R   # root's color
+  [ $UID -eq "0" ] && UC=$R   # root's color
 
   # \h = host
   # \t = time
   # ${W}[\t${W}]
-  PS1="${R}[\u${R}] ${EMB}\${NEW_PWD}${W} \\$ ${NONE}"
-
-  # TODO BJD
-  # Color-coded Git repo
-  # if [ "\$(type -t __git_ps1)" ]; then
-  #   PS1="${PS1/\\$ /$Y\$(__git_ps1 '(%s) ')$W\\$ $NONE}"
-  # fi
-} 
+  PS1="${R}[\u@\h] ${EMB}\${NEW_PWD}${Y}\$(__git_ps1) ${W}\\$ ${NONE}"
+}
 
 PROMPT_COMMAND=bash_prompt_command
 bash_prompt
