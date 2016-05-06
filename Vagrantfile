@@ -3,10 +3,10 @@
 
 Vagrant.configure('2') do |config|
 
-  ### BASE BOX & VM
+  ### Base box & VM.
 
   config.vm.box      = 'puppetlabs/ubuntu-14.04-64-puppet'
-  config.vm.hostname = 'armchair-dj'
+  config.vm.hostname = 'armchair-dj-network'
 
   # Node inspector.
 
@@ -16,7 +16,7 @@ Vagrant.configure('2') do |config|
 
   config.vm.network :forwarded_port, host: 9070, guest: 80, auto_correct: true
 
-  # Node. Should not need to access directly - access via Nginx instead.
+  # Node. Should not need to access directly. Access via Nginx instead.
 
   config.vm.network :forwarded_port, host: 9080, guest: 8000
 
@@ -56,7 +56,7 @@ Vagrant.configure('2') do |config|
          'nerdswithdaddyissues.dev'
   ]
 
-  ### VIRTUALBOX
+  ### VirtualBox
 
   config.vm.provider 'virtualbox' do |v|
     v.name   = 'armchairdj'
@@ -70,7 +70,7 @@ Vagrant.configure('2') do |config|
     v.customize ['modifyvm', :id, '--natdnshostresolver1', 'on']
   end
 
-  ### SYNCED FOLDER.
+  ### Synced folder.
 
   # Mount synced folder using NFS.
   config.vm.synced_folder '.', '/vagrant', nfs: { mount_options: ['actimeo=2'] }

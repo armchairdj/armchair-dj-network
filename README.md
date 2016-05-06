@@ -1,6 +1,6 @@
-# armchair-dj.com
+# armchair-dj-network
 
-Node/Express/Connect/Mongo-based CMS, back end and front end for armchair-dj.com, my music blog, and briandillard.com, my professional portfolio.
+Node/Express/Connect/Mongo-based CMS, back ends and front ends for my dynamic and static personal sites.
 
 # Dev environment
 
