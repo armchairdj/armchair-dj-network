@@ -42,79 +42,116 @@ var uglify      = require('gulp-uglify');
 events.EventEmitter.prototype._maxListeners = 100;
 
 /**
- * File locations.
+ * File mappings.
  */
 
 var src = {
-  script: {
-    site:      './lib/asset/js/site/adj.js',
-    modernizr: './lib/asset/js/vendor/modernizr.js'
-  },
-  stylesheet: {
-    jet: {
-      css:    './lib/asset/css/vendor/normalize-3.0.3.css',
-      stylus: './lib/asset/css/site/jet.styl'
+  armchairdj: {
+    script: {
+      adj:       './lib/asset/js/adj/adj.js',
+      modernizr: './lib/asset/js/vendor/modernizr.js'
     },
+    stylesheet: {
+      jet: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/armchairdj/jet.styl'
+      }
+    }
+  },
 
-    resume: {
-      css:    './lib/asset/css/vendor/normalize-3.0.3.css',
-      stylus: './lib/asset/css/site/resume.styl'
+  askauiguy: {
+    stylesheet: {
+      askauiguy: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/askauiguy/askauiguy.styl'
+      }
+    }
+  },
+
+  bcchsclassof1991: {
+    stylesheet: {
+      bcchsclassof1991: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/bcchsclassof1991/bcchsclassof1991.styl'
+      }
+    }
+  },
+
+  briandillard: {
+    stylesheet: {
+      briandillard: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/briandillard/briandillard.styl'
+      },
+
+      resume: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/resume/resume.styl'
+      }
+    }
+  },
+
+  charlieandbrian: {
+    stylesheet: {
+      charlieandbrian: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/charlieandbrian/charlieandbrian.styl'
+      }
+    }
+  },
+
+  nerdswithdaddyissues: {
+    stylesheet: {
+      nerdswithdaddyissues: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/nerdswithdaddyissues/nerdswithdaddyissues.styl'
+      }
+    }
+  },
+
+  plastikfan: {
+    stylesheet: {
+      plastikfan: {
+        css:    './lib/asset/css/vendor/normalize-3.0.3.css',
+        stylus: './lib/asset/css/site/plastikfan/plastikfan.styl'
+      }
     }
   }
 };
 
-var dest = {
-  root:        './public/asset/',
-  development: './public/asset/d',
-  production:  './public/asset/p'
-};
-
 /**
- * Create tasks
+ * Create tasks.
  */
 
 var defaultTasks = [];
 
-scriptTask(          'script-modernizr',  src.script.modernizr );
-scriptTaskBrowserify('script-site',       src.script.site      );
+jsTaskPlain(     'armchairdj',            'script-modernizr',                src.armchairdj.script.modernizr                         );
+jsTaskBrowserify('armchairdj',            'script-adj',                      src.armchairdj.script.adj                               );
+cssTaskStylus(   'armchairdj',            'stylesheet-jet',                  src.armchairdj.stylesheet.jet                           );
 
-stylesheetTaskStylus('stylesheet-jet',    src.stylesheet.jet   );
-stylesheetTaskStylus('stylesheet-resume', src.stylesheet.resume);
+cssTaskStylus(   'briandillard',          'stylesheet-resume',               src.briandillard.stylesheet.resume                      );
+cssTaskStylus(   'briandillard',          'stylesheet-briandillard',         src.briandillard.stylesheet.briandillard                );
+
+cssTaskStylus(   'askauiguy',             'stylesheet-askauiguy',            src.askauiguy.stylesheet.askauiguy                      );
+
+cssTaskStylus(   'bcchsclassof1991',      'stylesheet-bcchsclassof1991',     src.bcchsclassof1991.stylesheet.bcchsclassof1991        );
+
+cssTaskStylus(   'charlieandbrian',       'stylesheet-charlieandbrian',      src.charlieandbrian.stylesheet.charlieandbrian          );
+
+cssTaskStylus(   'nerdswithdaddyissues',  'stylesheet-nerdswithdaddyissues', src.nerdswithdaddyissues.stylesheet.nerdswithdaddyissues);
+
+cssTaskStylus(   'plastikfan',            'stylesheet-plastikfan',           src.plastikfan.stylesheet.plastikfan                    );
 
 gulp.task('default', defaultTasks);
 
 /**
- * Functions: Task builders.
+ * Functions: Task types.
  */
 
-function addTask(pkgName, extension, task) {
-  var cleanerName = 'clean-' + pkgName;
-  var cleaner     = createCleaner(pkgName, extension);
-
-  gulp.task(cleanerName, cleaner);
-  defaultTasks.push(cleanerName);
-
-  gulp.task(pkgName, [cleanerName], task);
-  defaultTasks.push(pkgName);
-}
-
-function createCleaner(pkgName, extension) {
-  var dir  = path.join(__dirname, dest.root);
-  var glob = dir + '**/' + pkgName + '-*' + extension;
-
-  return function (callback) {
-    rimraf(glob, handleClean);
-
-    function handleClean(err) {
-      callback(err);
-    }
-  };
-}
-
-function scriptTask(pkgName, sourceFiles) {
+function jsTaskPlain(site, pkgName, sourceFiles) {
   var extension = '.js';
 
-  addTask(pkgName, extension, task);
+  addTask(site, pkgName, extension, task);
 
   function task() {
     var filename  = pkgName + extension;
@@ -123,14 +160,14 @@ function scriptTask(pkgName, sourceFiles) {
       .pipe(concat(filename))
     ;
 
-    deploy(pkgName, stream, transform);
+    deploy(site, pkgName, stream, transform);
   }
 }
 
-function scriptTaskBrowserify(pkgName, sourceFiles) {
+function jsTaskBrowserify(site, pkgName, sourceFiles) {
   var extension = '.js';
 
-  addTask(pkgName, extension, task);
+  addTask(site, pkgName, extension, task);
 
   function task() {
     var filename  = pkgName + extension;
@@ -141,14 +178,14 @@ function scriptTaskBrowserify(pkgName, sourceFiles) {
       .pipe(buffer())
     ;
 
-    deploy(pkgName, stream, transform);
+    deploy(site, pkgName, stream, transform);
   }
 }
 
-function stylesheetTaskStylus(pkgName, sourceFiles) {
+function cssTaskStylus(site, pkgName, sourceFiles) {
   var extension = '.css';
 
-  addTask(pkgName, extension, task);
+  addTask(site, pkgName, extension, task);
 
   function task () {
     var filename   = pkgName + extension;
@@ -161,23 +198,52 @@ function stylesheetTaskStylus(pkgName, sourceFiles) {
       .pipe(concat(filename))
     ;
 
-    deploy(pkgName, stream, transform);
+    deploy(site, pkgName, stream, transform);
   }
 }
 
 /**
- * Functions: Asset pipeline.
+ * Functions: Task builders.
  */
 
-function deploy(pkgName, stream, transform) {
+function addTask(site, pkgName, extension, task) {
+  var cleanerName = [site, 'clean', pkgName].join('-');
+  var cleaner     = createCleaner(site, pkgName, extension);
+
+  gulp.task(cleanerName, cleaner);
+  defaultTasks.push(cleanerName);
+
+  gulp.task(pkgName, [cleanerName], task);
+  defaultTasks.push(pkgName);
+}
+
+function createCleaner(site, pkgName, extension) {
+  var dir  = path.join(__dirname, 'static', site);
+  var glob = dir + '**/' + pkgName + '-*' + extension;
+
+  return function (callback) {
+    rimraf(glob, handleClean);
+
+    function handleClean(err) {
+      callback(err);
+    }
+  };
+}
+
+/**
+ * Functions: Build and save.
+ */
+
+function deploy(site, pkgName, stream, transform) {
   var dev = stream.pipe(clone());
   var pro = stream.pipe(clone()).pipe(transform);
 
-  deployTo(dest.development, pkgName, dev);
-  deployTo(dest.production,  pkgName, pro);
+  deployTo(site, 'd', pkgName, dev);
+  deployTo(site, 'p', pkgName, pro);
 }
 
-function deployTo(destination, pkgName, stream) {
+function deployTo(site, stage, pkgName, stream) {
+  var destination      = destinationPath(site, stage);
   var manifestFilename = pkgName + '-manifest.json';
 
   stream
@@ -186,6 +252,10 @@ function deployTo(destination, pkgName, stream) {
     .pipe(rev.manifest(manifestFilename))
     .pipe(gulp.dest(destination))
   ;
+}
+
+function destinationPath(site, stage) {
+  return ['.', 'static', site, 'asset', stage].join('/');
 }
 
 /**

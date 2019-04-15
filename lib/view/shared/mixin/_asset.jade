@@ -1,0 +1,13 @@
+mixin externalStylesheet(href)
+  link(rel='stylesheet' type='text/css' href=href)
+
+mixin script(site, pkgName)
+  script(src=assetFiles[site][pkgName])
+
+mixin stylesheet(site, pkgName)
+  link(rel='stylesheet' type='text/css' href=assetFiles[site][pkgName])
+
+mixin touchIcons()
+  link(rel='apple-touch-icon-precomposed' href='/apple-touch-icon-precomposed.png')
+  link(rel='icon' sizes='192x192' href='/apple-touch-icon-precomposed.png')
+  link(rel='shortcut icon' href='/favicon.ico')

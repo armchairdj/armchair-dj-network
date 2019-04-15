@@ -1,0 +1,10 @@
+extends /armchairdj/layout/armchairdj
+
+block content
+  article.admin
+    header
+      h1 Admin
+
+    section
+      - each post in posts
+        p post.displayTitle()

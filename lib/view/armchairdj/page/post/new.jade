@@ -1,0 +1,10 @@
+extends /armchairdj/layout/armchairdj
+
+block content
+  article
+    header
+      h1 Create post
+
+    section
+      form(method='POST' action='/post/create')
+        include _form

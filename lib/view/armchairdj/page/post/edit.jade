@@ -1,0 +1,10 @@
+extends /armchairdj/layout/armchairdj
+
+block content
+  article
+    header
+      h1 Update post
+
+    section
+      form(method='POST' action='/post/#{post.id}/update')
+        include _form

@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 SCRIPT_NAME="** add_node"
+FILE_PATH="$APP_ROOT/script/component/node/file"
+SRC_DIR="/home/$APP_USER/src"
 
 echo "$SCRIPT_NAME: BEGIN"
 
-cd "/home/$APP_USER"
-
 echo "$SCRIPT_NAME: install n"
-mkdir -p src
-cd src
+mkdir -p "$SRC_DIR"
+cd "$SRC_DIR"
 wget https://github.com/tj/n/archive/v2.1.0.tar.gz
 tar xzvf v2.1.0.tar.gz
 cd n-2.1.0

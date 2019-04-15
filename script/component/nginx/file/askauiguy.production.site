@@ -1,0 +1,27 @@
+server {
+  listen 0.0.0.0:80;
+  server_name www.askauiguy.com askauiguy.com;
+
+  root /home/deploy/app/current/static/askauiguy;
+  index index.html;
+
+  access_log /home/deploy/app/shared/log/askauiguy_access.log;
+  error_log  /home/deploy/app/shared/log/askauiguy_error.log;
+
+  location / {
+    client_max_body_size 10M;
+    client_body_buffer_size 128k;
+
+    # Redirect all but the first server-name so we have only a single TLD for SEO etc.
+    if ($host != $server_name) {
+      return 301 http://$server_name$request_uri;
+    }
+
+    # Remove trailing slashes for SEO.
+    rewrite ^/(.*)/$ http://$server_name/$1 permanent;
+  }
+
+  location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|zip|tgz|gz|rar|bz2|pdf|txt|tar|wav|bmp|rtf|js|flv|swf|woff|eot|ttf|svgl|woff|eot|ttf|svg)$ {
+    expires 30d;
+  }
+}

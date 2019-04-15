@@ -13,16 +13,16 @@
 # The UDF format is used by Linode to accept parameters when running.
 # These lines look commented, but WILL WORK CORRECTLY in the Linode web UI.
 
-#<UDF name="new_hostname"                         label="Hostname" />
-#<UDF name="ssh_key"                              label="Paste in your public SSH key so you can log into box after provisioning" />
-#<UDF name="notify_email"                         label="Email address to notify when boostrap is complete" />
+#<UDF name="new_hostname"                                  label="Hostname" />
+#<UDF name="ssh_key"                                       label="Public SSH key" />
+#<UDF name="notify_email"                                  label="Notification email address" />
 
-#<UDF name="github_username"                      label="Enter your github username (so we can add this machine's SSH key to github)" />
-#<UDF name="github_password"                      label="Enter your github password (so we can add this machine's SSH key to github)" />
-#<UDF name="github_repo"                          label="Enter your github repo name (so we can check your code out)" />
-#<UDF name="git_branch"      default="master"     label="Git branch to check out" />
+#<UDF name="github_username"                               label="GitHub username (to generate SSH key)" />
+#<UDF name="github_password"                               label="GitHub password (to generate SSH key)" />
+#<UDF name="github_repo"     default="armchair-dj-network" label="GitHub repo name" />
+#<UDF name="git_branch"      default="master"              label="Git branch to check out" />
 
-#<UDF name="node_env"        default="production" label="NODE_ENV"/>
+#<UDF name="node_env"        default="production"          label="NODE_ENV"/>
 
 ##### Locals.
 
@@ -167,8 +167,7 @@ system_sshd_edit_bool "PubkeyAuthentication" "yes"
 echo "$SCRIPT_NAME: add deploy user"
 
 useradd -U -s /bin/bash -m deploy
-mkdir -p /home/deploy/{.ssh,src,scratch,app/current,app/shared/logs}
-touch /home/deploy/app/shared/logs/node.log
+mkdir -p /home/deploy/{.ssh,src,scratch,app/current,app/shared}
 
 echo "$SCRIPT_NAME: set up deploy user's ssh keys"
 
@@ -227,7 +226,7 @@ su - deploy -c "(cd /home/$APP_USER/app/current && git clone git@github.com:Home
 
 ##### Bootstrap
 
-cd "$APP_ROOT/script/component/bash"
+cd "$APP_ROOT/script/component/bash/file"
 
 echo "$SCRIPT_NAME: copy various config files to home directory"
 

@@ -1,0 +1,23 @@
+include /shared/mixin/index
+include /briandillard/mixin/index
+doctype html
+
+html(lang='en')
+
+  head
+    title Brian J. Dillard - Résumé &amp; C.V.
+
+    +metaStandard()
+
+    block meta
+
+    +externalStylesheet('https://fonts.googleapis.com/css?family=Raleway:300,600')
+    +stylesheet('briandillard', 'stylesheet-resume')
+
+    +touchIcons()
+
+  body
+    #wrap
+      #content
+        .container
+          block content

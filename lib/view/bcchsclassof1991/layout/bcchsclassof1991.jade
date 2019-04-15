@@ -1,0 +1,23 @@
+include /shared/mixin/index
+include /bcchsclassof1991/mixin/index
+doctype html
+
+html(lang='en')
+
+  head
+    title!=viewHelper.tokens([headline, i18n('name')], ' | ')
+
+    +metaStandard()
+
+    block meta
+
+    +externalStylesheet('https://fonts.googleapis.com/css?family=Raleway:300,600')
+    +stylesheet('bcchsclassof1991', 'stylesheet-bcchsclassof1991')
+
+    +touchIcons()
+
+  body
+    #wrap
+      #content
+        .container
+          block content

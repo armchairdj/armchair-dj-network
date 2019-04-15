@@ -9,6 +9,10 @@ cd "$APP_ROOT"
 echo "$SCRIPT_NAME: stop node"
 sudo stop node
 
+echo "$SCRIPT_NAME: set up pid directory"
+mkdir -p "$PID_DIR"
+sudo chown -R $APP_USER:$APP_USER "$PID_DIR"
+
 echo "$SCRIPT_NAME: making sure $APP_USER owns npm directories"
 sudo chown -R "$APP_USER:$APP_USER" "/home/$APP_USER/.npm"
 sudo chown -R "$APP_USER:$APP_USER" $(npm config get prefix)/{lib/node_modules,bin,share}
